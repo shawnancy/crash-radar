@@ -1,0 +1,757 @@
+[
+ {
+  "id": "1929-10-28-black-monday",
+  "market": "us_index",
+  "date": "1929-10-28",
+  "asset": "道琼斯工业平均指数",
+  "move_pct": -12.82,
+  "title": "1929年黑色星期一",
+  "cause": "1920年代杠杆牛市把道指从1921年8月的63点推高至1929年9月3日381.17点的历史高位, 期间经纪商保证金贷款规模急剧膨胀(1929年8月超85亿美元, 超过全美流通货币总量), 普通保证金要求仅为股价的50%左右; 9月5日'巴布森破位'与10月24日'黑色星期四'的抛售已暴露裂痕, 银行家财团曾短暂联合护盘企稳。但周末恐慌情绪持续发酵, 10月28日周一开盘即遭遇抛售洪流, 保证金追缴引发的强制平仓形成连锁反应, 电报与行情纸带系统严重滞后使投资者对持仓价值一无所知, 道指当日暴跌38.33点(-12.82%)收于260.64点, 创下当时历史最大单日跌幅。",
+  "precursors": [
+   {
+    "indicator": "经纪商保证金贷款/杠杆水平",
+    "signal": "1929年8月经纪商贷款余额突破85亿美元, 超过当时美国流通货币总量; 普通保证金要求仅为股价的50%左右(部分股票更低), 约3亿股股票以保证金方式持有",
+    "lead_time": "提前约2个月",
+    "source_url": "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929"
+   },
+   {
+    "indicator": "巴布森破位(Babson Break)",
+    "signal": "9月5日Roger Babson在全美商业大会警告'崩盘迟早到来, 可能非常剧烈', 消息传开后道指尾盘下跌约2.6%(美国钢铁等个股尾盘急跌7-9点), 到9月底市场较9月3日高点已累计回落约10%",
+    "lead_time": "提前约7周",
+    "source_url": "https://www.begintoinvest.com/september-5/"
+   },
+   {
+    "indicator": "估值/市盈率极端",
+    "signal": "标普综合指数平均市盈率1929年9月升至32.6倍, 明显高于历史均值, 反映投机性追涨情绪",
+    "lead_time": "提前约2个月(9月峰值)",
+    "source_url": "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929"
+   },
+   {
+    "indicator": "经纪商贷款/资金面持续宽松",
+    "signal": "10月3日经纪商贷款余额创出新纪录高位, 同时短期拆借利率从7.5%降至6%, 显示崩盘前夕杠杆资金仍在加速涌入",
+    "lead_time": "提前约3-4周",
+    "source_url": "https://eh.net/encyclopedia/the-1929-stock-market-crash/"
+   }
+  ],
+  "aftermath": "次日(10月29日)道指再跌11.73%, 两日合计跌23.05%; 此后持续阴跌至1932年7月8日探底41.22点(较1929年9月高点累计跌幅约89%), 直到1954年11月23日才重新收复1929年历史高点, 耗时25年。",
+  "refs": [
+   "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929",
+   "https://www.federalreservehistory.org/essays/stock-market-crash-of-1929",
+   "https://www.begintoinvest.com/september-5/"
+  ]
+ },
+ {
+  "id": "1929-10-29-black-tuesday",
+  "market": "us_index",
+  "date": "1929-10-29",
+  "asset": "道琼斯工业平均指数",
+  "move_pct": -11.73,
+  "title": "1929年黑色星期二",
+  "cause": "继黑色星期一暴跌12.82%后, 当晚经纪商向保证金账户客户连夜发出海量追加保证金通知, 电话与电报系统一度因催缴信息激增而堵塞; 以摩根财团为首的银行家救市联盟因判断损失过大、恐慌过深而实质放弃干预, 周二未再组织有效护盘。开盘后抛售即成洪流, 全天成交约1640万股创历史纪录, 行情纸带严重滞后(比实际成交慢近2.5小时)使投资者对持仓价值一无所知, 保证金强制平仓与杠杆资金去杠杆相互强化, 道指再跌30.57点(-11.73%)收于198.69点, 两日累计跌幅达23.05%, 市值蒸发约140亿美元。",
+  "precursors": [
+   {
+    "indicator": "前一交易日暴跌",
+    "signal": "10月28日'黑色星期一'道指已暴跌12.82%, 创当时历史最大单日跌幅, 收于260.64点",
+    "lead_time": "提前1个交易日",
+    "source_url": "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929"
+   },
+   {
+    "indicator": "保证金追缴/信贷紧张",
+    "signal": "10月28日收盘后经纪商连夜向大量保证金账户客户发出追加保证金通知, 电话线路和电报系统一度因催缴信息激增而堵塞, 大批投资者被迫在开盘前决定平仓",
+    "lead_time": "提前一夜",
+    "source_url": "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929"
+   },
+   {
+    "indicator": "银行家护盘联盟失效",
+    "signal": "10月24日'黑色星期四'摩根财团牵头的银行家联合买盘曾短暂托住市场, 但到10月28-29日该护盘联盟已实质放弃干预, 不再入场支撑",
+    "lead_time": "提前4-5天",
+    "source_url": "https://libraryofhistory.org/articles/black-tuesday-1929-stock-market-crash-great-depression.html"
+   },
+   {
+    "indicator": "杠杆结构性风险(经济史学术复盘)",
+    "signal": "学术研究显示1929年崩盘前经纪商贷款与投资信托二级杠杆相互交织, 使价格下跌时保证金连锁平仓的负反馈被显著放大",
+    "lead_time": "结构性积累(非单一提前期)",
+    "source_url": "https://onlinelibrary.wiley.com/doi/10.1111/ehr.13213"
+   }
+  ],
+  "aftermath": "两日暴跌后市场并未止跌, 持续阴跌至1932年7月8日探底41.22点(较1929年9月高点累计跌幅约89%), 直至1954年11月23日才重新收复1929年历史高点, 耗时25年。",
+  "refs": [
+   "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929",
+   "https://www.federalreservehistory.org/essays/stock-market-crash-of-1929",
+   "https://libraryofhistory.org/articles/black-tuesday-1929-stock-market-crash-great-depression.html"
+  ]
+ },
+ {
+  "id": "1987-10-19-black-monday",
+  "market": "us_index",
+  "date": "1987-10-19",
+  "asset": "道琼斯工业平均指数",
+  "move_pct": -22.61,
+  "title": "1987年黑色星期一",
+  "cause": "1987年美联储持续收紧, 10年期美债收益率从年初约7.2%一路升至10月中旬逼近10%, 联邦基金利率同期从约5.8%升至7.25%-7.5%, 债券相对股票的吸引力大增; 1987年2月《卢浮宫协议》试图稳定美元汇率, 但10月17日(周六)财政部长贝克公开威胁'要么德国将马克贬值, 要么我们让美元贬值', 10月18日(周日)电视专访重申立场, 被市场解读为协议名存实亡, 引发对货币体系失序的恐慌。10月14日商务部公布贸易逆差数据超预期, 道指当日跌3.81%, 10月16日'三重巫日'叠加抛压再跌4.6%, 一周内标普500已累计下跌约9%。这些压力在10月19日周一集中释放: 大量机构采用的'组合保险(portfolio insurance)'策略在价格下跌时触发程序化卖出期货指令, 与现货市场卖盘相互强化形成自我加速的下跌螺旋, 叠加做市商流动性枯竭与交易系统严重滞后, 道指当日暴跌508.32点(-22.61%), 创下历史最大单日百分比跌幅, 全球市场同步重挫, 估计全球市值蒸发约1.71万亿美元。",
+  "precursors": [
+   {
+    "indicator": "组合保险/程序化交易规模",
+    "signal": "布雷迪委员会(Brady Commission)事后调查发现, 10月19日当天仅3家采用组合保险策略的机构就卖出近20亿美元期货合约, 另有10家采取类似反应模式的机构再卖出约15亿美元; 该策略的顺周期卖出机制在崩盘前数月已大规模铺开",
+    "lead_time": "结构性隐患数月累积, 当日机制触发",
+    "source_url": "https://en.wikipedia.org/wiki/Black_Monday_(1987)"
+   },
+   {
+    "indicator": "前一周连续下跌",
+    "signal": "10月14日道指跌3.81%(-95.46点), 10月16日'三重巫日'再跌4.6%(-108.35点), 10月14-16日三个交易日道指累计下跌逾10%, 标普500当周累计跌约9%",
+    "lead_time": "提前3-5个交易日",
+    "source_url": "https://www.federalreservehistory.org/essays/stock-market-crash-of-1987"
+   },
+   {
+    "indicator": "利率与债券收益率飙升",
+    "signal": "10年期美债收益率从1987年初约7.2%升至10月中旬近10%, 联邦基金利率同期从约5.8%升至7.25%-7.5%, 债券对股票的相对吸引力显著上升",
+    "lead_time": "提前约9-10个月(全年累积)",
+    "source_url": "https://www.federalreservehistory.org/essays/stock-market-crash-of-1987"
+   },
+   {
+    "indicator": "美元/卢浮宫协议紧张与贝克对德言论",
+    "signal": "10月17日(周六)财政部长贝克公开表态'要么德国将马克贬值, 要么我们将让美元贬值', 10月18日(周日)电视专访重申美国不会接受德国加息, 被市场解读为卢浮宫协议名存实亡, 引发国际投资者恐慌",
+    "lead_time": "提前1-2天(周末发酵至周一开盘)",
+    "source_url": "https://www.aei.org/articles/the-hunt-for-black-october/"
+   }
+  ],
+  "aftermath": "崩盘后两个交易日(10月20-21日)道指反弹288点, 收复约57%的跌幅; 随后数周多次回测10月19日低点, 呈震荡筑底而非V型反转, 直到1989年8月24日道指才重新收复1987年8月25日创下的崩盘前历史高点2722.42点, 耗时约22个月。",
+  "refs": [
+   "https://en.wikipedia.org/wiki/Black_Monday_(1987)",
+   "https://www.federalreservehistory.org/essays/stock-market-crash-of-1987",
+   "https://www.aei.org/articles/the-hunt-for-black-october/"
+  ]
+ },
+ {
+  "id": "2008-10-13-tarp-rally",
+  "market": "us_index",
+  "date": "2008-10-13",
+  "asset": "道琼斯工业平均指数",
+  "move_pct": 11.08,
+  "title": "全球银行救助方案落地, 道指单日暴涨11.08%",
+  "cause": "2008年10月3日国会通过7000亿美元TARP法案后市场并未企稳, 10月6-10日道指录得史上最差单周(-18.15%); 10月11-12日周末, G7财长在华盛顿会议上承诺'支持系统重要性金融机构、防止其倒闭', 同期欧洲(英国10月8日、法德等10月12日巴黎会议)相继宣布银行注资与债务担保计划(总规模约1.8万亿欧元级别), 美国财政部随后于10月14日追加宣布2500亿美元银行资本收购计划(CPP)。10月13日周一开盘道指跳空上涨400点, 收盘上涨936.42点(+11.08%)报9387.61点, 为当时道指历史最大单日点数涨幅、1933年以来最大单日百分比涨幅——极端超卖+政策转向共同引爆空头回补与恐慌性买入。",
+  "precursors": [
+   {
+    "indicator": "VIX恐慌指数创纪录",
+    "signal": "10月10日(周五)VIX收于69.95, 为VIX自1990年有记录以来的收盘历史新高(其后10月24日、11月20日又多次刷新), 盘中一度触及76.94, 极端恐慌读数本身即是反转燃料",
+    "lead_time": "提前1个交易日(隔周末)",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+   },
+   {
+    "indicator": "前一周道指累计跌幅",
+    "signal": "10月6日-10日当周道指连续5个交易日下跌, 累计下跌1874.19点(-18.15%), 为道指历史上最差单周表现(点数和百分比均为纪录), 市场处于极端超卖状态",
+    "lead_time": "紧接暴涨前一周",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_largest_daily_changes_in_the_Dow_Jones_Industrial_Average"
+   },
+   {
+    "indicator": "TED利差(信贷市场冻结指标)",
+    "signal": "10月10日TED利差飙升至457个基点的危机峰值, 约为长期均值(30-50bp)的9倍, 此前9月17日已突破300bp(超过1987年黑色星期一纪录), 银行间市场实质冻结倒逼各国政府周末出手",
+    "lead_time": "提前1个交易日",
+    "source_url": "https://en.wikipedia.org/wiki/TED_spread"
+   },
+   {
+    "indicator": "商业票据市场冻结",
+    "signal": "雷曼倒闭后短期商业票据市场急冻, 美联储于10月7日宣布设立商业票据融资便利(CPFF)直接购买企业商业票据, 反映实体企业短期融资已依赖央行兜底",
+    "lead_time": "提前约1周",
+    "source_url": "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008"
+   }
+  ],
+  "aftermath": "反弹仅维持一个交易日, 10月15日道指即重挫733点(-7.87%); 此后市场持续剧烈震荡下行, 于2009年3月9日最终探底6547.05点, 较2007年10月高点跌去约54%。",
+  "refs": [
+   "https://en.wikipedia.org/wiki/List_of_largest_daily_changes_in_the_Dow_Jones_Industrial_Average",
+   "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008",
+   "https://en.wikipedia.org/wiki/TED_spread"
+  ]
+ },
+ {
+  "id": "2008-10-15-recession-fear-crash",
+  "market": "us_index",
+  "date": "2008-10-15",
+  "asset": "道琼斯工业平均指数(同日标普500跌约9%)",
+  "move_pct": -7.87,
+  "title": "零售数据+褐皮书示警, 暴涨两天后道指回吐暴跌7.87%",
+  "cause": "10月13日暴涨的乐观情绪迅速被经济基本面数据击溃: 10月15日周三开盘前, 商务部公布9月零售销售环比下降1.2%(3年来最大降幅); 同日美联储褐皮书显示全美12个联储辖区经济活动全面走弱; 格林斯潘将危机称为'百年一遇的信贷海啸', 英国首相布朗承认英国已陷入衰退。市场判断即便银行体系被救, 实体经济衰退已难以避免——救助乐观被衰退恐慌压过, 道指当日暴跌733.08点(-7.87%)报8577.91点, 为1987年'黑色星期一'以来最大单日百分比跌幅, 标普500跌约9%、纳斯达克跌超8%。",
+  "precursors": [
+   {
+    "indicator": "VIX恐慌指数持续高位",
+    "signal": "10月14日VIX收于55.13, 仍处历史极端高位区间(10日刚创69.95收盘纪录), 未随13日股市暴涨明显回落, 显示期权市场并不相信反弹",
+    "lead_time": "提前1个交易日",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+   },
+   {
+    "indicator": "TED利差未随股市反弹改善",
+    "signal": "尽管10月13日股市暴涨, TED利差仍维持在10日创下的457bp附近历史高位, 显示银行间信贷市场并未真正解冻, 股债信号背离",
+    "lead_time": "与暴涨同期(提前2天)",
+    "source_url": "https://en.wikipedia.org/wiki/TED_spread"
+   },
+   {
+    "indicator": "9月零售销售数据",
+    "signal": "10月15日盘前公布9月零售销售环比-1.2%, 为3年最大降幅, 前值8月修正为-0.4%, 确认消费快速失速",
+    "lead_time": "当日盘前公布",
+    "source_url": "https://www.foxbusiness.com/markets/the-dows-biggest-single-day-drops-in-history"
+   },
+   {
+    "indicator": "美联储褐皮书",
+    "signal": "10月15日公布的褐皮书显示12个联储辖区经济活动普遍走弱, 强化衰退预期",
+    "lead_time": "当日公布",
+    "source_url": "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008"
+   }
+  ],
+  "aftermath": "此后市场并未止跌, 11月20日道指一度探至7552点区间新低, 最终于2009年3月9日触及本轮熊市底部6547.05点。",
+  "refs": [
+   "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008",
+   "https://www.foxbusiness.com/markets/the-dows-biggest-single-day-drops-in-history",
+   "https://en.wikipedia.org/wiki/List_of_largest_daily_changes_in_the_Dow_Jones_Industrial_Average"
+  ]
+ },
+ {
+  "id": "2010-05-06-flash-crash",
+  "market": "us_index",
+  "date": "2010-05-06",
+  "asset": "道琼斯工业平均指数 / E-mini标普500期货",
+  "move_pct": -9.16,
+  "title": "闪电崩盘: 道指36分钟盘中暴跌998.5点(约9%)后近乎完全收复",
+  "cause": "据SEC与CFTC联合调查报告, 5月6日当天市场已因希腊主权债务危机(4月24日标普将希腊评级降为垃圾级, 5月5日雅典爆发致3人死亡的反紧缩骚乱)而异常动荡、流动性趋薄。下午2:32, 大型共同基金Waddell & Reed为对冲权益头寸, 启动算法在E-mini标普500期货上抛售75000张合约(约41亿美元), 该算法仅以'占前一分钟成交量9%'为执行速率目标、不考虑价格与时间。高频交易商承接后迅速反向平仓, 形成'烫手山芋'式成交量在各机构间高速倒手而不被真正吸收, 叠加订单簿深度枯竭, 部分个股(埃森哲、宝洁等)做市商'占位报价(stub quote)'低至1美分成交, 道指36分钟内暴跌998.5点(盘中高低点差1010.14点, 约9%), 随后约30分钟内收复近600点。",
+  "precursors": [
+   {
+    "indicator": "希腊主权CDS利差",
+    "signal": "希腊5年期CDS利差从4月中旬约346个基点飙升至5月初逼近1000个基点的纪录高位, 反映欧债危机在事发前数周已急剧恶化",
+    "lead_time": "提前约2-3周",
+    "source_url": "https://en.wikipedia.org/wiki/Greek_government-debt_crisis"
+   },
+   {
+    "indicator": "希腊街头骚乱与紧缩法案表决",
+    "signal": "5月5日雅典反紧缩总罢工引发骚乱致3人死亡, 5月5-6日希腊议会就紧缩法案投票, 当日欧美市场开盘即因希腊局势承压下行",
+    "lead_time": "提前1天至同日上午",
+    "source_url": "https://abcnews.com/Business/dow-jones-dives-european-debt-scare-shakes-us/story?id=10576136"
+   },
+   {
+    "indicator": "E-mini标普期货订单簿买盘深度",
+    "signal": "2:32暴跌启动前, E-mini买盘挂单深度已从上午的约60亿美元降至27亿美元(降幅55%), SPY买盘深度同期下降约30%, 流动性提前枯竭",
+    "lead_time": "同日盘中提前数小时恶化",
+    "source_url": "https://en.wikipedia.org/wiki/2010_flash_crash"
+   },
+   {
+    "indicator": "VIX盘中飙升",
+    "signal": "下午2:30前VIX较开盘已上涨22.5%, 全天收盘上涨31.7%, 为VIX历史第四大单日涨幅",
+    "lead_time": "崩盘触发前盘中持续攀升",
+    "source_url": "https://en.wikipedia.org/wiki/2010_flash_crash"
+   }
+  ],
+  "aftermath": "市场36分钟内自我修复, 道指当日收盘仅跌347.80点(-3.2%); SEC与FINRA当年6月即推出单只股票熔断机制并撤销当日偏离参考价60%以上的异常成交, 该机制后续演变为2012年正式实施的涨跌停限价(Limit Up-Limit Down)制度。",
+  "refs": [
+   "https://en.wikipedia.org/wiki/2010_flash_crash",
+   "https://www.sec.gov/files/marketevents-report.pdf",
+   "https://abcnews.com/Business/dow-jones-dives-european-debt-scare-shakes-us/story?id=10576136"
+  ]
+ },
+ {
+  "id": "facebook-2018-07-26-earnings-crash",
+  "market": "us_stock",
+  "date": "2018-07-26",
+  "asset": "Facebook, Inc. (NASDAQ: FB, 现Meta Platforms)",
+  "move_pct": -18.96,
+  "title": "Facebook单日暴跌19%: 当时美股史上最大单日市值蒸发",
+  "cause": "2018年7月25日盘后, Facebook公布Q2财报: 营收132亿美元同比增42%但不及预期, 月活/日活增速环比明显放缓, 欧洲地区因GDPR(2018年5月25日生效)用户数环比减少约100万; CFO Dave Wehner在电话会上警告未来数季度营收增速将逐季'高个位数百分点'下滑, 且为安全审核与内容治理大幅加大投入将显著压缩利润率。次日(7月26日)股价从前收盘217.50美元跳空低开, 收盘176.26美元, 单日跌18.96%, 市值单日蒸发约1190亿美元(盘中最深对应约1230亿美元), 创下当时美股史上最大单日市值损失纪录, 超过2000年9月英特尔约908亿美元的旧纪录。",
+  "precursors": [
+   {
+    "indicator": "剑桥分析数据丑闻",
+    "signal": "2018年3月17-19日剑桥分析丑闻曝光, 涉及最多8700万用户数据被滥用于政治定向广告, 一周内Facebook市值一度蒸发上千亿美元, FTC随即宣布对其隐私操作展开正式调查, 构成持续的监管/声誉压力",
+    "lead_time": "提前约4个月",
+    "source_url": "https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal"
+   },
+   {
+    "indicator": "GDPR实施与管理层提前预警",
+    "signal": "Facebook CFO在2018年Q1财报电话会上已预警'受GDPR影响, 欧洲MAU/DAU二季度环比可能持平或小幅下滑', 该预警在Q2实际公布时被证实为低估影响",
+    "lead_time": "提前约3个月(GDPR正式实施提前约2个月)",
+    "source_url": "https://techcrunch.com/2018/07/25/facebook-q2-2018-earnings/"
+   },
+   {
+    "indicator": "期权市场隐含波动率",
+    "signal": "财报发布前, Facebook期权隐含的次日波动幅度达8.1%, 远高于此前8个季度平均3.3%的实际次日波动; 30天平值隐含波动率31.3%, 处于过去一年81%分位",
+    "lead_time": "提前1-2个交易日",
+    "source_url": "https://www.schaeffersresearch.com/content/analysis/2018/07/24/options-market-expects-big-facebook-stock-earnings-move"
+   }
+  ],
+  "aftermath": "与3月剑桥分析丑闻后两个月内收复失地不同, 本次跌幅此后未能快速修复: 多季度广告增速持续放缓+监管加码, 2018全年股价累计跌约25%, 2019年FTC就剑桥分析事件处以50亿美元罚款。",
+  "refs": [
+   "https://www.cbsnews.com/news/facebook-stock-price-plummets-largest-stock-market-drop-in-history/",
+   "https://techcrunch.com/2018/07/26/facebook-officially-loses-123-billion-in-value/",
+   "https://techcrunch.com/2018/07/25/facebook-q2-2018-earnings/"
+  ]
+ },
+ {
+  "id": "covid-crash-2020-03-12",
+  "market": "us_index",
+  "date": "2020-03-12",
+  "asset": "标普500指数(道指同日收跌9.99%)",
+  "move_pct": -9.51,
+  "title": "黑色星期四: 标普500暴跌9.5%, 一周内第二次触发熔断",
+  "cause": "3月11日晚WHO正式宣布COVID-19为全球大流行, 特朗普随即宣布对欧洲(除英国)实施30天旅行禁令, 双重冲击叠加此前沙特-俄罗斯石油价格战(3月8-9日)对信用市场的破坏, 恐慌情绪集中释放; 3月12日开盘数分钟内标普500即跌7%触发Level 1一级熔断暂停交易15分钟, 恢复交易后跌势未止, 收盘跌9.51%(道指跌9.99%/2352.60点), 为1987年黑色星期一以来最大单日跌幅之一, 标普500自此抹去特朗普2016年当选以来全部涨幅。",
+  "precursors": [
+   {
+    "indicator": "VIX恐慌指数",
+    "signal": "VIX收盘价: 3月9日54.46、3月11日53.90, 均远超40的危险阈值, 3月9日盘中一度触及62.12",
+    "lead_time": "提前1-3天",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+   },
+   {
+    "indicator": "原油价格战崩盘",
+    "signal": "3月8日沙特与俄罗斯OPEC+减产谈判破裂, 沙特宣布增产并大幅折价, 3月9日WTI原油收盘暴跌近26%至31.13美元/桶, 创1991年海湾战争以来最大单日跌幅, 直接冲击能源债与高收益信用市场",
+    "lead_time": "提前3天",
+    "source_url": "https://www.cnn.com/2020/03/08/investing/oil-prices-crash-opec-russia-saudi-arabia"
+   },
+   {
+    "indicator": "3月9日首次熔断",
+    "signal": "3月9日标普500开盘触发7%一级熔断暂停15分钟, 全天收跌7.6%(道指跌7.79%/2013.76点), 为美股自1997年10月27日以来首次触发市场级熔断",
+    "lead_time": "提前3天",
+    "source_url": "https://en.wikipedia.org/wiki/2020_stock_market_crash"
+   },
+   {
+    "indicator": "意大利疫情升级/WHO大流行宣言",
+    "signal": "意大利3月9日实施全国封锁(全国确诊约9172例), 3月11日WHO宣布全球大流行, 同日晚特朗普宣布欧洲旅行禁令",
+    "lead_time": "提前1-3天",
+    "source_url": "https://en.wikipedia.org/wiki/Timeline_of_the_COVID-19_pandemic_in_Italy"
+   }
+  ],
+  "aftermath": "跌势未止, 3月16日标普500再度暴跌近12%并第三次触发熔断, 市场持续下探至3月23日才确认阶段性底部。",
+  "refs": [
+   "https://en.wikipedia.org/wiki/2020_stock_market_crash",
+   "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+   "https://www.cnn.com/2020/03/08/investing/oil-prices-crash-opec-russia-saudi-arabia"
+  ]
+ },
+ {
+  "id": "covid-crash-2020-03-16",
+  "market": "us_index",
+  "date": "2020-03-16",
+  "asset": "标普500指数(道指同日收跌12.93%)",
+  "move_pct": -11.98,
+  "title": "黑色星期一II: 联储紧急降息反成恐慌信号, 标普500暴跌近12%",
+  "cause": "3月15日周日, 美联储召开非例行紧急会议, 将联邦基金利率降至0-0.25%(降息100基点)并宣布7000亿美元QE(5000亿国债+2000亿MBS)。市场并未将此解读为利好, 反而视为联储对经济恶化程度的'恐慌信号'——非常规的周日紧急行动本身加剧了不确定性; 叠加此前一周债券ETF大幅折价、国债市场流动性枯竭等信用市场功能失调迹象, 标普500开盘即触发7%一级熔断, 全天收跌11.98%(道指跌2997.10点/-12.93%), 为1987年黑色星期一以来最大单日百分比跌幅, 同日VIX收盘82.69, 创CBOE有记录以来最高收盘纪录(超越2008年11月20日80.74的旧纪录)。",
+  "precursors": [
+   {
+    "indicator": "美联储非常规周日紧急降息+QE",
+    "signal": "3月15日周日联储紧急降息100基点至0-0.25%并宣布7000亿美元QE, 非例行、非周内的紧急行动被市场解读为'联储都慌了'的警示信号而非托底利好",
+    "lead_time": "提前1天(周日晚公布→周一开盘即熔断)",
+    "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315a.htm"
+   },
+   {
+    "indicator": "VIX连续飙升",
+    "signal": "VIX收盘价: 3月12日75.47、3月13日57.83, 当周持续处于50-75极端高位区间, 为3月16日82.69的纪录收盘埋下伏笔",
+    "lead_time": "提前1-4天",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+   },
+   {
+    "indicator": "投资级债券ETF大幅折价/信用市场失灵",
+    "signal": "SEC事后研究显示, 3月11-12日投资级债券ETF相对净值(NAV)折价超过100个基点, 做市商大量退出, 显示公司债二级市场流动性枯竭",
+    "lead_time": "提前4-5天",
+    "source_url": "https://www.sec.gov/spotlight/fixed-income-advisory-committee/100520-sec-conference-bond-etf-behavior-during-covid-volatility.pdf"
+   },
+   {
+    "indicator": "国债基差交易平仓/国债市场流动性危机",
+    "signal": "对冲基金3月被迫平仓国债期现基差交易, 其国债持仓当月减少约1270亿美元(占对冲基金国债持仓总降幅约90%), '全球最深流动性市场'罕见出现国债交易困难",
+    "lead_time": "同期并发(3月上中旬持续恶化)",
+    "source_url": "https://www.financialresearch.gov/briefs/files/OFRBr_2020_01_Basis-Trades.pdf"
+   }
+  ],
+  "aftermath": "此后市场仍剧烈震荡下探, 直至3月23日标普500跌至2237.40点方才见底, 五周内累计跌幅达34%。",
+  "refs": [
+   "https://en.wikipedia.org/wiki/2020_stock_market_crash",
+   "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315a.htm",
+   "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+  ]
+ },
+ {
+  "id": "covid-rally-2020-03-24",
+  "market": "us_index",
+  "date": "2020-03-24",
+  "asset": "标普500指数(道指同日暴涨11.37%/2112.98点, 史上最大单日点数涨幅)",
+  "move_pct": 9.38,
+  "title": "触底反弹: 联储无限QE+刺激法案曙光, 标普500单日暴涨9.4%",
+  "cause": "3月23日周一, 美联储宣布'按需'无限量QE, 并首次设立PMCCF/SMCCF直接购买投资级公司债, 同时推出TALF等工具, 力度远超3月15日的7000亿美元QE; 同日标普500收于2237.40点, 确认为本轮五周累计跌34%(史上最快30%级跌幅)的底部。3月24日, 随着国会两党就近2万亿美元CARES Act刺激法案接近达成一致(佩洛西公开表示存在'真正的乐观情绪'), 联储无限流动性+财政刺激双重利好引爆报复性反弹, 标普500单日涨9.38%, 道指暴涨2112.98点(+11.37%), 为1933年以来道指最佳单日百分比表现。",
+  "precursors": [
+   {
+    "indicator": "美联储3月23日'无限QE'+信用工具",
+    "signal": "联储宣布资产购买不设上限('按需购买'), 首次设立PMCCF/SMCCF直接购买投资级公司债及TALF, 突破传统QE边界, 直接修复信用市场定价",
+    "lead_time": "提前1天",
+    "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200323b.htm"
+   },
+   {
+    "indicator": "VIX从纪录峰值回落",
+    "signal": "VIX从3月16日82.69的历史收盘纪录逐步回落至3月23日61.59, 恐慌情绪边际缓解, 波动率见顶通常领先股指见底",
+    "lead_time": "提前1天(趋势提前约1周)",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+   },
+   {
+    "indicator": "史上最快30%跌幅+国会刺激谈判进展",
+    "signal": "标普500于3月23日收于2237.40点(五周暴跌34%, 为史上最快的30%级下跌, 极端超卖), 同日佩洛西公开表示国会对约2万亿美元刺激法案'有真正的乐观情绪'",
+    "lead_time": "提前1天",
+    "source_url": "https://www.cnbc.com/2020/03/23/this-was-the-fastest-30percent-stock-market-decline-ever.html"
+   }
+  ],
+  "aftermath": "参议院3月25日以96-0全票通过CARES Act, 3月27日签署生效; 3月23日2237.40点最终确立为本轮熊市底部, 标普500随后仅用约5个月(2020年8月)即收复历史高点。",
+  "refs": [
+   "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200323b.htm",
+   "https://www.cnbc.com/2020/03/23/this-was-the-fastest-30percent-stock-market-decline-ever.html",
+   "https://www.cnbc.com/2020/03/24/stock-market-live-updates-dow-futures-up-900-limit-up-hope-for-a-stimulus-deal.html"
+  ]
+ },
+ {
+  "id": "meta-2022-02-03-earnings-crash",
+  "market": "us_stock",
+  "date": "2022-02-03",
+  "asset": "Meta Platforms (META)",
+  "move_pct": -26.4,
+  "title": "Meta单日暴跌26.4%, 当时美股史上最大单日市值蒸发",
+  "cause": "2022年2月2日盘后, Meta公布2021年Q4财报: 营收337亿美元符合预期, 但首次报告Facebook日活(DAU)环比下降(19.30亿→19.29亿, 减少约50万), 同时给出远低于预期的Q1营收指引(270-290亿美元 vs 预期301.5亿), CFO明确将2022年约100亿美元收入损失归因于苹果iOS隐私新政(ATT)对广告定向的冲击, 叠加Reality Labs元宇宙业务巨额亏损。三重利空引发抛售踩踏, 2月3日收跌26.4%, 单日蒸发约2320亿美元市值, 超过苹果2020年9月约1820亿美元的旧纪录, 成为当时美股史上最大单日市值蒸发。",
+  "precursors": [
+   {
+    "indicator": "同业(Snap)财报预警",
+    "signal": "Snap于2021年10月21日Q3财报不及预期, CEO公开承认苹果ATT对广告测量的冲击'比预期更严重', 股价暴跌, 成为Meta同类风险的先行指标",
+    "lead_time": "提前约3.5个月",
+    "source_url": "https://www.cnbc.com/2021/10/21/snap-earnings-q3-2021.html"
+   },
+   {
+    "indicator": "Meta自身Q3财报已示警",
+    "signal": "Meta在2021年10月25日Q3财报电话会上已将苹果iOS隐私变更列为'重大逆风'并暗示影响将持续, 为2月正式量化100亿美元损失埋下伏笔",
+    "lead_time": "提前约3个月",
+    "source_url": "https://www.cnbc.com/2022/02/02/facebook-says-apple-ios-privacy-change-will-cost-10-billion-this-year.html"
+   },
+   {
+    "indicator": "北美地区DAU增长停滞",
+    "signal": "2021年Q3财报显示美国/加拿大等成熟市场日活用户环比已趋于平缓, 为Q4全球DAU正式转负埋下先兆",
+    "lead_time": "提前约3个月",
+    "source_url": "https://www.prnewswire.com/news-releases/facebook-reports-third-quarter-2021-results-301407881.html"
+   }
+  ],
+  "aftermath": "暴跌未止, 2月全月Meta累计下跌32.6%, 2022年全年跌幅约64%, 直到2023年启动'效率之年'成本削减后才迎来强劲反弹并于2023-2024年收复全部失地。",
+  "refs": [
+   "https://www.cnbc.com/2022/02/03/facebook-shares-plummet-22percent-after-reporting-weak-guidance.html",
+   "https://www.cnbc.com/2022/02/03/facebooks-232billion-drop-in-value-sets-all-time-record.html",
+   "https://en.wikipedia.org/wiki/Meta_Platforms"
+  ]
+ },
+ {
+  "id": "netflix_2022_04_20_subscriber_loss",
+  "market": "us_stock",
+  "date": "2022-04-20",
+  "asset": "Netflix (NFLX)",
+  "move_pct": -35.1,
+  "title": "Netflix 2022年4月20日：史上首次订阅用户净流失引爆最大单日跌幅",
+  "cause": "Netflix 4月19日盘后公布2022Q1财报,订阅用户数环比净流失约20万(公司自2011年以来首次报告用户净下滑,主因包括退出俄罗斯市场损失约70万用户、账号共享泛滥、流媒体竞争加剧),并预警Q2还将进一步流失约200万订阅用户;由于此前公司增长叙事高度依赖订阅数持续扩张,预期落空触发估值体系崩塌,次日(4月20日)股价暴跌35.1%,单日蒸发约544亿美元市值,创该公司历史最大单日跌幅。",
+  "precursors": [
+   {
+    "indicator": "此前财报已下修增长预期",
+    "signal": "2022年1月的Q4财报中,Netflix已将Q1净增用户指引下调至250万(远低于此前趋势),该指引本身已显著低于历史增速,为4月的\"零增长转负增长\"埋下伏笔",
+    "lead_time": "提前约3个月",
+    "source_url": "https://www.cbsnews.com/news/netflix-losing-subscribers-stock-drop/"
+   },
+   {
+    "indicator": "股价年内已大幅走弱",
+    "signal": "在4月20日暴跌之前,受利率上行压制成长股估值影响,Netflix股价在2022年内已较历史高点累计下跌超40%,反映市场已对其增长故事的可持续性心存疑虑",
+    "lead_time": "累积约3.5个月",
+    "source_url": "https://variety.com/2022/digital/news/netflix-stock-three-year-low-subscriber-miss-1235236618/"
+   },
+   {
+    "indicator": "竞争格局持续恶化",
+    "signal": "Disney+、HBO Max等主要流媒体竞品自2019-2020年陆续上线并持续抢夺市场份额,行业增量红利消退的趋势在financial media中已讨论逾一年",
+    "lead_time": "累积1年以上(结构性背景)",
+    "source_url": "https://www.bitget.com/wiki/why-did-netflix-stock-drop-2022"
+   },
+   {
+    "indicator": "退出俄罗斯市场的直接损失",
+    "signal": "因俄乌战争,Netflix于2022年3月宣布退出俄罗斯市场,直接导致约70万订阅用户流失,是Q1用户净流失的主要单一因素",
+    "lead_time": "提前约1个月",
+    "source_url": "https://www.aljazeera.com/economy/2022/4/20/no-chill-netflix-shares-drop-39-after-massive-subscriber-loss"
+   }
+  ],
+  "aftermath": "股价此后继续下探,2022年5月一度跌至约162美元(较2021年11月高点跌超75%),直至2022年四季度推出广告支持套餐与账号共享收费政策后才企稳反弹。",
+  "refs": [
+   "https://www.cnbc.com/2022/04/20/netflix-plunges-trading-subscriber-loss.html",
+   "https://variety.com/2022/digital/news/netflix-stock-three-year-low-subscriber-miss-1235236618/",
+   "https://www.aljazeera.com/economy/2022/4/20/no-chill-netflix-shares-drop-39-after-massive-subscriber-loss"
+  ]
+ },
+ {
+  "id": "nvda-2023-05-25-ai-earnings-surge",
+  "market": "us_stock",
+  "date": "2023-05-25",
+  "asset": "NVIDIA (NVDA)",
+  "move_pct": 24.4,
+  "title": "英伟达单日暴涨24%: AI指引引爆行情, 逼近万亿市值",
+  "cause": "2023年5月24日盘后, 英伟达公布2024财年Q1财报: 营收71.9亿美元, 数据中心营收创纪录42.8亿美元; 真正引爆市场的是Q2营收110亿美元的指引——较华尔街一致预期71.5亿美元高出约54%, 公司明确归因于生成式AI(ChatGPT引爆)对H100等高端GPU的需求激增。次日股价暴涨24.4%, 单日增加约1840亿美元市值, 推动公司于5月30日历史性突破1万亿美元市值, 成为首家跨过万亿门槛的芯片公司。",
+  "precursors": [
+   {
+    "indicator": "股价年内已大幅抢跑",
+    "signal": "财报公布前, 英伟达2023年内已因AI题材上涨约109%, 市场已在博弈AI需求爆发但尚未定价指引端的级别",
+    "lead_time": "财报前约5个月持续累积",
+    "source_url": "https://www.forbes.com/sites/qai/2023/05/26/nvidia-stock-surges-off-huge-ai-focused-earnings-report/amp/"
+   },
+   {
+    "indicator": "分析师预期与实际指引的巨大缺口",
+    "signal": "财报前华尔街对Q2营收一致预期仅71.5亿美元, 与实际110亿指引相差约54%, 反映市场系统性低估AI服务器/GPU需求斜率",
+    "lead_time": "预期基准形成于财报前数周",
+    "source_url": "https://www.cnbc.com/2023/05/25/ai-pushing-nvidia-toward-1-trillion-wont-help-intel-and-amd.html"
+   },
+   {
+    "indicator": "微软财报电话会AI资本开支信号",
+    "signal": "微软2023年4月25日财报电话会上, 纳德拉强调Azure AI基础设施及与OpenAI合作的算力建设是云业务增长引擎, 提前释放AI基建资本开支加速信号",
+    "lead_time": "提前约1个月",
+    "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2023-q3/press-release-webcast"
+   }
+  ],
+  "aftermath": "股价持续攀升, 5月30日突破1万亿美元市值, 2023全年累计上涨约239%, 并在2024年再涨171%成为全球市值最大公司之一。",
+  "refs": [
+   "https://www.cnbc.com/2023/05/25/nvidia-on-track-for-record-high-driven-by-ai-chip-demand.html",
+   "https://www.cnn.com/2023/05/30/investing/nvidia-1-trillion",
+   "https://www.forbes.com/sites/qai/2023/05/26/nvidia-stock-surges-off-huge-ai-focused-earnings-report/amp/"
+  ]
+ },
+ {
+  "id": "yen-carry-trade-unwind-2024-08-05",
+  "market": "us_index",
+  "date": "2024-08-05",
+  "asset": "标普500 / 纳斯达克(受日元套息交易平仓外溢冲击)",
+  "move_pct": -3.0,
+  "title": "日元套息交易平仓引爆全球抛售, 日经-12.4%波及美股",
+  "cause": "7月31日日本央行意外加息(基准利率从近零升至0.25%)且行长植田和男表态偏鹰, 日元急升, 做多美元/日元的巨额套息交易被迫平仓; 两天后8月2日美国7月非农仅增11.4万(预期17.5万), 失业率升至4.3%触发'萨姆规则'衰退信号, 市场恐慌美联储'落后于曲线'。两重利空叠加, 8月5日日经225暴跌12.4%(4451点)创1987年黑色星期一以来最大单日百分比跌幅, 恐慌外溢至美股: 标普500跌3.0%、纳指跌3.43%, 为2022年9月以来美股最差单日, VIX盘中飙至65.73为史上第三高区间。",
+  "precursors": [
+   {
+    "indicator": "日本央行意外加息+植田鹰派表态",
+    "signal": "7月31日日本央行将基准利率从近零上调至0.25%, 植田和男称工资上涨支持政策正常化, 日元应声走强, 压缩套息交易利差空间",
+    "lead_time": "提前5天",
+    "source_url": "https://www.forex.com/en/news-and-analysis/ueda-s-hawkish-shift-weighs-on-usd-jpy/"
+   },
+   {
+    "indicator": "美国7月非农+萨姆规则触发",
+    "signal": "8月2日公布7月非农新增仅11.4万(预期17.5万), 失业率升至4.3%, 触发萨姆规则(3个月均值较前12个月低点升0.53个百分点, 阈值0.5), 市场解读为衰退信号",
+    "lead_time": "提前3天(隔周末)",
+    "source_url": "https://fortune.com/2024/08/02/recession-indicator-claudia-sahm-rule-trigger-unemployment-rate-jobs-report/"
+   },
+   {
+    "indicator": "VIX史诗级飙升",
+    "signal": "8月5日VIX盘中飙升至65.73(盘前一度逼近66), 单日涨幅约180%为史上最大级别, 仅次于2008年金融危机与2020年3月的绝对水平",
+    "lead_time": "当日盘前(期货时段已预警)",
+    "source_url": "https://www.cnbc.com/2024/08/05/wall-streets-fear-gauge-the-vix-rises-to-the-highest-since-2020.html"
+   },
+   {
+    "indicator": "日经225/CME日经期货隔夜暴跌",
+    "signal": "美股开盘前, 日经225收盘暴跌12.4%(收31458.42点, 跌4451点)创1987年以来最大单日百分比跌幅, 亚洲时段及CME期货多次触及熔断限制, 提前示警美股开盘承压",
+    "lead_time": "提前约12小时(亚洲时段领先)",
+    "source_url": "https://www.usnews.com/news/business/articles/2024-08-05/japans-nikkei-225-stock-index-sinks-8-in-worst-losses-since-1987"
+   }
+  ],
+  "aftermath": "恐慌情绪迅速消退, VIX数周内从65回落50余点; 标普500自8月5日低点强劲V型反弹, 至8月底较低点回升近9%基本收复全部失地, 日经也在数周内收复大部分跌幅。",
+  "refs": [
+   "https://www.usnews.com/news/business/articles/2024-08-05/japans-nikkei-225-stock-index-sinks-8-in-worst-losses-since-1987",
+   "https://www.cnbc.com/2024/08/05/wall-streets-fear-gauge-the-vix-rises-to-the-highest-since-2020.html",
+   "https://www.bostonglobe.com/2024/08/05/business/japans-nikkei-225-stock-index-sinks-8-percent-worst-losses-since-1987/"
+  ]
+ },
+ {
+  "id": "nvda-2025-01-27-deepseek-monday",
+  "market": "us_stock",
+  "date": "2025-01-27",
+  "asset": "NVIDIA (NVDA)",
+  "move_pct": -17.0,
+  "title": "DeepSeek星期一: 英伟达暴跌17%, 美股史上最大单日市值蒸发",
+  "cause": "2025年1月25-26日周末, 中国AI初创公司DeepSeek的R1推理模型病毒式传播, 其论文披露V3模型训练成本仅约560万美元却接近顶级美国模型性能, 引发市场对英伟达高端AI芯片需求及整个AI资本开支叙事的恐慌性质疑。1月27日周一英伟达暴跌17%, 单日蒸发约5890亿美元市值, 创美股史上最大单日公司市值蒸发纪录(超过其自身2024年9月3日2790亿美元的旧纪录一倍以上); 同日纳指跌3.1%, 博通、ARM等AI基础设施股跌幅均超10%, AI交易全面遭抛售。",
+  "precursors": [
+   {
+    "indicator": "DeepSeek App Store排名骤升",
+    "signal": "DeepSeek应用在美国苹果App Store免费榜从几天前的第31位于周日(1月26日)冲至第一、超越ChatGPT, 开盘前已释放爆发性关注度信号",
+    "lead_time": "开盘前约1天(周日)",
+    "source_url": "https://techcrunch.com/2025/01/27/deepseek-displaces-chatgpt-as-the-app-stores-top-app/"
+   },
+   {
+    "indicator": "DeepSeek极低训练成本的社交媒体传播",
+    "signal": "DeepSeek V3论文披露训练成本仅约560万美元(基于GPU租赁价格估算), 该数字在周末24-48小时内于X等社交媒体广泛传播, 引爆'AI可以更便宜实现'叙事",
+    "lead_time": "提前1-2天",
+    "source_url": "https://www.cnbc.com/2025/01/30/chinas-deepseek-has-some-big-ai-claims-not-all-experts-are-convinced-.html"
+   },
+   {
+    "indicator": "英伟达估值与指数集中度处于历史高位",
+    "signal": "英伟达2023、2024连续两年分别上涨239%和171%, 进入2025年时其在标普500中权重升至约7%的历史罕见高位, 对任何需求端叙事冲击都异常脆弱",
+    "lead_time": "跌前数月至一年以上的估值积累",
+    "source_url": "https://www.nbcnews.com/business/business-news/nvidia-loses-market-value-chinese-ai-startup-deepseek-debut-rcna189431"
+   }
+  ],
+  "aftermath": "英伟达随即回应称DeepSeek是'Test-Time Scaling'的优秀范例且推理仍需大量英伟达GPU; 此后数日股价部分反弹, 但围绕AI资本开支回报率的质疑与波动持续数周, 股价数月后才收复该缺口。",
+  "refs": [
+   "https://www.cnbc.com/2025/01/27/nvidia-sheds-almost-600-billion-in-market-cap-biggest-drop-ever.html",
+   "https://www.forbes.com/sites/dereksaul/2025/01/27/biggest-market-loss-in-history-nvidia-stock-sheds-nearly-600-billion-as-deepseek-shakes-ai-darling/",
+   "https://techcrunch.com/2025/01/27/deepseek-displaces-chatgpt-as-the-app-stores-top-app/"
+  ]
+ },
+ {
+  "id": "tariff_shock_2025_04_04",
+  "market": "us_index",
+  "date": "2025-04-04",
+  "asset": "标普500",
+  "move_pct": -5.97,
+  "title": "2025年4月4日：\"解放日\"关税冲击第二日，标普史上第二大单日跌幅",
+  "cause": "特朗普4月2日(\"解放日\")宣布对全球贸易伙伴征收大规模\"对等关税\"(基准10%,对约60个逆差国征收更高税率,对华关税叠加至125%),4月3日市场首日反应即暴跌(标普-4.84%,史上第三大单日跌幅),中国等国4月4日宣布对美反制关税,恐慌进一步升级,标普500单日再跌5.97%(史上第二大跌幅),两日合计跌幅超10%,创下美股史上最大两日跌幅之一;债券市场同步承压,流动性(订单簿深度)骤降约75%。",
+  "precursors": [
+   {
+    "indicator": "\"解放日\"提前预告",
+    "signal": "特朗普3月21日已公开预告将于4月2日推出大规模关税,市场提前数周消化政策不确定性但低估最终规模",
+    "lead_time": "提前约2周",
+    "source_url": "https://en.wikipedia.org/wiki/2025_stock_market_crash"
+   },
+   {
+    "indicator": "4月3日首轮抛售",
+    "signal": "关税公告次日(4月3日)标普500已暴跌4.84%,创历史第三大单日跌幅,为4月4日的反制关税消息埋下极端脆弱的市场基础",
+    "lead_time": "提前1天",
+    "source_url": "https://en.wikipedia.org/wiki/2025_stock_market_crash"
+   },
+   {
+    "indicator": "国债市场流动性恶化",
+    "signal": "关税冲击期间美债市场订单簿深度骤降约75%,10年期美债收益率在4月4-11日间波动达49个基点,显示传统避险资产同步承压",
+    "lead_time": "同步至次周",
+    "source_url": "https://www.tradeweb.com/newsroom/media-center/insights/blog/bond-market-turbulence-how-tariffs-are-stress-testing-liquidity/"
+   },
+   {
+    "indicator": "外资抛售美债",
+    "signal": "4月当月海外净卖出美国长期证券超500亿美元(其中400亿美元为美债),显示外资对美元资产信心动摇",
+    "lead_time": "同月数据(滞后确认)",
+    "source_url": "https://www.atlanticcouncil.org/blogs/new-atlanticist/to-understand-the-impact-of-trumps-tariff-war-watch-the-bond-market-and-the-fed-not-just-the-stock-market/"
+   }
+  ],
+  "aftermath": "冲击持续至4月8日,4月9日特朗普宣布90天关税暂缓后市场绝地反弹9.52%,标普500用约1个月基本收复失地。",
+  "refs": [
+   "https://en.wikipedia.org/wiki/2025_stock_market_crash",
+   "https://www.npr.org/2025/04/03/nx-s1-5350938/markets-plunge-after-liberation-day-tariffs",
+   "https://www.cnn.com/2025/04/09/investing/global-stock-market-reciprocal-tariffs-hnk-intl"
+  ]
+ },
+ {
+  "id": "sp500-tariff-pause-rally-2025-04-09",
+  "market": "us_index",
+  "date": "2025-04-09",
+  "asset": "标普500指数(道指同日+7.87%, 纳指+12.16%)",
+  "move_pct": 9.52,
+  "title": "特朗普暂停对等关税90天, 标普单日暴涨9.52%",
+  "cause": "4月2日'解放日'特朗普宣布对几乎所有贸易伙伴征收对等关税外加10%普遍关税, 引发连环暴跌: 4月3日标普500跌4.84%、4月4日再跌5.97%(道指单日跌2231点创点数纪录), 两日累计跌超10%为二战后第五差; 4月7-8日国债市场异常抛售(10年期收益率从4月4日3.86%低点飙升至4月8日盘中4.5%, 30年期破5%), 被解读为对冲基金基差交易平仓+外国减持美债, 美债'避险资产'地位动摇的恐慌反过来压迫白宫。4月9日上午9:37特朗普在Truth Social发帖'THIS IS A GREAT TIME TO BUY!!! DJT', 不到4小时后宣布对除中国外的贸易伙伴暂停关税90天并降至10%(对中国反升至125%), 市场应声全线暴涨: 标普500单日+9.52%为2008年10月以来最大, 道指+7.87%, 纳指+12.16%为2001年1月以来最大、历史第二佳单日。",
+  "precursors": [
+   {
+    "indicator": "VIX恐慌指数",
+    "signal": "4月7日VIX盘中一度触及60附近极端高位, 收盘一度报45.31为2020年疫情崩盘以来最高, 4月关税危机期间盘中读数跻身历史前十",
+    "lead_time": "提前2天",
+    "source_url": "https://en.wikipedia.org/wiki/2025_stock_market_crash"
+   },
+   {
+    "indicator": "10年期美债收益率异常飙升(股债双杀)",
+    "signal": "10年期收益率从4月4日3.86%低点飙升至4月8日盘中4.5%, 30年期突破5%, 被视为对冲基金基差交易平仓与流动性枯竭信号, 且直接构成迫使白宫转向的压力",
+    "lead_time": "提前1-2天",
+    "source_url": "https://www.cnbc.com/2025/04/11/us-treasury-yields-investors-weigh-state-of-the-us-economy-.html"
+   },
+   {
+    "indicator": "特朗普Truth Social喊单帖",
+    "signal": "4月9日上午9:37特朗普发帖'THIS IS A GREAT TIME TO BUY!!! DJT', 约4小时后即宣布关税暂停, 事后被质疑存在信息优势/操纵嫌疑",
+    "lead_time": "提前约4小时",
+    "source_url": "https://www.pbs.org/newshour/politics/trump-told-investors-to-buy-on-social-media-hours-before-his-tariff-pause-rose-stocks-raising-questions-about-manipulation"
+   },
+   {
+    "indicator": "财长贝森特幕后沟通",
+    "signal": "商务部长卢特尼克事后透露, 贝森特与卢特尼克当日全程陪同特朗普起草暂停关税声明, 显示决策已在小圈子内敲定但未公开",
+    "lead_time": "提前数小时(未公开)",
+    "source_url": "https://www.foxbusiness.com/politics/tariff-pause-due-trump-wanting-personally-involved-negotiations-bessent"
+   }
+  ],
+  "aftermath": "4月10日市场因90天暂停仍存不确定性再度下挫, 但整体自4月9日起持续修复, 标普500此后数月收复全部关税冲击跌幅并创出新高。",
+  "refs": [
+   "https://en.wikipedia.org/wiki/2025_stock_market_crash",
+   "https://www.pbs.org/newshour/politics/trump-told-investors-to-buy-on-social-media-hours-before-his-tariff-pause-rose-stocks-raising-questions-about-manipulation",
+   "https://www.cnbc.com/2025/04/09/stock-market-today-live-updates.html"
+  ]
+ },
+ {
+  "id": "micron-2026-06-23-leverage-etf-warning",
+  "market": "us_stock",
+  "date": "2026-06-23",
+  "asset": "美光科技 Micron Technology (NASDAQ: MU)",
+  "move_pct": -13.3,
+  "title": "美光单日暴跌13.3%: 韩国监管警告引爆存储股杠杆挤兑",
+  "cause": "2026年6月23日美光单日重挫13.3%收于1051.77美元(此前一年该股在AI存储/HBM需求驱动下涨幅达数倍)。直接导火索是韩国金融监督院(FSS)院长李灿镇当天接受彭博采访时表示, 后悔未能阻止追踪三星电子和SK海力士的单一股杠杆ETF上市, 称其为'高风险产品'且'尽管已发消费者警告, 交易热度仍未降温'——韩国本土16只三星/SK海力士2-3倍杠杆/反向单一股ETF已于5月27日上市, 散户持仓占比约92%。监管表态引发整个存储/半导体板块恐慌性抛售: 英伟达跌4%、AMD跌近6%、英特尔跌6.1%, 对AI存储需求最敏感、动量拥挤度最高的美光跌幅居首; 叠加即将公布的财报紧张情绪与年内巨幅涨幅是否脱离基本面的估值疑虑, 抛售被动量资金平仓放大。",
+  "precursors": [
+   {
+    "indicator": "监管层公开警告杠杆ETF风险",
+    "signal": "韩国金融监督院院长李灿镇6月23日公开表示后悔未阻止三星/SK海力士单一股杠杆ETF上市, 直指其'高风险'且散户持仓占92%",
+    "lead_time": "当日触发(警告发出即引发板块抛售)",
+    "source_url": "https://www.forbes.com/sites/antoniopequenoiv/2026/06/23/micron-tumbles-13-as-south-korean-etf-warning-fuels-chip-sell-off/"
+   },
+   {
+    "indicator": "监管酝酿限制措施(更早信号)",
+    "signal": "彭博6月22日报道韩国监管层已在酝酿限制单一股杠杆ETF的措施('Korea Mulls Steps to Rein In Leveraged Samsung, SK Hynix ETFs')",
+    "lead_time": "提前1天",
+    "source_url": "https://www.bloomberg.com/news/articles/2026-06-22/korea-mulls-steps-to-rein-in-leveraged-samsung-sk-hynix-etfs"
+   },
+   {
+    "indicator": "DRAM/NAND现货价格动能减弱",
+    "signal": "TrendForce数据显示6月上旬DRAM现货仍在涨(主流DDR4 1Gx8从35.12美元涨至35.90美元/+2.22%), 但至6月下旬买方停止追高、DDR4仅微涨0.28%, NAND 512Gb TLC晶圆报价同期跌1.77%, 现货市场进入僵持, 前期涨价动能在崩盘前已明显放缓",
+    "lead_time": "提前约2周",
+    "source_url": "https://www.trendforce.com/news/2026/06/24/insights-memory-spot-price-update-dram-buyers-resist-higher-quotes-as-mainstream-ddr4-prices-gain-0-28/"
+   },
+   {
+    "indicator": "板块前一交易日已现跌势",
+    "signal": "美光在6月23日暴跌前的前一交易日已下跌约8%, 存储板块两日联动大幅下挫, 动量资金开始撤离",
+    "lead_time": "提前1个交易日",
+    "source_url": "https://247wallst.com/investing/2026/06/24/micron-just-dropped-13-why-one-analyst-says-this-selloff-changes-nothing/"
+   }
+  ],
+  "aftermath": "暴跌后未企稳: 7月初因DRAM诉讼与供应过剩担忧跌破1000美元(Michael Burry同期建立看跌期权仓位), 7月13日SK海力士暴跌当天同步下挫, 7月15日前后又因中国长鑫存储竞争威胁及HBM出口管制消息再跌7%-8%, 整个2026年年中AI存储板块反复剧烈震荡。",
+  "refs": [
+   "https://www.forbes.com/sites/antoniopequenoiv/2026/06/23/micron-tumbles-13-as-south-korean-etf-warning-fuels-chip-sell-off/",
+   "https://www.cmelitegroup.com/trends-and-insights/micron-stock-drops-13-in-worst-session-in-over-a-year-ahead-of-earnings/",
+   "https://247wallst.com/investing/2026/06/24/micron-just-dropped-13-why-one-analyst-says-this-selloff-changes-nothing/"
+  ]
+ },
+ {
+  "id": "sk-hynix-2026-07-13-adr-leverage-crash",
+  "market": "us_stock",
+  "date": "2026-07-13",
+  "asset": "SK海力士 SK Hynix (KRX: 000660 / Nasdaq ADR: SKHY)",
+  "move_pct": -15.4,
+  "title": "SK海力士暴跌15.4%: ADR上市狂欢三日后的杠杆踩踏",
+  "cause": "口径澄清: -15.4%为首尔本股(KRX:000660)当日创纪录暴跌(收盘约184.5万韩元, 多源确认15.37%-15.4%, 拖累KOSPI跌近9%并触发熔断), 同日纳斯达克新挂牌ADR(SKHY, 7月10日挂牌, 发行价149美元首日+13.3%, 募资265亿美元为外国公司美股史上第二大IPO)跌约9%。触发链条: ①韩国投资证券(KIS)当天发布报告, 将SK海力士Q2营业利润预估下调至60.4万亿韩元, 较市场一致预期65万亿韩元低约8%, 原因是高占比的HBM产品受长期供应协议(LTA)固定定价限制, 无法捕获DRAM现货价格暴涨(Q2常规DRAM现货环比涨约30%、NAND涨约50%), KIS将Q2 DRAM ASP环比增速预测从50%大幅下修至28.9%; ②美伊地缘冲突再起推升油价(WTI一度+4.6%至约75美元), 避险情绪压制高估值成长股; ③ADR上市带来的跨市场杠杆挤兑——韩国16只三星/SK海力士2-3倍杠杆/反向ETF已于5月27日上市(散户持仓约92%), 美国SKHU/SKHX/SKHL等挂钩SKHY的2倍杠杆ETF又于7月13-14日密集上线, 而新股发行量仅占总股本约2.5%、流通盘极小, 套利盘与杠杆资金的日内再平衡将本股与ADR的双向波动急剧放大(前一周ADR曾单日暴涨27%又迅速转跌)。",
+  "precursors": [
+   {
+    "indicator": "券商盈利预估下修",
+    "signal": "韩国投资证券(KIS)7月13日发布报告, 将SK海力士Q2营业利润预估下调至60.4万亿韩元(较一致预期65万亿低约8%), 并同步下调2026/2027年营业利润预测9%/11%, 直指HBM LTA定价无法捕获现货涨价",
+    "lead_time": "同日盘中触发",
+    "source_url": "https://finance.biggo.com/news/edb04a34-b3a7-46f7-aca1-375e930c1ad8"
+   },
+   {
+    "indicator": "单一股杠杆ETF密集上市",
+    "signal": "韩国本土16只三星/SK海力士2-3倍杠杆/反向单一股ETF于5月27日上市(散户持仓占比约92%); 美国SKHU(ProShares)/SKHX(Leverage Shares)/SKHL(Direxion)等挂钩新ADR的2倍杠杆ETF于7月13-14日密集上线",
+    "lead_time": "韩国本土提前约7周; 美股杠杆ETF与暴跌同日/次日",
+    "source_url": "https://cryptobriefing.com/sk-hynix-us-debut-leveraged-etfs/"
+   },
+   {
+    "indicator": "监管层公开预警",
+    "signal": "韩国央行及金融监督院此前已就单一股杠杆ETF扰动市场发出多轮警告(6月23日FSS院长表态曾引发美光单日-13.3%)",
+    "lead_time": "提前约3周起持续预警",
+    "source_url": "https://cryptobriefing.com/bank-of-korea-warns-samsung-sk-hynix-leveraged-etfs/"
+   },
+   {
+    "indicator": "ADR上市首周即现剧烈波动",
+    "signal": "SKHY自7月10日挂牌至7月13日曾单日暴涨27%又迅速转跌, 反映流通盘极小(仅占总股本约2.5%)叠加杠杆资金进出剧烈, 波动结构已极不稳定",
+    "lead_time": "提前1-3个交易日",
+    "source_url": "https://www.tradingview.com/news/stocktwits:3046832fd094b:0-skhy-stock-gives-back-some-of-its-27-pop-from-tuesday-wall-street-rolls-out-another-leveraged-bet-on-the-stock/"
+   },
+   {
+    "indicator": "地缘政治/原油冲击",
+    "signal": "美伊冲突重燃, WTI原油单日上涨约4.6%至约75美元/桶, 加剧对高估值AI/半导体成长股的风险规避",
+    "lead_time": "同日",
+    "source_url": "https://www.fool.com/coverage/stock-market-today/2026/07/13/stock-market-today-july-13-sk-hynix-tumbles-15-in-south-korea-leading-semiconductor-drop-at-midday/"
+   }
+  ],
+  "aftermath": "此后数日维持极端波动: 7月14日因杠杆ETF集中上线单日反弹19%, 7月15日前后又随美光等存储股获利了结再跌5%-9%, 呈'暴涨-暴跌-反弹-再回落'的杠杆挤兑特征, 韩国监管层持续就单一股杠杆ETF风险发出警告。",
+  "refs": [
+   "https://www.cnbc.com/2026/07/13/sk-hynix-shares-fall-after-stellar-nasdaq-debut.html",
+   "https://www.techtimes.com/articles/320352/20260713/sk-hynix-posts-worst-seoul-session-record-hbm-contracts-limit-earnings-upside.htm",
+   "https://247wallst.com/investing/2026/07/14/sk-hynix-adr-soars-19-as-leveraged-etfs-launch-lifting-micron-sandisk-western-digital/"
+  ]
+ }
+]

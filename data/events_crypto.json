@@ -1,0 +1,508 @@
+[
+ {
+  "id": "2020-0312-black-thursday",
+  "market": "crypto",
+  "date": "2020-03-12",
+  "asset": "BTC",
+  "move_pct": -37.2,
+  "title": "312黑色星期四：新冠恐慌+BitMEX连环爆仓宕机",
+  "cause": "3月9日和3月12日美股连续两次触发熔断（新冠疫情恐慌抛售一切风险资产），比特币跟随传统市场重挫；价格从早盘约7200美元在15分钟内砸到5678美元后继续下探，触发BitMEX等交易所连环强平——BitMEX单日强平超7亿美元，级联挤压把价格进一步打到3596-3782美元的极端低点；凌晨2:16 BitMEX系统宕机（官方称遭DDoS攻击）使空头无法及时补仓平仓，反而放大了跌幅，收盘时全天跌幅达37.2%，盘中最深跌幅接近50%。",
+  "precursors": [
+   {
+    "indicator": "BitMEX比特币永续合约未平仓量(OI)",
+    "signal": "崩盘前两周维持在11.5万BTC的高位杠杆水平，属于当时历史性高位",
+    "lead_time": "约2周",
+    "source_url": "https://www.forbes.com/sites/billybambrough/2020/03/19/major-bitcoin-exchange-bitmex-has-a-serious-problem/"
+   },
+   {
+    "indicator": "传统金融市场恐慌指标",
+    "signal": "3月9日标普500因新冠疫情暴跌触发熔断（\"黑色星期一\"），道指当周累计跌超10%，风险资产联动抛售的宏观背景已提前显现",
+    "lead_time": "3天",
+    "source_url": "https://www.research.ledgerprime.com/p/cryptos-black-thursday-the-market"
+   },
+   {
+    "indicator": "BitMEX资金费率",
+    "signal": "崩盘中资金费率骤降至-0.375%/8小时（年化约400%），显示空头极度主导、多头挤兑压力集中在同一交易所",
+    "lead_time": "崩盘当日",
+    "source_url": "https://www.newsbtc.com/news/bitcoin-funding-rates-bitmex-deep-red-why-bullish/"
+   }
+  ],
+  "aftermath": "BitMEX因宕机+保险基金损失1627 BTC遭遇信任危机，两周内OI从11.5万BTC腰斩至5.5万BTC，交易量份额被Binance反超；比特币此后受美联储无限QE刺激，年底反弹至历史新高。",
+  "refs": [
+   "https://www.coindesk.com/markets/2020/03/12/bitcoins-crash-triggers-over-700m-in-liquidations-on-bitmex",
+   "https://www.forbes.com/sites/billybambrough/2020/03/19/major-bitcoin-exchange-bitmex-has-a-serious-problem/",
+   "https://multicoin.capital/2020/03/17/march-12-the-day-crypto-market-structure-broke/"
+  ]
+ },
+ {
+  "id": "2021-0418-hidden-leverage-flash-crash",
+  "market": "crypto",
+  "date": "2021-04-18",
+  "asset": "BTC",
+  "move_pct": -15.2,
+  "title": "隐性杠杆闪崩：新疆煤矿事故引爆全网千亿级平仓",
+  "cause": "4月10日新疆煤矿爆炸事故导致当地限电，比特币全网算力从215+ EH/s的历史高点骤降近一半至约120 EH/s；市场对挖矿供应中断的担忧叠加此前牛市中积累的巨额隐性杠杆（各交易所独立计算保证金、互相不可见），价格从4月16日高点约6万美元在周末闪崩至5.09万美元，触发约100万个交易账户、总计约100亿美元的连环强平，凸显了跨交易所杠杆不透明带来的系统性风险。",
+  "precursors": [
+   {
+    "indicator": "比特币全网算力",
+    "signal": "4月10日事故后算力从215+ EH/s降至约120 EH/s，头部矿池平均损失16.5%算力，是价格闪崩前最早的实体侧信号",
+    "lead_time": "约1周",
+    "source_url": "https://news.bitcoin.com/bitcoin-hashrate-drops-xinjiang-blackouts-blamed-btc-price-slides/"
+   },
+   {
+    "indicator": "USDT保证金未平仓合约占比",
+    "signal": "2021年4月USDT保证金OI占比一度冲高至70%，反映市场杠杆集中度处于历史极值",
+    "lead_time": "约2周",
+    "source_url": "https://cryptoslate.com/liquidations-expected-as-bitcoin-open-interest-leverage-ratio-spike-higher/"
+   },
+   {
+    "indicator": "资金费率",
+    "signal": "4月大部分时间离岸永续合约资金费率维持在+0.05%~+0.08%/8小时的偏高水平（年化超100%），反映多头拥挤",
+    "lead_time": "约1个月",
+    "source_url": "https://coinflip.trade/blog/bitcoin-open-interest-and-funding-rate-analysis"
+   }
+  ],
+  "aftermath": "事件后交易所开始被呼吁公开跨平台杠杆数据；比特币短暂反弹后于5月遭遇更大规模的519崩盘，两次事件共同推动市场对'隐性杠杆'风险的关注。",
+  "refs": [
+   "https://www.forbes.com/sites/jonathanponciano/2021/04/18/crypto-flash-crash-wiped-out-300-billion-in-less-than-24-hours-spurring-massive-bitcoin-liquidations/",
+   "https://news.bitcoin.com/bitcoin-hashrate-drops-xinjiang-blackouts-blamed-btc-price-slides/",
+   "https://cointelegraph.com/news/did-a-massive-chinese-power-outage-cause-bitcoin-s-crash-down-to-50k"
+  ]
+ },
+ {
+  "id": "2021-0519-china-musk-crash",
+  "market": "crypto",
+  "date": "2021-05-19",
+  "asset": "BTC/ETH",
+  "move_pct": -30,
+  "title": "519暴跌：马斯克环保论+中国三部委禁令双重锤击",
+  "cause": "5月12日马斯克宣布特斯拉因环保顾虑暂停接受比特币支付，率先重创市场情绪；一周后5月18日中国人民银行等三部门重申禁止金融机构、支付机构为虚拟货币交易提供服务，5月19日更传出四川、内蒙等地清理矿场的消息，双重利空叠加此前牛市末期的极端杠杆，比特币盘中一度从4.3万美元附近砸到3万美元一线（跌幅约30%），以太坊、狗狗币等跌幅更深（分别约40%、45%），当周全市场蒸发近7000亿美元市值。",
+  "precursors": [
+   {
+    "indicator": "USDT保证金OI占比",
+    "signal": "4月已冲高至70%的极端杠杆水平在5月中旬持续未消化，市场对任何利空都异常脆弱",
+    "lead_time": "约1个月",
+    "source_url": "https://cryptoslate.com/liquidations-expected-as-bitcoin-open-interest-leverage-ratio-spike-higher/"
+   },
+   {
+    "indicator": "马斯克/特斯拉表态",
+    "signal": "5月12日特斯拉宣布暂停BTC支付，触发当周比特币价格已下跌，市场情绪提前一周转弱",
+    "lead_time": "7天",
+    "source_url": "https://www.forbes.com/sites/roberthart/2021/05/19/the-week-crypto-crashed---market-drops-700-billion-after-chinese-crackdown-and-elon-musks-environmental-worries/"
+   },
+   {
+    "indicator": "此前4月17日创纪录爆仓规模",
+    "signal": "4月17日已出现约100亿美元的24小时爆仓纪录，显示市场结构脆弱、清算連锁反应机制已被验证过一次",
+    "lead_time": "1个月",
+    "source_url": "https://www.theblock.co/post/338482/bybit-ceo-estimates-crypto-traders-were-liquidated-for-8-10-billion-in-last-day-alone"
+   }
+  ],
+  "aftermath": "当日24小时全网爆仓约80-100亿美元，逾80万交易账户被强平；中国随后正式升级矿场清退政策，推动比特币算力'东迁'至北美，市场进入约6个月的盘整后于10-11月才创出新高。",
+  "refs": [
+   "https://www.cnbc.com/2021/05/19/bitcoin-btc-price-plunges-but-bottom-could-be-near-.html",
+   "https://www.forbes.com/sites/roberthart/2021/05/19/the-week-crypto-crashed---market-drops-700-billion-after-chinese-crackdown-and-elon-musks-environmental-worries/",
+   "https://www.theblock.co/post/338482/bybit-ceo-estimates-crypto-traders-were-liquidated-for-8-10-billion-in-last-day-alone"
+  ]
+ },
+ {
+  "id": "2021-0907-el-salvador-launch-crash",
+  "market": "crypto",
+  "date": "2021-09-07",
+  "asset": "BTC",
+  "move_pct": -15,
+  "title": "萨尔瓦多比特币法定货币生效日闪崩",
+  "cause": "萨尔瓦多《比特币法》9月7日正式生效，成为全球首个将比特币定为法定货币的国家；官方钱包Chivo因负载过大在上线后3小时内即宕机（凌晨到11:30AM无法访问），叠加市场对'国家级实验'成败的高度不确定情绪，比特币早盘出现闪崩，短短3分钟内下跌约1万美元，全天跌幅超过15%，成为主权国家政策直接触发的罕见单日暴跌案例。",
+  "precursors": [
+   {
+    "indicator": "Chivo钱包技术就绪度",
+    "signal": "上线前媒体已披露Bukele政府在最后期限前仓促筹备系统，技术准备不足的风险被提前预警",
+    "lead_time": "约2个月",
+    "source_url": "https://davidgerard.co.uk/blockchain/2021/07/11/el-salvador-bitcoin-bukele-scrambles-to-get-something-anything-into-place-by-7-september/"
+   },
+   {
+    "indicator": "国内社会阻力",
+    "signal": "法案生效前夕萨尔瓦多国内爆发多次反对比特币法的示威游行，政策落地的合法性/执行风险提前显现",
+    "lead_time": "数周",
+    "source_url": "https://www.inverse.com/innovation/bitcoin-el-salvador-protests-chivo-app"
+   }
+  ],
+  "aftermath": "Chivo当日中午恢复运行，政府随后追加服务器容量；此次事件被视为'国家买比特币'叙事的第一次压力测试，萨尔瓦多此后持续逢低加仓比特币国库。",
+  "refs": [
+   "https://en.wikipedia.org/wiki/Bitcoin_Law",
+   "https://www.inverse.com/innovation/bitcoin-el-salvador-protests-chivo-app",
+   "https://davidgerard.co.uk/blockchain/2021/07/11/el-salvador-bitcoin-bukele-scrambles-to-get-something-anything-into-place-by-7-september/"
+  ]
+ },
+ {
+  "id": "2022-05-ust-depeg",
+  "market": "crypto",
+  "date": "2022-05-09",
+  "asset": "UST",
+  "move_pct": -33,
+  "title": "UST首次严重脱锚：Curve池失衡引爆算法稳定币信任危机",
+  "cause": "5月7日Terraform Labs为准备4pool上线，从Curve的UST-3pool（Wormhole池）中撤出约1.5亿UST流动性，导致池内比例严重失衡，UST随即跌破0.99美元；市场嗅到风险后Anchor协议存款在24小时内净流出约2.8亿UST，5月9日UST在Binance上一度跌至0.60美元，Luna Foundation Guard被迫动用比特币储备护盘，但抛压持续增大，UST从5月9日约1美元跌至5月10日的0.67美元附近（单日跌幅约33%），随后进入无法挽回的死亡螺旋，5月13日跌破0.10美元。",
+  "precursors": [
+   {
+    "indicator": "Anchor协议收益储备金",
+    "signal": "储备金从2022年2月的约3.23亿美元/1月末的3500万UST（较高点腰斩）持续消耗，到5月初仅剩约1.76亿美元，按当时消耗速度不到一个月即将耗尽",
+    "lead_time": "约3个月",
+    "source_url": "https://cointelegraph.com/news/anchor-protocol-s-reserves-head-toward-depletion-due-to-lack-of-borrowing-demand"
+   },
+   {
+    "indicator": "Curve UST-3pool（Wormhole池）流动性",
+    "signal": "5月7日Terraform Labs主动撤出1.5亿UST用于4pool筹备，直接造成池内UST/3CRV比例失衡，成为脱锚的直接引爆点",
+    "lead_time": "2天",
+    "source_url": "https://www.chainalysis.com/blog/how-terrausd-collapsed/"
+   },
+   {
+    "indicator": "Anchor存款净流出",
+    "signal": "5月7-8日Anchor存款约20%在24-48小时内撤出，显示储户对UST维持锚定的信心已开始动摇",
+    "lead_time": "1-2天",
+    "source_url": "https://www.coindesk.com/markets/2022/05/09/investors-flee-terras-anchor-as-ust-stablecoin-repeatedly-loses-1-peg"
+   }
+  ],
+  "aftermath": "UST再未恢复锚定，5月13日跌破0.10美元后主要交易所暂停交易，成为算法稳定币史上最大规模的崩溃案例，直接催生了后续对Celsius、三箭资本等杠杆机构的连环挤兑。",
+  "refs": [
+   "https://www.coindesk.com/business/2022/05/09/ust-stablecoin-falls-below-dollar-peg-for-second-time-in-48-hours",
+   "https://www.chainalysis.com/blog/how-terrausd-collapsed/",
+   "https://www.coindesk.com/tech/2022/05/10/ust-stablecoin-veers-wildly-from-dollar-peg-heres-the-latest"
+  ]
+ },
+ {
+  "id": "2022-05-luna-death-spiral",
+  "market": "crypto",
+  "date": "2022-05-12",
+  "asset": "LUNA",
+  "move_pct": -96,
+  "title": "LUNA死亡螺旋：算法增发机制自我摧毁",
+  "cause": "为捍卫UST锚定，Terra协议的铸造/销毁机制被迫无限增发LUNA以吸收UST抛压——LUNA流通量从5月9日的3.43亿枚在一周内暴增至6.53万亿枚（增幅约190万%），恶性稀释导致LUNA价格从4月6日高点116美元一路崩塌，5月12日单日暴跌约96%，两天内基本归零（低至0.00008美元），累计跌幅达99.99%，Terra生态市值蒸发约400-450亿美元，成为算法稳定币'死亡螺旋'的教科书案例。",
+  "precursors": [
+   {
+    "indicator": "UST脱锚幅度",
+    "signal": "5月9-11日UST从1美元跌至0.23美元，作为LUNA增发的直接触发条件，UST每多跌1%就意味着需要增发更多LUNA来吸收",
+    "lead_time": "1-3天",
+    "source_url": "https://www.coindesk.com/business/2022/05/09/ust-stablecoin-falls-below-dollar-peg-for-second-time-in-48-hours"
+   },
+   {
+    "indicator": "LFG比特币储备消耗",
+    "signal": "Luna Foundation Guard自5月9日起动用其比特币储备（一度接近15亿美元级别）购买UST护盘，到5月10日储备已基本耗尽，护盘能力破产",
+    "lead_time": "1-2天",
+    "source_url": "https://www.forbes.com/sites/stevenehrlich/2022/05/10/unstable-stablecoin-how-cryptos-crash-broke-the-buck-for-terrausd/"
+   },
+   {
+    "indicator": "LUNA流通供应量",
+    "signal": "供应量从3.43亿枚在7天内暴增至6.53万亿枚，链上增发速率本身就是死亡螺旋正在发生的实时可验证指标",
+    "lead_time": "实时/滞后1天",
+    "source_url": "https://theledgermind.com/terra-luna-crash-analysis/"
+   }
+  ],
+  "aftermath": "Terra生态彻底崩溃，三箭资本、Celsius、Voyager等重仓LUNA/UST的机构在随后一个月内相继破产，引发2022年整个'加密寒冬'的连环挤兑，创始人Do Kwon后遭多国通缉并于2023年被捕。",
+  "refs": [
+   "https://theledgermind.com/terra-luna-crash-analysis/",
+   "https://www.cnbc.com/2022/05/13/cryptocurrency-luna-crashes-to-0-as-ust-falls-from-peg-bitcoin-rises.html",
+   "https://www.forbes.com/sites/rahulrai/2022/05/17/the-death-spiral-how-terras-algorithmic-stablecoin-came-crashing-down/"
+  ]
+ },
+ {
+  "id": "2022-0613-celsius-3ac-contagion",
+  "market": "crypto",
+  "date": "2022-06-13",
+  "asset": "BTC",
+  "move_pct": -17,
+  "title": "Celsius暂停提现引爆机构挤兑潮，BTC跌破2万美元",
+  "cause": "6月12日加密借贷平台Celsius突然宣布暂停所有提现、转账和交易（理由是'极端市场条件'），市场立刻联想到一个月前刚崩溃的LUNA/UST对其资产负债表的潜在冲击；恐慌情绪叠加美联储6月15日宣布加息75个基点（1994年以来最大单次加息），比特币在这一周内最深暴跌17%，跌破23000美元，并于6月18日进一步击穿20000美元心理关口，三箭资本的资不抵债传闻同期发酵，形成第二轮机构去杠杆连环冲击。",
+  "precursors": [
+   {
+    "indicator": "LUNA/UST崩溃遗留风险敞口",
+    "signal": "5月Terra生态崩溃已蒸发约400-450亿美元，市场此前已怀疑Celsius、3AC等机构持有相关敞口，形成'次生风险'预期",
+    "lead_time": "约1个月",
+    "source_url": "https://fortune.com/2022/06/29/crypto-winter-crash-nansen-three-arrows-capital-celsius-ether-staked-depeg/"
+   },
+   {
+    "indicator": "stETH脱锚",
+    "signal": "Lido质押的stETH对ETH出现明显折价（一度脱锚超6%），被Nansen等分析机构标记为3AC等机构面临强平压力的早期信号",
+    "lead_time": "1-2周",
+    "source_url": "https://fortune.com/2022/06/29/crypto-winter-crash-nansen-three-arrows-capital-celsius-ether-staked-depeg/"
+   },
+   {
+    "indicator": "美联储加息预期",
+    "signal": "5月CPI数据爆表后市场已price in美联储将于6月中旬大幅加息，宏观流动性收紧预期提前压制风险资产",
+    "lead_time": "约1周",
+    "source_url": "https://www.cnbc.com/2022/06/13/bitcoin-btc-falls-as-market-focuses-on-celsius-issue-fed-rate-hike.html"
+   }
+  ],
+  "aftermath": "Celsius、三箭资本、Voyager、BlockFi等相继在随后数周申请破产，比特币在6月18日跌至约17600美元的本轮周期最低点，'加密寒冬'全面确立。",
+  "refs": [
+   "https://www.cnbc.com/2022/06/13/bitcoin-btc-falls-as-market-focuses-on-celsius-issue-fed-rate-hike.html",
+   "https://amp.cnn.com/cnn/2022/06/19/investing/bitcoin-price/index.html",
+   "https://fortune.com/2022/06/29/crypto-winter-crash-nansen-three-arrows-capital-celsius-ether-staked-depeg/"
+  ]
+ },
+ {
+  "id": "2022-1108-ftt-collapse",
+  "market": "crypto",
+  "date": "2022-11-08",
+  "asset": "FTT",
+  "move_pct": -80,
+  "title": "FTT单日崩盘80%：CZ一条推文引爆交易所挤兑",
+  "cause": "11月2日CoinDesk记者Ian Allison披露Alameda Research的146亿美元资产负债表中有58亿美元由FTX自家代币FTT构成（含36.6亿'未锁定FTT'和21.6亿'FTT抵押品'），暴露Alameda资产严重依赖关联方代币；11月6日币安CEO赵长鹏(CZ)宣布将出售币安持有的全部FTT（约5.3亿美元），直接触发市场对FTX偿付能力的恐慌，FTT价格从约22美元崩至11月8日的不足5美元，单日跌幅约76-80%，市值蒸发逾20亿美元，FTX随即冻结提现。",
+  "precursors": [
+   {
+    "indicator": "CoinDesk披露的Alameda资产负债表结构",
+    "signal": "146亿美元总资产中58亿由FTT构成（单一非流动性关联代币占比近40%），暴露资产质量的结构性风险",
+    "lead_time": "6天",
+    "source_url": "https://www.coindesk.com/business/2022/11/02/divisions-in-sam-bankman-frieds-crypto-empire-blur-on-his-trading-titans-alamedas-balance-sheet"
+   },
+   {
+    "indicator": "CZ公开表态抛售FTT",
+    "signal": "11月6日CZ在X上宣布币安将出售约5.3亿美元FTT持仓，为市场提供了明确的抛压来源预期",
+    "lead_time": "2天",
+    "source_url": "https://www.cnbc.com/2022/11/08/ftxs-ftt-token-plunges-80percent-wiping-out-over-2-billion-in-value.html"
+   },
+   {
+    "indicator": "FTX交易所稳定币储备",
+    "signal": "11月7日FTX单日遭遇约40亿美元提现，稳定币储备较10月24日已下降超78%（降至约1.56亿美元），偿付能力预警指标持续恶化",
+    "lead_time": "1-2天",
+    "source_url": "https://www.coindesk.com/markets/2022/11/09/these-four-key-charts-shed-light-on-the-ftx-exchanges-spectacular-collapse"
+   }
+  ],
+  "aftermath": "币安11月9日退出收购意向，FTX、Alameda及上百家关联实体于11月11日申请破产，创始人Sam Bankman-Fried于2023年11月被裁定7项欺诈及共谋罪名成立。",
+  "refs": [
+   "https://www.cnbc.com/2022/11/08/ftxs-ftt-token-plunges-80percent-wiping-out-over-2-billion-in-value.html",
+   "https://www.coindesk.com/markets/2022/11/08/ftt-plummets-as-market-fears-possible-alameda-contagion",
+   "https://www.coindesk.com/business/2022/11/02/divisions-in-sam-bankman-frieds-crypto-empire-blur-on-his-trading-titans-alamedas-balance-sheet"
+  ]
+ },
+ {
+  "id": "2022-1109-ftx-btc-panic-selloff",
+  "market": "crypto",
+  "date": "2022-11-09",
+  "asset": "BTC",
+  "move_pct": -12,
+  "title": "FTX崩盘外溢：BTC单日暴跌12%创两年新低",
+  "cause": "11月9日币安在'紧急尽调'后正式宣布放弃收购FTX，彻底断绝了市场对FTX获救的最后希望；恐慌性抛售从FTX/FTT蔓延至整个市场，比特币当日盘中一度暴跌12%，跌至约1.6万美元，创近两年新低（较2021年11月6.9万美元的历史高点已下跌约77%），Solana等与FTX/Alameda关联密切的代币同期再跌逾20%，市场流动性因交易所提现冻结而急剧枯竭。",
+  "precursors": [
+   {
+    "indicator": "顶级地址FTX提现规模",
+    "signal": "过去7天Nexo、Circle、Jump Trading等十大地址合计从FTX提现18.7亿美元，是机构提前'用脚投票'的明确信号",
+    "lead_time": "7天",
+    "source_url": "https://www.coindesk.com/markets/2022/11/09/these-four-key-charts-shed-light-on-the-ftx-exchanges-spectacular-collapse"
+   },
+   {
+    "indicator": "FTX稳定币净流出",
+    "signal": "11月7日当周FTX稳定币净流出约4.51亿美元，居全交易所之首，显示资金正加速撤离该交易所",
+    "lead_time": "2-3天",
+    "source_url": "https://www.coindesk.com/markets/2022/11/09/these-four-key-charts-shed-light-on-the-ftx-exchanges-spectacular-collapse"
+   },
+   {
+    "indicator": "币安收购尽调进展",
+    "signal": "11月8日币安虽签署收购意向书但明确表示以'尽调结果'为前提，市场已对交易能否达成打上问号",
+    "lead_time": "1天",
+    "source_url": "https://abcnews.com/Business/timeline-cryptocurrency-exchange-ftxs-historic-collapse/story?id=93337035"
+   }
+  ],
+  "aftermath": "比特币此后持续阴跌至11月21日的1.55万美元区域，'FTX信任危机'成为2022年加密寒冬的最终确认信号，行业此后一年多陷入监管收紧与去杠杆周期。",
+  "refs": [
+   "https://www.cnbc.com/2022/11/09/cryptocurrencies-pressured-as-investors-digest-ftx-fallout-solana-loses-another-20percent.html",
+   "https://www.coindesk.com/markets/2022/11/09/these-four-key-charts-shed-light-on-the-ftx-exchanges-spectacular-collapse",
+   "https://en.wikipedia.org/wiki/Bankruptcy_of_FTX"
+  ]
+ },
+ {
+  "id": "2023-1016-cointelegraph-fake-etf-pump",
+  "market": "crypto",
+  "date": "2023-10-16",
+  "asset": "BTC",
+  "move_pct": 7.5,
+  "title": "假新闻拉盘：Cointelegraph乌龙推文引爆比特币闪拉",
+  "cause": "Cointelegraph官方X账号发布一条推文称'SEC已批准贝莱德iShares比特币现货ETF'，消息源自未经核实的疑似Bloomberg终端截图；在现货ETF审批悬而未决的高度敏感窗口期，这一假消息触发算法与散户抢跑买入，比特币从约2.79万美元在数分钟内拉升至3万美元（涨幅约7.5%，多家媒体报道为'10%'），并引发约1亿美元空头爆仓；30分钟后Cointelegraph删推，1小时后致歉，BlackRock随即辟谣，价格迅速回吐大部分涨幅。",
+  "precursors": [
+   {
+    "indicator": "现货ETF审批临近的市场敏感度",
+    "signal": "贝莱德等机构的现货比特币ETF申请正处SEC审查关键窗口期，任何相关头条都会被市场无差别抢跑交易，属于'信息真空期'特有的高波动土壤",
+    "lead_time": "持续数月",
+    "source_url": "https://www.coindesk.com/markets/2023/10/16/bitcoin-momentarily-hits-30k-on-false-spot-etf-approval-report-leads-to-100m-liquidations"
+   },
+   {
+    "indicator": "衍生品空头拥挤度",
+    "signal": "假消息发布前市场存在相当规模的空头持仓，事件中约1亿美元空头在1小时内被强平，反映拉升前空头一致性较强",
+    "lead_time": "拉升发生时",
+    "source_url": "https://decrypt.co/201815/bitcoin-spikes-10-on-false-report-of-blackrock-etf-approval"
+   }
+  ],
+  "aftermath": "Cointelegraph承认违反内部社媒审核流程并道歉，SEC及BlackRock均否认相关审批已发生；此事件也被视为3个月后（2024年1月）真实ETF获批的一次'预演式'压力测试。",
+  "refs": [
+   "https://www.coindesk.com/markets/2023/10/16/bitcoin-momentarily-hits-30k-on-false-spot-etf-approval-report-leads-to-100m-liquidations",
+   "https://decrypt.co/201815/bitcoin-spikes-10-on-false-report-of-blackrock-etf-approval",
+   "https://cointelegraph.com/news/clarification-sharing-false-spot-bitcoin-etf-news"
+  ]
+ },
+ {
+  "id": "2024-0112-etf-sell-the-news-crash",
+  "market": "crypto",
+  "date": "2024-01-12",
+  "asset": "BTC",
+  "move_pct": -10,
+  "title": "现货ETF'买预期卖事实'：获批两日后暴跌近10%",
+  "cause": "1月10日SEC正式批准11只比特币现货ETF，1月11日开始交易，比特币盘中冲高至约4.9万美元的两年高点；但由于市场早已price in这一利好（GBTC折价从2022年底近50%持续收窄至获批前的5.6%），获批即成为'利好兑现'的抛售信号，叠加GBTC自身在转换ETF后遭遇大规模资金赎回，比特币在获批次日（1月12日）跌破4.2万美元，单日跌幅近10%，验证了此前CryptoQuant等机构对'sell the news'的预判。",
+  "precursors": [
+   {
+    "indicator": "GBTC折价率",
+    "signal": "GBTC相对净值的折价率从2022年底近50%的高点持续收窄，至2024年1月初已降至18个月最低的5.6%，显示获批预期已被市场充分定价",
+    "lead_time": "约1年",
+    "source_url": "https://www.coindesk.com/markets/2024/01/09/gbtc-discount-sinks-to-lowest-level-in-18-months-as-grayscale-falls-behind-in-etf-fee-race"
+   },
+   {
+    "indicator": "机构'利好出尽'研究预警",
+    "signal": "CryptoQuant等研究机构在获批前一个月已公开预测，ETF获批后比特币可能作为'sell the news'事件回调至3.2万美元附近",
+    "lead_time": "约1个月",
+    "source_url": "https://beincrypto.com/bitcoin-btc-price-drop-january-2024/"
+   },
+   {
+    "indicator": "GBTC折价归零",
+    "signal": "获批当周GBTC折价迅速收敛至0%，套利空间消失后原先支撑折价交易的买盘力量退场，为后续抛压埋下伏笔",
+    "lead_time": "1-2天",
+    "source_url": "https://www.coindesk.com/markets/2024/01/11/grayscales-gbtc-discount-closes-to-zero-for-first-time-since-february-2021"
+   }
+  ],
+  "aftermath": "GBTC转为ETF后遭遇持续数月的资金净流出（部分资金因信托历史持仓需缴税及寻求更低费率ETF而撤离），但贝莱德IBIT等新ETF吸金迅猛，最终带动比特币在同年3月创出历史新高。",
+  "refs": [
+   "https://www.coindesk.com/markets/2024/01/12/btc-tumbles-below-44k-bitcoin-miners-drop-10-boosting-etf-sell-the-news-calls",
+   "https://www.coindesk.com/markets/2024/01/09/gbtc-discount-sinks-to-lowest-level-in-18-months-as-grayscale-falls-behind-in-etf-fee-race",
+   "https://www.coindesk.com/markets/2024/01/11/grayscales-gbtc-discount-closes-to-zero-for-first-time-since-february-2021"
+  ]
+ },
+ {
+  "id": "2024-0805-yen-carry-unwind",
+  "market": "crypto",
+  "date": "2024-08-05",
+  "asset": "BTC/ETH",
+  "move_pct": -15,
+  "title": "日元套息交易平仓：'黑色星期一'全球risk-off外溢加密市场",
+  "cause": "7月31日日本央行意外加息至0.25%，推动日元快速升值，迫使全球借日元、投高息资产（含美股、加密货币）的套息交易者集中平仓；8月5日日经225指数暴跌12%（创1987年'黑色星期一'以来最大单日跌幅），risk-off情绪外溢至加密市场，比特币在UTC时间上午10点前从约6万美元跌至5.1万美元（跌幅约15%），以太坊跌幅超20%，全网约30万个账户被强平，损失约10.8亿美元，Binance承受了其中最大部分的强平订单。",
+  "precursors": [
+   {
+    "indicator": "BTC永续合约资金费率",
+    "signal": "8月初OI加权资金费率一度回升至0.012%的多月高位（为7月27日比特币冲高6.8万美元以来的最高水平），反映杠杆多头重新集中入场",
+    "lead_time": "约1周",
+    "source_url": "https://www.theblock.co/post/320907/bitcoin-futures-funding-rate-hits-multi-month-high-signaling-bullish-sentiment"
+   },
+   {
+    "indicator": "日本央行政策转向",
+    "signal": "7月31日日本央行意外宣布加息至0.25%（市场普遍预期维持不变），是套息交易平仓链条的直接源头，提前5天已释放明确信号",
+    "lead_time": "5天",
+    "source_url": "https://www.bis.org/publ/bisbull90.pdf"
+   },
+   {
+    "indicator": "日经225指数同日跌幅",
+    "signal": "8月5日日经225暴跌12%，属于亚洲交易时段内先于加密市场下跌的传统金融市场先行指标，两者同日联动",
+    "lead_time": "数小时（亚洲时段领先）",
+    "source_url": "https://cryptoslate.com/yen-carry-trade-unwind-margin-call-bitcoin-btc/"
+   }
+  ],
+  "aftermath": "48小时内比特币最深触及约4.9万美元后企稳反弹；日本央行行长其后放缓加息节奏的表态帮助缓解套息平仓压力，加密市场用约两周时间收复大部分跌幅。",
+  "refs": [
+   "https://cointelegraph.com/news/crypto-market-crash-1b-liquidations-2024",
+   "https://www.bis.org/publ/bisbull90.pdf",
+   "https://cryptoslate.com/yen-carry-trade-unwind-margin-call-bitcoin-btc/"
+  ]
+ },
+ {
+  "id": "2024-1106-trump-election-pump",
+  "market": "crypto",
+  "date": "2024-11-06",
+  "asset": "BTC",
+  "move_pct": 7.5,
+  "title": "特朗普胜选夜：比特币创历史新高（涨幅接近但未满10%）",
+  "cause": "美东时间11月5日深夜至6日凌晨，随着内华达州等摇摆州计票结果显示特朗普明显领先，市场提前定价其胜选后大概率采取的更友好加密监管政策；11月6日凌晨1:25（美东）比特币刷新历史新高至75258美元，特朗普胜选正式宣布时（约5:30 AM ET）比特币报73806美元，24小时涨幅约7.5%（CoinDesk 20指数24小时涨幅超9%），虽未达10%阈值，但作为宏观政治事件驱动加密资产创新高的标志性案例予以收录。",
+  "precursors": [
+   {
+    "indicator": "Polymarket特朗普胜选赔率",
+    "signal": "选前一周Polymarket上'特朗普胜选'合约赔率持续走高（10月下旬一度被曝4个关联账户押注2500万美元推高该赔率），比特币价格与该赔率呈现同步上行的强相关性",
+    "lead_time": "约2周",
+    "source_url": "https://www.dlnews.com/articles/defi/4-crypto-whales-are-skewing-trump-polymarket-election-bet/"
+   },
+   {
+    "indicator": "Polymarket大选合约总投注额",
+    "signal": "选举日当天Polymarket大选市场累计投注额达32亿美元（特朗普合约13亿、哈里斯合约8.27亿），显示市场对该事件结果的关注度和资金准备已达历史级别",
+    "lead_time": "投票日当天",
+    "source_url": "https://fortune.com/2024/11/05/polymarket-bets-odds-election-day-trump-harris/"
+   },
+   {
+    "indicator": "'特朗普交易'跨资产联动",
+    "signal": "10月特朗普赔率上升期间，美元指数、美股及比特币同步走强，形成可观测的跨市场'Trump trade'联动信号",
+    "lead_time": "约2-3周",
+    "source_url": "https://www.nbcnews.com/business/business-news/price-bitcoin-hits-time-high-trump-victory-sinks-rcna179559"
+   }
+  ],
+  "aftermath": "比特币此后一路上涨，11月单月涨幅接近40%并逼近10万美元关口；特朗普就职后签署加密相关行政令，推动'国家比特币储备'等政策讨论进入主流视野。",
+  "refs": [
+   "https://www.cnbc.com/2024/11/05/bitcoin-crypto-market-election-night.html",
+   "https://cryptoslate.com/insights/bitcoin-hits-new-all-time-high-as-trumps-polymarket-odds-hit-97/",
+   "https://www.dlnews.com/articles/defi/4-crypto-whales-are-skewing-trump-polymarket-election-bet/"
+  ]
+ },
+ {
+  "id": "2021-0208-tesla-btc-purchase-pump",
+  "market": "crypto",
+  "date": "2021-02-08",
+  "asset": "BTC",
+  "move_pct": 20.33,
+  "title": "特斯拉15亿美元买入比特币：单日暴涨20%点燃机构入场叙事",
+  "cause": "2月8日特斯拉向SEC提交文件，披露已购入15亿美元比特币并计划未来接受比特币作为产品付款方式；作为标普500成分股、全球市值前列的科技公司首次大规模配置比特币，这一消息被市场解读为'机构采用'叙事的重大验证，比特币当日暴涨20.33%至46081.64美元，盘中一度触及47458美元的历史新高，成为2021年牛市中最具代表性的单日暴涨事件之一。",
+  "precursors": [
+   {
+    "indicator": "MicroStrategy机构购币先例",
+    "signal": "自2020年8月起MicroStrategy已多次大手笔购入比特币并计入企业资产负债表，为特斯拉此举提供了可参照的'企业购币'先例，市场对更多上市公司跟进已有一定预期",
+    "lead_time": "约6个月",
+    "source_url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=60085"
+   },
+   {
+    "indicator": "SEC文件披露",
+    "signal": "特斯拉在10-K年报文件中正式披露该笔投资，属于监管强制信息披露触发的一次性事件冲击，而非渐进式价格发现",
+    "lead_time": "披露当日",
+    "source_url": "https://www.coindesk.com/business/2021/02/08/tesla-invests-15b-in-bitcoin-plans-to-accept-crypto-payments"
+   }
+  ],
+  "aftermath": "特斯拉该笔投资在此后两个月一度浮盈超37%；但特斯拉于2021年5月以环保为由暂停接受比特币支付（成为519暴跌的导火索之一），并于2022年二季度清仓约75%的比特币持仓。",
+  "refs": [
+   "https://www.cnbc.com/2021/02/08/bitcoin-surges-above-43000-to-a-record-after-elon-musks-tesla-buys-1point5-billion.html",
+   "https://www.coindesk.com/business/2021/02/08/tesla-invests-15b-in-bitcoin-plans-to-accept-crypto-payments"
+  ]
+ },
+ {
+  "id": "2025-1010-tariff-record-liquidation",
+  "market": "crypto",
+  "date": "2025-10-10",
+  "asset": "全市场",
+  "move_pct": -14,
+  "title": "史上最大清算日：特朗普关税推文引爆190亿美元连环强平",
+  "cause": "美东时间10月10日下午3-4点，特朗普在社交媒体宣布对中国商品加征100%关税（11月1日生效）；消息发布后16:30左右市场开始加速下跌，比特币在暴跌最剧烈阶段从约12.2万美元跌至10.5万美元（约-14%），以太坊跌幅约16%，Solana盘中一度暴跌超40%，Toncoin一度腰斩80%至0.50美元，Worldcoin一度暴跌70%；由于事发前市场未平仓合约已处于历史高位，去杠杆呈现级联放大效应，全网约40分钟内蒸发192亿美元开仓量，24小时内约190亿美元杠杆头寸被强平（约160万交易员账户），强平规模约为此前单日纪录的9倍，也是新冠312崩盘强平规模的近20倍。",
+  "precursors": [
+   {
+    "indicator": "全市场未平仓合约(OI)规模",
+    "signal": "10月7日主要交易所名义OI已升至约2359亿美元（另有口径称崩盘时点OI约2170亿美元），处于历史最高区间附近，杠杆堆积已到极致",
+    "lead_time": "3天",
+    "source_url": "https://blog.amberdata.io/how-3.21b-vanished-in-60-seconds-october-2025-crypto-crash-explained-through-7-charts"
+   },
+   {
+    "indicator": "资金费率年化水平",
+    "signal": "受以太坊行情带动，资金费率从年化约10%快速攀升至10月6日的近30%，显示多头杠杆过度拥挤且付费意愿持续走高",
+    "lead_time": "4天",
+    "source_url": "https://insights4vc.substack.com/p/inside-the-19b-flash-crash"
+   },
+   {
+    "indicator": "山寨币/长尾资产杠杆占比",
+    "signal": "中小市值代币在整体杠杆持仓中的占比持续走高，是本次崩盘中Toncoin、Worldcoin等出现50-90%级别闪崩的结构性原因",
+    "lead_time": "崩盘前数日",
+    "source_url": "https://www.fticonsulting.com/insights/articles/crypto-crash-october-2025-leverage-met-liquidity"
+   }
+  ],
+  "aftermath": "此次强平规模刷新历史纪录，暴露出永续合约市场在极端行情下流动性和风控机制的结构性脆弱；事件后交易所和监管层围绕保证金机制、自动减仓(ADL)规则展开新一轮检讨。",
+  "refs": [
+   "https://www.coingecko.com/learn/october-10-crypto-crash-explained",
+   "https://insights4vc.substack.com/p/inside-the-19b-flash-crash",
+   "https://www.coindesk.com/research/market-spotlight-the-19-billion-liquidation-that-shook-crypto"
+  ]
+ }
+]

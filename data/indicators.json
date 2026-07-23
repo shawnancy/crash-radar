@@ -1,0 +1,401 @@
+[
+ {
+  "id": "vix_level",
+  "market": "us",
+  "name": "VIX恐慌指数（CBOE Volatility Index）",
+  "what": "标普500指数未来30天隐含波动率，市场对短期风险的定价",
+  "why": "VIX是最经典的暴跌前瞻/伴随指标。2020-03-16收盘82.69（史上最高收盘价之一），2018-02-05\"Volmageddon\"单日从17.31飙升至37.32（+116%）引发做空VIX产品清算并拖累股指，2008年10-11月多次冲到70-80。VIX急速拉升往往与股市单日暴跌同步或领先1-2天出现",
+  "warning_threshold": "VIX > 25（历史80分位以上，市场进入紧张区）",
+  "danger_threshold": "VIX > 35 或单日涨幅 > 40%（历史危机启动阈值，2018/2020/2008均在此区间触发连锁抛售）",
+  "check_url": "https://www.cboe.com/tradable_products/vix/",
+  "api": {
+   "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX",
+   "method": "GET (需带浏览器UA header，否则可能被拒)",
+   "parse": "response.chart.result[0].meta.regularMarketPrice",
+   "tested": true,
+   "sample_value": "16.18（2026-07-16实测）"
+  },
+  "refs": [
+   "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
+   "https://www.investopedia.com/terms/v/vix.asp"
+  ]
+ },
+ {
+  "id": "vix_term_structure",
+  "market": "us",
+  "name": "VIX期限结构倒挂（VIX/VIX3M）",
+  "what": "短期VIX与3个月期VIX（VIX3M）之比，衡量期限结构是否从正常contango转为backwardation",
+  "why": "正常市场VIX<VIX3M（比值<1，contango）；当短期恐慌骤升导致比值>1（倒挂/backwardation）时，历史上多次精确标记危机启动点：2015-08中国汇改闪崩、2018-02 Volmageddon、2020-02-24至03启动COVID崩盘当周比值均升破1.0-1.2，随后标普500在1-3周内下跌10%以上",
+  "warning_threshold": "VIX/VIX3M > 0.95（结构转平，contango收窄）",
+  "danger_threshold": "VIX/VIX3M > 1.0（倒挂，backwardation确认）",
+  "check_url": "https://www.cboe.com/us/indices/dashboard/vix3m/",
+  "api": {
+   "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX 与 https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX3M",
+   "method": "GET (需浏览器UA header)，两个请求分别取值后相除",
+   "parse": "VIX: chart.result[0].meta.regularMarketPrice；VIX3M同理；ratio = VIX / VIX3M",
+   "tested": true,
+   "sample_value": "16.18 / 18.91 = 0.855（2026-07-16实测，正常contango，未倒挂）"
+  },
+  "refs": [
+   "https://www.cboe.com/us/indices/dashboard/vix3m/",
+   "https://www.investopedia.com/terms/c/contango.asp"
+  ]
+ },
+ {
+  "id": "skew_index",
+  "market": "us",
+  "name": "SKEW尾部风险指数（CBOE SKEW）",
+  "what": "标普500深度虚值期权隐含的\"黑天鹅\"尾部风险定价，衡量分布左尾厚度",
+  "why": "SKEW>140通常被视为市场在为极端下跌尾部事件支付溢价；2017年底至2018年初SKEW多次创145-150+高位后即发生2018-02 Volmageddon，2020年初SKEW也在崩盘前维持高位。需注意该指标噪音较大，常需与VIX同时走高才具确认意义",
+  "warning_threshold": "SKEW > 145",
+  "danger_threshold": "SKEW > 150 且同期VIX同步走高（双确认）",
+  "check_url": "https://www.cboe.com/us/indices/dashboard/skew/",
+  "api": {
+   "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/%5ESKEW",
+   "method": "GET (需浏览器UA header)",
+   "parse": "response.chart.result[0].meta.regularMarketPrice",
+   "tested": true,
+   "sample_value": "148.51（2026-07-16实测，已处于警戒区）"
+  },
+  "refs": [
+   "https://www.cboe.com/us/indices/dashboard/skew/",
+   "https://www.investopedia.com/articles/optioninvestor/06/skewindex.asp"
+  ]
+ },
+ {
+  "id": "move_index",
+  "market": "us",
+  "name": "MOVE债券波动率指数（ICE BofA MOVE）",
+  "what": "美国国债期权隐含波动率，债市版VIX",
+  "why": "债市波动率往往领先股市——2023年3月硅谷银行危机期间MOVE飙升至198.66创历史纪录，随后引发区域银行股连环暴跌；2020年3月COVID冲击MOVE冲高至163；正常水平通常在60-90之间",
+  "warning_threshold": "MOVE > 120",
+  "danger_threshold": "MOVE > 160（历史银行/信用危机触发位）",
+  "check_url": "https://www.investing.com/indices/ice-bofaml-move",
+  "api": {
+   "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/%5EMOVE",
+   "method": "GET (需浏览器UA header)",
+   "parse": "response.chart.result[0].meta.regularMarketPrice",
+   "tested": true,
+   "sample_value": "68.478（2026-07-16实测，处于平静区间）"
+  },
+  "refs": [
+   "https://www.investing.com/indices/ice-bofaml-move",
+   "https://www.reuters.com/markets/us/wall-st-move-index-2023-03-13/"
+  ]
+ },
+ {
+  "id": "hy_oas",
+  "market": "us",
+  "name": "高收益债利差 HY OAS（ICE BofA US High Yield OAS）",
+  "what": "美国高收益（垃圾）债相对国债的期权调整利差，信用市场风险定价",
+  "why": "信用利差走阔往往领先股市下跌1-4周（\"credit leads equity\"）。2008年12月利差一度冲到21.82%（FRED历史最高），2020年3月COVID冲击利差从3.5%飙升至10.87%用时不到一个月，随后触发股市二次探底",
+  "warning_threshold": "HY OAS > 5.0%（较近期低点走阔100bp以上）",
+  "danger_threshold": "HY OAS > 8.0%（历史信用危机触发区）",
+  "check_url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+  "api": {
+   "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2",
+   "method": "GET，免key CSV",
+   "parse": "CSV最后一行第二列数值（%）",
+   "tested": true,
+   "sample_value": "2.72（2026-07-14，历史低位，信用市场平静）"
+  },
+  "refs": [
+   "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+   "https://www.stlouisfed.org/on-the-economy"
+  ]
+ },
+ {
+  "id": "yield_curve_10y2y",
+  "market": "us",
+  "name": "10年-2年期国债利差（10Y-2Y）",
+  "what": "长短端美债收益率之差，衡量收益率曲线形态",
+  "why": "纽约联储研究显示，1955年以来美国每一次经济衰退前都出现过10Y-2Y倒挂（负值），平均领先6-24个月；2019年8月倒挂后2020年发生衰退（COVID加速），2022年7月倒挂后2023-24年经济明显放缓。倒挂后的\"再陡峭化\"（从负转正）往往是衰退/股市下跌临近的更精确信号",
+  "warning_threshold": "10Y-2Y < 0（倒挂开始）",
+  "danger_threshold": "倒挂后快速转正再陡峭化（历史上衰退启动前兆）",
+  "check_url": "https://fred.stlouisfed.org/series/T10Y2Y",
+  "api": {
+   "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=T10Y2Y",
+   "method": "GET，免key CSV",
+   "parse": "CSV最后一行第二列数值（百分点）",
+   "tested": true,
+   "sample_value": "0.42（2026-07-15，曲线正常未倒挂）"
+  },
+  "refs": [
+   "https://www.newyorkfed.org/research/capital_markets/ycfaq",
+   "https://fred.stlouisfed.org/series/T10Y2Y"
+  ]
+ },
+ {
+  "id": "put_call_ratio",
+  "market": "us",
+  "name": "CBOE看跌/看涨期权比率 Put/Call Ratio",
+  "what": "全市场看跌期权成交量与看涨期权成交量之比，衡量期权市场情绪",
+  "why": "极低比率（<0.5-0.6）常伴随市场过度乐观、追高情绪泛滥，是短期见顶的反向信号，如2018年1月见顶前equity put/call多日低于0.5；极高比率（>1.0-1.2）常出现在恐慌抛售后期，标记短期底部",
+  "warning_threshold": "Total Put/Call < 0.6（过度乐观）或 > 1.0（恐慌加剧）",
+  "danger_threshold": "Equity Put/Call 单日 > 1.2（剧烈恐慌）或连续多日 < 0.5（危险的过度自满）",
+  "check_url": "https://www.cboe.com/us/options/market_statistics/daily/",
+  "api": {
+   "endpoint": "https://www.cboe.com/us/options/market_statistics/daily/",
+   "method": "GET 网页抓取（CBOE原始CSV接口 cdn.cboe.com 对程序化请求返回403 AccessDenied，需解析页面HTML表格，非纯JSON）",
+   "parse": "页面表格中 \"TOTAL PUT/CALL RATIO\" 与 \"EQUITY PUT/CALL RATIO\" 两个数值",
+   "tested": true,
+   "sample_value": "Total 0.93 / Equity 0.69（2026-07-16实测，经页面抓取取得，非结构化API）"
+  },
+  "refs": [
+   "https://www.cboe.com/us/options/market_statistics/daily/",
+   "https://www.investopedia.com/terms/p/putcallratio.asp"
+  ]
+ },
+ {
+  "id": "market_breadth",
+  "market": "us",
+  "name": "市场宽度（NYSE新高-新低 / 涨跌线背离）",
+  "what": "创52周新高个股数减创新低个股数，及腾落线（advance-decline line）是否与指数背离",
+  "why": "2007年10月标普见顶前，广度指标（新高数、腾落线）已提前数周走弱，形成经典的\"价格新高、广度不新高\"顶部背离；Hindenburg Omen等信号即基于新高新低同时放大构建。广度持续恶化往往领先指数顶部2-8周",
+  "warning_threshold": "新低个股数持续超过新高个股数达5个交易日以上，同时指数仍创新高（背离）",
+  "danger_threshold": "腾落线自高点回落超10%而指数仍处高位不远处（深度顶部背离）",
+  "check_url": "https://www.barchart.com/stocks/highs-lows",
+  "api": {
+   "endpoint": "（未找到免费可程序化调用的实时API）",
+   "method": "GET",
+   "parse": "无法实测——CBOE/CNBC/Nasdaq/Stooq相关接口均需鉴权或返回403/验证码拦截；只能人工查看网页",
+   "tested": false,
+   "sample_value": "未取得（诚实标注：无免费API，仅可网页人工查看）"
+  },
+  "refs": [
+   "https://www.investopedia.com/terms/a/advancedeclineline.asp",
+   "https://www.barchart.com/stocks/highs-lows"
+  ]
+ },
+ {
+  "id": "margin_debt",
+  "market": "us",
+  "name": "FINRA融资保证金债务 Margin Debt",
+  "what": "美国券商客户融资账户负债余额（月度数据），衡量市场杠杆水平",
+  "why": "融资余额屡创新高常与市场顶部重合（2000年3月互联网泡沫顶、2007年7月次贷危机前、2021年10月创$935B历史新高后美股开始转熊）；融资余额从高位急速回落（去杠杆）往往伴随股灾并互为因果加速下跌",
+  "warning_threshold": "环比下降超过5%（去杠杆信号）",
+  "danger_threshold": "环比下降超过10%，或余额自历史高点回落超过15%（历史危机模式）",
+  "check_url": "https://www.finra.org/rules-guidance/key-topics/margin-accounts/margin-statistics",
+  "api": {
+   "endpoint": "https://www.finra.org/sites/default/files/2021-03/margin-statistics.xlsx",
+   "method": "GET，免key直接下载xlsx（文件名含日期字符串但文件内容持续更新，非固定快照）",
+   "parse": "解析xlsx第一个worksheet，首行数据为最新月份：列2=Debit Balances（融资余额，单位百万美元）",
+   "tested": true,
+   "sample_value": "2026年5月：1,415,557 百万美元（数据有约6周发布滞后，为月度而非实时指标）"
+  },
+  "refs": [
+   "https://www.finra.org/rules-guidance/key-topics/margin-accounts/margin-statistics",
+   "https://www.advisorperspectives.com/dshort/updates"
+  ]
+ },
+ {
+  "id": "fear_greed_us",
+  "market": "us",
+  "name": "CNN恐惧与贪婪指数 Fear & Greed Index",
+  "what": "综合7项市场指标（动量、强度、广度、Put/Call、垃圾债需求、波动率、避险需求）合成的0-100情绪分数",
+  "why": "指数跌至个位数/极端恐惧区（<20）多次与市场阶段性底部重合（2022年多次熊市反弹起点、2018年12月低点），指数冲到90+极端贪婪区常预示短期见顶回调风险（如2018年1月见顶前及2021年11月见顶前均处极端贪婪）",
+  "warning_threshold": "< 25（极度恐惧）或 > 75（极度贪婪）",
+  "danger_threshold": "< 10 且伴随实际连续下跌（真实恐慌而非情绪超调）或 > 90（历史见顶区）",
+  "check_url": "https://www.cnn.com/markets/fear-and-greed",
+  "api": {
+   "endpoint": "https://production.dataviz.cnn.io/index/fearandgreed/graphdata",
+   "method": "GET，需带 Referer: https://www.cnn.com/markets/fear-and-greed 及浏览器UA，否则返回418",
+   "parse": "response.fear_and_greed.score 与 .rating",
+   "tested": true,
+   "sample_value": "46.89，rating=neutral（2026-07-16实测）"
+  },
+  "refs": [
+   "https://www.cnn.com/markets/fear-and-greed",
+   "https://money.cnn.com/data/fear-and-greed/"
+  ]
+ },
+ {
+  "id": "funding_rate_btc",
+  "market": "crypto",
+  "name": "BTC永续合约资金费率 Funding Rate",
+  "what": "永续合约多空双方每8小时结算一次的资金费率，正值表示多头付费给空头（多头拥挤）",
+  "why": "资金费率持续极端为正（年化50%+）常标记杠杆多头过度拥挤，2021-05-19暴跌前主流所BTC资金费率多日维持在0.1-0.3%/8h高位（年化超100%），随后单日发生约86亿美元清算；资金费率转深度负值则常见于恐慌性砸盘后的空头拥挤",
+  "warning_threshold": "年化资金费率 > 50%（单期费率约0.05-0.06%/8h以上）",
+  "danger_threshold": "年化资金费率 > 100%（单期费率约0.1%/8h以上）或深度负值 < -30%年化",
+  "check_url": "https://www.coinglass.com/FundingRate",
+  "api": {
+   "endpoint": "https://www.okx.com/api/v5/public/funding-rate?instId=BTC-USDT-SWAP",
+   "method": "GET，公开接口免key",
+   "parse": "response.data[0].fundingRate（单期费率，年化≈该值×3×365）",
+   "tested": true,
+   "sample_value": "0.0000374281947186（单期），年化≈4.10%（2026-07-16实测，正常偏低水平）"
+  },
+  "refs": [
+   "https://www.coinglass.com/FundingRate",
+   "https://academy.binance.com/en/articles/what-is-funding-rate-in-crypto"
+  ]
+ },
+ {
+  "id": "oi_mcap_ratio",
+  "market": "crypto",
+  "name": "未平仓合约 OI 及 OI/市值比",
+  "what": "衍生品未平仓合约名义价值，及其占标的币种总市值的比例，衡量杠杆堆积程度",
+  "why": "OI在价格横盘或上涨过程中快速攀升而现货成交乏力，是\"杠杆堆积、脆弱性上升\"的经典前兆，2021年5月及2022年6月的两次大清算前OI/mcap比值均处于阶段性高位；OI骤降则往往伴随强制去杠杆（清算）已经发生",
+  "warning_threshold": "OI 3日内上涨 > 20% 而现货价格涨幅 < 5%（杠杆背离价格）",
+  "danger_threshold": "OI 单日上涨 > 15%（快速堆积，清算风险陡增）",
+  "check_url": "https://www.coinglass.com/BitcoinOpenInterest",
+  "api": {
+   "endpoint": "https://www.okx.com/api/v5/public/open-interest?instType=SWAP&instId=BTC-USDT-SWAP 配合 https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true",
+   "method": "GET，两接口均免key",
+   "parse": "OKX: data[0].oiUsd；CoinGecko: bitcoin.usd_market_cap；ratio = oiUsd / usd_market_cap（注：此为OKX单一交易所BTC合约OI，非全网聚合，全网聚合需付费Coinglass API，此处为可行免费代理指标）",
+   "tested": true,
+   "sample_value": "OKX BTC-USDT-SWAP OI≈19.7亿美元，BTC-USD-SWAP OI≈4.67亿美元，合计≈24.4亿美元；BTC总市值≈1.285万亿美元；OKX占比≈0.19%（2026-07-16实测，仅OKX口径）"
+  },
+  "refs": [
+   "https://www.coinglass.com/BitcoinOpenInterest",
+   "https://insights.glassnode.com/futures-open-interest/"
+  ]
+ },
+ {
+  "id": "liquidation_volume",
+  "market": "crypto",
+  "name": "全网爆仓量 Liquidation Volume",
+  "what": "24小时内因保证金不足被强制平仓的合约名义价值",
+  "why": "大规模爆仓是杠杆连环去化的直接体现，2021-05-19单日全网爆仓约86亿美元（当时纪录），2020-03-12\"黑色星期四\"BitMEX一家爆仓超10亿美元并触发比特币单日腰斩；连续两位数亿美元级爆仓常标记短期极端底/顶",
+  "warning_threshold": "24小时全网爆仓 > 5亿美元",
+  "danger_threshold": "24小时全网爆仓 > 10亿美元",
+  "check_url": "https://www.coinglass.com/LiquidationData",
+  "api": {
+   "endpoint": "https://www.okx.com/api/v5/public/liquidation-orders?instType=SWAP&uly=BTC-USDT&state=filled",
+   "method": "GET，公开接口免key（仅返回OKX单一交易所BTC-USDT永续的逐笔强平记录，非全网聚合金额；全网聚合金额需Coinglass付费API，此处仅可作为实时代理信号，聚合口径请人工查看check_url）",
+   "parse": "response.data[0].details 数组，每条含 bkPx（强平价）、sz（数量）、posSide、ts；需自行按时间窗口求和",
+   "tested": true,
+   "sample_value": "实测取得OKX近期强平明细记录（如bkPx=64116.1, sz=10张等），未做全网金额汇总"
+  },
+  "refs": [
+   "https://www.coinglass.com/LiquidationData",
+   "https://www.theblock.co/data/crypto-markets/futures/bitcoin-liquidations"
+  ]
+ },
+ {
+  "id": "futures_basis_annualized",
+  "market": "crypto",
+  "name": "期现年化基差 Futures Basis (Annualized)",
+  "what": "季度交割合约价格相对现货指数的溢价，折算为年化收益率",
+  "why": "基差长期是市场杠杆多头情绪与套利资金成本的量化体现，2021年4-5月牛市顶部前基差一度年化超30%（\"cash and carry\"套利极度拥挤），随后崩盘基差转负；基差转负或接近零常出现在恐慌性抛售/资金撤离阶段",
+  "warning_threshold": "年化基差 > 15%（情绪过热）或 < 0%（转为贴水，恐慌信号）",
+  "danger_threshold": "年化基差 > 30%（历史顶部区）或深度负基差（<-10%，剧烈恐慌）",
+  "check_url": "https://www.coinglass.com/BasisChart",
+  "api": {
+   "endpoint": "https://www.okx.com/api/v5/market/ticker?instId=BTC-USD-260925 配合 https://www.okx.com/api/v5/market/index-tickers?instId=BTC-USD",
+   "method": "GET，均免key；basis=(季度合约价-现货指数价)/现货指数价，再按剩余天数年化",
+   "parse": "季度合约: data[0].last；现货指数: data[0].idxPx；到期时间可从 /api/v5/public/instruments?instType=FUTURES&instFamily=BTC-USD 中取 expTime 计算剩余天数",
+   "tested": true,
+   "sample_value": "2026-09-25合约64574.2 vs 现货指数64114.2，基差0.72%，剩余约70.8天，年化≈3.70%（2026-07-16实测，处于中性偏温和区间）"
+  },
+  "refs": [
+   "https://www.coinglass.com/BasisChart",
+   "https://insights.glassnode.com/the-most-important-price-model-in-bitcoin/"
+  ]
+ },
+ {
+  "id": "stablecoin_mcap",
+  "market": "crypto",
+  "name": "稳定币总市值变化",
+  "what": "USDT/USDC等主要稳定币合计市值，代表场内待部署\"干火药\"及系统性风险敞口",
+  "why": "稳定币市值单日/多日骤降往往对应系统性脱锚风险事件：2022年5月Terra/UST崩溃数日内约180亿美元UST市值蒸发（并连带引发全市场恐慌下跌）；2023年3月硅谷银行危机期间USDC一度脱锚至0.87美元，相关市值单日缩水约30亿美元。持续多日净流出也反映场外资金撤离加密生态",
+  "warning_threshold": "总市值单日下降 > 1%",
+  "danger_threshold": "总市值单日下降 > 3%，或头部稳定币价格偏离1美元超过1%（脱锚预警）",
+  "check_url": "https://www.coingecko.com/en/categories/stablecoins",
+  "api": {
+   "endpoint": "https://api.coingecko.com/api/v3/coins/categories",
+   "method": "GET，免key",
+   "parse": "在返回数组中找 id=='stablecoins' 的元素，取其 market_cap 字段",
+   "tested": true,
+   "sample_value": "303,554,793,061.8 美元（≈3035.5亿美元，2026-07-16实测）"
+  },
+  "refs": [
+   "https://www.coingecko.com/en/categories/stablecoins",
+   "https://www.theblock.co/data/decentralized-finance/stablecoins"
+  ]
+ },
+ {
+  "id": "exchange_netflow",
+  "market": "crypto",
+  "name": "交易所BTC净流入 Exchange Net Inflow",
+  "what": "比特币从场外钱包净流入中心化交易所的数量，衡量潜在抛压/囤积意愿",
+  "why": "大额净流入交易所通常先于抛售（持币者准备卖出转入交易所），2022年11月FTX崩溃前后及历次大跌前均观测到交易所BTC余额/净流入的异常放大（CryptoQuant/Glassnode数据）；持续净流出则常与囤币、看涨情绪对应",
+  "warning_threshold": "单日净流入 > 1万枚BTC",
+  "danger_threshold": "单日净流入 > 2.5万枚BTC 或连续3日净流入放大（历史抛售前奏模式）",
+  "check_url": "https://cryptoquant.com/asset/btc/chart/exchange-flows",
+  "api": {
+   "endpoint": "（未找到免费可程序化调用的实时API）",
+   "method": "GET",
+   "parse": "无法实测——该指标核心数据源CryptoQuant、Glassnode均为付费API（免费层不含交易所流量明细），公开页面也需登录/订阅查看完整数值，仅摘要图表可视",
+   "tested": false,
+   "sample_value": "未取得（诚实标注：无免费实时API，需CryptoQuant/Glassnode付费订阅或人工查看公开图表趋势）"
+  },
+  "refs": [
+   "https://cryptoquant.com/asset/btc/chart/exchange-flows",
+   "https://insights.glassnode.com/bitcoin-exchange-flows/"
+  ]
+ },
+ {
+  "id": "coinbase_premium",
+  "market": "crypto",
+  "name": "Coinbase溢价指数 Coinbase Premium",
+  "what": "Coinbase（代表美国机构/合规资金）BTC价格相对Binance/OKX等离岸交易所价格的溢价率",
+  "why": "溢价转为持续深度负值常反映美国资金主导抛售/避险撤离，2022年11月FTX崩溃期间Coinbase溢价罕见转为深度负值并持续多日；溢价走高则常先于美股时段的上涨行情（\"美国资金买盘领先\"）",
+  "warning_threshold": "溢价 < -0.1% 且持续超过6小时",
+  "danger_threshold": "溢价 < -0.3%（历史危机期水平，如FTX崩溃期间）",
+  "check_url": "https://www.coinglass.com/pro/i/coinbase-premium-index",
+  "api": {
+   "endpoint": "https://api.exchange.coinbase.com/products/BTC-USD/ticker 配合 https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT",
+   "method": "GET，均免key；premium=(Coinbase price - OKX price)/OKX price ×100%",
+   "parse": "Coinbase: response.price；OKX: data[0].last",
+   "tested": true,
+   "sample_value": "Coinbase 64,085.1 vs OKX 64,140.0，溢价≈-0.086%（2026-07-16实测，正常小幅波动区间）"
+  },
+  "refs": [
+   "https://www.coinglass.com/pro/i/coinbase-premium-index",
+   "https://cryptoquant.com/asset/btc/chart/market-indicator/coinbase-premium-index"
+  ]
+ },
+ {
+  "id": "fear_greed_crypto",
+  "market": "crypto",
+  "name": "加密恐惧与贪婪指数 Crypto Fear & Greed Index",
+  "what": "综合波动率、交易量、社交媒体、比特币主导率、Google搜索趋势合成的0-100加密市场情绪分数",
+  "why": "指数跌至个位数\"极度恐惧\"多次与阶段性底部重合，2022年11月FTX崩溃期间该指数一度跌至10附近；指数冲上90+\"极度贪婪\"常出现在牛市顶部区域，如2021年11月比特币历史高点前后指数长期处于85-95",
+  "warning_threshold": "< 20（极度恐惧）或 > 80（极度贪婪）",
+  "danger_threshold": "< 10（历史级恐慌，如FTX崩溃期）或 > 90（历史级见顶区，如2021年11月顶部）",
+  "check_url": "https://alternative.me/crypto/fear-and-greed-index/",
+  "api": {
+   "endpoint": "https://api.alternative.me/fng/?limit=1",
+   "method": "GET，免key",
+   "parse": "response.data[0].value 及 .value_classification",
+   "tested": true,
+   "sample_value": "25，Extreme Fear（2026-07-16实测，处于极度恐惧警戒区）"
+  },
+  "refs": [
+   "https://alternative.me/crypto/fear-and-greed-index/",
+   "https://www.coindesk.com/markets/crypto-fear-greed-index"
+  ]
+ },
+ {
+  "id": "leverage_ratio",
+  "market": "crypto",
+  "name": "预估杠杆率 Estimated Leverage Ratio (ELR)",
+  "what": "衍生品未平仓合约名义价值与交易所BTC/ETH储备的比值，衡量相对交易所持仓的系统杠杆水平",
+  "why": "Glassnode定义的该指标持续上升同时价格滞涨，历史上多次预警清算级去杠杆事件（如2021年5月、2022年6月），是判断\"市场是否被杠杆吹起来\"的核心工具；该指标本身为付费Glassnode Studio Pro指标，无公开免费API",
+  "warning_threshold": "ELR 突破近6个月高点",
+  "danger_threshold": "ELR 处于历史高位（>0.25，Glassnode历史危机前普遍水平）且资金费率同步转正走高（双确认）",
+  "check_url": "https://studio.glassnode.com/metrics?a=BTC&m=derivatives.FuturesEstimatedLeverageRatio",
+  "api": {
+   "endpoint": "（未找到免费可程序化调用的实时API）",
+   "method": "GET",
+   "parse": "无法实测——该指标为Glassnode Studio付费专属指标（Advanced/Professional订阅），CryptoQuant同类指标同样需付费，免费层不提供该数据",
+   "tested": false,
+   "sample_value": "未取得（诚实标注：无免费API，需Glassnode/CryptoQuant付费订阅或人工查看付费图表）"
+  },
+  "refs": [
+   "https://studio.glassnode.com/metrics?a=BTC&m=derivatives.FuturesEstimatedLeverageRatio",
+   "https://insights.glassnode.com/estimated-leverage-ratio/"
+  ]
+ }
+]

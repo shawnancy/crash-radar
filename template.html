@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>极端波动研究 · 历史暴涨暴跌事件档案与前瞻指标</title>
+<meta name="description" content="美股与加密市场历史单日±10%极端波动事件全档案：因果链、事前预警指标、数据源与实时监测。">
+<style>
+:root{
+  --paper:#fff9f2;
+  --surface:#fffdf8;
+  --ink:#1a1613;
+  --ink-2:#5c554c;
+  --ink-3:#8a8378;
+  --hairline:#e5dbc9;
+  --hairline-2:#d8cbb4;
+  --claret:#990f3d;
+  --blue:#0f5499;
+  --ochre:#b45309;
+  --up:#0a6640;
+  --down:#a12232;
+  --warn-bg:#fdf3e0;
+  --danger-bg:#fae8ea;
+  --serif:"Songti SC","Noto Serif SC","STSong",Georgia,"Times New Roman",serif;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,sans-serif;
+  --mono:"SF Mono","IBM Plex Mono",Menlo,Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--claret);color:#fff}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+a{color:var(--blue);text-decoration:none;border-bottom:1px solid rgba(15,84,153,.3)}
+a:hover{color:var(--claret);border-bottom-color:var(--claret)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ---------- masthead ---------- */
+.topline{border-bottom:3px double var(--hairline-2)}
+.topline .wrap{display:flex;justify-content:space-between;align-items:baseline;padding-top:10px;padding-bottom:8px;font-size:12px;color:var(--ink-3);letter-spacing:.08em}
+.masthead{padding:20px 0 16px;border-bottom:1px solid var(--hairline)}
+.masthead .wrap{display:flex;align-items:baseline;gap:22px;flex-wrap:wrap}
+.masthead h1{
+  font-family:var(--serif);
+  font-weight:900;
+  font-size:clamp(1.35rem,1.1rem + 1.2vw,1.8rem);
+  line-height:1.3;
+  white-space:nowrap;
+}
+.masthead h1 em{font-style:normal;color:var(--claret)}
+.masthead .standfirst{font-size:13px;color:var(--ink-2);line-height:1.7;margin:0}
+
+/* ---------- stat band ---------- */
+.statband{border-bottom:1px solid var(--hairline);background:var(--surface)}
+.statband .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{padding:10px 16px;border-left:1px solid var(--hairline);display:flex;align-items:baseline;gap:8px}
+.stat:first-child{border-left:none;padding-left:0}
+.stat .v{font-family:var(--mono);font-size:19px;font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:12px;font-weight:400;color:var(--ink-3)}
+.stat .k{font-size:11.5px;color:var(--ink-3);letter-spacing:.04em}
+
+/* ---------- tabs ---------- */
+.tabs{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:2px solid var(--ink)}
+.tabs .wrap{display:flex;overflow-x:auto}
+.tabs button{appearance:none;border:none;background:none;font-family:var(--serif);font-size:15px;font-weight:700;padding:11px 20px;cursor:pointer;color:var(--ink-3);white-space:nowrap}
+.tabs button:hover{color:var(--ink)}
+.tabs button.on{color:var(--claret);box-shadow:inset 0 -3px var(--claret)}
+section.pane{display:none}
+section.pane.on{display:block}
+
+/* ---------- now (当前信号对照) ---------- */
+.nowgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1px;background:var(--hairline);border:1px solid var(--hairline);margin:18px 0}
+.nowcard{background:var(--surface);padding:18px 20px 14px}
+.nowcard.alert{background:#fdf6f0;border-left:3px solid #c98500}
+.nowcard.alert.danger{background:var(--danger-bg);border-left-color:var(--down)}
+.nowcard .nc-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.nowcard h4{font-family:var(--serif);font-size:15.5px;font-weight:900}
+.nowcard .nc-v{font-family:var(--mono);font-size:24px;font-weight:800;margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.nowcard .nc-th{font-size:12px;color:var(--ink-2);line-height:1.7}
+.nowcard .nc-th .num{color:var(--ink)}
+.nowcard .hist{font-size:12px;color:var(--ink-3);border-top:1px dashed var(--hairline-2);margin-top:8px;padding-top:6px;line-height:1.9}
+.nowcard .hist a{font-family:var(--mono);font-size:11.5px;margin-right:8px;border-bottom:none}
+.nowcard .hist a:hover{border-bottom:1px solid var(--claret)}
+.nowcard .goto{font-size:12px;margin-top:6px}
+.combo{border:1px solid var(--hairline-2);background:var(--warn-bg);padding:12px 16px;font-size:13.5px;line-height:1.9;margin:0 0 18px}
+.combo a{font-family:var(--mono)}
+table.oktbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+table.oktbl td{border-bottom:1px solid var(--hairline);padding:6px 12px 6px 0}
+table.oktbl td.v{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+table.oktbl td:last-child{width:90px}
+.now-sub{font-family:var(--serif);font-size:15px;font-weight:900;margin:22px 0 4px}
+
+/* ---------- section chrome ---------- */
+section{padding:26px 0 16px}
+.sechead{display:flex;align-items:baseline;gap:16px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:8px}
+.sechead .no{font-family:var(--mono);font-size:13px;color:var(--claret);font-weight:700}
+.sechead h2{font-family:var(--serif);font-size:clamp(1.4rem,1.1rem + 1.2vw,1.9rem);font-weight:900}
+.sechead .sub{margin-left:auto;font-size:13px;color:var(--ink-3)}
+.secintro{font-size:14.5px;color:var(--ink-2);max-width:720px;margin:14px 0 26px}
+
+/* ---------- chart ---------- */
+.chartbox{background:var(--surface);border:1px solid var(--hairline);padding:22px 18px 10px;margin-top:22px}
+.chartbox .cap{display:flex;flex-wrap:wrap;gap:18px;align-items:center;font-size:13px;color:var(--ink-2);padding:0 6px 8px}
+.cap .lg{display:inline-flex;align-items:center;gap:7px}
+.cap .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+#chart{width:100%;display:block}
+#chart text{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+#chart .evdot{cursor:pointer;stroke:var(--surface);stroke-width:2}
+#chart .evdot:hover{stroke:var(--ink);stroke-width:2}
+.tip{
+  position:fixed;pointer-events:none;z-index:50;display:none;
+  background:var(--ink);color:#fdf8ef;font-size:12.5px;line-height:1.55;
+  padding:9px 12px;max-width:260px;border-radius:2px;
+}
+.tip .t-date{font-family:var(--mono);color:#cbb;font-size:11px}
+.tip .t-move{font-family:var(--mono);font-weight:700}
+
+/* ---------- filters ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:0;margin:30px 0 6px;border:1px solid var(--hairline-2);width:fit-content}
+.filters button{
+  appearance:none;border:none;background:transparent;cursor:pointer;
+  font-family:var(--sans);font-size:13.5px;color:var(--ink-2);
+  padding:8px 18px;border-left:1px solid var(--hairline-2);
+}
+.filters button:first-child{border-left:none}
+.filters button.on{background:var(--ink);color:var(--paper)}
+
+/* ---------- event data table ---------- */
+table.evt{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:14px}
+table.evt thead th{
+  text-align:left;font-size:11px;letter-spacing:.1em;color:var(--ink-3);font-weight:600;
+  border-top:2px solid var(--ink);border-bottom:1px solid var(--hairline-2);
+  padding:7px 12px 7px 0;white-space:nowrap;user-select:none
+}
+table.evt thead th.sortable{cursor:pointer}
+table.evt thead th.sortable:hover{color:var(--ink)}
+table.evt thead th .arr{color:var(--claret)}
+table.evt td{border-bottom:1px solid var(--hairline);padding:8px 12px 8px 0;vertical-align:baseline;line-height:1.55}
+table.evt tr.row{cursor:pointer}
+table.evt tr.row:hover td{background:rgba(153,15,61,.035)}
+table.evt tr.row.open td{background:rgba(153,15,61,.05);border-bottom:none}
+td.c-date{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap}
+td.c-move{font-family:var(--mono);font-size:15px;font-weight:800;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.c-move.dn{color:var(--down)} td.c-move.up{color:var(--up)}
+td.c-asset{font-weight:600;white-space:nowrap;max-width:130px;overflow:hidden;text-overflow:ellipsis}
+td.c-mk{white-space:nowrap}
+td.c-mk .mk{font-size:10px;letter-spacing:.08em;padding:1px 6px;border:1px solid currentColor}
+.mk.c-idx{color:var(--blue)} .mk.c-stk{color:var(--ochre)} .mk.c-cry{color:var(--claret)}
+td.c-title{color:var(--ink-2)}
+td.c-sig{max-width:300px}
+.sigchips{display:flex;flex-wrap:wrap;gap:3px}
+.chip{font-size:10.5px;line-height:1.6;border:1px solid var(--hairline-2);background:var(--surface);padding:0 6px;color:var(--ink-2);white-space:nowrap}
+.kbox{margin:0 0 16px;border:1px solid var(--hairline);background:var(--paper);padding:10px 12px 4px}
+.kbox .kcap{display:flex;flex-wrap:wrap;gap:14px;font-size:11.5px;color:var(--ink-3);padding:0 2px 4px}
+.kbox .kcap b{color:var(--ink)}
+.kbox svg{width:100%;display:block}
+.kbox svg text{font-family:var(--mono);font-size:10px;fill:var(--ink-3)}
+.histcases{font-size:12px;color:var(--ink-3);line-height:1.8;border-top:1px dashed var(--hairline-2);padding-top:6px}
+.histcases a{font-family:var(--mono);font-size:11.5px;margin-right:8px;border-bottom:none}
+.histcases a:hover{border-bottom:1px solid var(--claret)}
+tr.detail td{background:var(--surface);border-bottom:2px solid var(--hairline-2);padding:16px 18px 18px}
+.ev h3{font-family:var(--serif);font-size:16.5px;font-weight:900;line-height:1.5;margin-bottom:8px}
+.ev .cause{font-size:13.5px;color:var(--ink-2);margin-bottom:14px;max-width:860px}
+.ev .pre-h{font-size:11.5px;letter-spacing:.18em;color:var(--claret);font-weight:700;margin-bottom:4px}
+table.pre{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:14px}
+table.pre th{
+  text-align:left;font-size:11.5px;letter-spacing:.08em;color:var(--ink-3);font-weight:500;
+  border-bottom:1px solid var(--hairline-2);padding:4px 14px 6px 0;white-space:nowrap
+}
+table.pre td{border-bottom:1px solid var(--hairline);padding:9px 14px 9px 0;vertical-align:top;line-height:1.6}
+table.pre td.ind{font-weight:600;white-space:nowrap}
+table.pre td.lead{font-family:var(--mono);font-size:12.5px;white-space:nowrap;color:var(--ink-2)}
+table.pre a{font-size:12.5px}
+.ev .after{font-size:13.5px;color:var(--ink-2)}
+.ev .after b{color:var(--ink)}
+.ev .refs{margin-top:10px;font-size:12.5px;color:var(--ink-3)}
+.ev .refs a{margin-right:14px}
+
+/* ---------- indicator dashboard ---------- */
+.dash{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1px;background:var(--hairline);border:1px solid var(--hairline);margin-top:26px}
+.card{background:var(--surface);padding:22px 22px 18px;display:flex;flex-direction:column;gap:8px}
+.card .hd{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.card h4{font-family:var(--serif);font-size:16.5px;font-weight:900;line-height:1.4}
+.card .mtag{font-size:10.5px;letter-spacing:.1em;color:var(--ink-3);border:1px solid var(--hairline-2);padding:1px 7px;white-space:nowrap;margin-top:3px}
+.card .what{font-size:13px;color:var(--ink-2);line-height:1.65}
+.card .live{
+  display:flex;align-items:baseline;gap:10px;margin:6px 0 2px;
+  font-family:var(--mono);font-variant-numeric:tabular-nums
+}
+.card .live .lv{font-size:26px;font-weight:800}
+.card .live .lt{font-size:11px;color:var(--ink-3)}
+.card .lamp{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:2px 10px;border-radius:2px}
+.lamp.ok{background:#eaf3ec;color:var(--up)}
+.lamp.warn{background:var(--warn-bg);color:#8a5a00}
+.lamp.danger{background:var(--danger-bg);color:var(--down)}
+.lamp.na{background:#f1ece3;color:var(--ink-3);font-weight:400}
+.card .ths{font-size:12.5px;line-height:1.7;color:var(--ink-2);border-top:1px dashed var(--hairline-2);padding-top:8px}
+.card .ths .num{color:var(--ink)}
+.card .why{font-size:12.5px;color:var(--ink-3);line-height:1.65}
+.card .src{margin-top:auto;padding-top:8px;font-size:12.5px}
+
+/* ---------- indicator drill-down (该指标历史事件 + 事发后半年K线) ---------- */
+.ind-more{appearance:none;border:1px solid var(--hairline-2);background:var(--paper);cursor:pointer;
+  font-family:var(--sans);font-size:12.5px;color:var(--ink-2);padding:6px 10px;margin-top:6px;
+  width:100%;text-align:left;line-height:1.5;border-radius:2px}
+.ind-more:hover{border-color:var(--claret);color:var(--claret)}
+.ind-more b{color:var(--claret)}
+.ind-events{margin-top:8px;display:flex;flex-direction:column;gap:10px}
+.iev{border:1px solid var(--hairline);background:var(--paper);padding:9px 11px 5px}
+.iev.hot{border-color:var(--claret);border-left-width:3px;background:#fdf6f0}
+.iev .iev-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;font-size:12.5px}
+.iev .iev-h .dt{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.iev .iev-h .nm{font-weight:700}
+.iev .iev-h .mv{font-family:var(--mono);font-weight:800;font-variant-numeric:tabular-nums}
+.iev .iev-h .mv.dn{color:var(--down)} .iev .iev-h .mv.up{color:var(--up)}
+.iev .iev-h .hotbadge{font-size:10px;color:var(--claret);border:1px solid var(--claret);padding:0 5px;letter-spacing:.03em}
+.iev .iev-h .jump{margin-left:auto;font-size:11.5px}
+.iev .k6cap{font-size:11px;color:var(--ink-3);padding:4px 2px 2px;display:flex;flex-wrap:wrap;gap:12px}
+.iev .k6cap b{color:var(--ink)}
+.iev svg{width:100%;display:block}
+.iev svg text{font-family:var(--mono);font-size:10px;fill:var(--ink-3)}
+
+/* ---------- 可参考事件 + 模拟操作 ---------- */
+.refwrap{border:1px solid var(--hairline-2);background:var(--surface);margin:6px 0 20px}
+.refwrap .rw-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:12px 16px 8px;border-bottom:1px solid var(--hairline)}
+.refwrap .rw-h h4{font-family:var(--serif);font-size:15.5px;font-weight:900}
+.refwrap .rw-h .score{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);margin-left:auto}
+.refwrap .rw-h .score b{font-size:17px;color:var(--claret)}
+.refwrap .rw-note{font-size:12px;color:var(--ink-3);padding:6px 16px 2px;line-height:1.6}
+.refgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--hairline);border-top:1px solid var(--hairline);margin-top:8px}
+.refcard{background:var(--surface);padding:12px 14px 8px}
+.refcard .rc-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.refcard .rc-h .nm{font-family:var(--serif);font-weight:900;font-size:14px}
+.refcard .rc-h .dt{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.refcard .rc-h .rs{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--claret);border:1px solid var(--claret);padding:0 6px;white-space:nowrap}
+.refcard .rc-cats{font-size:11.5px;color:var(--ink-2);margin:5px 0 2px;line-height:1.6}
+.refcard .rc-cats .cat{display:inline-block;border:1px solid var(--hairline-2);padding:0 5px;margin:0 3px 3px 0;font-size:10.5px}
+.refcard .rc-cats .cat.on{border-color:var(--claret);color:var(--claret);background:#fdf6f0}
+.refcard .rc-stat{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);padding:2px 0}
+.refcard .rc-stat b{color:var(--down)}
+.refcard svg{width:100%;display:block}
+.refcard svg text{font-family:var(--mono);font-size:9.5px;fill:var(--ink-3)}
+.refcard .rc-jump{font-size:11.5px;margin-top:2px}
+.simcard{border:2px solid var(--down);background:var(--danger-bg);padding:14px 18px;margin:0 0 20px}
+.simcard.locked{border:1px dashed var(--hairline-2);background:var(--paper)}
+.simcard h4{font-family:var(--serif);font-size:15.5px;font-weight:900;margin-bottom:6px}
+.simcard.locked h4{color:var(--ink-3)}
+.simcard .sc-body{font-size:13px;color:var(--ink-2);line-height:1.75}
+.simcard .sc-body b{color:var(--ink)}
+.simcard .sc-num{font-family:var(--mono);color:var(--down);font-weight:700}
+.simcard .simbtn{appearance:none;border:1px solid var(--down);background:var(--surface);color:var(--down);
+  cursor:pointer;font-family:var(--sans);font-size:13px;font-weight:600;padding:7px 16px;margin-top:10px;border-radius:2px}
+.simcard .simbtn:hover{background:var(--down);color:#fff}
+.simcard .simlog{margin-top:10px;font-size:12px;color:var(--ink-2);border-top:1px dashed var(--hairline-2);padding-top:8px;line-height:1.8}
+.simcard .simlog .li{font-family:var(--mono);font-size:11.5px}
+.simcard .simlog .clr{cursor:pointer;color:var(--blue);font-size:11px;border-bottom:1px solid rgba(15,84,153,.3)}
+
+/* ---------- methodology ---------- */
+.method{background:var(--surface);border:1px solid var(--hairline);padding:34px 38px;margin-top:26px}
+.method h3{font-family:var(--serif);font-size:17px;font-weight:900;margin:18px 0 8px}
+.method h3:first-child{margin-top:0}
+.method p,.method li{font-size:14px;color:var(--ink-2);line-height:1.85}
+.method ol,.method ul{padding-left:22px;margin:6px 0}
+.method .rulebox{font-family:var(--mono);font-size:12.5px;background:var(--paper);border:1px dashed var(--hairline-2);padding:14px 18px;margin:10px 0;line-height:2}
+
+/* ---------- footer ---------- */
+footer{margin-top:70px;border-top:3px double var(--hairline-2);padding:26px 0 60px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--ink-3)}
+
+.tblwrap{overflow-x:auto}
+@media (max-width:820px){
+  .statband .wrap{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:8px 12px}
+  .stat:nth-child(odd){border-left:none;padding-left:0}
+  table.evt{min-width:720px}
+  table.pre td.lead{white-space:normal}
+  .method{padding:24px 20px}
+}
+@media (max-width:560px){
+  table.pre thead{display:none}
+  table.pre td{display:block;border-bottom:none;padding:2px 0}
+  table.pre tr{display:block;border-bottom:1px solid var(--hairline);padding:10px 0}
+}
+</style>
+</head>
+<body>
+
+<div class="topline"><div class="wrap">
+  <span>MARKET EXTREMES RESEARCH</span>
+  <span id="build-date" class="num"></span>
+</div></div>
+
+<header class="masthead"><div class="wrap">
+  <h1>极端波动档案 <em>±10%</em></h1>
+  <p class="standfirst">美股 × 加密单日暴涨暴跌全记录 · 每个事件附事前预警指标与信源 · 点表格行展开细节</p>
+</div></header>
+
+<div class="statband"><div class="wrap" id="statband"></div></div>
+
+<nav class="tabs"><div class="wrap">
+  <button data-tab="now" class="on">当前信号</button>
+  <button data-tab="archive">事件档案</button>
+  <button data-tab="timeline">时间轴</button>
+  <button data-tab="indicators">指标仪表盘</button>
+  <button data-tab="method">方法论</button>
+</div></nav>
+
+<main class="wrap">
+
+<section id="now" class="pane on">
+  <div class="sechead"><span class="no">01</span><h2>当前信号对照</h2><span class="sub" id="now-time"></span></div>
+  <p class="secintro">实时判灯：现在哪些指标进入预警区、历史上同款信号在哪些事件前亮过。点事件名跳到档案（含当时前后 2 个月 K 线），点「指标现状」看该指标详情。</p>
+  <div id="nowbox"></div>
+  <div id="refbox"></div>
+</section>
+
+<section id="archive" class="pane">
+  <div class="sechead"><span class="no">02</span><h2>事件数据表</h2><span class="sub" id="evcount"></span></div>
+  <div class="filters" id="filters">
+    <button data-f="all" class="on">全部</button>
+    <button data-f="us_index">美股大盘</button>
+    <button data-f="us_stock">美股个股</button>
+    <button data-f="crypto">加密</button>
+    <button data-f="down">仅暴跌</button>
+    <button data-f="up">仅暴涨</button>
+  </div>
+  <div class="tblwrap" id="evlist"></div>
+</section>
+
+<section id="timeline" class="pane">
+  <div class="sechead"><span class="no">03</span><h2>时间轴全景</h2><span class="sub">纵轴＝当日涨跌幅 · 点击圆点回到表格行</span></div>
+  <div class="chartbox">
+    <div class="cap">
+      <span class="lg"><span class="dot" style="background:var(--blue)"></span>美股大盘</span>
+      <span class="lg"><span class="dot" style="background:var(--ochre)"></span>美股个股</span>
+      <span class="lg"><span class="dot" style="background:var(--claret)"></span>加密</span>
+      <span style="margin-left:auto;font-size:12px;color:var(--ink-3)">跌破 −60% 的个例（LUNA）在轴底截断标注</span>
+    </div>
+    <svg id="chart" viewBox="0 0 1040 300" role="img" aria-label="历史极端波动事件散点图"></svg>
+  </div>
+</section>
+
+<section id="indicators" class="pane">
+  <div class="sechead"><span class="no">04</span><h2>前瞻指标仪表盘</h2><span class="sub">当前值实时拉取，拉不到时显示快照</span></div>
+  <p class="secintro">档案里反复出现的预警指标，收敛成这块仪表盘。每张卡片给出：它量什么、历史上哪几次提前亮灯、预警与红警阈值、以及「自己去哪看」的入口。绿＝正常区间，黄＝预警，红＝红色警报。</p>
+  <div class="dash" id="dash"></div>
+</section>
+
+<section id="method" class="pane">
+  <div class="sechead"><span class="no">05</span><h2>预警方法论</h2></div>
+  <div class="method" id="methodbox"></div>
+</section>
+
+</main>
+
+<div class="tip" id="tip"></div>
+
+<footer><div class="wrap">
+  <span>本页为研究资料，不构成任何投资建议。数据以各信源链接为准。</span>
+  <span>编制：帝师 · <span class="num" id="foot-date"></span></span>
+</div></footer>
+
+<script>
+/* ====== 数据（构建时注入） ====== */
+const EVENTS = /*__EVENTS__*/[];
+const INDICATORS = /*__INDICATORS__*/[];
+const SNAPSHOT = /*__SNAPSHOT__*/{};
+const KLINES = /*__KLINES__*/{};
+const KLINES6 = /*__KLINES6__*/{};
+const TAGLABELS = /*__TAGLABELS__*/{};
+const METHOD_HTML = /*__METHOD__*/"";
+
+/* ====== 通用 ====== */
+const $ = s => document.querySelector(s);
+const fmtPct = v => (v>0?"+":"")+v.toFixed(1)+"%";
+const MKMETA = {
+  us_index:{label:"美股大盘",cls:"c-idx",color:"var(--blue)",hex:"#0f5499"},
+  us_stock:{label:"美股个股",cls:"c-stk",color:"var(--ochre)",hex:"#b45309"},
+  crypto:{label:"加密",cls:"c-cry",color:"var(--claret)",hex:"#990f3d"}
+};
+const today = new Date().toISOString().slice(0,10);
+$("#build-date").textContent = SNAPSHOT.built || today;
+$("#foot-date").textContent = SNAPSHOT.built || today;
+
+/* ====== 统计带 ====== */
+(function(){
+  if(!EVENTS.length) return;
+  const years = EVENTS.map(e=>+e.date.slice(0,4));
+  const worst = EVENTS.reduce((a,b)=>b.move_pct<a.move_pct?b:a);
+  const best  = EVENTS.reduce((a,b)=>b.move_pct>a.move_pct?b:a);
+  $("#statband").innerHTML = [
+    ["​"+EVENTS.length,"收录事件","个"],
+    [Math.max(...years)-Math.min(...years),"覆盖年份跨度","年"],
+    [fmtPct(worst.move_pct),`最深单日跌幅 · ${worst.asset}`,""],
+    [fmtPct(best.move_pct),`最大单日涨幅 · ${best.asset}`,""]
+  ].map(([v,k,u])=>`<div class="stat"><div class="v">${v}<small>${u}</small></div><div class="k">${k}</div></div>`).join("");
+  $("#evcount").textContent = `共 ${EVENTS.length} 份档案`;
+})();
+
+/* ====== 散点图（纯SVG） ====== */
+(function(){
+  if(!EVENTS.length) return;
+  const W=1040,H=300,P={t:14,r:24,b:30,l:56};
+  const iw=W-P.l-P.r, ih=H-P.t-P.b;
+  const yMin=-62,yMax=32;
+  const ys=EVENTS.map(e=>+e.date.slice(0,4));
+  const xMin=Math.min(...ys)-2, xMax=Math.max(...ys)+2;
+  const X=y=>P.l+(y-xMin)/(xMax-xMin)*iw;
+  const Y=v=>P.t+(yMax-Math.max(yMin,Math.min(yMax,v)))/(yMax-yMin)*ih;
+  let g="";
+  for(let v=-60;v<=30;v+=15){
+    const y=Y(v);
+    g+=`<line x1="${P.l}" y1="${y}" x2="${W-P.r}" y2="${y}" stroke="${v===0?'#c3b8a2':'#e5dbc9'}" stroke-width="${v===0?1.5:1}"/>`;
+    g+=`<text x="${P.l-8}" y="${y+4}" text-anchor="end">${v>0?"+"+v:v}%</text>`;
+  }
+  const decades=[];
+  for(let y=Math.ceil(xMin/10)*10;y<=xMax;y+=10) decades.push(y);
+  decades.forEach(y=>{g+=`<text x="${X(y)}" y="${H-10}" text-anchor="middle">${y}</text>`});
+  EVENTS.forEach((e,i)=>{
+    const cx=X(+e.date.slice(0,4)), clipped=e.move_pct<yMin;
+    const cy=Y(e.move_pct);
+    const r=Math.max(5,Math.min(11,4+Math.abs(e.move_pct)/6));
+    g+=`<circle class="evdot" data-i="${i}" cx="${cx}" cy="${cy}" r="${r}" fill="${MKMETA[e.market].hex}" fill-opacity=".82"/>`;
+    if(clipped) g+=`<text x="${cx}" y="${Y(yMin)-14}" text-anchor="middle" style="fill:#990f3d;font-weight:700">↓${e.move_pct.toFixed(0)}%</text>`;
+  });
+  $("#chart").innerHTML=g;
+  const tip=$("#tip");
+  $("#chart").addEventListener("mousemove",ev=>{
+    const t=ev.target.closest(".evdot");
+    if(!t){tip.style.display="none";return}
+    const e=EVENTS[+t.dataset.i];
+    tip.innerHTML=`<div class="t-date">${e.date} · ${MKMETA[e.market].label}</div><div><b>${e.asset}</b> <span class="t-move">${fmtPct(e.move_pct)}</span></div><div>${e.title}</div>`;
+    tip.style.display="block";
+    tip.style.left=Math.min(ev.clientX+14,innerWidth-280)+"px";
+    tip.style.top=(ev.clientY+14)+"px";
+  });
+  $("#chart").addEventListener("mouseleave",()=>tip.style.display="none");
+  $("#chart").addEventListener("click",ev=>{
+    const t=ev.target.closest(".evdot");
+    if(!t)return;
+    tip.style.display="none";
+    jumpToEvent(EVENTS[+t.dataset.i].id);
+  });
+})();
+
+/* ====== 事件数据表 ====== */
+let curFilter="all", sortKey="date", sortDir=-1;
+const shortAsset=a=>{const s=a.split("/")[0].split("(")[0].trim();return s.length>12?s.slice(0,12)+"…":s};
+function fmtPx(v){if(v>=1000)return Math.round(v).toLocaleString("en-US");if(v>=1)return v.toFixed(2);return v.toPrecision(3)}
+/* ===== 可交互日K蜡烛: 鼠标/手指放上去 → 十字准星 + 该日相对事件日的变化 ===== */
+let _kid=0; const KCHARTS={};
+function candleSVG(bars, eventDate, cfg){
+  const {W,H,P}=cfg;
+  const iw=W-P.l-P.r, ih=H-P.t-P.b;
+  let hi=-1e18,lo=1e18; bars.forEach(b=>{hi=Math.max(hi,b[2]);lo=Math.min(lo,b[3])});
+  const useLog=lo>0&&hi/lo>20;
+  const T=v=>useLog?Math.log(v):v;
+  const y=v=>P.t+(T(hi)-T(v))/(T(hi)-T(lo)||1)*ih;
+  const sw=cfg.thin?0.8:1;
+  const bw=iw/bars.length, cw=Math.max(cfg.cwmin||1, bw*(cfg.cwr||0.55));
+  let ei=bars.findIndex(b=>b[0]>=eventDate); if(ei<0)ei=bars.length-1;
+  const ex=P.l+bw*(ei+0.5), id="kc"+(_kid++);
+  let g=`<rect x="0" y="0" width="${W}" height="${H}" fill="transparent"/>`
+     +`<line x1="${ex}" y1="${P.t}" x2="${ex}" y2="${H-P.b}" stroke="#990f3d" stroke-width="1" stroke-dasharray="${cfg.thin?'3 3':'4 3'}"/>`
+     +`<text x="${ex}" y="${P.t-(cfg.thin?2:4)}" text-anchor="middle" style="fill:#990f3d;font-weight:700">事件日</text>`;
+  bars.forEach((b,i)=>{
+    const x=P.l+bw*(i+0.5),up=b[4]>=b[1],col=up?"#0a6640":"#a12232";
+    g+=`<line x1="${x}" y1="${y(b[2])}" x2="${x}" y2="${y(b[3])}" stroke="${col}" stroke-width="${sw}"/>`;
+    const t=Math.min(y(b[1]),y(b[4])),h=Math.max(sw,Math.abs(y(b[1])-y(b[4])));
+    g+=`<rect x="${x-cw/2}" y="${t}" width="${cw}" height="${h}" fill="${up?'#fffdf8':col}" stroke="${col}" stroke-width="${sw}"/>`;
+  });
+  g+=`<text x="${W-P.r+(cfg.thin?3:4)}" y="${y(hi)+(cfg.thin?7:8)}">${fmtPx(hi)}</text>`
+   +`<text x="${W-P.r+(cfg.thin?3:4)}" y="${y(lo)}">${fmtPx(lo)}</text>`;
+  if(cfg.dateAxis)
+    g+=`<text x="${P.l}" y="${H-6}">${bars[0][0]}</text><text x="${W-P.r}" y="${H-6}" text-anchor="end">${bars[bars.length-1][0]}</text>`;
+  if(useLog&&cfg.logTag) g+=`<text x="${P.l+2}" y="${H-3}" style="fill:#8a5a00">对数</text>`;
+  g+=`<line class="kcross" x1="0" y1="${P.t}" x2="0" y2="${H-P.b}" stroke="#1a1613" stroke-width="1" stroke-dasharray="2 2" style="display:none"/>`;
+  KCHARTS[id]={bars,ei,base:bars[ei][4],W,pl:P.l,bw};
+  return {useLog, svg:`<svg id="${id}" class="kchart" viewBox="0 0 ${W} ${H}" role="img" aria-label="日K线，悬停看每日相对事件日的变化">${g}</svg>`};
+}
+/* 十字准星 + 读数(委托到 document, 覆盖所有 .kchart) */
+(function(){
+  const tip=$("#tip"); let cur=null;
+  function hide(){ if(!cur)return; const c=cur.querySelector(".kcross"); if(c)c.style.display="none"; cur=null; tip.style.display="none"; }
+  const sc=v=>v<0?"#f2a0a0":"#8fd0af", sg=v=>(v>=0?"+":"")+v.toFixed(1)+"%";
+  document.addEventListener("pointermove",ev=>{
+    const svg=ev.target.closest("svg.kchart");
+    if(!svg){hide();return;}
+    const reg=KCHARTS[svg.id]; if(!reg){hide();return;}
+    if(cur&&cur!==svg){const c=cur.querySelector(".kcross"); if(c)c.style.display="none";}
+    cur=svg;
+    const r=svg.getBoundingClientRect(); if(!r.width)return;
+    const vbx=(ev.clientX-r.left)*reg.W/r.width;
+    let i=Math.round((vbx-reg.pl)/reg.bw-0.5);
+    i=Math.max(0,Math.min(reg.bars.length-1,i));
+    const cx=reg.pl+reg.bw*(i+0.5), cross=svg.querySelector(".kcross");
+    if(cross){cross.setAttribute("x1",cx);cross.setAttribute("x2",cx);cross.style.display="";}
+    const b=reg.bars[i], rel=i-reg.ei;
+    const chg=(b[4]/reg.base-1)*100, dchg=(b[4]/b[1]-1)*100;
+    const relTxt=rel===0?"事件当日":rel>0?"事件后第 "+rel+" 交易日":"事件前 "+(-rel)+" 交易日";
+    tip.innerHTML=`<div class="t-date">${b[0]} · ${relTxt}</div>`
+      +`<div>收盘 <b>${fmtPx(b[4])}</b> · 当日 <span class="t-move" style="color:${sc(dchg)}">${sg(dchg)}</span></div>`
+      +`<div>相对事件日 <span class="t-move" style="color:${sc(chg)}">${sg(chg)}</span></div>`;
+    tip.style.display="block";
+    tip.style.left=Math.min(ev.clientX+14,innerWidth-250)+"px";
+    tip.style.top=Math.min(ev.clientY+14,innerHeight-90)+"px";
+  },{passive:true});
+  document.addEventListener("pointerdown",ev=>{ if(!ev.target.closest("svg.kchart")) hide(); },{passive:true});
+})();
+function klineSVG(e){
+  const k=KLINES[e.id]; if(!k||!k.bars||k.bars.length<5)return"";
+  let evIdx=k.bars.findIndex(b=>b[0]>=k.event_date); if(evIdx<0)evIdx=k.bars.length-1;
+  const evC=k.bars[evIdx][4],endC=k.bars[k.bars.length-1][4],chg=(endC/evC-1)*100;
+  const {svg,useLog}=candleSVG(k.bars,k.event_date,{W:900,H:175,P:{t:16,r:56,b:20,l:8},cwr:0.55,cwmin:1.5,dateAxis:true});
+  return `<div class="kbox">
+    <div class="kcap"><b>${k.label}</b><span>事件前1月 → 后2月 · 日K（绿涨红跌）</span>${useLog?"<span>对数坐标</span>":""}<span>事件日收盘 ${fmtPx(evC)}</span><span>窗口末 ${fmtPx(endC)}，事件后累计 <b style="color:${chg<0?'var(--down)':'var(--up)'}">${fmtPct(chg)}</b></span><span style="color:var(--ink-3)">悬停/触摸看每日变化</span>${k.truncated?'<span style="color:#8a5a00">数据截至今日，走势进行中</span>':""}</div>
+    ${svg}
+  </div>`;
+}
+/* 事发后半年统计: 以事件日收盘为基准的累计涨跌 / 最深回撤 / 最大反弹 */
+function stats6(id){
+  const k=KLINES6[id]; if(!k||!k.bars||k.bars.length<5)return null;
+  const bars=k.bars;
+  let ei=bars.findIndex(b=>b[0]>=k.event_date); if(ei<0)ei=0;
+  const base=bars[ei][4];
+  let minC=base,maxC=base;
+  for(let i=ei;i<bars.length;i++){minC=Math.min(minC,bars[i][4]);maxC=Math.max(maxC,bars[i][4]);}
+  const end=bars[bars.length-1][4];
+  return {base,end,minC,maxC,ei,bars,label:k.label,truncated:k.truncated,
+    cum:(end/base-1)*100, maxDD:(minC/base-1)*100, maxUp:(maxC/base-1)*100};
+}
+/* 紧凑版 6 月日K蜡烛(事件日红虚线, 复用可交互 candleSVG) */
+function kline6SVG(id){
+  const s=stats6(id); if(!s)return"";
+  return candleSVG(s.bars, KLINES6[id].event_date,
+    {W:520,H:118,P:{t:12,r:46,b:14,l:6},thin:true,cwr:0.6,cwmin:1,logTag:true}).svg;
+}
+function detailHTML(e){
+  const pre=(e.precursors||[]).map(p=>`<tr>
+    <td class="ind">${p.indicator}<div style="font-weight:400;font-size:11px;color:var(--ink-3)">${TAGLABELS[p.tag]||""}</div></td>
+    <td>${p.signal}${p.source_url?` <a href="${p.source_url}" target="_blank" rel="noopener">信源↗</a>`:""}</td>
+    <td class="lead">${p.lead_time||"—"}</td>
+  </tr>`).join("");
+  const refs=(e.refs||[]).map((u,i)=>`<a href="${u}" target="_blank" rel="noopener">参考 ${i+1}↗</a>`).join("");
+  return `<div class="ev">
+    <h3>${e.title}</h3>
+    ${klineSVG(e)}
+    <p class="cause">${e.cause}</p>
+    <div class="pre-h">事前预警信号</div>
+    <table class="pre"><thead><tr><th>指标</th><th>事前表现</th><th>提前量</th></tr></thead><tbody>${pre||'<tr><td colspan="3" style="color:var(--ink-3)">（外生突发，事前信号极弱——需要仓位纪律兜底的一类）</td></tr>'}</tbody></table>
+    <p class="after"><b>后续：</b>${e.aftermath||""}</p>
+    <p class="refs">${refs}</p>
+  </div>`;
+}
+function renderEvents(){
+  const list=EVENTS.filter(e=>{
+    if(curFilter==="all")return true;
+    if(curFilter==="down")return e.move_pct<0;
+    if(curFilter==="up")return e.move_pct>0;
+    return e.market===curFilter;
+  }).sort((a,b)=>{
+    const v=sortKey==="date"?(a.date<b.date?-1:1):(a.move_pct-b.move_pct);
+    return v*sortDir;
+  });
+  const arr=k=>sortKey===k?`<span class="arr">${sortDir<0?"▼":"▲"}</span>`:"";
+  $("#evlist").innerHTML=`<table class="evt">
+    <thead><tr>
+      <th class="sortable" data-k="date">日期 ${arr("date")}</th>
+      <th>市场</th><th>标的</th>
+      <th class="sortable" data-k="move" style="text-align:right">当日 ${arr("move")}</th>
+      <th>事件</th><th>事前信号</th>
+    </tr></thead>
+    <tbody>${list.map(e=>{
+      const mk=MKMETA[e.market];
+      return `<tr class="row" id="ev-${e.id}" data-id="${e.id}">
+        <td class="c-date">${e.date}</td>
+        <td class="c-mk"><span class="mk ${mk.cls}">${mk.label}</span></td>
+        <td class="c-asset" title="${e.asset}">${shortAsset(e.asset)}</td>
+        <td class="c-move ${e.move_pct<0?"dn":"up"}">${fmtPct(e.move_pct)}</td>
+        <td class="c-title">${e.title}</td>
+        <td class="c-sig"><div class="sigchips">${(e.precursors||[]).map(p=>`<span class="chip" title="${p.indicator}">${p.indicator.length>14?p.indicator.slice(0,14)+"…":p.indicator}</span>`).join("")}</div></td>
+      </tr>
+      <tr class="detail" style="display:none"><td colspan="6">${detailHTML(e)}</td></tr>`;
+    }).join("")}</tbody></table>`;
+  $("#evcount").textContent=`${list.length} 条 · 点行展开`;
+}
+function toggleRow(tr,force){
+  const det=tr.nextElementSibling;
+  const open=force!=null?force:det.style.display==="none";
+  det.style.display=open?"":"none";
+  tr.classList.toggle("open",open);
+}
+function switchTab(id){
+  document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("on",b.dataset.tab===id));
+  document.querySelectorAll("section.pane").forEach(s=>s.classList.toggle("on",s.id===id));
+}
+document.querySelector(".tabs").addEventListener("click",ev=>{
+  const b=ev.target.closest("button[data-tab]");
+  if(b){switchTab(b.dataset.tab);scrollTo({top:0})}
+});
+function jumpToEvent(id){
+  switchTab("archive");
+  let tr=document.getElementById("ev-"+id);
+  if(!tr){
+    curFilter="all";
+    document.querySelectorAll("#filters button").forEach(x=>x.classList.toggle("on",x.dataset.f==="all"));
+    renderEvents();
+    tr=document.getElementById("ev-"+id);
+  }
+  if(tr){toggleRow(tr,true);tr.scrollIntoView({behavior:"smooth",block:"center"})}
+}
+renderEvents();
+$("#evlist").addEventListener("click",ev=>{
+  const th=ev.target.closest("th.sortable");
+  if(th){
+    const k=th.dataset.k;
+    if(sortKey===k)sortDir*=-1; else{sortKey=k;sortDir=-1;}
+    renderEvents(); return;
+  }
+  if(ev.target.closest("a"))return;
+  const tr=ev.target.closest("tr.row");
+  if(tr)toggleRow(tr);
+});
+$("#filters").addEventListener("click",ev=>{
+  const b=ev.target.closest("button"); if(!b)return;
+  document.querySelectorAll("#filters button").forEach(x=>x.classList.toggle("on",x===b));
+  curFilter=b.dataset.f;
+  renderEvents();
+});
+
+/* ====== 指标仪表盘 ====== */
+/* 阈值判灯 + 浏览器可直连(CORS放行)的实时拉取器, 按指标id挂载 */
+const j = u => fetch(u).then(r=>r.json());
+const RUNTIME = {
+  vix_level:{ rule:v=>v>=35?"danger":v>=25?"warn":"ok" },
+  vix_term_structure:{ rule:v=>v>=1.0?"danger":v>=0.93?"warn":"ok" },
+  skew_index:{ rule:v=>v>=150?"danger":v>=145?"warn":"ok" },
+  move_index:{ rule:v=>v>=160?"danger":v>=120?"warn":"ok" },
+  hy_oas:{ rule:v=>v>=8?"danger":v>=5?"warn":"ok" },
+  yield_curve_10y2y:{ rule:v=>v<0?"warn":"ok" },
+  put_call_ratio:{ rule:v=>v>=1.2?"danger":(v<0.6||v>=1.0)?"warn":"ok" },
+  fear_greed_us:{ rule:v=>(v<10||v>90)?"danger":(v<25||v>75)?"warn":"ok" },
+  fear_greed_crypto:{
+    rule:v=>(v<=10||v>=90)?"danger":(v<20||v>80)?"warn":"ok",
+    fetchLive:async()=>{const d=await j("https://api.alternative.me/fng/?limit=1");const it=d.data[0];return{v:+it.value,txt:it.value+" · "+it.value_classification}}
+  },
+  funding_rate_btc:{
+    rule:v=>Math.abs(v)>=0.10?"danger":Math.abs(v)>=0.05?"warn":"ok",
+    fetchLive:async()=>{const d=await j("https://www.okx.com/api/v5/public/funding-rate?instId=BTC-USDT-SWAP");const r=+d.data[0].fundingRate*100;return{v:r,txt:(r>=0?"+":"")+r.toFixed(4)+"%/8h"}}
+  },
+  futures_basis_annualized:{ rule:v=>(v>=30||v<=-10)?"danger":(v>=15||v<0)?"warn":"ok" },
+  coinbase_premium:{
+    rule:v=>v<=-0.3?"danger":v<=-0.1?"warn":"ok",
+    fetchLive:async()=>{
+      const[cb,ok]=await Promise.all([j("https://api.exchange.coinbase.com/products/BTC-USD/ticker"),j("https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT")]);
+      const p=(+cb.price/ +ok.data[0].last-1)*100;return{v:p,txt:(p>=0?"+":"")+p.toFixed(3)+"%"};
+    }
+  },
+  stablecoin_mcap:{
+    fetchLive:async()=>{const d=await j("https://api.coingecko.com/api/v3/coins/categories");const s=d.find(x=>x.id==="stablecoins");return s?{v:null,txt:(s.market_cap/1e9).toFixed(1)+" B$"}:null}
+  }
+};
+INDICATORS.forEach(ind=>Object.assign(ind,RUNTIME[ind.id]||{}));
+
+/* 指标 → 信号类别 → 历史事件(与监控脚本同一套映射) */
+const IND_CAT={vix_level:"vol",vix_term_structure:"term",skew_index:"vol",move_index:"vol",
+  hy_oas:"cred",yield_curve_10y2y:"cred",put_call_ratio:"sent",market_breadth:"mom",
+  margin_debt:"lev",fear_greed_us:"sent",funding_rate_btc:"lev",oi_mcap_ratio:"lev",
+  liquidation_volume:"lev",futures_basis_annualized:"sent",stablecoin_mcap:"chain",
+  exchange_netflow:"chain",coinbase_premium:"sent",fear_greed_crypto:"sent",leverage_ratio:"lev"};
+let ACTIVE_CATS = new Set();      // 当前正在亮灯(预警/红警)的信号类别
+const SIM_THRESHOLD = 4;          // 可参考事件参考分合计 ≥ 此值 → 解锁模拟操作
+function indDrill(ind){
+  const cat=IND_CAT[ind.id]; if(!cat)return"";
+  const cases=EVENTS.filter(ev=>(ev.tags||[]).includes(cat));
+  if(!cases.length)return"";
+  return `<button class="ind-more" data-drill="${ind.id}">该类信号（${TAGLABELS[cat]}）历史出现在 <b>${cases.length}</b> 次事件前 · 点开看事发后半年走势 ▾</button>
+    <div class="ind-events" id="indev-${ind.id}" hidden></div>`;
+}
+function renderIndEvents(indId){
+  const box=document.getElementById("indev-"+indId); if(!box||box.dataset.done)return;
+  const cat=IND_CAT[indId];
+  const cases=EVENTS.filter(ev=>(ev.tags||[]).includes(cat)).sort((a,b)=>a.date<b.date?1:-1);
+  box.innerHTML=cases.map(ev=>{
+    const hotCats=(ev.tags||[]).filter(t=>ACTIVE_CATS.has(t));
+    const hot=hotCats.length>0, s=stats6(ev.id);
+    return `<div class="iev ${hot?'hot':''}">
+      <div class="iev-h">
+        <span class="dt">${ev.date}</span>
+        <span class="nm">${shortAsset(ev.asset)}</span>
+        <span class="mv ${ev.move_pct<0?'dn':'up'}">${fmtPct(ev.move_pct)}</span>
+        ${hot?`<span class="hotbadge">◉ 当前也在亮 ${hotCats.map(c=>TAGLABELS[c]).join('·')}</span>`:''}
+        <a href="#" class="jump" data-ev="${ev.id}">档案↗</a>
+      </div>
+      ${s?`<div class="k6cap"><b>${s.label}</b><span>事件后累计 <b style="color:${s.cum<0?'var(--down)':'var(--up)'}">${fmtPct(s.cum)}</b></span><span>期间最深回撤 <b style="color:var(--down)">${fmtPct(s.maxDD)}</b></span>${s.truncated?'<span style="color:#8a5a00">未满半年·进行中</span>':''}</div>${kline6SVG(ev.id)}`:'<div class="k6cap">（暂无K线数据）</div>'}
+    </div>`;
+  }).join("");
+  box.dataset.done="1";
+}
+function histCases(ind){
+  const cat=IND_CAT[ind.id]; if(!cat)return"";
+  const cases=EVENTS.filter(ev=>(ev.tags||[]).includes(cat));
+  if(!cases.length)return"";
+  return `<div class="histcases">历史亮灯 · ${TAGLABELS[cat]}类信号出现在 <b>${cases.length}</b> 次事件前：<br>${
+    cases.map(ev=>`<a href="#archive" data-ev="${ev.id}">${ev.date.slice(2)}·${shortAsset(ev.asset).slice(0,5)}</a>`).join("")
+  }</div>`;
+}
+
+function renderDash(){
+  $("#dash").innerHTML=INDICATORS.map(ind=>{
+    const snap=(SNAPSHOT.values||{})[ind.id]||{};
+    return `<div class="card" data-id="${ind.id}">
+      <div class="hd"><h4>${ind.name}</h4><span class="mtag">${ind.market==="us"?"美股":ind.market==="crypto"?"加密":"跨市场"}</span></div>
+      <p class="what">${ind.what}</p>
+      <div class="live">
+        <span class="lv" id="lv-${ind.id}">${snap.txt!=null?snap.txt:"—"}</span>
+        <span class="lt" id="lt-${ind.id}">${snap.txt!=null?"快照 "+(SNAPSHOT.built||""):(ind.fetchLive?"加载中…":"")}</span>
+      </div>
+      <div id="lamp-${ind.id}"></div>
+      <div class="ths">预警：<span class="num">${ind.warning_threshold}</span><br>红警：<span class="num">${ind.danger_threshold}</span></div>
+      <p class="why">${ind.why}</p>
+      ${indDrill(ind)}
+      <p class="src"><a href="${ind.check_url}" target="_blank" rel="noopener">查看实时数据 ↗</a>${ind.ref?` · <a href="${ind.ref}" target="_blank" rel="noopener">研究依据 ↗</a>`:""}</p>
+    </div>`;
+  }).join("");
+}
+document.addEventListener("click",ev=>{
+  const a=ev.target.closest("[data-ev]"); if(!a)return;
+  ev.preventDefault();
+  jumpToEvent(a.dataset.ev);
+});
+document.addEventListener("click",ev=>{
+  const b=ev.target.closest("[data-drill]"); if(!b)return;
+  const box=document.getElementById("indev-"+b.dataset.drill); if(!box)return;
+  const open=box.hidden;
+  if(open)renderIndEvents(b.dataset.drill);
+  box.hidden=!open;
+  b.innerHTML=b.innerHTML.replace(open?"▾":"▴", open?"▴":"▾");
+});
+function setLamp(ind,val){
+  const el=$("#lamp-"+ind.id); if(!el)return;
+  let cls="na",txt="人工核查项";
+  if(ind.rule&&val!=null&&!isNaN(val)){
+    const st=ind.rule(val);
+    cls=st; txt=st==="danger"?"红色警报":st==="warn"?"预警":"正常区间";
+  }
+  el.innerHTML=`<span class="lamp ${cls}">${txt}</span>`;
+}
+async function refreshLive(){
+  for(const ind of INDICATORS){
+    const snap=(SNAPSHOT.values||{})[ind.id]||{};
+    let num=snap.v, live=false;
+    if(ind.fetchLive){
+      try{
+        const r=await ind.fetchLive();
+        if(r&&r.txt){
+          num=(r.v!=null?r.v:num); live=true;
+          ind._liveTxt=r.txt;
+          const lv=$("#lv-"+ind.id); if(lv)lv.textContent=r.txt;
+        }
+      }catch(_){}
+    }
+    ind._num=num; ind._isLive=live;
+    const lt=$("#lt-"+ind.id);
+    if(lt)lt.textContent=live?"实时":(snap.txt!=null?"快照 "+(SNAPSHOT.built||""):"");
+    setLamp(ind,num);
+  }
+  renderNow();
+}
+
+/* ====== 当前信号对照 ====== */
+function renderNow(){
+  $("#now-time").textContent="判灯时间: "+new Date().toLocaleString("zh-CN",{hour12:false});
+  const rows=INDICATORS.filter(i=>i.rule).map(ind=>{
+    const snap=(SNAPSHOT.values||{})[ind.id]||{};
+    const num=(ind._num!=null?ind._num:snap.v);
+    const txt=ind._liveTxt||snap.txt||"—";
+    const st=(num!=null&&!isNaN(num))?ind.rule(num):null;
+    return {ind,num,txt,st};
+  });
+  const alerts=rows.filter(r=>r.st==="warn"||r.st==="danger").sort((a,b)=>(a.st==="danger"?0:1)-(b.st==="danger"?0:1));
+  const oks=rows.filter(r=>r.st==="ok");
+  const nas=INDICATORS.filter(i=>!i.rule);
+  const activeCats=[...new Set(alerts.map(r=>IND_CAT[r.ind.id]).filter(Boolean))];
+  ACTIVE_CATS=new Set(activeCats);
+  let combo="";
+  if(activeCats.length>=2){
+    const scored=EVENTS.map(e=>({e,n:(e.tags||[]).filter(t=>activeCats.includes(t)).length}))
+      .filter(x=>x.n>=2).sort((a,b)=>b.n-a.n).slice(0,3);
+    if(scored.length)
+      combo=`<div class="combo">🧭 当前亮灯组合【${activeCats.map(c=>TAGLABELS[c]).join("＋")}】与历史事件前夜相似：${
+        scored.map(x=>`<a href="#" data-ev="${x.e.id}">${x.e.nick}（重合${x.n}项）</a>`).join(" · ")
+      }——点事件名看当时前后 2 个月 K 线。</div>`;
+  }
+  const alertCards=alerts.map(r=>{
+    const cat=IND_CAT[r.ind.id];
+    const cases=cat?EVENTS.filter(ev=>(ev.tags||[]).includes(cat)):[];
+    const hist=cases.length?`<div class="hist">同款信号（${TAGLABELS[cat]}）出现在 <b>${cases.length}</b> 次事件前：<br>${
+      cases.slice(0,6).map(ev=>`<a href="#" data-ev="${ev.id}">${ev.nick}</a>`).join("")}${cases.length>6?" …":""}</div>`:"";
+    return `<div class="nowcard alert ${r.st}">
+      <div class="nc-h"><h4>${r.ind.name}</h4><span class="lamp ${r.st}">${r.st==="danger"?"红色警报":"预警"}</span></div>
+      <div class="nc-v">${r.txt}</div>
+      <div class="nc-th">预警 <span class="num">${r.ind.warning_threshold}</span><br>红警 <span class="num">${r.ind.danger_threshold}</span></div>
+      ${hist}
+      <p class="goto"><a href="#" data-goind="${r.ind.id}">指标现状详情 →</a></p>
+    </div>`;
+  }).join("");
+  const okRows=oks.map(r=>`<tr>
+      <td>${r.ind.name}</td>
+      <td class="v">${r.txt}</td>
+      <td><span class="lamp ok">正常</span></td>
+      <td><a href="#" data-goind="${r.ind.id}" style="font-size:12px">现状 →</a></td>
+    </tr>`).join("");
+  $("#nowbox").innerHTML=
+    (alerts.length
+      ? `<div class="now-sub">🚨 正在亮灯（${alerts.length}）</div><div class="nowgrid">${alertCards}</div>${combo}`
+      : `<div class="combo" style="background:#eaf3ec">当前 ${rows.length} 项可判级指标全部处于正常区间，无历史事件前兆对应。</div>`)
+    +`<div class="now-sub">正常区间（${oks.length}）</div>
+      <div class="tblwrap"><table class="oktbl">${okRows}</table></div>
+      <p style="font-size:12px;color:var(--ink-3);margin-top:10px">另有 ${nas.length} 项为人工核查/月度指标（无自动判级），见「指标仪表盘」页。本地监控每 30 分钟同规则巡检，触发即 iMessage 推送。</p>`;
+  renderRefEvents();
+}
+
+/* ====== 可参考事件 + 参考分 + 模拟操作 ====== */
+const SIMLOG_KEY="cr_simlog";
+function getSimLog(){try{return JSON.parse(localStorage.getItem(SIMLOG_KEY)||"[]")}catch(_){return[]}}
+function setSimLog(a){try{localStorage.setItem(SIMLOG_KEY,JSON.stringify(a.slice(-20)))}catch(_){}}
+function median(arr){if(!arr.length)return null;const s=arr.slice().sort((a,b)=>a-b);const m=Math.floor(s.length/2);return s.length%2?s[m]:(s[m-1]+s[m])/2;}
+function renderRefEvents(){
+  const box=$("#refbox"); if(!box)return;
+  const active=ACTIVE_CATS, hasSignal=active.size>0;
+  let scored=EVENTS.map(e=>{
+    const hit=(e.tags||[]).filter(t=>active.has(t));
+    return {e,score:hit.length,hit};
+  });
+  let list,note,total;
+  if(hasSignal){
+    list=scored.filter(x=>x.score>=1)
+      .sort((a,b)=>b.score-a.score||Math.abs(b.e.move_pct)-Math.abs(a.e.move_pct)).slice(0,6);
+    total=list.reduce((s,x)=>s+x.score,0);
+    note=`当前亮灯类别【${[...active].map(c=>TAGLABELS[c]).join('＋')}】。每个历史事件的<b>参考分＝它的前兆类别与当前亮灯类别的重合数</b>，重合越多＝当下越像它的前夜。参考分合计 <b>${total}</b>（解锁模拟操作需 合计≥${SIM_THRESHOLD} 且 ≥2 类信号同时亮灯）。`;
+  }else{
+    list=EVENTS.slice().sort((a,b)=>Math.abs(b.move_pct)-Math.abs(a.move_pct)).slice(0,6).map(e=>({e,score:0,hit:[]}));
+    total=0;
+    note=`当前<b>没有指标进入预警区</b>，无"当下同款"的高吻合事件。以下按历史严重度列出可参考事件供研究；一旦有指标亮灯，这里会自动切换为按当下吻合度排序并累计参考分。`;
+  }
+  const cards=list.map(x=>{
+    const e=x.e,s=stats6(e.id),mk=MKMETA[e.market];
+    const catChips=(e.tags||[]).map(t=>`<span class="cat ${active.has(t)?'on':''}">${TAGLABELS[t]||t}</span>`).join("");
+    return `<div class="refcard">
+      <div class="rc-h"><span class="nm">${shortAsset(e.asset)}</span><span class="dt">${e.date}</span>
+        <span class="rs">参考分 ${x.score}</span></div>
+      <div class="rc-cats">${catChips}</div>
+      ${s?`<div class="rc-stat">事发后半年：累计 <b style="color:${s.cum<0?'var(--down)':'var(--up)'}">${fmtPct(s.cum)}</b> · 最深回撤 <b>${fmtPct(s.maxDD)}</b>${s.truncated?' · 进行中':''}</div>${kline6SVG(e.id)}`:''}
+      <p class="rc-jump"><a href="#" data-ev="${e.id}">看完整档案（含事前信号）↗</a></p>
+    </div>`;
+  }).join("");
+  // 解锁需两条同时满足: ①参考分合计达阈值(有足够历史同款) ②至少2类信号同时亮灯(单指标亮灯=噪音, 不触发防御, 与本站"组合警报/三层同时成立才减仓"一致)
+  const catCount=active.size;
+  const unlocked = total>=SIM_THRESHOLD && catCount>=2;
+  const dds=list.map(x=>stats6(x.e.id)).filter(Boolean).map(s=>s.maxDD);
+  const medDD=median(dds), worstDD=dds.length?Math.min(...dds):null;
+  let sim;
+  if(unlocked&&medDD!=null){
+    const cutLo=Math.min(100,Math.round(Math.abs(medDD)/2)), cutHi=Math.min(100,Math.round(Math.abs(medDD)));
+    const logHTML=(()=>{const l=getSimLog();return l.length?`<div class="simlog">已记假想操作 ${l.length} 笔（<span class="clr" data-clrsim>清空</span>）：<br>${l.slice(-5).reverse().map(x=>`<span class="li">${x.t} · 参考分${x.score} · 参照中位回撤${x.dd}%</span>`).join("<br>")}</div>`:"";})();
+    sim=`<div class="simcard">
+      <h4>⚠️ 模拟操作已解锁（${catCount} 类信号同时亮灯 · 参考分合计 ${total} ≥ ${SIM_THRESHOLD}）</h4>
+      <div class="sc-body">上列 ${list.length} 个当下同款事件，<b>事发后半年真实走势</b>：中位最深回撤 <span class="sc-num">${fmtPct(medDD)}</span>，最坏 <span class="sc-num">${fmtPct(worstDD)}</span>。
+        <br>纯研究参考：若持有相关资产，可考虑把风险敞口下调 <b>${cutLo}%–${cutHi}%</b>（或加等量对冲），使可承受回撤覆盖上述历史区间。<b>不接盘、不构成投资建议。</b>
+        <button class="simbtn" data-sim="${total}" data-dd="${medDD.toFixed(1)}">记一笔假想减仓 / 对冲操作</button>
+        ${logHTML}
+      </div></div>`;
+  }else{
+    const why = !hasSignal ? '当前无指标亮灯——市场平静，无需防御动作。'
+      : catCount<2 ? `当前仅 <b>${catCount}</b> 类信号亮灯（${[...active].map(c=>TAGLABELS[c]).join('')}）。单一指标亮灯多为噪音，需 <b>≥2 类信号同时亮灯</b> 才解锁模拟操作——与本站"组合警报/三层同时成立才减仓"一致。`
+      : `参考分合计 <b>${total}</b>，未达阈值 ${SIM_THRESHOLD}（历史同款不足）。`;
+    sim=`<div class="simcard locked">
+      <h4>🔒 模拟操作未解锁</h4>
+      <div class="sc-body">${why}</div></div>`;
+  }
+  box.innerHTML=`<div class="now-sub" style="margin-top:26px">🎯 可参考事件（按当前吻合度排序）</div>
+    <div class="refwrap">
+      <div class="rw-h"><h4>${hasSignal?'当下同款历史事件':'可参考历史事件（按严重度）'}</h4>
+        <span class="score">参考分合计 <b>${total}</b></span></div>
+      <div class="rw-note">${note}</div>
+      <div class="refgrid">${cards}</div>
+    </div>
+    ${sim}`;
+}
+document.addEventListener("click",ev=>{
+  const b=ev.target.closest("[data-sim]");
+  if(b){ev.preventDefault();
+    const log=getSimLog();
+    log.push({t:new Date().toLocaleString("zh-CN",{hour12:false}).slice(0,16),score:+b.dataset.sim,dd:b.dataset.dd});
+    setSimLog(log); renderRefEvents(); return;}
+  const c=ev.target.closest("[data-clrsim]");
+  if(c){ev.preventDefault(); setSimLog([]); renderRefEvents();}
+});
+document.addEventListener("click",ev=>{
+  const g=ev.target.closest("[data-goind]");
+  if(!g)return;
+  ev.preventDefault();
+  switchTab("indicators");
+  const card=document.querySelector(`.card[data-id="${g.dataset.goind}"]`);
+  if(card){card.scrollIntoView({behavior:"smooth",block:"center"});
+    card.style.outline="2px solid var(--claret)";setTimeout(()=>card.style.outline="",2200)}
+});
+renderDash();
+renderNow();
+refreshLive();
+
+/* ====== 方法论 ====== */
+$("#methodbox").innerHTML=METHOD_HTML;
+</script>
+</body>
+</html>
