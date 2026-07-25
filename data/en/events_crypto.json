@@ -1,0 +1,508 @@
+[
+ {
+  "id": "2020-0312-black-thursday",
+  "market": "crypto",
+  "date": "2020-03-12",
+  "asset": "BTC",
+  "move_pct": -37.2,
+  "title": "312 Black Thursday: COVID panic plus BitMEX cascading liquidations and outage",
+  "cause": "US equity markets triggered circuit breakers twice in three days (March 9 and March 12) as COVID-19 panic drove a broad sell-off across risk assets; Bitcoin followed the traditional markets sharply lower, plunging from around $7,200 to $5,678 in 15 minutes before continuing down, triggering cascading liquidations on BitMEX and other exchanges -- BitMEX alone saw over $700 million liquidated in a single day, and the cascading squeeze pushed the price to an extreme low of $3,596-$3,782. At 2:16 AM, BitMEX's system went down (the exchange said it was hit by a DDoS attack), preventing short sellers from re-margining or closing positions in time and amplifying the decline further. The day closed down 37.2%, with the intraday drawdown approaching 50% at its deepest.",
+  "precursors": [
+   {
+    "indicator": "BitMEX Bitcoin perpetual open interest (OI)",
+    "signal": "Held at a historically high leverage level of 115,000 BTC for the two weeks before the crash, an all-time high at the time",
+    "lead_time": "~2 weeks",
+    "source_url": "https://www.forbes.com/sites/billybambrough/2020/03/19/major-bitcoin-exchange-bitmex-has-a-serious-problem/"
+   },
+   {
+    "indicator": "Traditional financial market panic indicators",
+    "signal": "On March 9 the S&P 500 triggered a circuit breaker as COVID-19 fears sent it plunging (\"Black Monday\"), with the Dow down over 10% for the week; the macro backdrop of correlated risk-asset selling was already visible beforehand",
+    "lead_time": "3 days",
+    "source_url": "https://www.research.ledgerprime.com/p/cryptos-black-thursday-the-market"
+   },
+   {
+    "indicator": "BitMEX funding rate",
+    "signal": "Funding rate plunged to -0.375% per 8 hours (roughly 400% annualized) during the crash, showing shorts had become extremely dominant and long-side squeeze pressure was concentrated on a single exchange",
+    "lead_time": "day of the crash",
+    "source_url": "https://www.newsbtc.com/news/bitcoin-funding-rates-bitmex-deep-red-why-bullish/"
+   }
+  ],
+  "aftermath": "BitMEX faced a trust crisis after the outage plus a 1,627 BTC loss to its insurance fund; within two weeks its OI was cut in half, from 115,000 BTC to 55,000 BTC, and its trading-volume share was overtaken by Binance. Bitcoin later rallied to new all-time highs by year-end, fueled by the Fed's unlimited QE.",
+  "refs": [
+   "https://www.coindesk.com/markets/2020/03/12/bitcoins-crash-triggers-over-700m-in-liquidations-on-bitmex",
+   "https://www.forbes.com/sites/billybambrough/2020/03/19/major-bitcoin-exchange-bitmex-has-a-serious-problem/",
+   "https://multicoin.capital/2020/03/17/march-12-the-day-crypto-market-structure-broke/"
+  ]
+ },
+ {
+  "id": "2021-0418-hidden-leverage-flash-crash",
+  "market": "crypto",
+  "date": "2021-04-18",
+  "asset": "BTC",
+  "move_pct": -15.2,
+  "title": "Hidden-leverage flash crash: Xinjiang coal mine accident triggers tens of billions in liquidations network-wide",
+  "cause": "A coal mine explosion in Xinjiang on April 10 led to local power outages, causing Bitcoin's total network hashrate to roughly halve from a record high above 215 EH/s to about 120 EH/s. Concerns about a disruption to mining supply, layered on top of the massive hidden leverage that had built up during the bull run (with each exchange calculating margin independently and invisible to one another), sent the price from an April 16 high of about $60,000 down to $50,900 over the weekend, triggering cascading liquidations across roughly 1 million accounts totaling about $10 billion -- highlighting the systemic risk created by opaque cross-exchange leverage.",
+  "precursors": [
+   {
+    "indicator": "Bitcoin total network hashrate",
+    "signal": "Hashrate dropped from above 215 EH/s to about 120 EH/s after the April 10 accident, with top mining pools losing an average of 16.5% of hashrate -- the earliest real-world-side signal ahead of the flash crash",
+    "lead_time": "~1 week",
+    "source_url": "https://news.bitcoin.com/bitcoin-hashrate-drops-xinjiang-blackouts-blamed-btc-price-slides/"
+   },
+   {
+    "indicator": "Share of USDT-margined open interest",
+    "signal": "USDT-margined OI share spiked to as high as 70% in April 2021, reflecting historically extreme leverage concentration in the market",
+    "lead_time": "~2 weeks",
+    "source_url": "https://cryptoslate.com/liquidations-expected-as-bitcoin-open-interest-leverage-ratio-spike-higher/"
+   },
+   {
+    "indicator": "Funding rate",
+    "signal": "Offshore perpetual funding rates stayed elevated at roughly +0.05% to +0.08% per 8 hours (over 100% annualized) for most of April, reflecting crowded long positioning",
+    "lead_time": "~1 month",
+    "source_url": "https://coinflip.trade/blog/bitcoin-open-interest-and-funding-rate-analysis"
+   }
+  ],
+  "aftermath": "In the aftermath, exchanges came under pressure to disclose cross-platform leverage data. Bitcoin rebounded briefly before suffering the even larger 519 crash in May; together the two events drove heightened market attention to 'hidden leverage' risk.",
+  "refs": [
+   "https://www.forbes.com/sites/jonathanponciano/2021/04/18/crypto-flash-crash-wiped-out-300-billion-in-less-than-24-hours-spurring-massive-bitcoin-liquidations/",
+   "https://news.bitcoin.com/bitcoin-hashrate-drops-xinjiang-blackouts-blamed-btc-price-slides/",
+   "https://cointelegraph.com/news/did-a-massive-chinese-power-outage-cause-bitcoin-s-crash-down-to-50k"
+  ]
+ },
+ {
+  "id": "2021-0519-china-musk-crash",
+  "market": "crypto",
+  "date": "2021-05-19",
+  "asset": "BTC/ETH",
+  "move_pct": -30,
+  "title": "519 crash: Musk's environmental U-turn and Beijing's triple-ministry crackdown deliver a one-two punch",
+  "cause": "On May 12, Elon Musk announced Tesla would suspend accepting Bitcoin payments over environmental concerns, dealing the first major blow to market sentiment. A week later on May 18, three Chinese ministries including the People's Bank of China reiterated a ban on financial and payment institutions providing services for virtual currency transactions, and on May 19 reports emerged of mining-farm crackdowns in Sichuan, Inner Mongolia and elsewhere. The dual blow, on top of the extreme leverage that had built up late in the bull run, sent Bitcoin from around $43,000 down to roughly $30,000 intraday (a drop of about 30%), while Ethereum and Dogecoin fell even further (about 40% and 45% respectively); the market shed nearly $700 billion in value that week.",
+  "precursors": [
+   {
+    "indicator": "Share of USDT-margined OI",
+    "signal": "The extreme leverage level that had spiked to 70% in April remained unabsorbed through mid-May, leaving the market unusually fragile to any negative catalyst",
+    "lead_time": "~1 month",
+    "source_url": "https://cryptoslate.com/liquidations-expected-as-bitcoin-open-interest-leverage-ratio-spike-higher/"
+   },
+   {
+    "indicator": "Musk / Tesla statements",
+    "signal": "Tesla's May 12 announcement suspending BTC payments triggered a decline in Bitcoin's price that week, with sentiment souring a full week ahead of the main event",
+    "lead_time": "7 days",
+    "source_url": "https://www.forbes.com/sites/roberthart/2021/05/19/the-week-crypto-crashed---market-drops-700-billion-after-chinese-crackdown-and-elon-musks-environmental-worries/"
+   },
+   {
+    "indicator": "Record liquidation scale on April 17",
+    "signal": "An earlier 24-hour liquidation record of about $10 billion had already occurred on April 17, showing the market structure was fragile and that the cascading-liquidation mechanism had already been demonstrated once",
+    "lead_time": "1 month",
+    "source_url": "https://www.theblock.co/post/338482/bybit-ceo-estimates-crypto-traders-were-liquidated-for-8-10-billion-in-last-day-alone"
+   }
+  ],
+  "aftermath": "About $8-10 billion in leveraged positions were liquidated network-wide within 24 hours, wiping out over 800,000 accounts. China subsequently escalated its mining-farm crackdown, driving an 'eastward migration' of hashrate to North America. The market entered roughly six months of consolidation before making new highs in October-November.",
+  "refs": [
+   "https://www.cnbc.com/2021/05/19/bitcoin-btc-price-plunges-but-bottom-could-be-near-.html",
+   "https://www.forbes.com/sites/roberthart/2021/05/19/the-week-crypto-crashed---market-drops-700-billion-after-chinese-crackdown-and-elon-musks-environmental-worries/",
+   "https://www.theblock.co/post/338482/bybit-ceo-estimates-crypto-traders-were-liquidated-for-8-10-billion-in-last-day-alone"
+  ]
+ },
+ {
+  "id": "2021-0907-el-salvador-launch-crash",
+  "market": "crypto",
+  "date": "2021-09-07",
+  "asset": "BTC",
+  "move_pct": -15,
+  "title": "El Salvador legal-tender launch-day flash crash",
+  "cause": "El Salvador's Bitcoin Law took effect on September 7, making it the first country in the world to adopt Bitcoin as legal tender. The official Chivo wallet went down under heavy load within three hours of launch (inaccessible from midnight until 11:30 AM), and combined with acute market uncertainty over whether the 'nation-state experiment' would succeed, Bitcoin flash-crashed that morning, dropping about $10,000 in just three minutes for a full-day decline of over 15% -- a rare case of a single-day crash triggered directly by sovereign-state policy.",
+  "precursors": [
+   {
+    "indicator": "Chivo wallet technical readiness",
+    "signal": "Media reports before launch had already revealed that the Bukele government was scrambling to get the system ready ahead of the deadline, flagging the risk of inadequate technical preparation in advance",
+    "lead_time": "~2 months",
+    "source_url": "https://davidgerard.co.uk/blockchain/2021/07/11/el-salvador-bitcoin-bukele-scrambles-to-get-something-anything-into-place-by-7-september/"
+   },
+   {
+    "indicator": "Domestic social resistance",
+    "signal": "Multiple protests against the Bitcoin Law broke out in El Salvador ahead of the effective date, an early sign of legitimacy and execution risk for the policy rollout",
+    "lead_time": "several weeks",
+    "source_url": "https://www.inverse.com/innovation/bitcoin-el-salvador-protests-chivo-app"
+   }
+  ],
+  "aftermath": "Chivo was restored by midday and the government subsequently added server capacity. The episode is widely seen as the first stress test of the 'nation buys Bitcoin' narrative; El Salvador continued to add to its Bitcoin treasury on dips afterward.",
+  "refs": [
+   "https://en.wikipedia.org/wiki/Bitcoin_Law",
+   "https://www.inverse.com/innovation/bitcoin-el-salvador-protests-chivo-app",
+   "https://davidgerard.co.uk/blockchain/2021/07/11/el-salvador-bitcoin-bukele-scrambles-to-get-something-anything-into-place-by-7-september/"
+  ]
+ },
+ {
+  "id": "2022-05-ust-depeg",
+  "market": "crypto",
+  "date": "2022-05-09",
+  "asset": "UST",
+  "move_pct": -33,
+  "title": "UST's first severe depeg: Curve pool imbalance triggers a crisis of confidence in algorithmic stablecoins",
+  "cause": "On May 7, Terraform Labs withdrew about $150 million of UST liquidity from Curve's UST-3pool (the Wormhole pool) to prepare for the launch of 4pool, leaving the pool's balance severely skewed and pushing UST below $0.99. Sensing the risk, depositors pulled about $280 million net from the Anchor protocol within 24 hours. On May 9, UST briefly dropped to $0.60 on Binance; the Luna Foundation Guard was forced to deploy its Bitcoin reserves to defend the peg, but selling pressure kept mounting. UST fell from about $1 on May 9 to around $0.67 on May 10 (a roughly 33% single-day drop), then entered an irreversible death spiral, falling below $0.10 by May 13.",
+  "precursors": [
+   {
+    "indicator": "Anchor protocol yield reserve",
+    "signal": "The reserve fell steadily from about $323 million in February 2022 (down from $350 million UST at the end of January, already halved from its high) to only about $176 million by early May -- at the burn rate at the time, it would have been depleted in under a month",
+    "lead_time": "~3 months",
+    "source_url": "https://cointelegraph.com/news/anchor-protocol-s-reserves-head-toward-depletion-due-to-lack-of-borrowing-demand"
+   },
+   {
+    "indicator": "Curve UST-3pool (Wormhole pool) liquidity",
+    "signal": "On May 7, Terraform Labs actively withdrew $150 million of UST to prepare 4pool, directly unbalancing the UST/3CRV ratio in the pool and becoming the direct trigger for the depeg",
+    "lead_time": "2 days",
+    "source_url": "https://www.chainalysis.com/blog/how-terrausd-collapsed/"
+   },
+   {
+    "indicator": "Net outflow from Anchor deposits",
+    "signal": "About 20% of Anchor deposits were withdrawn within 24-48 hours on May 7-8, showing depositor confidence in UST holding its peg had already begun to waver",
+    "lead_time": "1-2 days",
+    "source_url": "https://www.coindesk.com/markets/2022/05/09/investors-flee-terras-anchor-as-ust-stablecoin-repeatedly-loses-1-peg"
+   }
+  ],
+  "aftermath": "UST never recovered its peg; after falling below $0.10 on May 13, major exchanges suspended trading, marking the largest collapse in algorithmic-stablecoin history and directly triggering the subsequent chain of runs on leveraged entities such as Celsius and Three Arrows Capital.",
+  "refs": [
+   "https://www.coindesk.com/business/2022/05/09/ust-stablecoin-falls-below-dollar-peg-for-second-time-in-48-hours",
+   "https://www.chainalysis.com/blog/how-terrausd-collapsed/",
+   "https://www.coindesk.com/tech/2022/05/10/ust-stablecoin-veers-wildly-from-dollar-peg-heres-the-latest"
+  ]
+ },
+ {
+  "id": "2022-05-luna-death-spiral",
+  "market": "crypto",
+  "date": "2022-05-12",
+  "asset": "LUNA",
+  "move_pct": -96,
+  "title": "LUNA death spiral: the algorithmic mint-and-burn mechanism destroys itself",
+  "cause": "To defend the UST peg, Terra's mint/burn mechanism was forced to issue LUNA without limit to absorb UST selling pressure -- LUNA's circulating supply exploded from 343 million on May 9 to 6.53 trillion within a week (an increase of about 1.9 million percent). The extreme dilution sent LUNA's price collapsing from its April 6 high of $116; it plunged about 96% in a single day on May 12 and was effectively wiped out within two days (falling as low as $0.00008), a cumulative decline of 99.99%. The Terra ecosystem shed an estimated $40-45 billion in value, becoming the textbook case of an algorithmic stablecoin 'death spiral.'",
+  "precursors": [
+   {
+    "indicator": "Extent of UST's depeg",
+    "signal": "UST fell from $1 to $0.23 between May 9-11, the direct trigger condition for LUNA issuance -- every additional 1% UST fell meant more LUNA had to be minted to absorb it",
+    "lead_time": "1-3 days",
+    "source_url": "https://www.coindesk.com/business/2022/05/09/ust-stablecoin-falls-below-dollar-peg-for-second-time-in-48-hours"
+   },
+   {
+    "indicator": "Depletion of LFG's Bitcoin reserves",
+    "signal": "The Luna Foundation Guard began deploying its Bitcoin reserves (at one point close to $1.5 billion) to defend the UST peg starting May 9, and by May 10 the reserves were essentially exhausted, ending its ability to defend the peg",
+    "lead_time": "1-2 days",
+    "source_url": "https://www.forbes.com/sites/stevenehrlich/2022/05/10/unstable-stablecoin-how-cryptos-crash-broke-the-buck-for-terrausd/"
+   },
+   {
+    "indicator": "LUNA circulating supply",
+    "signal": "Supply exploded from 343 million to 6.53 trillion tokens within 7 days; the on-chain issuance rate itself served as a real-time, verifiable indicator that the death spiral was actively underway",
+    "lead_time": "real-time / 1-day lag",
+    "source_url": "https://theledgermind.com/terra-luna-crash-analysis/"
+   }
+  ],
+  "aftermath": "The Terra ecosystem collapsed completely; Three Arrows Capital, Celsius, Voyager and other entities heavily exposed to LUNA/UST filed for bankruptcy in quick succession over the following month, triggering the cascading runs of the entire 2022 'crypto winter.' Founder Do Kwon was later wanted by multiple countries and arrested in 2023.",
+  "refs": [
+   "https://theledgermind.com/terra-luna-crash-analysis/",
+   "https://www.cnbc.com/2022/05/13/cryptocurrency-luna-crashes-to-0-as-ust-falls-from-peg-bitcoin-rises.html",
+   "https://www.forbes.com/sites/rahulrai/2022/05/17/the-death-spiral-how-terras-algorithmic-stablecoin-came-crashing-down/"
+  ]
+ },
+ {
+  "id": "2022-0613-celsius-3ac-contagion",
+  "market": "crypto",
+  "date": "2022-06-13",
+  "asset": "BTC",
+  "move_pct": -17,
+  "title": "Celsius withdrawal freeze triggers institutional run, BTC breaks below $20,000",
+  "cause": "On June 12, crypto lending platform Celsius abruptly announced it was pausing all withdrawals, transfers, and swaps, citing 'extreme market conditions'; the market immediately began speculating about the potential impact on Celsius's balance sheet from LUNA/UST's collapse just a month earlier. The panic compounded with the Fed's June 15 announcement of a 75-basis-point rate hike (its largest single hike since 1994); Bitcoin fell as much as 17% during the week, breaking below $23,000, and further breached the psychologically important $20,000 level on June 18. Rumors of insolvency at Three Arrows Capital surfaced around the same time, forming a second wave of institutional deleveraging.",
+  "precursors": [
+   {
+    "indicator": "Residual exposure from the LUNA/UST collapse",
+    "signal": "The Terra ecosystem's May collapse had already wiped out about $40-45 billion; the market had already suspected Celsius, 3AC and other institutions held related exposure, forming an expectation of 'secondary risk'",
+    "lead_time": "~1 month",
+    "source_url": "https://fortune.com/2022/06/29/crypto-winter-crash-nansen-three-arrows-capital-celsius-ether-staked-depeg/"
+   },
+   {
+    "indicator": "stETH depeg",
+    "signal": "Lido's staked stETH traded at a marked discount to ETH (briefly depegging by over 6%), flagged by Nansen and other analysts as an early sign of impending liquidation pressure on institutions like 3AC",
+    "lead_time": "1-2 weeks",
+    "source_url": "https://fortune.com/2022/06/29/crypto-winter-crash-nansen-three-arrows-capital-celsius-ether-staked-depeg/"
+   },
+   {
+    "indicator": "Fed rate-hike expectations",
+    "signal": "After the hot May CPI print, the market had already priced in a large Fed rate hike by mid-June, with tightening macro liquidity expectations pressuring risk assets in advance",
+    "lead_time": "~1 week",
+    "source_url": "https://www.cnbc.com/2022/06/13/bitcoin-btc-falls-as-market-focuses-on-celsius-issue-fed-rate-hike.html"
+   }
+  ],
+  "aftermath": "Celsius, Three Arrows Capital, Voyager, BlockFi and others filed for bankruptcy in succession over the following weeks. Bitcoin fell to about $17,600 on June 18, the cycle low, cementing the 'crypto winter.'",
+  "refs": [
+   "https://www.cnbc.com/2022/06/13/bitcoin-btc-falls-as-market-focuses-on-celsius-issue-fed-rate-hike.html",
+   "https://amp.cnn.com/cnn/2022/06/19/investing/bitcoin-price/index.html",
+   "https://fortune.com/2022/06/29/crypto-winter-crash-nansen-three-arrows-capital-celsius-ether-staked-depeg/"
+  ]
+ },
+ {
+  "id": "2022-1108-ftt-collapse",
+  "market": "crypto",
+  "date": "2022-11-08",
+  "asset": "FTT",
+  "move_pct": -80,
+  "title": "FTT crashes 80% in a day: one CZ tweet triggers an exchange run",
+  "cause": "On November 2, CoinDesk reporter Ian Allison revealed that $5.8 billion of Alameda Research's $14.6 billion balance sheet consisted of FTX's own token, FTT (including $3.66 billion of 'unlocked FTT' and $2.16 billion of 'FTT collateral'), exposing Alameda's heavy dependence on a related-party token. On November 6, Binance CEO Changpeng Zhao (CZ) announced Binance would sell its entire FTT holding (about $530 million), directly triggering panic over FTX's solvency. FTT's price collapsed from about $22 to under $5 by November 8, a single-day decline of about 76-80%, wiping out over $2 billion in market value; FTX froze withdrawals shortly after.",
+  "precursors": [
+   {
+    "indicator": "Alameda's balance-sheet structure revealed by CoinDesk",
+    "signal": "$5.8 billion of $14.6 billion in total assets consisted of FTT (a single illiquid, related-party token accounting for nearly 40%), exposing a structural weakness in asset quality",
+    "lead_time": "6 days",
+    "source_url": "https://www.coindesk.com/business/2022/11/02/divisions-in-sam-bankman-frieds-crypto-empire-blur-on-his-trading-titans-alamedas-balance-sheet"
+   },
+   {
+    "indicator": "CZ's public statement about selling FTT",
+    "signal": "On November 6, CZ announced on X that Binance would sell its roughly $530 million FTT position, giving the market a clear expected source of selling pressure",
+    "lead_time": "2 days",
+    "source_url": "https://www.cnbc.com/2022/11/08/ftxs-ftt-token-plunges-80percent-wiping-out-over-2-billion-in-value.html"
+   },
+   {
+    "indicator": "FTX exchange stablecoin reserves",
+    "signal": "FTX saw about $4 billion in withdrawals in a single day on November 7; stablecoin reserves had already fallen more than 78% from October 24 levels (down to about $156 million), a worsening solvency warning indicator",
+    "lead_time": "1-2 days",
+    "source_url": "https://www.coindesk.com/markets/2022/11/09/these-four-key-charts-shed-light-on-the-ftx-exchanges-spectacular-collapse"
+   }
+  ],
+  "aftermath": "Binance walked away from its acquisition intent on November 9; FTX, Alameda, and over a hundred affiliated entities filed for bankruptcy on November 11. Founder Sam Bankman-Fried was convicted on seven counts of fraud and conspiracy in November 2023.",
+  "refs": [
+   "https://www.cnbc.com/2022/11/08/ftxs-ftt-token-plunges-80percent-wiping-out-over-2-billion-in-value.html",
+   "https://www.coindesk.com/markets/2022/11/08/ftt-plummets-as-market-fears-possible-alameda-contagion",
+   "https://www.coindesk.com/business/2022/11/02/divisions-in-sam-bankman-frieds-crypto-empire-blur-on-his-trading-titans-alamedas-balance-sheet"
+  ]
+ },
+ {
+  "id": "2022-1109-ftx-btc-panic-selloff",
+  "market": "crypto",
+  "date": "2022-11-09",
+  "asset": "BTC",
+  "move_pct": -12,
+  "title": "FTX contagion spreads: BTC plunges 12% in a day to a two-year low",
+  "cause": "On November 9, Binance officially announced it was abandoning its acquisition of FTX after 'emergency due diligence,' extinguishing the market's last hope of a rescue. Panic selling spread from FTX/FTT to the broader market; Bitcoin plunged as much as 12% intraday, falling to about $16,000, a nearly two-year low (down roughly 77% from its November 2021 all-time high of $69,000). Solana and other tokens closely tied to FTX/Alameda fell more than 20% over the same period, and market liquidity dried up sharply as exchange withdrawals froze.",
+  "precursors": [
+   {
+    "indicator": "Withdrawal volume from top FTX addresses",
+    "signal": "Over the prior 7 days, the top-10 addresses -- including Nexo, Circle, and Jump Trading -- withdrew a combined $1.87 billion from FTX, a clear signal of institutions 'voting with their feet' ahead of time",
+    "lead_time": "7 days",
+    "source_url": "https://www.coindesk.com/markets/2022/11/09/these-four-key-charts-shed-light-on-the-ftx-exchanges-spectacular-collapse"
+   },
+   {
+    "indicator": "Net stablecoin outflow from FTX",
+    "signal": "FTX saw about $451 million in net stablecoin outflows the week of November 7, the largest of any exchange, showing capital was accelerating its exit",
+    "lead_time": "2-3 days",
+    "source_url": "https://www.coindesk.com/markets/2022/11/09/these-four-key-charts-shed-light-on-the-ftx-exchanges-spectacular-collapse"
+   },
+   {
+    "indicator": "Progress of Binance's acquisition due diligence",
+    "signal": "On November 8, Binance signed a letter of intent to acquire FTX but explicitly conditioned it on the outcome of due diligence, already casting doubt on whether the deal would close",
+    "lead_time": "1 day",
+    "source_url": "https://abcnews.com/Business/timeline-cryptocurrency-exchange-ftxs-historic-collapse/story?id=93337035"
+   }
+  ],
+  "aftermath": "Bitcoin continued grinding lower to about $15,500 by November 21. The 'FTX crisis of confidence' became the final confirming signal of the 2022 crypto winter, with the industry entering over a year of tightening regulation and deleveraging.",
+  "refs": [
+   "https://www.cnbc.com/2022/11/09/cryptocurrencies-pressured-as-investors-digest-ftx-fallout-solana-loses-another-20percent.html",
+   "https://www.coindesk.com/markets/2022/11/09/these-four-key-charts-shed-light-on-the-ftx-exchanges-spectacular-collapse",
+   "https://en.wikipedia.org/wiki/Bankruptcy_of_FTX"
+  ]
+ },
+ {
+  "id": "2023-1016-cointelegraph-fake-etf-pump",
+  "market": "crypto",
+  "date": "2023-10-16",
+  "asset": "BTC",
+  "move_pct": 7.5,
+  "title": "Fake-news pump: Cointelegraph's bogus tweet sparks a Bitcoin flash spike",
+  "cause": "Cointelegraph's official X account posted that 'the SEC has approved BlackRock's iShares spot Bitcoin ETF,' a claim sourced from an unverified alleged Bloomberg-terminal screenshot. During the highly sensitive window while spot-ETF approval remained pending, the fake news triggered algorithmic and retail front-running; Bitcoin spiked from about $27,900 to $30,000 within minutes (a gain of about 7.5%, though many outlets reported '10%'), triggering about $100 million in short liquidations. Cointelegraph deleted the tweet after 30 minutes and apologized an hour later; BlackRock quickly denied the report, and the price gave back most of its gains.",
+  "precursors": [
+   {
+    "indicator": "Market sensitivity ahead of pending spot-ETF approval",
+    "signal": "BlackRock's and others' spot Bitcoin ETF applications were in a critical SEC review window, making the market prone to front-running any related headline -- a hallmark of the high-volatility 'information vacuum' period",
+    "lead_time": "ongoing for months",
+    "source_url": "https://www.coindesk.com/markets/2023/10/16/bitcoin-momentarily-hits-30k-on-false-spot-etf-approval-report-leads-to-100m-liquidations"
+   },
+   {
+    "indicator": "Crowdedness of derivatives short positioning",
+    "signal": "A substantial amount of short positioning existed ahead of the fake news; about $100 million in shorts were liquidated within an hour of the event, reflecting strongly one-sided short positioning going into the spike",
+    "lead_time": "at the time of the spike",
+    "source_url": "https://decrypt.co/201815/bitcoin-spikes-10-on-false-report-of-blackrock-etf-approval"
+   }
+  ],
+  "aftermath": "Cointelegraph admitted it had violated its internal social-media review process and apologized; both the SEC and BlackRock denied that any such approval had occurred. The episode is also viewed as a 'dress rehearsal' stress test for the real ETF approval three months later, in January 2024.",
+  "refs": [
+   "https://www.coindesk.com/markets/2023/10/16/bitcoin-momentarily-hits-30k-on-false-spot-etf-approval-report-leads-to-100m-liquidations",
+   "https://decrypt.co/201815/bitcoin-spikes-10-on-false-report-of-blackrock-etf-approval",
+   "https://cointelegraph.com/news/clarification-sharing-false-spot-bitcoin-etf-news"
+  ]
+ },
+ {
+  "id": "2024-0112-etf-sell-the-news-crash",
+  "market": "crypto",
+  "date": "2024-01-12",
+  "asset": "BTC",
+  "move_pct": -10,
+  "title": "Spot ETF 'buy the rumor, sell the news': nearly 10% crash two days after approval",
+  "cause": "On January 10, the SEC officially approved 11 spot Bitcoin ETFs, which began trading January 11; Bitcoin spiked intraday to about $49,000, a two-year high. But because the market had already priced in the approval (GBTC's discount had narrowed steadily from nearly 50% at the end of 2022 to 5.6% just before approval), the approval itself became a 'sell the news' signal. Combined with large-scale redemptions from GBTC after its conversion to an ETF, Bitcoin fell below $42,000 the day after approval (January 12), a single-day decline of nearly 10%, confirming the earlier 'sell the news' forecast from research firms such as CryptoQuant.",
+  "precursors": [
+   {
+    "indicator": "GBTC discount rate",
+    "signal": "GBTC's discount to net asset value narrowed steadily from a high of nearly 50% at the end of 2022 to just 5.6% -- an 18-month low -- by early January 2024, showing approval expectations were already fully priced in",
+    "lead_time": "~1 year",
+    "source_url": "https://www.coindesk.com/markets/2024/01/09/gbtc-discount-sinks-to-lowest-level-in-18-months-as-grayscale-falls-behind-in-etf-fee-race"
+   },
+   {
+    "indicator": "Institutional 'sell the news' research warnings",
+    "signal": "Research firms such as CryptoQuant had publicly forecast a month before approval that Bitcoin could pull back to around $32,000 as a 'sell the news' event once the ETF was approved",
+    "lead_time": "~1 month",
+    "source_url": "https://beincrypto.com/bitcoin-btc-price-drop-january-2024/"
+   },
+   {
+    "indicator": "GBTC discount closing to zero",
+    "signal": "GBTC's discount rapidly converged to 0% the week of approval; once the arbitrage opportunity disappeared, the buying pressure that had previously supported discount trades exited the market, setting up subsequent selling pressure",
+    "lead_time": "1-2 days",
+    "source_url": "https://www.coindesk.com/markets/2024/01/11/grayscales-gbtc-discount-closes-to-zero-for-first-time-since-february-2021"
+   }
+  ],
+  "aftermath": "GBTC, after converting to an ETF, saw months of sustained net outflows (some capital exited due to tax liabilities on legacy trust holdings and a search for lower-fee ETFs), but new ETFs such as BlackRock's IBIT attracted inflows rapidly, ultimately helping drive Bitcoin to a new all-time high that March.",
+  "refs": [
+   "https://www.coindesk.com/markets/2024/01/12/btc-tumbles-below-44k-bitcoin-miners-drop-10-boosting-etf-sell-the-news-calls",
+   "https://www.coindesk.com/markets/2024/01/09/gbtc-discount-sinks-to-lowest-level-in-18-months-as-grayscale-falls-behind-in-etf-fee-race",
+   "https://www.coindesk.com/markets/2024/01/11/grayscales-gbtc-discount-closes-to-zero-for-first-time-since-february-2021"
+  ]
+ },
+ {
+  "id": "2024-0805-yen-carry-unwind",
+  "market": "crypto",
+  "date": "2024-08-05",
+  "asset": "BTC/ETH",
+  "move_pct": -15,
+  "title": "Yen carry-trade unwind: 'Black Monday' global risk-off spills into crypto",
+  "cause": "On July 31, the Bank of Japan unexpectedly hiked rates to 0.25%, driving a rapid yen appreciation that forced global carry traders -- who had borrowed yen to fund higher-yielding assets including US equities and crypto -- to unwind positions en masse. On August 5, the Nikkei 225 plunged 12% (its largest single-day drop since the 1987 'Black Monday'), and the risk-off sentiment spilled into crypto markets. Bitcoin fell from about $60,000 to $51,000 (a drop of about 15%) before 10 AM UTC, while Ethereum fell more than 20%. About 300,000 accounts were liquidated network-wide, with losses of about $1.08 billion; Binance absorbed the largest share of the liquidation orders.",
+  "precursors": [
+   {
+    "indicator": "BTC perpetual funding rate",
+    "signal": "OI-weighted funding rate rose back to a multi-month high of 0.012% in early August (the highest since Bitcoin's July 27 spike to $68,000), reflecting a renewed build-up of leveraged long positioning",
+    "lead_time": "~1 week",
+    "source_url": "https://www.theblock.co/post/320907/bitcoin-futures-funding-rate-hits-multi-month-high-signaling-bullish-sentiment"
+   },
+   {
+    "indicator": "Bank of Japan policy pivot",
+    "signal": "The Bank of Japan unexpectedly announced a rate hike to 0.25% on July 31 (against broad market expectations of no change), the direct source of the carry-trade unwind chain, giving a clear signal five days in advance",
+    "lead_time": "5 days",
+    "source_url": "https://www.bis.org/publ/bisbull90.pdf"
+   },
+   {
+    "indicator": "Same-day Nikkei 225 decline",
+    "signal": "The Nikkei 225 plunged 12% on August 5, a traditional-market leading indicator that fell during Asian trading hours ahead of crypto markets, with the two moves closely linked on the same day",
+    "lead_time": "several hours (Asian session leads)",
+    "source_url": "https://cryptoslate.com/yen-carry-trade-unwind-margin-call-bitcoin-btc/"
+   }
+  ],
+  "aftermath": "Bitcoin bottomed at about $49,000 within 48 hours before stabilizing and rebounding; the Bank of Japan governor's subsequent comments about slowing the pace of hikes helped ease carry-unwind pressure, and crypto markets recovered most of the losses within about two weeks.",
+  "refs": [
+   "https://cointelegraph.com/news/crypto-market-crash-1b-liquidations-2024",
+   "https://www.bis.org/publ/bisbull90.pdf",
+   "https://cryptoslate.com/yen-carry-trade-unwind-margin-call-bitcoin-btc/"
+  ]
+ },
+ {
+  "id": "2024-1106-trump-election-pump",
+  "market": "crypto",
+  "date": "2024-11-06",
+  "asset": "BTC",
+  "move_pct": 7.5,
+  "title": "Trump election night: Bitcoin hits an all-time high (gain approaching but not reaching 10%)",
+  "cause": "Late on the night of November 5 through the early morning of November 6 ET, as vote counts in swing states including Nevada showed Trump with a clear lead, the market began pricing in the friendlier crypto-regulation policies expected under his presidency. At 1:25 AM ET on November 6, Bitcoin hit a new all-time high of $75,258; by the time Trump's victory was formally declared (around 5:30 AM ET), Bitcoin was trading at $73,806, a 24-hour gain of about 7.5% (the CoinDesk 20 index gained over 9% over 24 hours). Though it fell short of the 10% threshold, the event is included as a landmark case of a macro political event driving crypto assets to new highs.",
+  "precursors": [
+   {
+    "indicator": "Polymarket odds on a Trump win",
+    "signal": "Odds for the 'Trump wins' contract on Polymarket rose steadily the week before the election (in late October, four related accounts were reported to have wagered $25 million to push up the odds), with Bitcoin's price showing a strong correlated uptrend alongside those odds",
+    "lead_time": "~2 weeks",
+    "source_url": "https://www.dlnews.com/articles/defi/4-crypto-whales-are-skewing-trump-polymarket-election-bet/"
+   },
+   {
+    "indicator": "Total betting volume on Polymarket's election contract",
+    "signal": "On election day, cumulative betting volume on Polymarket's election market reached $3.2 billion (Trump contracts at $1.3 billion, Harris contracts at $827 million), showing the market's attention to the event and capital positioning had reached a historic scale",
+    "lead_time": "election day",
+    "source_url": "https://fortune.com/2024/11/05/polymarket-bets-odds-election-day-trump-harris/"
+   },
+   {
+    "indicator": "Cross-asset co-movement of the 'Trump trade'",
+    "signal": "As Trump's odds rose in October, the dollar index, US equities, and Bitcoin strengthened together, forming an observable cross-market 'Trump trade' correlation signal",
+    "lead_time": "~2-3 weeks",
+    "source_url": "https://www.nbcnews.com/business/business-news/price-bitcoin-hits-time-high-trump-victory-sinks-rcna179559"
+   }
+  ],
+  "aftermath": "Bitcoin continued to rally afterward, gaining nearly 40% in November alone and approaching $100,000. After Trump took office he signed crypto-related executive orders, pushing discussion of a 'strategic Bitcoin reserve' into the mainstream.",
+  "refs": [
+   "https://www.cnbc.com/2024/11/05/bitcoin-crypto-market-election-night.html",
+   "https://cryptoslate.com/insights/bitcoin-hits-new-all-time-high-as-trumps-polymarket-odds-hit-97/",
+   "https://www.dlnews.com/articles/defi/4-crypto-whales-are-skewing-trump-polymarket-election-bet/"
+  ]
+ },
+ {
+  "id": "2021-0208-tesla-btc-purchase-pump",
+  "market": "crypto",
+  "date": "2021-02-08",
+  "asset": "BTC",
+  "move_pct": 20.33,
+  "title": "Tesla buys $1.5 billion in Bitcoin: single-day 20% surge ignites the institutional-adoption narrative",
+  "cause": "On February 8, Tesla filed with the SEC disclosing it had purchased $1.5 billion in Bitcoin and planned to begin accepting Bitcoin as payment for its products. As an S&P 500 constituent and one of the world's largest companies by market cap, its first large-scale Bitcoin allocation was read by the market as a major validation of the 'institutional adoption' narrative. Bitcoin surged 20.33% that day to $46,081.64, briefly touching a new all-time high of $47,458 intraday, becoming one of the most emblematic single-day rallies of the 2021 bull market.",
+  "precursors": [
+   {
+    "indicator": "MicroStrategy's institutional purchase precedent",
+    "signal": "Since August 2020, MicroStrategy had repeatedly made large Bitcoin purchases and carried them on its corporate balance sheet, providing a reference precedent for Tesla's move and giving the market some expectation that more listed companies would follow suit",
+    "lead_time": "~6 months",
+    "source_url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=60085"
+   },
+   {
+    "indicator": "SEC filing disclosure",
+    "signal": "Tesla formally disclosed the investment in its 10-K annual report, a one-off shock triggered by mandatory regulatory disclosure rather than gradual price discovery",
+    "lead_time": "day of disclosure",
+    "source_url": "https://www.coindesk.com/business/2021/02/08/tesla-invests-15b-in-bitcoin-plans-to-accept-crypto-payments"
+   }
+  ],
+  "aftermath": "Tesla's position was up more than 37% at one point over the following two months; however, Tesla suspended accepting Bitcoin payments in May 2021, citing environmental concerns (becoming one of the triggers of the 519 crash), and sold off about 75% of its Bitcoin holdings in Q2 2022.",
+  "refs": [
+   "https://www.cnbc.com/2021/02/08/bitcoin-surges-above-43000-to-a-record-after-elon-musks-tesla-buys-1point5-billion.html",
+   "https://www.coindesk.com/business/2021/02/08/tesla-invests-15b-in-bitcoin-plans-to-accept-crypto-payments"
+  ]
+ },
+ {
+  "id": "2025-1010-tariff-record-liquidation",
+  "market": "crypto",
+  "date": "2025-10-10",
+  "asset": "All markets",
+  "move_pct": -14,
+  "title": "The largest liquidation day on record: Trump's tariff tweet triggers $19 billion in cascading liquidations",
+  "cause": "Between 3 and 4 PM ET on October 10, Trump announced on social media a 100% tariff on Chinese goods (effective November 1). The market began accelerating downward around 4:30 PM; Bitcoin fell from about $122,000 to $105,000 at the steepest point of the crash (about -14%), Ethereum fell about 16%, Solana plunged over 40% intraday, Toncoin briefly halved to lose 80% at $0.50, and Worldcoin briefly crashed 70%. Because open interest was already at a historic high going into the event, the deleveraging cascaded and amplified: about $19.2 billion in open positions evaporated within roughly 40 minutes, and about $19 billion in leveraged positions were liquidated within 24 hours (across roughly 1.6 million trader accounts) -- about 9 times the previous single-day liquidation record, and nearly 20 times the liquidation scale of the COVID-era 312 crash.",
+  "precursors": [
+   {
+    "indicator": "Market-wide open interest (OI)",
+    "signal": "Nominal OI on major exchanges had risen to about $235.9 billion by October 7 (with some sources putting OI at about $217 billion at the moment of the crash), near the highest level on record, with leverage buildup at an extreme",
+    "lead_time": "3 days",
+    "source_url": "https://blog.amberdata.io/how-3.21b-vanished-in-60-seconds-october-2025-crypto-crash-explained-through-7-charts"
+   },
+   {
+    "indicator": "Annualized funding rate level",
+    "signal": "Driven by Ethereum's rally, the funding rate climbed rapidly from about 10% annualized to nearly 30% by October 6, showing long-side leverage was excessively crowded and traders' willingness to pay funding kept rising",
+    "lead_time": "4 days",
+    "source_url": "https://insights4vc.substack.com/p/inside-the-19b-flash-crash"
+   },
+   {
+    "indicator": "Share of leverage in altcoins / long-tail assets",
+    "signal": "Small-cap tokens' share of overall leveraged positioning had been rising steadily, the structural reason why Toncoin, Worldcoin and others saw flash crashes of 50-90% during the event",
+    "lead_time": "several days before the crash",
+    "source_url": "https://www.fticonsulting.com/insights/articles/crypto-crash-october-2025-leverage-met-liquidity"
+   }
+  ],
+  "aftermath": "The liquidation scale set a new record, exposing structural fragility in perpetual-futures market liquidity and risk controls under extreme conditions; afterward, exchanges and regulators launched a fresh round of review of margin mechanisms and auto-deleveraging (ADL) rules.",
+  "refs": [
+   "https://www.coingecko.com/learn/october-10-crypto-crash-explained",
+   "https://insights4vc.substack.com/p/inside-the-19b-flash-crash",
+   "https://www.coindesk.com/research/market-spotlight-the-19-billion-liquidation-that-shook-crypto"
+  ]
+ }
+]

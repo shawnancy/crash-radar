@@ -1,0 +1,34 @@
+
+<h3>1. Across 34 case files, crashes only happen through three mechanisms</h3>
+<p><b>① Leverage stampede</b> (1929 / 1987 / the 2020-03-12 circuit-breaker week / 2021-05-19 / 2024-08-05 / 2025-10-10 / SK Hynix) — the shared script: leverage or crowded positions first build up to an extreme, and once any match is lit, forced liquidations become fresh sell pressure, so the price decline itself manufactures further declines. This category has <b>the clearest advance signals</b>: margin debt, funding rates, open interest, carry positions, and leveraged-ETF size are all measurable.</p>
+<p><b>② Exogenous shock</b> (the pandemic circuit-breaker week / tariff day / mining-region power curbs) — the trigger itself is hard to predict, but the market's <b>amplification factor</b> for the shock depends on pre-existing fragility: the same bad news drops a low-leverage market 3% and a high-leverage market 15%.</p>
+<p><b>③ Narrative collapse</b> (Meta's DAU / Netflix's subscriber count / NVDA's DeepSeek day / the LUNA-FTX trust chain) — the single narrative propping up a valuation is falsified by one earnings report or one balance sheet. The precursor is usually <b>trouble hitting a peer first</b> (Snap before Meta, UST before LUNA, FTT before BTC, Micron before SK Hynix) — when the first name in a chain runs into trouble, check the second name you're holding.</p>
+<p>The same logic applies to the upside: the three epic single-day rallies of 2008-10-13, 2020-03-24 and 2025-04-09 were all <b>"a policy bazooka after a crash, plus short covering"</b> — this never happens in a calm market.</p>
+
+<h3>2. What can warn you is never the "trigger" — it's "fragility"</h3>
+<p>A tweet, an earnings report, a mining accident, a central bank's Sunday-night action — triggers can't be predicted. But in every major incident in the archive, fragility indicators lit up at least days to months in advance. In practice, judge using a three-layer combination:</p>
+<ol>
+<li><b>Structural fragility</b>: leverage buildup (margin debt at a record high, annualized funding rate &gt;50%, OI surging, leveraged ETF assets ballooning);</li>
+<li><b>Sentiment extremes</b>: Fear & Greed Index at either extreme, Put/Call too low, basis overheated, valuation stretched;</li>
+<li><b>First crack</b>: the first abnormally large red candle / the first circuit breaker / term-structure inversion / a peer blowing up — historically, the first day of a crash is rarely the last leg down (1929-10-24 → 28 → 29; 2020-03-09 → 12 → 16; 2025-04-03 → 04).</li>
+</ol>
+<p>When all three layers line up at once, cutting exposure doesn't require predicting tomorrow's headlines.</p>
+
+<h3>3. Automated monitoring is now live (paired with this page)</h3>
+<p>A local script sweeps 6 core indicators that can be pulled automatically every 30 minutes; breached thresholds are pushed straight to a phone via iMessage, with a 12-hour cooldown per indicator/severity level to prevent spam:</p>
+<div class="rulebox">
+VIX ≥28 warning / ≥36 or +50% intraday red alert<br>
+VIX/VIX3M ≥0.93 warning / ≥1.0 (inverted) red alert<br>
+High-Yield OAS ≥4.0% or +0.5 over 5 days warning / ≥5.0% red alert<br>
+BTC funding rate |≥0.05%/8h| warning / |≥0.10%| red alert<br>
+Crypto Fear & Greed &lt;20 or ≥80 warning / ≤10 or ≥90 red alert<br>
+BTC 24h |≥8%| warning / |≥12%| red alert
+</div>
+<p>All data sources run through free public endpoints (Yahoo / FRED / OKX / alternative.me); repeated collection failures across multiple rounds automatically trigger a self-check message, so the system never fails silently.</p>
+
+<h3>4. Honest limitations</h3>
+<ul>
+<li>Fragility indicators improve <b>win rate and position discipline</b> — they are not a crystal ball. Endogenous liquidity stampedes like 1987 and the 2010 Flash Crash carry very weak advance signals; the only real backstop is position sizing;</li>
+<li>Exchange net inflow, Glassnode's leverage ratio, and market breadth have no free programmatic data source; the dashboard marks these as "manual-check items" with a manual-lookup link attached;</li>
+<li>Thresholds are set from historical percentiles and research literature; market structure drifts over time, so it's worth revisiting them against new events every quarter.</li>
+</ul>

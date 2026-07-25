@@ -1,0 +1,401 @@
+[
+ {
+  "id": "vix_level",
+  "market": "us",
+  "name": "VIX (CBOE Volatility Index)",
+  "what": "30-day implied volatility priced into S&P 500 options; the market's pricing of near-term risk",
+  "why": "VIX is the classic leading/coincident crash indicator. It closed at 82.69 on 2020-03-16 (one of the highest closes on record), spiked from 17.31 to 37.32 (+116%) in a single day during the 2018-02-05 \"Volmageddon\" event (triggering forced liquidation of short-VIX products that dragged down equity indices), and repeatedly touched 70-80 in October-November 2008. Sharp VIX spikes tend to coincide with, or lead by 1-2 days, single-day equity crashes",
+  "warning_threshold": "VIX > 25 (above the historical 80th percentile; market entering a stress zone)",
+  "danger_threshold": "VIX > 35 or a single-day gain > 40% (historical crisis-onset threshold; triggered cascading sell-offs in 2018, 2020 and 2008)",
+  "check_url": "https://www.cboe.com/tradable_products/vix/",
+  "api": {
+   "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX",
+   "method": "GET (requires a browser UA header, otherwise the request may be rejected)",
+   "parse": "response.chart.result[0].meta.regularMarketPrice",
+   "tested": true,
+   "sample_value": "16.18 (live-tested on 2026-07-16)"
+  },
+  "refs": [
+   "https://www.cboe.com/tradable_products/vix/vix_historical_data/",
+   "https://www.investopedia.com/terms/v/vix.asp"
+  ]
+ },
+ {
+  "id": "vix_term_structure",
+  "market": "us",
+  "name": "VIX Term Structure Inversion (VIX/VIX3M)",
+  "what": "Ratio of near-term VIX to 3-month VIX (VIX3M), measuring whether the term structure has flipped from normal contango into backwardation",
+  "why": "In a normal market VIX < VIX3M (ratio < 1, contango); when a spike in near-term fear pushes the ratio above 1 (inversion/backwardation), this has repeatedly and precisely flagged crisis onsets historically: the ratio broke above 1.0-1.2 during the 2015-08 China devaluation flash crash, the 2018-02 Volmageddon, and the week the COVID crash began (2020-02-24 through 03), with the S&P 500 subsequently falling more than 10% within 1-3 weeks",
+  "warning_threshold": "VIX/VIX3M > 0.95 (term structure flattening, contango narrowing)",
+  "danger_threshold": "VIX/VIX3M > 1.0 (inversion, backwardation confirmed)",
+  "check_url": "https://www.cboe.com/us/indices/dashboard/vix3m/",
+  "api": {
+   "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX and https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX3M",
+   "method": "GET (requires a browser UA header); fetch both endpoints separately and divide",
+   "parse": "VIX: chart.result[0].meta.regularMarketPrice; VIX3M likewise; ratio = VIX / VIX3M",
+   "tested": true,
+   "sample_value": "16.18 / 18.91 = 0.855 (live-tested on 2026-07-16, normal contango, not inverted)"
+  },
+  "refs": [
+   "https://www.cboe.com/us/indices/dashboard/vix3m/",
+   "https://www.investopedia.com/terms/c/contango.asp"
+  ]
+ },
+ {
+  "id": "skew_index",
+  "market": "us",
+  "name": "CBOE SKEW Index (Tail-Risk Index)",
+  "what": "Tail-risk pricing implied by deep out-of-the-money S&P 500 options — a gauge of \"black swan\" premium and left-tail thickness",
+  "why": "SKEW > 140 is generally considered a sign that the market is paying a premium for extreme downside tail events; SKEW repeatedly printed highs of 145-150+ from late 2017 into early 2018 right before the 2018-02 Volmageddon, and it also held elevated ahead of the early-2020 crash. Note this indicator is noisy and usually needs confirmation from a simultaneous rise in VIX",
+  "warning_threshold": "SKEW > 145",
+  "danger_threshold": "SKEW > 150 with VIX rising in tandem (double confirmation)",
+  "check_url": "https://www.cboe.com/us/indices/dashboard/skew/",
+  "api": {
+   "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/%5ESKEW",
+   "method": "GET (requires a browser UA header)",
+   "parse": "response.chart.result[0].meta.regularMarketPrice",
+   "tested": true,
+   "sample_value": "148.51 (live-tested on 2026-07-16, already in the warning zone)"
+  },
+  "refs": [
+   "https://www.cboe.com/us/indices/dashboard/skew/",
+   "https://www.investopedia.com/articles/optioninvestor/06/skewindex.asp"
+  ]
+ },
+ {
+  "id": "move_index",
+  "market": "us",
+  "name": "MOVE Index (ICE BofA MOVE, Bond Volatility)",
+  "what": "Implied volatility on U.S. Treasury options; the bond market's equivalent of VIX",
+  "why": "Bond-market volatility often leads equities — MOVE spiked to a record 198.66 during the March 2023 Silicon Valley Bank crisis, which was followed by a chain of regional-bank stock collapses; it also spiked to 163 during the March 2020 COVID shock. Normal readings usually sit between 60 and 90",
+  "warning_threshold": "MOVE > 120",
+  "danger_threshold": "MOVE > 160 (historical trigger level for banking/credit crises)",
+  "check_url": "https://www.investing.com/indices/ice-bofaml-move",
+  "api": {
+   "endpoint": "https://query1.finance.yahoo.com/v8/finance/chart/%5EMOVE",
+   "method": "GET (requires a browser UA header)",
+   "parse": "response.chart.result[0].meta.regularMarketPrice",
+   "tested": true,
+   "sample_value": "68.478 (live-tested on 2026-07-16, calm range)"
+  },
+  "refs": [
+   "https://www.investing.com/indices/ice-bofaml-move",
+   "https://www.reuters.com/markets/us/wall-st-move-index-2023-03-13/"
+  ]
+ },
+ {
+  "id": "hy_oas",
+  "market": "us",
+  "name": "High-Yield OAS (ICE BofA US High Yield Option-Adjusted Spread)",
+  "what": "Option-adjusted spread of U.S. high-yield (junk) bonds over Treasuries; the pricing of credit-market risk",
+  "why": "Widening credit spreads tend to lead equity declines by 1-4 weeks (\"credit leads equity\"). The spread spiked to a FRED-record 21.82% in December 2008, and jumped from 3.5% to 10.87% in under a month during the March 2020 COVID shock, which was followed by a secondary equity leg-down",
+  "warning_threshold": "HY OAS > 5.0% (widened more than 100bp off recent lows)",
+  "danger_threshold": "HY OAS > 8.0% (historical credit-crisis trigger zone)",
+  "check_url": "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+  "api": {
+   "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2",
+   "method": "GET, free CSV, no key required",
+   "parse": "Second column of the last row of the CSV (%)",
+   "tested": true,
+   "sample_value": "2.72 (2026-07-14, historical low, credit markets calm)"
+  },
+  "refs": [
+   "https://fred.stlouisfed.org/series/BAMLH0A0HYM2",
+   "https://www.stlouisfed.org/on-the-economy"
+  ]
+ },
+ {
+  "id": "yield_curve_10y2y",
+  "market": "us",
+  "name": "10-Year / 2-Year Treasury Spread (10Y-2Y)",
+  "what": "Spread between long- and short-end U.S. Treasury yields; the shape of the yield curve",
+  "why": "New York Fed research shows every U.S. recession since 1955 has been preceded by a 10Y-2Y inversion (negative spread), with an average lead time of 6-24 months; the August 2019 inversion was followed by the 2020 recession (accelerated by COVID), and the July 2022 inversion was followed by a marked slowdown in 2023-24. \"Re-steepening\" after inversion (flipping from negative back to positive) tends to be a more precise signal that a recession/equity downturn is imminent",
+  "warning_threshold": "10Y-2Y < 0 (inversion begins)",
+  "danger_threshold": "Rapid re-steepening back to positive after inversion (historical harbinger of recession onset)",
+  "check_url": "https://fred.stlouisfed.org/series/T10Y2Y",
+  "api": {
+   "endpoint": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=T10Y2Y",
+   "method": "GET, free CSV, no key required",
+   "parse": "Second column of the last row of the CSV (percentage points)",
+   "tested": true,
+   "sample_value": "0.42 (2026-07-15, curve normal, not inverted)"
+  },
+  "refs": [
+   "https://www.newyorkfed.org/research/capital_markets/ycfaq",
+   "https://fred.stlouisfed.org/series/T10Y2Y"
+  ]
+ },
+ {
+  "id": "put_call_ratio",
+  "market": "us",
+  "name": "CBOE Put/Call Ratio",
+  "what": "Market-wide put option volume divided by call option volume; a gauge of options-market sentiment",
+  "why": "Extremely low ratios (<0.5-0.6) often accompany excessive market optimism and chasing behavior, acting as a contrarian near-term top signal — e.g. equity put/call stayed below 0.5 for several days ahead of the January 2018 top; extremely high ratios (>1.0-1.2) tend to appear in the late stage of panic selling, marking short-term bottoms",
+  "warning_threshold": "Total Put/Call < 0.6 (excessive optimism) or > 1.0 (rising panic)",
+  "danger_threshold": "Equity Put/Call > 1.2 in a single day (acute panic) or below 0.5 for several consecutive days (dangerous complacency)",
+  "check_url": "https://www.cboe.com/us/options/market_statistics/daily/",
+  "api": {
+   "endpoint": "https://www.cboe.com/us/options/market_statistics/daily/",
+   "method": "GET, page scraping (CBOE's raw CSV endpoint at cdn.cboe.com returns 403 AccessDenied to programmatic requests; the HTML table on the page must be parsed instead — not a clean JSON feed)",
+   "parse": "The \"TOTAL PUT/CALL RATIO\" and \"EQUITY PUT/CALL RATIO\" values in the page table",
+   "tested": true,
+   "sample_value": "Total 0.93 / Equity 0.69 (live-tested on 2026-07-16 via page scraping, not a structured API)"
+  },
+  "refs": [
+   "https://www.cboe.com/us/options/market_statistics/daily/",
+   "https://www.investopedia.com/terms/p/putcallratio.asp"
+  ]
+ },
+ {
+  "id": "market_breadth",
+  "market": "us",
+  "name": "Market Breadth (NYSE New Highs - New Lows / Advance-Decline Divergence)",
+  "what": "Number of stocks making new 52-week highs minus those making new lows, and whether the advance-decline line is diverging from the index",
+  "why": "Ahead of the October 2007 S&P top, breadth indicators (new-high counts, the advance-decline line) had already been weakening for weeks, forming the classic \"price makes a new high, breadth doesn't\" top divergence; signals like the Hindenburg Omen are built on simultaneous surges in new highs and new lows. Deteriorating breadth tends to lead index tops by 2-8 weeks",
+  "warning_threshold": "New lows exceed new highs for 5+ consecutive trading days while the index still makes new highs (divergence)",
+  "danger_threshold": "Advance-decline line falls more than 10% off its high while the index remains close to its high (deep top divergence)",
+  "check_url": "https://www.barchart.com/stocks/highs-lows",
+  "api": {
+   "endpoint": "(no free programmatically-callable real-time API found)",
+   "method": "GET",
+   "parse": "Could not be live-tested — the relevant CBOE/CNBC/Nasdaq/Stooq endpoints all require authentication or return 403/CAPTCHA blocks; can only be checked manually on the web page",
+   "tested": false,
+   "sample_value": "Not obtained (honest disclosure: no free API; manual web-page inspection only)"
+  },
+  "refs": [
+   "https://www.investopedia.com/terms/a/advancedeclineline.asp",
+   "https://www.barchart.com/stocks/highs-lows"
+  ]
+ },
+ {
+  "id": "margin_debt",
+  "market": "us",
+  "name": "FINRA Margin Debt",
+  "what": "Outstanding margin-account debit balances held by U.S. brokerage customers (monthly data); a gauge of market leverage",
+  "why": "Margin debt hitting repeated record highs has often coincided with market tops (the March 2000 dot-com top, the July 2007 pre-subprime-crisis peak, and the October 2021 record of $935B after which U.S. equities turned bearish); a sharp drop in margin debt from a high (deleveraging) tends to accompany crashes and become a self-reinforcing accelerant of the decline",
+  "warning_threshold": "Month-over-month decline of more than 5% (deleveraging signal)",
+  "danger_threshold": "Month-over-month decline of more than 10%, or a drawdown of more than 15% from a historical high (historical crisis pattern)",
+  "check_url": "https://www.finra.org/rules-guidance/key-topics/margin-accounts/margin-statistics",
+  "api": {
+   "endpoint": "https://www.finra.org/sites/default/files/2021-03/margin-statistics.xlsx",
+   "method": "GET, free direct xlsx download, no key required (the filename contains a date string but the file content is continuously updated, not a fixed snapshot)",
+   "parse": "Parse the first worksheet of the xlsx; the first data row is the latest month: column 2 = Debit Balances (margin debt, in millions of USD)",
+   "tested": true,
+   "sample_value": "May 2026: 1,415,557 million USD (data carries roughly a 6-week publication lag; a monthly, not real-time, indicator)"
+  },
+  "refs": [
+   "https://www.finra.org/rules-guidance/key-topics/margin-accounts/margin-statistics",
+   "https://www.advisorperspectives.com/dshort/updates"
+  ]
+ },
+ {
+  "id": "fear_greed_us",
+  "market": "us",
+  "name": "CNN Fear & Greed Index",
+  "what": "A composite 0-100 sentiment score combining 7 market indicators (momentum, strength, breadth, put/call, junk-bond demand, volatility, safe-haven demand)",
+  "why": "Readings collapsing into the single digits / extreme-fear zone (<20) have repeatedly coincided with market bottoms (multiple 2022 bear-market rally launch points, the December 2018 low); readings above 90 in the extreme-greed zone often precede short-term topping pullbacks (as before the January 2018 top and the November 2021 top, both of which were in extreme greed)",
+  "warning_threshold": "< 25 (extreme fear) or > 75 (extreme greed)",
+  "danger_threshold": "< 10 accompanied by an actual sustained decline (genuine panic rather than a sentiment overshoot), or > 90 (historical topping zone)",
+  "check_url": "https://www.cnn.com/markets/fear-and-greed",
+  "api": {
+   "endpoint": "https://production.dataviz.cnn.io/index/fearandgreed/graphdata",
+   "method": "GET, requires Referer: https://www.cnn.com/markets/fear-and-greed and a browser UA, otherwise returns 418",
+   "parse": "response.fear_and_greed.score and .rating",
+   "tested": true,
+   "sample_value": "46.89, rating=neutral (live-tested on 2026-07-16)"
+  },
+  "refs": [
+   "https://www.cnn.com/markets/fear-and-greed",
+   "https://money.cnn.com/data/fear-and-greed/"
+  ]
+ },
+ {
+  "id": "funding_rate_btc",
+  "market": "crypto",
+  "name": "BTC Perpetual Funding Rate",
+  "what": "The funding rate settled every 8 hours between perpetual-futures longs and shorts; a positive rate means longs pay shorts (long crowding)",
+  "why": "A persistently extreme positive funding rate (annualized 50%+) tends to mark over-crowded leveraged longs — ahead of the 2021-05-19 crash, BTC funding rates on major exchanges held at 0.1-0.3%/8h (annualized over 100%) for multiple days, followed by roughly $8.6 billion in single-day liquidations; funding turning deeply negative is more commonly seen after panic sell-offs, when shorts become crowded",
+  "warning_threshold": "Annualized funding rate > 50% (single-period rate roughly 0.05-0.06%/8h or above)",
+  "danger_threshold": "Annualized funding rate > 100% (single-period rate roughly 0.1%/8h or above), or deeply negative below -30% annualized",
+  "check_url": "https://www.coinglass.com/FundingRate",
+  "api": {
+   "endpoint": "https://www.okx.com/api/v5/public/funding-rate?instId=BTC-USDT-SWAP",
+   "method": "GET, public endpoint, no key required",
+   "parse": "response.data[0].fundingRate (single-period rate; annualized ≈ value × 3 × 365)",
+   "tested": true,
+   "sample_value": "0.0000374281947186 (single period), annualized ≈4.10% (live-tested on 2026-07-16, normal, on the low side)"
+  },
+  "refs": [
+   "https://www.coinglass.com/FundingRate",
+   "https://academy.binance.com/en/articles/what-is-funding-rate-in-crypto"
+  ]
+ },
+ {
+  "id": "oi_mcap_ratio",
+  "market": "crypto",
+  "name": "Open Interest (OI) and OI/Market-Cap Ratio",
+  "what": "The notional value of open derivatives positions, and its ratio to the total market cap of the underlying asset; a gauge of leverage buildup",
+  "why": "OI climbing rapidly while price is flat or rising, with weak spot volume, is the textbook precursor of \"leverage stacking up, fragility rising\" — the OI/mcap ratio was at a cyclical high ahead of both the May 2021 and June 2022 mass-liquidation events; a sudden drop in OI typically means forced deleveraging (liquidation) has already occurred",
+  "warning_threshold": "OI rises more than 20% within 3 days while spot price rises less than 5% (leverage diverging from price)",
+  "danger_threshold": "OI rises more than 15% in a single day (rapid buildup, sharply elevated liquidation risk)",
+  "check_url": "https://www.coinglass.com/BitcoinOpenInterest",
+  "api": {
+   "endpoint": "https://www.okx.com/api/v5/public/open-interest?instType=SWAP&instId=BTC-USDT-SWAP combined with https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_market_cap=true",
+   "method": "GET, both endpoints free, no key required",
+   "parse": "OKX: data[0].oiUsd; CoinGecko: bitcoin.usd_market_cap; ratio = oiUsd / usd_market_cap (note: this is OKX's single-exchange BTC contract OI, not network-wide aggregated OI — full aggregation requires paid Coinglass API; this is a feasible free proxy indicator)",
+   "tested": true,
+   "sample_value": "OKX BTC-USDT-SWAP OI ≈$1.97B, BTC-USD-SWAP OI ≈$467M; combined ≈$2.44B; BTC total market cap ≈$1.285T; OKX share ≈0.19% (live-tested on 2026-07-16, OKX-only basis)"
+  },
+  "refs": [
+   "https://www.coinglass.com/BitcoinOpenInterest",
+   "https://insights.glassnode.com/futures-open-interest/"
+  ]
+ },
+ {
+  "id": "liquidation_volume",
+  "market": "crypto",
+  "name": "Network-wide Liquidation Volume",
+  "what": "Notional value of derivatives positions forcibly closed due to insufficient margin over the trailing 24 hours",
+  "why": "Large-scale liquidations are the direct manifestation of a leverage cascade unwinding — network-wide liquidations reached roughly $8.6 billion in a single day on 2021-05-19 (a record at the time), and on 2020-03-12 (\"Black Thursday\") BitMEX alone saw over $1 billion liquidated, triggering a single-day halving of Bitcoin's price; consecutive days of liquidations in the low-billions often mark short-term extreme bottoms/tops",
+  "warning_threshold": "24-hour network-wide liquidations > $500 million",
+  "danger_threshold": "24-hour network-wide liquidations > $1 billion",
+  "check_url": "https://www.coinglass.com/LiquidationData",
+  "api": {
+   "endpoint": "https://www.okx.com/api/v5/public/liquidation-orders?instType=SWAP&uly=BTC-USDT&state=filled",
+   "method": "GET, public endpoint, no key required (returns only OKX's own tick-by-tick BTC-USDT perpetual liquidation records, not network-wide aggregated amounts; full aggregation requires the paid Coinglass API — this endpoint can only serve as a real-time proxy signal; for aggregated figures, check the check_url manually)",
+   "parse": "response.data[0].details array, each entry containing bkPx (liquidation price), sz (size), posSide, ts; sum manually over a chosen time window",
+   "tested": true,
+   "sample_value": "Live-tested and obtained OKX's recent tick-by-tick liquidation records (e.g. bkPx=64116.1, sz=10 contracts, etc.); no network-wide total was aggregated"
+  },
+  "refs": [
+   "https://www.coinglass.com/LiquidationData",
+   "https://www.theblock.co/data/crypto-markets/futures/bitcoin-liquidations"
+  ]
+ },
+ {
+  "id": "futures_basis_annualized",
+  "market": "crypto",
+  "name": "Annualized Futures Basis",
+  "what": "The premium of quarterly futures contracts over the spot index, converted to an annualized yield",
+  "why": "The basis is a long-standing quantitative gauge of leveraged-long sentiment and cash-and-carry funding costs — ahead of the April-May 2021 bull-market top, the basis reached over 30% annualized (cash-and-carry arbitrage extremely crowded), before turning negative in the subsequent crash; the basis turning negative or near zero commonly appears during panic sell-offs/capital flight",
+  "warning_threshold": "Annualized basis > 15% (overheated sentiment) or < 0% (flips to backwardation, a panic signal)",
+  "danger_threshold": "Annualized basis > 30% (historical top zone) or deeply negative basis (< -10%, acute panic)",
+  "check_url": "https://www.coinglass.com/BasisChart",
+  "api": {
+   "endpoint": "https://www.okx.com/api/v5/market/ticker?instId=BTC-USD-260925 combined with https://www.okx.com/api/v5/market/index-tickers?instId=BTC-USD",
+   "method": "GET, both free, no key required; basis = (quarterly contract price - spot index price) / spot index price, then annualized by remaining days to expiry",
+   "parse": "Quarterly contract: data[0].last; spot index: data[0].idxPx; time to expiry can be computed from expTime returned by /api/v5/public/instruments?instType=FUTURES&instFamily=BTC-USD",
+   "tested": true,
+   "sample_value": "2026-09-25 contract at 64574.2 vs. spot index 64114.2, basis 0.72%, ~70.8 days remaining, annualized ≈3.70% (live-tested on 2026-07-16, neutral-to-mild zone)"
+  },
+  "refs": [
+   "https://www.coinglass.com/BasisChart",
+   "https://insights.glassnode.com/the-most-important-price-model-in-bitcoin/"
+  ]
+ },
+ {
+  "id": "stablecoin_mcap",
+  "market": "crypto",
+  "name": "Stablecoin Total Market Cap Change",
+  "what": "Combined market cap of major stablecoins such as USDT/USDC — representing on-hand \"dry powder\" ready to deploy and systemic risk exposure",
+  "why": "Single- or multi-day drops in stablecoin market cap tend to correspond to systemic depeg risk events: the Terra/UST collapse in May 2022 wiped out roughly $18 billion of UST market cap within days (and triggered a broader market-wide panic sell-off); during the March 2023 Silicon Valley Bank crisis, USDC briefly depegged to $0.87, with related market cap shrinking by roughly $3 billion in a single day. Sustained multi-day net outflows also reflect capital leaving the crypto ecosystem",
+  "warning_threshold": "Total market cap falls more than 1% in a single day",
+  "danger_threshold": "Total market cap falls more than 3% in a single day, or a major stablecoin's price deviates more than 1% from $1 (depeg warning)",
+  "check_url": "https://www.coingecko.com/en/categories/stablecoins",
+  "api": {
+   "endpoint": "https://api.coingecko.com/api/v3/coins/categories",
+   "method": "GET, free, no key required",
+   "parse": "Find the element with id=='stablecoins' in the returned array and take its market_cap field",
+   "tested": true,
+   "sample_value": "$303,554,793,061.8 (≈$303.55B, live-tested on 2026-07-16)"
+  },
+  "refs": [
+   "https://www.coingecko.com/en/categories/stablecoins",
+   "https://www.theblock.co/data/decentralized-finance/stablecoins"
+  ]
+ },
+ {
+  "id": "exchange_netflow",
+  "market": "crypto",
+  "name": "Exchange BTC Net Inflow",
+  "what": "Net amount of Bitcoin flowing from off-exchange wallets into centralized exchanges; a gauge of potential sell pressure/accumulation intent",
+  "why": "Large net inflows to exchanges typically precede selling (holders moving coins to exchanges to prepare to sell) — abnormal spikes in exchange BTC balances/net inflow (per CryptoQuant/Glassnode data) were observed around the November 2022 FTX collapse and ahead of most major sell-offs historically; sustained net outflows tend to correspond to accumulation and bullish sentiment",
+  "warning_threshold": "Single-day net inflow > 10,000 BTC",
+  "danger_threshold": "Single-day net inflow > 25,000 BTC, or net inflow amplifying for 3 consecutive days (historical pre-sell-off pattern)",
+  "check_url": "https://cryptoquant.com/asset/btc/chart/exchange-flows",
+  "api": {
+   "endpoint": "(no free programmatically-callable real-time API found)",
+   "method": "GET",
+   "parse": "Could not be live-tested — the core data sources for this indicator, CryptoQuant and Glassnode, are both paid APIs (the free tiers don't include exchange-flow detail); the public pages also require login/subscription to view full figures, with only summary charts publicly visible",
+   "tested": false,
+   "sample_value": "Not obtained (honest disclosure: no free real-time API; requires a CryptoQuant/Glassnode paid subscription, or manual inspection of public chart trends)"
+  },
+  "refs": [
+   "https://cryptoquant.com/asset/btc/chart/exchange-flows",
+   "https://insights.glassnode.com/bitcoin-exchange-flows/"
+  ]
+ },
+ {
+  "id": "coinbase_premium",
+  "market": "crypto",
+  "name": "Coinbase Premium Index",
+  "what": "The premium of Coinbase's BTC price (representing U.S. institutional/regulated capital) over offshore exchanges such as Binance/OKX",
+  "why": "A sustained deeply negative premium typically reflects U.S.-led capital selling/risk-off flight — the Coinbase premium rarely turned deeply negative for multiple consecutive days as it did during the November 2022 FTX collapse; a rising premium often precedes rallies during U.S. trading hours (\"U.S. capital buying leads the tape\")",
+  "warning_threshold": "Premium < -0.1% sustained for more than 6 hours",
+  "danger_threshold": "Premium < -0.3% (historical crisis-period level, as seen during the FTX collapse)",
+  "check_url": "https://www.coinglass.com/pro/i/coinbase-premium-index",
+  "api": {
+   "endpoint": "https://api.exchange.coinbase.com/products/BTC-USD/ticker combined with https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT",
+   "method": "GET, both free, no key required; premium = (Coinbase price - OKX price) / OKX price × 100%",
+   "parse": "Coinbase: response.price; OKX: data[0].last",
+   "tested": true,
+   "sample_value": "Coinbase 64,085.1 vs. OKX 64,140.0, premium ≈-0.086% (live-tested on 2026-07-16, normal minor fluctuation range)"
+  },
+  "refs": [
+   "https://www.coinglass.com/pro/i/coinbase-premium-index",
+   "https://cryptoquant.com/asset/btc/chart/market-indicator/coinbase-premium-index"
+  ]
+ },
+ {
+  "id": "fear_greed_crypto",
+  "market": "crypto",
+  "name": "Crypto Fear & Greed Index",
+  "what": "A composite 0-100 crypto-market sentiment score combining volatility, trading volume, social media, Bitcoin dominance, and Google search trends",
+  "why": "Readings collapsing to single digits (\"extreme fear\") have repeatedly coincided with cyclical bottoms — the index fell to around 10 during the November 2022 FTX collapse; readings above 90 (\"extreme greed\") commonly appear near bull-market tops, e.g. the index held in the 85-95 range around Bitcoin's all-time high in November 2021",
+  "warning_threshold": "< 20 (extreme fear) or > 80 (extreme greed)",
+  "danger_threshold": "< 10 (historic-level panic, as during the FTX collapse) or > 90 (historic-level topping zone, as around the November 2021 top)",
+  "check_url": "https://alternative.me/crypto/fear-and-greed-index/",
+  "api": {
+   "endpoint": "https://api.alternative.me/fng/?limit=1",
+   "method": "GET, free, no key required",
+   "parse": "response.data[0].value and .value_classification",
+   "tested": true,
+   "sample_value": "25, Extreme Fear (live-tested on 2026-07-16, in the extreme-fear warning zone)"
+  },
+  "refs": [
+   "https://alternative.me/crypto/fear-and-greed-index/",
+   "https://www.coindesk.com/markets/crypto-fear-greed-index"
+  ]
+ },
+ {
+  "id": "leverage_ratio",
+  "market": "crypto",
+  "name": "Estimated Leverage Ratio (ELR)",
+  "what": "The ratio of notional open derivatives interest to exchange BTC/ETH reserves; a gauge of systemic leverage relative to exchange holdings",
+  "why": "Glassnode's ELR rising steadily while price stalls has historically preceded multiple liquidation-driven deleveraging events (e.g. May 2021, June 2022), making it a core tool for judging whether \"the market has been inflated by leverage\"; this indicator itself is a paid Glassnode Studio Pro metric with no public free API",
+  "warning_threshold": "ELR breaks above its 6-month high",
+  "danger_threshold": "ELR at a historical high (>0.25, the general pre-crisis level per Glassnode's historical data) with funding rates simultaneously turning positive and rising (double confirmation)",
+  "check_url": "https://studio.glassnode.com/metrics?a=BTC&m=derivatives.FuturesEstimatedLeverageRatio",
+  "api": {
+   "endpoint": "(no free programmatically-callable real-time API found)",
+   "method": "GET",
+   "parse": "Could not be live-tested — this indicator is a Glassnode Studio paid-only metric (Advanced/Professional subscription); the equivalent CryptoQuant indicator likewise requires payment; the free tier does not provide this data",
+   "tested": false,
+   "sample_value": "Not obtained (honest disclosure: no free API; requires a Glassnode/CryptoQuant paid subscription or manual inspection of paid charts)"
+  },
+  "refs": [
+   "https://studio.glassnode.com/metrics?a=BTC&m=derivatives.FuturesEstimatedLeverageRatio",
+   "https://insights.glassnode.com/estimated-leverage-ratio/"
+  ]
+ }
+]

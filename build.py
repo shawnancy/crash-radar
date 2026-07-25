@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""把 data/*.json + 快照 + 方法论 注入 template.html → index.html"""
+"""把 data/*.json + 快照 + 方法论 注入 template.html → index.html (中文)
+   把 data/en/*.json + 同一份快照/K线 + ui_strings 全文替换 注入 template.html → en/index.html (英文)"""
 import json, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-FIXES = [
+FIXES = [  # 仅用于中文源数据里遗留的英文碎片/错别字修正, 不适用于 en 数据
     ("already情绪偏空", "情绪已偏空"),
     ("彭时", "当时"),
     ("連锁", "连锁"),
@@ -17,6 +18,10 @@ def load(name):
     txt = (ROOT / "data" / name).read_text()
     for a, b in FIXES:
         txt = txt.replace(a, b)
+    return json.loads(txt)
+
+def load_en(name):
+    txt = (ROOT / "data" / "en" / name).read_text()
     return json.loads(txt)
 
 events = load("events_us.json") + load("events_crypto.json")
@@ -80,7 +85,11 @@ for e in events:
     e["tags"] = tags
     e["nick"] = nick_of(e)
 
-# 监控用映射: 类别→历史事件 + 事件→类别
+# 中文版已算好的 打标结果, 供英文版按 id/下标 直接复制(打标正则是中文的, 不对 en 数据重新跑)
+ZH_ID_TO_TAGS = {e["id"]: e["tags"] for e in events}
+ZH_ID_TO_PRECURSOR_TAGS = {e["id"]: [p["tag"] for p in e.get("precursors", [])] for e in events}
+
+# 监控用映射: 类别→历史事件 + 事件→类别 (只服务中文监控脚本, 只写一次)
 signal_map = {
     "labels": TAG_LABELS,
     "cat_events": {k: [e["nick"] for e in events if k in e["tags"]] for k in TAG_LABELS},
@@ -113,6 +122,7 @@ SNAPSHOT = {
 }
 
 # 用本地监控最近一轮采集值刷新快照(30min内新鲜), 美股侧无CORS指标靠这个保准
+# (英文版与中文版共用同一份 SNAPSHOT 对象, 数值/中文 txt 之后统一走 ui_strings 全文替换清洗)
 _mon_state = mon_dir / "state.json"
 if _mon_state.exists():
     try:
@@ -177,6 +187,8 @@ if "--tags" in sys.argv:  # 打标抽查
     sys.exit(0)
 
 tpl = (ROOT / "template.html").read_text()
+
+# ============ 中文构建 (原逻辑不变, 只多语言按钮两个占位符) ============
 out = tpl.replace("/*__EVENTS__*/[]", json.dumps(events, ensure_ascii=False))
 out = out.replace("/*__INDICATORS__*/[]", json.dumps(indicators, ensure_ascii=False))
 out = out.replace("/*__SNAPSHOT__*/{}", json.dumps(SNAPSHOT, ensure_ascii=False))
@@ -186,5 +198,102 @@ out = out.replace("/*__TAGLABELS__*/{}", json.dumps(TAG_LABELS, ensure_ascii=Fal
 out = out.replace('/*__METHOD__*/""', json.dumps(METHOD_HTML, ensure_ascii=False))
 for ph in ("__EVENTS__", "__INDICATORS__", "__SNAPSHOT__", "__KLINES__", "__KLINES6__", "__TAGLABELS__", "__METHOD__"):
     assert ph not in out, ph
+out = out.replace("%%LANG_HREF%%", "en/")
+out = out.replace("%%LANG_LABEL%%", "EN")
+assert "%%LANG_" not in out
 (ROOT / "index.html").write_text(out)
 print(f"built index.html: {len(out)//1024} KB, {len(events)} events, {len(indicators)} indicators, {len(klines)} klines")
+
+# ============ 英文构建 ============
+events_en = load_en("events_us.json") + load_en("events_crypto.json")
+events_en.sort(key=lambda e: e["date"], reverse=True)
+
+for e in events_en:
+    zh_tags = ZH_ID_TO_TAGS.get(e["id"])
+    zh_ptags = ZH_ID_TO_PRECURSOR_TAGS.get(e["id"])
+    assert zh_tags is not None, f"en event id not found in zh: {e['id']}"
+    precursors = e.get("precursors", [])
+    assert len(precursors) == len(zh_ptags), f"precursor count mismatch for {e['id']}: en={len(precursors)} zh={len(zh_ptags)}"
+    for p, t in zip(precursors, zh_ptags):
+        p["tag"] = t
+    e["tags"] = zh_tags
+
+NICK_MAP_EN = {"Dow Jones Industrial Average": "Dow", "S&P 500": "S&P 500", "S&P 500 Index": "S&P 500",
+               "Meta Platforms": "META", "Micron Technology": "Micron", "SK Hynix": "SK Hynix"}
+
+def nick_of_en(e):
+    a = e["asset"].split("/")[0].split("(")[0].split(",")[0].strip()
+    a = NICK_MAP_EN.get(a, a.split(" ")[0][:8])
+    return f"{e['date']} {a}"
+
+for e in events_en:
+    e["nick"] = nick_of_en(e)
+
+indicators_en = load_en("indicators.json")
+
+TAG_LABELS_EN = {
+    "term": "Term Structure", "vol": "Volatility", "cred": "Credit & Liquidity",
+    "chain": "On-chain & Reserves", "lev": "Leverage Crowding", "fund": "Fundamentals Falsified",
+    "pol": "Policy & Regulation", "peer": "Peers & Contagion", "sent": "Sentiment & Valuation",
+    "mom": "Price Structure",
+}
+
+METHOD_HTML_EN = (ROOT / "data" / "en" / "method.html").read_text()
+
+out_en = tpl.replace("/*__EVENTS__*/[]", json.dumps(events_en, ensure_ascii=False))
+out_en = out_en.replace("/*__INDICATORS__*/[]", json.dumps(indicators_en, ensure_ascii=False))
+out_en = out_en.replace("/*__SNAPSHOT__*/{}", json.dumps(SNAPSHOT, ensure_ascii=False))  # 共用同一份
+out_en = out_en.replace("/*__KLINES__*/{}", json.dumps(klines, ensure_ascii=False))       # 共用同一份
+out_en = out_en.replace("/*__KLINES6__*/{}", json.dumps(klines6, ensure_ascii=False))     # 共用同一份
+out_en = out_en.replace("/*__TAGLABELS__*/{}", json.dumps(TAG_LABELS_EN, ensure_ascii=False))
+out_en = out_en.replace('/*__METHOD__*/""', json.dumps(METHOD_HTML_EN, ensure_ascii=False))
+for ph in ("__EVENTS__", "__INDICATORS__", "__SNAPSHOT__", "__KLINES__", "__KLINES6__", "__TAGLABELS__", "__METHOD__"):
+    assert ph not in out_en, ph
+
+# ui_strings: zh→en UI 替换表, 按 key 长度降序对整份输出 HTML 全文替换
+# (顺带把 SNAPSHOT/klines 里残留的中文 txt/label 一起清掉)
+ui_strings = json.loads((ROOT / "data" / "en" / "ui_strings.json").read_text())
+for k in sorted(ui_strings.keys(), key=len, reverse=True):
+    if k in out_en:
+        out_en = out_en.replace(k, ui_strings[k])
+
+out_en = out_en.replace('lang="zh-CN"', 'lang="en"')
+
+# POLISH: 逐条替换清不掉的中英组合瑕疵(单位+标签语义重复/多余空格), 目标串必须逐字节存在
+POLISH = [
+    ('"Events Archived"," events"', '"Events Archived",""'),
+    ('"Year Span Covered"," yrs"', '"Years Covered",""'),
+    ("Total  ${EVENTS.length}  archived events", "${EVENTS.length} archived events"),
+]
+for a, b in POLISH:
+    assert a in out_en, f"POLISH miss: {a}"
+    out_en = out_en.replace(a, b)
+
+# 语言切换占位符放在 ui_strings 替换之后处理: 避免 "中文" 二字被表误伤(表里确认无此 key)
+out_en = out_en.replace("%%LANG_HREF%%", "../")
+out_en = out_en.replace("%%LANG_LABEL%%", "中文")
+assert "%%LANG_" not in out_en
+
+# ---- 硬验证: 中文残留扫描, 除"中文"切换按钮 2 字外必须零命中 ----
+_zh_pat = re.compile(r"[一-鿿　-〿＀-￯]")
+_matches = list(_zh_pat.finditer(out_en))
+_zw_positions = set()
+for m in re.finditer("中文", out_en):
+    _zw_positions.add(m.start())
+    _zw_positions.add(m.start() + 1)
+_leaks = [m for m in _matches if m.start() not in _zw_positions]
+if _leaks:
+    print(f"!! {len(_leaks)} 处中文残留 (总命中 {len(_matches)}, 语言按钮豁免 {len(_zw_positions)}):")
+    seen = set()
+    for m in _leaks:
+        ctx = out_en[max(0, m.start() - 60): m.start() + 60]
+        if ctx in seen:
+            continue
+        seen.add(ctx)
+        print("  ...", ctx.replace("\n", " "), "...")
+    raise AssertionError(f"{len(_leaks)} chinese chars leaked into en build (see context above)")
+print(f"en zh-char scan: {len(_matches)} total hits, all within '中文' switch-button label — clean")
+
+(ROOT / "en").mkdir(parents=True, exist_ok=True)
+(ROOT / "en" / "index.html").write_text(out_en)
+print(f"built en/index.html: {len(out_en)//1024} KB, {len(events_en)} events, {len(indicators_en)} indicators, {len(klines)} klines")

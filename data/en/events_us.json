@@ -1,0 +1,757 @@
+[
+ {
+  "id": "1929-10-28-black-monday",
+  "market": "us_index",
+  "date": "1929-10-28",
+  "asset": "Dow Jones Industrial Average",
+  "move_pct": -12.82,
+  "title": "Black Monday, 1929",
+  "cause": "The leveraged bull market of the 1920s drove the Dow from 63 in August 1921 to a record 381.17 on September 3, 1929, as broker margin loans ballooned (topping $8.5 billion in August 1929, more than the total currency circulating in the U.S.) against margin requirements of roughly just 50% of a stock's price. The 'Babson Break' of September 5 and the 'Black Thursday' selloff of October 24 had already exposed cracks, and a banking consortium briefly banded together to stabilize the market. But panic kept building over the weekend, and Monday, October 28 opened to a flood of selling; margin calls triggered a chain reaction of forced liquidations, while badly lagging telegraph and ticker-tape systems left investors with no idea what their holdings were worth. The Dow plunged 38.33 points (-12.82%) that day to close at 260.64, then the largest single-day percentage decline in history.",
+  "precursors": [
+   {
+    "indicator": "Broker margin loans / leverage levels",
+    "signal": "Broker loan balances topped $8.5 billion in August 1929, exceeding the total currency then circulating in the U.S.; standard margin requirements were roughly just 50% of a stock's price (lower for some stocks), with about 300 million shares held on margin.",
+    "lead_time": "~2 months ahead",
+    "source_url": "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929"
+   },
+   {
+    "indicator": "The Babson Break",
+    "signal": "On September 5, Roger Babson warned at the National Business Conference that 'a crash is coming, and it may be terrific,' and the Dow slid about 2.6% into the close as the warning spread (with stocks like U.S. Steel dropping 7-9 points late in the session); by month-end the market had pulled back roughly 10% from its September 3 high.",
+    "lead_time": "~7 weeks ahead",
+    "source_url": "https://www.begintoinvest.com/september-5/"
+   },
+   {
+    "indicator": "Extreme valuations / P-E ratios",
+    "signal": "The average P/E ratio of the S&P Composite Index rose to 32.6x in September 1929, well above its historical average, reflecting speculative momentum-chasing.",
+    "lead_time": "~2 months ahead (September peak)",
+    "source_url": "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929"
+   },
+   {
+    "indicator": "Broker loans / continued easy liquidity",
+    "signal": "Broker loan balances hit a fresh record high on October 3, even as call-loan rates fell from 7.5% to 6%, showing leveraged money was still flooding in at an accelerating pace on the eve of the crash.",
+    "lead_time": "~3-4 weeks ahead",
+    "source_url": "https://eh.net/encyclopedia/the-1929-stock-market-crash/"
+   }
+  ],
+  "aftermath": "The Dow fell another 11.73% the next day (October 29), for a two-day drop of 23.05%; it then ground lower until bottoming at 41.22 on July 8, 1932 (down roughly 89% from the September 1929 high), and did not reclaim its 1929 record until November 23, 1954 -- a 25-year round trip.",
+  "refs": [
+   "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929",
+   "https://www.federalreservehistory.org/essays/stock-market-crash-of-1929",
+   "https://www.begintoinvest.com/september-5/"
+  ]
+ },
+ {
+  "id": "1929-10-29-black-tuesday",
+  "market": "us_index",
+  "date": "1929-10-29",
+  "asset": "Dow Jones Industrial Average",
+  "move_pct": -11.73,
+  "title": "Black Tuesday, 1929",
+  "cause": "In the wake of Black Monday's 12.82% plunge, brokers spent that night flooding margin-account clients with a wave of margin calls, at times jamming phone and telegraph lines with the volume of demands. The J.P. Morgan-led banking consortium that had propped up the market judged the losses too large and the panic too deep to intervene effectively, and mounted no meaningful support on Tuesday. Selling turned into a flood at the open; volume hit a record ~16.4 million shares for the day, and the ticker tape -- running nearly 2.5 hours behind actual trades -- left investors with no idea what their positions were worth. Forced margin liquidations and deleveraging fed on each other, and the Dow fell another 30.57 points (-11.73%) to close at 198.69, a two-day loss of 23.05% that wiped out roughly $14 billion in market value.",
+  "precursors": [
+   {
+    "indicator": "Prior session's crash",
+    "signal": "On October 28, 'Black Monday,' the Dow had already plunged 12.82% -- then the largest single-day decline in history -- to close at 260.64.",
+    "lead_time": "1 trading day ahead",
+    "source_url": "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929"
+   },
+   {
+    "indicator": "Margin calls / credit tightening",
+    "signal": "After the October 28 close, brokers spent the night issuing margin calls to huge numbers of clients; phone lines and telegraph systems were at times jammed by the volume of demands, forcing many investors to decide on liquidation before the market even opened.",
+    "lead_time": "overnight",
+    "source_url": "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929"
+   },
+   {
+    "indicator": "Collapse of the bankers' support pool",
+    "signal": "On October 24, 'Black Thursday,' a coordinated buying pool led by J.P. Morgan had briefly propped up the market, but by October 28-29 that support pool had effectively abandoned intervention and stopped stepping in.",
+    "lead_time": "4-5 days ahead",
+    "source_url": "https://libraryofhistory.org/articles/black-tuesday-1929-stock-market-crash-great-depression.html"
+   },
+   {
+    "indicator": "Structural leverage risk (academic economic-history reassessment)",
+    "signal": "Academic research shows that ahead of the 1929 crash, broker loans and secondary leverage embedded in investment trusts were tightly intertwined, which significantly amplified the negative feedback loop of cascading margin liquidations once prices began to fall.",
+    "lead_time": "structural buildup (not a single lead window)",
+    "source_url": "https://onlinelibrary.wiley.com/doi/10.1111/ehr.13213"
+   }
+  ],
+  "aftermath": "The market did not stop falling after the two-day crash; it kept grinding lower until bottoming at 41.22 on July 8, 1932 (down roughly 89% from the September 1929 high), and did not reclaim its 1929 record until November 23, 1954 -- a 25-year round trip.",
+  "refs": [
+   "https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929",
+   "https://www.federalreservehistory.org/essays/stock-market-crash-of-1929",
+   "https://libraryofhistory.org/articles/black-tuesday-1929-stock-market-crash-great-depression.html"
+  ]
+ },
+ {
+  "id": "1987-10-19-black-monday",
+  "market": "us_index",
+  "date": "1987-10-19",
+  "asset": "Dow Jones Industrial Average",
+  "move_pct": -22.61,
+  "title": "Black Monday, 1987",
+  "cause": "The Fed kept tightening through 1987: the 10-year Treasury yield climbed from roughly 7.2% at the start of the year to near 10% by mid-October, while the fed funds rate rose over the same span from about 5.8% to 7.25%-7.5%, sharply increasing bonds' appeal relative to stocks. The February 1987 Louvre Accord had aimed to stabilize the dollar, but on Saturday, October 17, Treasury Secretary James Baker publicly threatened that 'either Germany devalues the mark, or we will devalue the dollar,' a stance he repeated in a Sunday, October 18 television interview -- the market read this as the Accord effectively dead and panicked over disorder in the currency system. On October 14, the Commerce Department reported a worse-than-expected trade deficit and the Dow fell 3.81% that day; 'triple witching' selling pressure on October 16 knocked another 4.6% off the index, leaving the S&P 500 down roughly 9% for the week. All of this pressure was released at once on Monday, October 19: widely adopted 'portfolio insurance' strategies triggered programmatic futures selling as prices fell, which reinforced spot-market selling in a self-accelerating downward spiral; combined with vanishing market-maker liquidity and severely lagging trading systems, the Dow plunged 508.32 points (-22.61%) that day -- the largest single-day percentage decline in history -- as markets sold off in unison worldwide, wiping out an estimated $1.71 trillion in global market value.",
+  "precursors": [
+   {
+    "indicator": "Portfolio insurance / program-trading scale",
+    "signal": "The Brady Commission's post-crash investigation found that on October 19 alone, just three institutions running portfolio insurance strategies sold nearly $2 billion in futures contracts, with another ten institutions exhibiting similar reactive patterns selling roughly $1.5 billion more; the strategy's procyclical selling mechanism had already been adopted at scale in the months before the crash.",
+    "lead_time": "structural risk built up over months, triggered mechanically on the day",
+    "source_url": "https://en.wikipedia.org/wiki/Black_Monday_(1987)"
+   },
+   {
+    "indicator": "Prior week's consecutive declines",
+    "signal": "The Dow fell 3.81% (-95.46 points) on October 14, then another 4.6% (-108.35 points) on 'triple witching' day, October 16; over the three sessions from October 14-16 the Dow lost more than 10% cumulatively, and the S&P 500 was down roughly 9% for the week.",
+    "lead_time": "3-5 trading days ahead",
+    "source_url": "https://www.federalreservehistory.org/essays/stock-market-crash-of-1987"
+   },
+   {
+    "indicator": "Surging interest rates and bond yields",
+    "signal": "The 10-year Treasury yield rose from roughly 7.2% at the start of 1987 to near 10% by mid-October, while the fed funds rate climbed from about 5.8% to 7.25%-7.5% over the same period, markedly increasing bonds' relative appeal over stocks.",
+    "lead_time": "~9-10 months ahead (built up over the year)",
+    "source_url": "https://www.federalreservehistory.org/essays/stock-market-crash-of-1987"
+   },
+   {
+    "indicator": "Dollar / Louvre Accord tensions and Baker's remarks on Germany",
+    "signal": "On Saturday, October 17, Treasury Secretary Baker publicly stated that 'either Germany devalues the mark, or we will devalue the dollar,' and reiterated in a Sunday, October 18 television interview that the U.S. would not accept a German rate hike; markets read this as the Louvre Accord being effectively dead, sparking panic among international investors.",
+    "lead_time": "1-2 days ahead (built over the weekend into Monday's open)",
+    "source_url": "https://www.aei.org/articles/the-hunt-for-black-october/"
+   }
+  ],
+  "aftermath": "The Dow rebounded 288 points over the two sessions following the crash (October 20-21), recovering about 57% of the loss; it then repeatedly retested the October 19 low over the following weeks, forming a choppy base rather than a V-shaped recovery, and did not reclaim its pre-crash record high of 2,722.42 (set August 25, 1987) until August 24, 1989 -- roughly 22 months later.",
+  "refs": [
+   "https://en.wikipedia.org/wiki/Black_Monday_(1987)",
+   "https://www.federalreservehistory.org/essays/stock-market-crash-of-1987",
+   "https://www.aei.org/articles/the-hunt-for-black-october/"
+  ]
+ },
+ {
+  "id": "2008-10-13-tarp-rally",
+  "market": "us_index",
+  "date": "2008-10-13",
+  "asset": "Dow Jones Industrial Average",
+  "move_pct": 11.08,
+  "title": "Global Bank Bailout Lands: Dow Surges 11.08% in a Single Session",
+  "cause": "Markets failed to stabilize after Congress passed the $700 billion TARP bill on October 3, 2008, and the Dow booked its worst week ever from October 6-10 (-18.15%). Over the weekend of October 11-12, G7 finance ministers meeting in Washington pledged to 'support systemically important financial institutions and prevent their failure,' while European governments moved in parallel -- the UK on October 8, France, Germany and others at an October 12 Paris meeting -- announcing bank recapitalization and debt-guarantee programs totaling roughly EUR 1.8 trillion; the U.S. Treasury followed on October 14 with an additional $250 billion Capital Purchase Program (CPP). The Dow gapped up 400 points at Monday's open on October 13 and closed up 936.42 points (+11.08%) at 9,387.61 -- then the largest single-day point gain in Dow history and the largest single-day percentage gain since 1933, as extreme oversold conditions collided with a policy pivot to ignite short covering and panic buying.",
+  "precursors": [
+   {
+    "indicator": "VIX fear gauge hits a record",
+    "signal": "On Friday, October 10, the VIX closed at 69.95 -- a record close since VIX records began in 1990 (later broken again on October 24 and November 20) -- and touched 76.94 intraday; such extreme fear readings are themselves fuel for a reversal.",
+    "lead_time": "1 trading day ahead (across the weekend)",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+   },
+   {
+    "indicator": "Prior week's cumulative Dow decline",
+    "signal": "The Dow fell for five straight sessions during the week of October 6-10, losing 1,874.19 points (-18.15%) cumulatively -- its worst week on record by both points and percentage -- leaving the market extremely oversold.",
+    "lead_time": "the week immediately preceding the surge",
+    "source_url": "https://en.wikipedia.org/wiki/List_of_largest_daily_changes_in_the_Dow_Jones_Industrial_Average"
+   },
+   {
+    "indicator": "TED spread (credit-market freeze indicator)",
+    "signal": "The TED spread spiked to a crisis peak of 457 basis points on October 10 -- roughly nine times its long-run average of 30-50bp -- having already broken above 300bp on September 17 (exceeding the 1987 Black Monday record); the effective freeze in interbank lending forced governments to act over the weekend.",
+    "lead_time": "1 trading day ahead",
+    "source_url": "https://en.wikipedia.org/wiki/TED_spread"
+   },
+   {
+    "indicator": "Commercial paper market freeze",
+    "signal": "The short-term commercial paper market seized up after Lehman's collapse, prompting the Fed to announce the Commercial Paper Funding Facility (CPFF) on October 7 to buy corporate commercial paper directly -- a sign that real-economy short-term financing already depended on central-bank backstopping.",
+    "lead_time": "~1 week ahead",
+    "source_url": "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008"
+   }
+  ],
+  "aftermath": "The rally lasted only one session -- the Dow tumbled 733 points (-7.87%) on October 15 -- and the market continued to swing violently lower, ultimately bottoming at 6,547.05 on March 9, 2009, down roughly 54% from its October 2007 high.",
+  "refs": [
+   "https://en.wikipedia.org/wiki/List_of_largest_daily_changes_in_the_Dow_Jones_Industrial_Average",
+   "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008",
+   "https://en.wikipedia.org/wiki/TED_spread"
+  ]
+ },
+ {
+  "id": "2008-10-15-recession-fear-crash",
+  "market": "us_index",
+  "date": "2008-10-15",
+  "asset": "Dow Jones Industrial Average (S&P 500 fell ~9% same day)",
+  "move_pct": -7.87,
+  "title": "Retail Data and Beige Book Sound the Alarm: Dow Plunges 7.87%, Erasing Two Days of Gains",
+  "cause": "The optimism behind the October 13 surge was quickly crushed by economic fundamentals. Before Wednesday's October 15 open, the Commerce Department reported September retail sales down 1.2% month-over-month, the largest drop in three years; the Fed's Beige Book released the same day showed economic activity weakening across all 12 Fed districts; Alan Greenspan called the crisis a 'once-in-a-century credit tsunami,' and UK Prime Minister Gordon Brown acknowledged Britain had entered recession. The market concluded that even if the banking system were rescued, a real-economy recession was now unavoidable -- bailout optimism gave way to recession fear, and the Dow plunged 733.08 points (-7.87%) that day to 8,577.91, its largest single-day percentage decline since 1987's Black Monday, while the S&P 500 fell about 9% and the Nasdaq dropped more than 8%.",
+  "precursors": [
+   {
+    "indicator": "VIX fear gauge stays elevated",
+    "signal": "The VIX closed at 55.13 on October 14, still in historically extreme territory (having just set a record close of 69.95 on the 10th) and showing no meaningful pullback despite the 13th's rally -- a sign the options market did not believe the bounce.",
+    "lead_time": "1 trading day ahead",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+   },
+   {
+    "indicator": "TED spread fails to improve despite the stock rally",
+    "signal": "Despite the October 13 stock surge, the TED spread stayed near the 457bp record high set on the 10th, showing that interbank credit markets had not genuinely thawed -- a divergence between equity and credit signals.",
+    "lead_time": "concurrent with the rally (2 days ahead)",
+    "source_url": "https://en.wikipedia.org/wiki/TED_spread"
+   },
+   {
+    "indicator": "September retail sales data",
+    "signal": "September retail sales were reported down 1.2% month-over-month before the October 15 open, the largest drop in three years, with the August figure revised to -0.4% -- confirming that consumer spending was stalling rapidly.",
+    "lead_time": "released before the open that day",
+    "source_url": "https://www.foxbusiness.com/markets/the-dows-biggest-single-day-drops-in-history"
+   },
+   {
+    "indicator": "Federal Reserve Beige Book",
+    "signal": "The Beige Book released on October 15 showed broadly weakening economic activity across all 12 Fed districts, reinforcing recession expectations.",
+    "lead_time": "released same day",
+    "source_url": "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008"
+   }
+  ],
+  "aftermath": "The market kept falling: the Dow touched a fresh low around 7,552 on November 20, before ultimately reaching the bear-market bottom of 6,547.05 on March 9, 2009.",
+  "refs": [
+   "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008",
+   "https://www.foxbusiness.com/markets/the-dows-biggest-single-day-drops-in-history",
+   "https://en.wikipedia.org/wiki/List_of_largest_daily_changes_in_the_Dow_Jones_Industrial_Average"
+  ]
+ },
+ {
+  "id": "2010-05-06-flash-crash",
+  "market": "us_index",
+  "date": "2010-05-06",
+  "asset": "Dow Jones Industrial Average / E-mini S&P 500 futures",
+  "move_pct": -9.16,
+  "title": "The Flash Crash: Dow Plunges 998.5 Points (~9%) Intraday in 36 Minutes, Then Nearly Fully Recovers",
+  "cause": "According to the joint SEC-CFTC investigative report, markets were already unusually volatile and thinning in liquidity on May 6 because of the Greek sovereign debt crisis (S&P had cut Greece to junk on April 24, and anti-austerity riots in Athens on May 5 left three people dead). At 2:32 p.m., large mutual fund Waddell & Reed, hedging an equity position, launched an algorithm to sell 75,000 E-mini S&P 500 futures contracts (about $4.1 billion), targeting an execution rate of just 9% of the prior minute's volume with no regard for price or time. High-frequency traders absorbed the flow and rapidly offloaded it again, creating a 'hot potato' effect in which volume changed hands at high speed between firms without being genuinely absorbed; combined with vanishing order-book depth, market makers in some individual stocks (Accenture, Procter & Gamble and others) filled trades at 'stub quotes' as low as one cent. The Dow plunged 998.5 points in 36 minutes (an intraday high-low spread of 1,010.14 points, about 9%), then recovered nearly 600 points over the following roughly 30 minutes.",
+  "precursors": [
+   {
+    "indicator": "Greek sovereign CDS spread",
+    "signal": "Greece's 5-year CDS spread spiked from roughly 346 basis points in mid-April to near a record 1,000bp by early May, showing the European debt crisis had deteriorated sharply in the weeks before the event.",
+    "lead_time": "~2-3 weeks ahead",
+    "source_url": "https://en.wikipedia.org/wiki/Greek_government-debt_crisis"
+   },
+   {
+    "indicator": "Greek street riots and austerity-bill vote",
+    "signal": "A general strike against austerity in Athens on May 5 turned into riots that killed three people, while the Greek parliament voted on austerity legislation May 5-6; European and U.S. markets opened under pressure that day from the Greek situation.",
+    "lead_time": "1 day ahead through the same morning",
+    "source_url": "https://abcnews.com/Business/dow-jones-dives-european-debt-scare-shakes-us/story?id=10576136"
+   },
+   {
+    "indicator": "E-mini S&P futures order-book bid depth",
+    "signal": "Before the 2:32 p.m. plunge began, E-mini bid-side order-book depth had already fallen from roughly $6 billion in the morning to $2.7 billion (down 55%), while SPY bid depth fell about 30% over the same period -- liquidity was drying up well ahead of the crash.",
+    "lead_time": "deteriorated over several hours earlier the same session",
+    "source_url": "https://en.wikipedia.org/wiki/2010_flash_crash"
+   },
+   {
+    "indicator": "VIX spikes intraday",
+    "signal": "By 2:30 p.m. the VIX was already up 22.5% from the open, and closed the day up 31.7% -- then the fourth-largest single-day gain in VIX history.",
+    "lead_time": "climbing steadily through the session before the crash was triggered",
+    "source_url": "https://en.wikipedia.org/wiki/2010_flash_crash"
+   }
+  ],
+  "aftermath": "The market self-corrected within 36 minutes, and the Dow closed the day down just 347.80 points (-3.2%). The SEC and FINRA introduced single-stock circuit breakers that June and voided abnormal trades that had deviated more than 60% from the reference price that day; the mechanism later evolved into the Limit Up-Limit Down system formally implemented in 2012.",
+  "refs": [
+   "https://en.wikipedia.org/wiki/2010_flash_crash",
+   "https://www.sec.gov/files/marketevents-report.pdf",
+   "https://abcnews.com/Business/dow-jones-dives-european-debt-scare-shakes-us/story?id=10576136"
+  ]
+ },
+ {
+  "id": "facebook-2018-07-26-earnings-crash",
+  "market": "us_stock",
+  "date": "2018-07-26",
+  "asset": "Facebook, Inc. (NASDAQ: FB, now Meta Platforms)",
+  "move_pct": -18.96,
+  "title": "Facebook Plunges 19% in a Day: Then the Largest Single-Day Market-Cap Loss in U.S. Stock Market History",
+  "cause": "After the close on July 25, 2018, Facebook reported Q2 earnings: revenue of $13.2 billion, up 42% year-over-year but short of expectations, with MAU/DAU growth clearly decelerating quarter-over-quarter and European user counts down roughly one million sequentially because of GDPR (effective May 25, 2018). CFO Dave Wehner warned on the earnings call that revenue growth would decelerate by 'high single-digit percentage points' each quarter going forward, and that sharply higher spending on security review and content governance would meaningfully compress margins. The stock gapped down from a prior close of $217.50 the next day (July 26) and closed at $176.26, down 18.96% for the session; the single-day market-cap loss was roughly $119 billion (about $123 billion at the intraday low) -- then the largest single-day market-cap loss in U.S. stock market history, eclipsing Intel's roughly $90.8 billion record from September 2000.",
+  "precursors": [
+   {
+    "indicator": "Cambridge Analytica data scandal",
+    "signal": "The Cambridge Analytica scandal broke on March 17-19, 2018, revealing that data from as many as 87 million users had been misused for political ad targeting; Facebook's market cap briefly lost over $100 billion within a week, and the FTC soon announced a formal investigation into its privacy practices -- an ongoing source of regulatory and reputational pressure.",
+    "lead_time": "~4 months ahead",
+    "source_url": "https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal"
+   },
+   {
+    "indicator": "GDPR rollout and management's early warning",
+    "signal": "Facebook's CFO had already warned on the Q1 2018 earnings call that 'due to GDPR, European MAU/DAU could be flat to slightly down quarter-over-quarter in Q2' -- a warning that proved to have understated the actual impact once Q2 results were reported.",
+    "lead_time": "~3 months ahead (GDPR itself took effect ~2 months earlier)",
+    "source_url": "https://techcrunch.com/2018/07/25/facebook-q2-2018-earnings/"
+   },
+   {
+    "indicator": "Options-market implied volatility",
+    "signal": "Ahead of the earnings release, Facebook options were pricing in an 8.1% next-day move, far above the 3.3% average actual next-day move over the prior eight quarters; 30-day at-the-money implied volatility stood at 31.3%, in the 81st percentile of the prior year.",
+    "lead_time": "1-2 trading days ahead",
+    "source_url": "https://www.schaeffersresearch.com/content/analysis/2018/07/24/options-market-expects-big-facebook-stock-earnings-move"
+   }
+  ],
+  "aftermath": "Unlike the March Cambridge Analytica selloff, which the stock recovered from within two months, this decline did not bounce back quickly: ad growth kept decelerating over multiple quarters amid intensifying regulation, and the stock finished 2018 down roughly 25% for the year; in 2019 the FTC fined the company $5 billion over the Cambridge Analytica affair.",
+  "refs": [
+   "https://www.cbsnews.com/news/facebook-stock-price-plummets-largest-stock-market-drop-in-history/",
+   "https://techcrunch.com/2018/07/26/facebook-officially-loses-123-billion-in-value/",
+   "https://techcrunch.com/2018/07/25/facebook-q2-2018-earnings/"
+  ]
+ },
+ {
+  "id": "covid-crash-2020-03-12",
+  "market": "us_index",
+  "date": "2020-03-12",
+  "asset": "S&P 500 (Dow fell 9.99% same day)",
+  "move_pct": -9.51,
+  "title": "Black Thursday: S&P 500 Plunges 9.5%, Second Circuit Breaker of the Week",
+  "cause": "On the evening of March 11, the WHO formally declared COVID-19 a global pandemic, and Trump promptly announced a 30-day travel ban on Europe (excluding the UK); that dual shock, layered on top of the credit-market damage from the Saudi-Russia oil price war (March 8-9), unleashed a wave of panic. Within minutes of the March 12 open, the S&P 500 had fallen 7%, triggering a Level 1 circuit breaker that halted trading for 15 minutes; selling resumed once trading reopened and did not let up, and the index closed down 9.51% (the Dow fell 9.99%, or 2,352.60 points) -- one of the largest single-day declines since 1987's Black Monday -- erasing the S&P 500's entire gain since Trump's 2016 election.",
+  "precursors": [
+   {
+    "indicator": "VIX fear gauge",
+    "signal": "VIX closing levels: 54.46 on March 9 and 53.90 on March 11, both far above the 40 danger threshold, with an intraday spike to 62.12 on March 9.",
+    "lead_time": "1-3 days ahead",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+   },
+   {
+    "indicator": "Oil price war collapse",
+    "signal": "Saudi-Russian OPEC+ production-cut talks collapsed on March 8, and Saudi Arabia announced a production increase along with steep discounts; WTI crude closed down nearly 26% at $31.13/barrel on March 9, its largest single-day decline since the 1991 Gulf War, directly hitting energy debt and high-yield credit markets.",
+    "lead_time": "3 days ahead",
+    "source_url": "https://www.cnn.com/2020/03/08/investing/oil-prices-crash-opec-russia-saudi-arabia"
+   },
+   {
+    "indicator": "First circuit breaker on March 9",
+    "signal": "The S&P 500 triggered a 7% Level 1 circuit breaker at the March 9 open, halting trading for 15 minutes, and closed down 7.6% for the day (the Dow fell 7.79%, or 2,013.76 points) -- the first market-wide circuit breaker in U.S. stocks since October 27, 1997.",
+    "lead_time": "3 days ahead",
+    "source_url": "https://en.wikipedia.org/wiki/2020_stock_market_crash"
+   },
+   {
+    "indicator": "Italy's outbreak escalation / WHO pandemic declaration",
+    "signal": "Italy imposed a nationwide lockdown on March 9 (roughly 9,172 confirmed cases nationally), the WHO declared a global pandemic on March 11, and Trump announced the Europe travel ban that same evening.",
+    "lead_time": "1-3 days ahead",
+    "source_url": "https://en.wikipedia.org/wiki/Timeline_of_the_COVID-19_pandemic_in_Italy"
+   }
+  ],
+  "aftermath": "Selling continued: the S&P 500 plunged nearly 12% again on March 16, triggering a third circuit breaker, and the market kept falling until it confirmed an interim bottom on March 23.",
+  "refs": [
+   "https://en.wikipedia.org/wiki/2020_stock_market_crash",
+   "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv",
+   "https://www.cnn.com/2020/03/08/investing/oil-prices-crash-opec-russia-saudi-arabia"
+  ]
+ },
+ {
+  "id": "covid-crash-2020-03-16",
+  "market": "us_index",
+  "date": "2020-03-16",
+  "asset": "S&P 500 (Dow fell 12.93% same day)",
+  "move_pct": -11.98,
+  "title": "Black Monday II: Fed's Emergency Rate Cut Backfires as a Panic Signal, S&P 500 Plunges Nearly 12%",
+  "cause": "On Sunday, March 15, the Fed held an unscheduled emergency meeting, cutting the fed funds rate to 0-0.25% (a 100bp cut) and announcing $700 billion in QE ($500 billion Treasuries, $200 billion MBS). The market did not read this as good news -- it took it instead as a 'panic signal' about how badly the Fed thought the economy was deteriorating, with the unusual Sunday emergency action itself deepening uncertainty. Combined with the prior week's signs of credit-market dysfunction -- steep bond ETF discounts, drying Treasury market liquidity -- the S&P 500 triggered a 7% Level 1 circuit breaker right at the open and closed down 11.98% for the day (the Dow fell 2,997.10 points, or -12.93%), the largest single-day percentage decline since 1987's Black Monday; the VIX closed at 82.69 that day, a record close in CBOE's history (surpassing the prior record of 80.74 set November 20, 2008).",
+  "precursors": [
+   {
+    "indicator": "Fed's unscheduled Sunday emergency rate cut + QE",
+    "signal": "On Sunday, March 15, the Fed made an emergency 100bp cut to 0-0.25% and announced $700 billion in QE; the unscheduled, off-cycle emergency action was read by the market as a warning that 'even the Fed is panicking,' rather than as supportive news.",
+    "lead_time": "1 day ahead (announced Sunday evening, circuit breaker tripped at Monday's open)",
+    "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315a.htm"
+   },
+   {
+    "indicator": "VIX's consecutive spikes",
+    "signal": "VIX closing levels of 75.47 on March 12 and 57.83 on March 13 kept the index in an extreme 50-75 range for the week, setting the stage for the record 82.69 close on March 16.",
+    "lead_time": "1-4 days ahead",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+   },
+   {
+    "indicator": "Steep investment-grade bond ETF discounts / credit-market malfunction",
+    "signal": "A subsequent SEC study found that investment-grade bond ETFs traded at discounts to NAV exceeding 100 basis points on March 11-12, as market makers withdrew en masse, signaling that secondary-market liquidity for corporate bonds had dried up.",
+    "lead_time": "4-5 days ahead",
+    "source_url": "https://www.sec.gov/spotlight/fixed-income-advisory-committee/100520-sec-conference-bond-etf-behavior-during-covid-volatility.pdf"
+   },
+   {
+    "indicator": "Treasury basis-trade unwind / Treasury market liquidity crisis",
+    "signal": "Hedge funds were forced to unwind Treasury cash-futures basis trades in March, cutting their Treasury holdings by roughly $127 billion for the month (about 90% of the total decline in hedge fund Treasury holdings) -- a rare occurrence of trading dysfunction in what is normally 'the world's deepest liquid market.'",
+    "lead_time": "concurrent (deteriorating steadily through early-to-mid March)",
+    "source_url": "https://www.financialresearch.gov/briefs/files/OFRBr_2020_01_Basis-Trades.pdf"
+   }
+  ],
+  "aftermath": "The market kept swinging violently lower until the S&P 500 bottomed at 2,237.40 on March 23, a cumulative decline of 34% over five weeks.",
+  "refs": [
+   "https://en.wikipedia.org/wiki/2020_stock_market_crash",
+   "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200315a.htm",
+   "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+  ]
+ },
+ {
+  "id": "covid-rally-2020-03-24",
+  "market": "us_index",
+  "date": "2020-03-24",
+  "asset": "S&P 500 (Dow surged 11.37% / 2,112.98 points same day, the largest single-day point gain in history)",
+  "move_pct": 9.38,
+  "title": "Bottoming Out: Fed's Unlimited QE and Stimulus Hopes Fuel a 9.4% Single-Day S&P 500 Surge",
+  "cause": "On Monday, March 23, the Fed announced unlimited QE 'as needed' and, for the first time, established the PMCCF/SMCCF to buy investment-grade corporate bonds directly, alongside tools like TALF -- a far larger commitment than the $700 billion QE announced March 15. The S&P 500 closed at 2,237.40 that day, which would be confirmed as the bottom of a five-week, 34% cumulative decline (the fastest 30%-plus drop in history). On March 24, with Congress nearing bipartisan agreement on a nearly $2 trillion CARES Act stimulus package (Nancy Pelosi publicly cited 'real optimism'), the combination of unlimited Fed liquidity and fiscal stimulus ignited a furious relief rally: the S&P 500 rose 9.38% for the day, and the Dow surged 2,112.98 points (+11.37%), its best single-day percentage performance since 1933.",
+  "precursors": [
+   {
+    "indicator": "Fed's March 23 'unlimited QE' and credit facilities",
+    "signal": "The Fed announced open-ended asset purchases ('as needed'), established the PMCCF/SMCCF to buy investment-grade corporate bonds and launched TALF for the first time, breaking past traditional QE boundaries to directly repair credit-market pricing.",
+    "lead_time": "1 day ahead",
+    "source_url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200323b.htm"
+   },
+   {
+    "indicator": "VIX retreats from record peak",
+    "signal": "The VIX gradually retreated from its record close of 82.69 on March 16 to 61.59 on March 23, an easing of panic at the margin; volatility peaks typically lead equity-index bottoms.",
+    "lead_time": "1 day ahead (the trend itself began ~1 week earlier)",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv"
+   },
+   {
+    "indicator": "Fastest-ever 30% decline + progress in congressional stimulus talks",
+    "signal": "The S&P 500 closed at 2,237.40 on March 23 (down 34% over five weeks, the fastest 30%-plus decline in history, and extremely oversold); Pelosi said the same day that Congress had 'real optimism' about a roughly $2 trillion stimulus package.",
+    "lead_time": "1 day ahead",
+    "source_url": "https://www.cnbc.com/2020/03/23/this-was-the-fastest-30percent-stock-market-decline-ever.html"
+   }
+  ],
+  "aftermath": "The Senate passed the CARES Act 96-0 on March 25, and it was signed into law on March 27; the March 23 low of 2,237.40 was ultimately confirmed as the bear-market bottom, and the S&P 500 went on to reclaim its all-time high in roughly five months (August 2020).",
+  "refs": [
+   "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200323b.htm",
+   "https://www.cnbc.com/2020/03/23/this-was-the-fastest-30percent-stock-market-decline-ever.html",
+   "https://www.cnbc.com/2020/03/24/stock-market-live-updates-dow-futures-up-900-limit-up-hope-for-a-stimulus-deal.html"
+  ]
+ },
+ {
+  "id": "meta-2022-02-03-earnings-crash",
+  "market": "us_stock",
+  "date": "2022-02-03",
+  "asset": "Meta Platforms (META)",
+  "move_pct": -26.4,
+  "title": "Meta Plunges 26.4% in a Day: Then the Largest Single-Day Market-Cap Loss in U.S. Stock Market History",
+  "cause": "After the close on February 2, 2022, Meta reported Q4 2021 earnings: revenue of $33.7 billion in line with expectations, but for the first time reported a sequential decline in Facebook daily active users (DAU dropped from 1.930 billion to 1.929 billion, down about 500,000), while giving Q1 revenue guidance of $27-29 billion, well below the $30.15 billion consensus. The CFO explicitly attributed roughly $10 billion of expected 2022 revenue loss to the impact of Apple's iOS privacy overhaul (ATT) on ad targeting, on top of massive losses at the Reality Labs metaverse unit. The triple whammy triggered a selling stampede: the stock closed down 26.4% on February 3, wiping out roughly $232 billion in market value in a single day -- surpassing Apple's roughly $182 billion record from September 2020 to become, at the time, the largest single-day market-cap loss in U.S. stock market history.",
+  "precursors": [
+   {
+    "indicator": "Peer (Snap) earnings warning",
+    "signal": "Snap missed on its Q3 2021 earnings on October 21, 2021, with its CEO publicly acknowledging that Apple's ATT impact on ad measurement was 'worse than we expected'; the stock plunged, serving as a leading indicator of the same risk facing Meta.",
+    "lead_time": "~3.5 months ahead",
+    "source_url": "https://www.cnbc.com/2021/10/21/snap-earnings-q3-2021.html"
+   },
+   {
+    "indicator": "Meta's own Q3 earnings had already warned",
+    "signal": "On its Q3 2021 earnings call on October 25, 2021, Meta had already listed Apple's iOS privacy changes as a 'significant headwind' and hinted the impact would persist, laying the groundwork for the formal $10 billion figure quantified in February.",
+    "lead_time": "~3 months ahead",
+    "source_url": "https://www.cnbc.com/2022/02/02/facebook-says-apple-ios-privacy-change-will-cost-10-billion-this-year.html"
+   },
+   {
+    "indicator": "North American DAU growth stalls",
+    "signal": "The Q3 2021 report showed daily active users in mature markets like the U.S. and Canada had already flattened sequentially, foreshadowing the formal turn to negative global DAU growth in Q4.",
+    "lead_time": "~3 months ahead",
+    "source_url": "https://www.prnewswire.com/news-releases/facebook-reports-third-quarter-2021-results-301407881.html"
+   }
+  ],
+  "aftermath": "The selloff continued: Meta finished February down 32.6% for the month and roughly 64% for full-year 2022, and did not stage a strong rebound until it launched its 2023 'Year of Efficiency' cost cuts, ultimately recovering all its losses in 2023-2024.",
+  "refs": [
+   "https://www.cnbc.com/2022/02/03/facebook-shares-plummet-22percent-after-reporting-weak-guidance.html",
+   "https://www.cnbc.com/2022/02/03/facebooks-232billion-drop-in-value-sets-all-time-record.html",
+   "https://en.wikipedia.org/wiki/Meta_Platforms"
+  ]
+ },
+ {
+  "id": "netflix_2022_04_20_subscriber_loss",
+  "market": "us_stock",
+  "date": "2022-04-20",
+  "asset": "Netflix (NFLX)",
+  "move_pct": -35.1,
+  "title": "Netflix, April 20, 2022: First-Ever Subscriber Loss Triggers Record Single-Day Plunge",
+  "cause": "After the close on April 19, Netflix reported Q1 2022 earnings showing a net subscriber loss of about 200,000 for the quarter -- the company's first-ever reported subscriber decline since 2011, driven mainly by the loss of roughly 700,000 subscribers from exiting Russia, rampant password sharing, and intensifying streaming competition -- and warned it expected to lose another roughly 2 million subscribers in Q2. Because the company's growth narrative had long relied heavily on continued subscriber expansion, the miss triggered a collapse in its valuation multiple; the stock plunged 35.1% the next day (April 20), wiping out about $54.4 billion in market value in a single session, the largest single-day decline in the company's history.",
+  "precursors": [
+   {
+    "indicator": "Prior earnings had already cut growth guidance",
+    "signal": "In its January 2022 Q4 earnings report, Netflix had already cut its Q1 net-add guidance to 2.5 million (well below prior trend), a figure that itself was already significantly below its historical growth rate, laying the groundwork for April's turn from near-zero to negative growth.",
+    "lead_time": "~3 months ahead",
+    "source_url": "https://www.cbsnews.com/news/netflix-losing-subscribers-stock-drop/"
+   },
+   {
+    "indicator": "The stock had already weakened sharply year-to-date",
+    "signal": "Before the April 20 plunge, and weighed down by rising rates compressing growth-stock valuations, Netflix shares had already fallen more than 40% from their all-time high year-to-date in 2022, reflecting market doubts about the sustainability of its growth story.",
+    "lead_time": "accumulated over ~3.5 months",
+    "source_url": "https://variety.com/2022/digital/news/netflix-stock-three-year-low-subscriber-miss-1235236618/"
+   },
+   {
+    "indicator": "Deteriorating competitive landscape",
+    "signal": "Major streaming rivals like Disney+ and HBO Max had launched progressively since 2019-2020 and kept taking market share; financial media had been discussing the fading of the industry's growth tailwind for more than a year.",
+    "lead_time": "accumulated over 1+ year (structural backdrop)",
+    "source_url": "https://www.bitget.com/wiki/why-did-netflix-stock-drop-2022"
+   },
+   {
+    "indicator": "Direct loss from exiting the Russian market",
+    "signal": "Because of the Russia-Ukraine war, Netflix announced in March 2022 that it was exiting the Russian market, directly costing roughly 700,000 subscribers -- the single largest contributor to the Q1 net subscriber loss.",
+    "lead_time": "~1 month ahead",
+    "source_url": "https://www.aljazeera.com/economy/2022/4/20/no-chill-netflix-shares-drop-39-after-massive-subscriber-loss"
+   }
+  ],
+  "aftermath": "The stock kept falling afterward, touching around $162 in May 2022 (down more than 75% from its November 2021 high), and did not stabilize and rebound until Netflix rolled out an ad-supported tier and paid password-sharing policy in Q4 2022.",
+  "refs": [
+   "https://www.cnbc.com/2022/04/20/netflix-plunges-trading-subscriber-loss.html",
+   "https://variety.com/2022/digital/news/netflix-stock-three-year-low-subscriber-miss-1235236618/",
+   "https://www.aljazeera.com/economy/2022/4/20/no-chill-netflix-shares-drop-39-after-massive-subscriber-loss"
+  ]
+ },
+ {
+  "id": "nvda-2023-05-25-ai-earnings-surge",
+  "market": "us_stock",
+  "date": "2023-05-25",
+  "asset": "NVIDIA (NVDA)",
+  "move_pct": 24.4,
+  "title": "Nvidia Surges 24% in a Day: AI Guidance Ignites a Rally, Nears Trillion-Dollar Valuation",
+  "cause": "After the close on May 24, 2023, Nvidia reported fiscal Q1 2024 earnings: revenue of $7.19 billion, with data-center revenue hitting a record $4.28 billion. What really ignited the market was Q2 revenue guidance of $11 billion -- about 54% above the Wall Street consensus of $7.15 billion -- which the company explicitly attributed to a surge in demand for high-end GPUs like the H100, driven by the generative-AI boom that ChatGPT had ignited. The stock surged 24.4% the next day, adding roughly $184 billion in market value in a single session and propelling the company past the $1 trillion market-cap mark for the first time on May 30, making it the first chipmaker to cross that threshold.",
+  "precursors": [
+   {
+    "indicator": "The stock had already run up sharply year-to-date",
+    "signal": "Before the earnings report, Nvidia shares were already up roughly 109% in 2023 on the AI theme; the market was already positioning for an AI demand boom but had not yet priced in the magnitude of the actual guidance.",
+    "lead_time": "accumulated over ~5 months before earnings",
+    "source_url": "https://www.forbes.com/sites/qai/2023/05/26/nvidia-stock-surges-off-huge-ai-focused-earnings-report/amp/"
+   },
+   {
+    "indicator": "Huge gap between analyst expectations and actual guidance",
+    "signal": "Ahead of earnings, Wall Street's Q2 revenue consensus stood at just $7.15 billion, about 54% below the actual $11 billion guidance -- reflecting a systematic underestimation of the slope of AI server/GPU demand.",
+    "lead_time": "consensus baseline formed weeks before earnings",
+    "source_url": "https://www.cnbc.com/2023/05/25/ai-pushing-nvidia-toward-1-trillion-wont-help-intel-and-amd.html"
+   },
+   {
+    "indicator": "AI capex signal from Microsoft's earnings call",
+    "signal": "On Microsoft's earnings call on April 25, 2023, CEO Satya Nadella emphasized that Azure AI infrastructure and compute buildout tied to the OpenAI partnership were driving cloud growth, an early signal that AI infrastructure capex was set to accelerate.",
+    "lead_time": "~1 month ahead",
+    "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2023-q3/press-release-webcast"
+   }
+  ],
+  "aftermath": "The stock kept climbing, crossing the $1 trillion market-cap mark on May 30, finishing 2023 up roughly 239% for the year and rising another 171% in 2024 to become one of the world's most valuable companies.",
+  "refs": [
+   "https://www.cnbc.com/2023/05/25/nvidia-on-track-for-record-high-driven-by-ai-chip-demand.html",
+   "https://www.cnn.com/2023/05/30/investing/nvidia-1-trillion",
+   "https://www.forbes.com/sites/qai/2023/05/26/nvidia-stock-surges-off-huge-ai-focused-earnings-report/amp/"
+  ]
+ },
+ {
+  "id": "yen-carry-trade-unwind-2024-08-05",
+  "market": "us_index",
+  "date": "2024-08-05",
+  "asset": "S&P 500 / Nasdaq (spillover from the yen carry trade unwind)",
+  "move_pct": -3.0,
+  "title": "Yen Carry Trade Unwind Triggers Global Selloff: Nikkei's 12.4% Plunge Spills Over into U.S. Stocks",
+  "cause": "The Bank of Japan surprised markets on July 31 with a rate hike (from near-zero to 0.25%), and Governor Kazuo Ueda struck a hawkish tone; the yen surged, forcing the unwind of massive long dollar/yen carry trades. Two days later, on August 2, the U.S. reported just 114,000 nonfarm payroll additions for July (versus 175,000 expected), with unemployment rising to 4.3%, triggering the 'Sahm Rule' recession signal and sparking fears the Fed was 'behind the curve.' The two shocks compounded: on August 5, the Nikkei 225 plunged 12.4% (4,451 points), its largest single-day percentage decline since 1987's Black Monday, and the panic spilled over into U.S. stocks -- the S&P 500 fell 3.0% and the Nasdaq 3.43%, their worst session since September 2022, with the VIX spiking intraday to 65.73, the third-highest reading on record.",
+  "precursors": [
+   {
+    "indicator": "BOJ's surprise rate hike + Ueda's hawkish tone",
+    "signal": "The BOJ raised its policy rate from near-zero to 0.25% on July 31; Ueda said wage growth supported policy normalization, and the yen strengthened in response, compressing the interest-rate differential that carry trades depended on.",
+    "lead_time": "5 days ahead",
+    "source_url": "https://www.forex.com/en/news-and-analysis/ueda-s-hawkish-shift-weighs-on-usd-jpy/"
+   },
+   {
+    "indicator": "U.S. July payrolls + Sahm Rule trigger",
+    "signal": "July nonfarm payrolls, released August 2, added just 114,000 (versus 175,000 expected), with unemployment rising to 4.3%, triggering the Sahm Rule (the 3-month average rising 0.53 percentage points above its prior-12-month low, versus a 0.5 threshold), which the market read as a recession signal.",
+    "lead_time": "3 days ahead (across the weekend)",
+    "source_url": "https://fortune.com/2024/08/02/recession-indicator-claudia-sahm-rule-trigger-unemployment-rate-jobs-report/"
+   },
+   {
+    "indicator": "VIX's epic spike",
+    "signal": "The VIX spiked intraday to 65.73 on August 5 (touching near 66 in pre-market), a roughly 180% single-day gain, one of the largest on record and second only in absolute terms to the 2008 financial crisis and March 2020.",
+    "lead_time": "same-day pre-market (futures session already flashing warnings)",
+    "source_url": "https://www.cnbc.com/2024/08/05/wall-streets-fear-gauge-the-vix-rises-to-the-highest-since-2020.html"
+   },
+   {
+    "indicator": "Overnight plunge in Nikkei 225 / CME Nikkei futures",
+    "signal": "Before the U.S. open, the Nikkei 225 had closed down 12.4% (at 31,458.42, a loss of 4,451 points), its largest single-day percentage decline since 1987, with Asian-session trading and CME futures repeatedly hitting circuit-breaker limits -- an early warning of pressure on the U.S. open.",
+    "lead_time": "~12 hours ahead (Asian session leading)",
+    "source_url": "https://www.usnews.com/news/business/articles/2024-08-05/japans-nikkei-225-stock-index-sinks-8-in-worst-losses-since-1987"
+   }
+  ],
+  "aftermath": "Panic subsided quickly: the VIX fell more than 50 points from 65 within weeks; the S&P 500 staged a strong V-shaped rebound from its August 5 low, up nearly 9% from the low by month-end and essentially recovering all its losses, while the Nikkei also recovered most of its decline within a few weeks.",
+  "refs": [
+   "https://www.usnews.com/news/business/articles/2024-08-05/japans-nikkei-225-stock-index-sinks-8-in-worst-losses-since-1987",
+   "https://www.cnbc.com/2024/08/05/wall-streets-fear-gauge-the-vix-rises-to-the-highest-since-2020.html",
+   "https://www.bostonglobe.com/2024/08/05/business/japans-nikkei-225-stock-index-sinks-8-percent-worst-losses-since-1987/"
+  ]
+ },
+ {
+  "id": "nvda-2025-01-27-deepseek-monday",
+  "market": "us_stock",
+  "date": "2025-01-27",
+  "asset": "NVIDIA (NVDA)",
+  "move_pct": -17.0,
+  "title": "DeepSeek Monday: Nvidia Plunges 17% in the Largest Single-Day Market-Cap Loss in U.S. Stock Market History",
+  "cause": "Over the weekend of January 25-26, 2025, the R1 reasoning model from Chinese AI startup DeepSeek went viral; its paper disclosed a training cost of only about $5.6 million for the V3 model, yet with performance approaching that of top U.S. models, triggering panicked doubts about demand for Nvidia's high-end AI chips and the entire AI capex narrative. Nvidia plunged 17% on Monday, January 27, wiping out roughly $589 billion in market value in a single session -- the largest single-day market-cap loss for a company in U.S. stock market history, more than double its own prior record of $279 billion set on September 3, 2024. The Nasdaq fell 3.1% the same day, with AI infrastructure names like Broadcom and Arm both dropping more than 10% as the entire AI trade was sold off.",
+  "precursors": [
+   {
+    "indicator": "DeepSeek's App Store ranking surges",
+    "signal": "The DeepSeek app jumped from 31st place on the U.S. Apple App Store free chart just days earlier to No. 1 on Sunday, January 26, overtaking ChatGPT -- a signal of explosive attention already emerging before the market opened.",
+    "lead_time": "~1 day before the open (Sunday)",
+    "source_url": "https://techcrunch.com/2025/01/27/deepseek-displaces-chatgpt-as-the-app-stores-top-app/"
+   },
+   {
+    "indicator": "Social-media spread of DeepSeek's ultra-low training cost",
+    "signal": "DeepSeek's V3 paper disclosed a training cost of only about $5.6 million (based on GPU rental price estimates), and the figure spread widely on X and other social media within 24-48 hours over the weekend, igniting an 'AI can be built cheaply' narrative.",
+    "lead_time": "1-2 days ahead",
+    "source_url": "https://www.cnbc.com/2025/01/30/chinas-deepseek-has-some-big-ai-claims-not-all-experts-are-convinced-.html"
+   },
+   {
+    "indicator": "Nvidia's valuation and index concentration at record highs",
+    "signal": "Nvidia rose 239% and 171% in 2023 and 2024 respectively, and entered 2025 with its S&P 500 weighting at a historically rare high of roughly 7%, leaving it unusually vulnerable to any shock to the demand-side narrative.",
+    "lead_time": "valuation built up over months to more than a year before the drop",
+    "source_url": "https://www.nbcnews.com/business/business-news/nvidia-loses-market-value-chinese-ai-startup-deepseek-debut-rcna189431"
+   }
+  ],
+  "aftermath": "Nvidia quickly responded that DeepSeek was an excellent example of 'test-time scaling' and that inference would still require large numbers of Nvidia GPUs; the stock partially rebounded over the following days, but doubts and volatility around AI capex returns persisted for weeks, and it took several months for shares to close the gap.",
+  "refs": [
+   "https://www.cnbc.com/2025/01/27/nvidia-sheds-almost-600-billion-in-market-cap-biggest-drop-ever.html",
+   "https://www.forbes.com/sites/dereksaul/2025/01/27/biggest-market-loss-in-history-nvidia-stock-sheds-nearly-600-billion-as-deepseek-shakes-ai-darling/",
+   "https://techcrunch.com/2025/01/27/deepseek-displaces-chatgpt-as-the-app-stores-top-app/"
+  ]
+ },
+ {
+  "id": "tariff_shock_2025_04_04",
+  "market": "us_index",
+  "date": "2025-04-04",
+  "asset": "S&P 500",
+  "move_pct": -5.97,
+  "title": "April 4, 2025: Second Day of 'Liberation Day' Tariff Shock, S&P 500's Second-Largest Single-Day Decline in History",
+  "cause": "On April 2 ('Liberation Day'), Trump announced sweeping 'reciprocal tariffs' on global trading partners -- a 10% baseline, higher rates for roughly 60 countries running trade surpluses with the U.S., and tariffs on China stacking up to 125%. Markets reacted with an immediate plunge on April 3 (S&P 500 -4.84%, the third-largest single-day decline in history); China and other countries announced retaliatory tariffs on the U.S. on April 4, escalating the panic further, and the S&P 500 fell another 5.97% that day (its second-largest single-day decline on record) -- a two-day cumulative loss exceeding 10%, one of the largest two-day declines in U.S. stock market history. Bond markets came under simultaneous pressure, with order-book liquidity depth plunging roughly 75%.",
+  "precursors": [
+   {
+    "indicator": "'Liberation Day' pre-announcement",
+    "signal": "Trump had already publicly previewed on March 21 that he would unveil sweeping tariffs on April 2; the market spent weeks pricing in policy uncertainty ahead of time but underestimated the ultimate scale.",
+    "lead_time": "~2 weeks ahead",
+    "source_url": "https://en.wikipedia.org/wiki/2025_stock_market_crash"
+   },
+   {
+    "indicator": "First round of selling on April 3",
+    "signal": "The day after the tariff announcement, April 3, the S&P 500 had already plunged 4.84%, then the third-largest single-day decline in history, leaving the market in an extremely fragile state ahead of the April 4 retaliation news.",
+    "lead_time": "1 day ahead",
+    "source_url": "https://en.wikipedia.org/wiki/2025_stock_market_crash"
+   },
+   {
+    "indicator": "Deteriorating Treasury market liquidity",
+    "signal": "During the tariff shock, order-book depth in the Treasury market plunged roughly 75%, and the 10-year Treasury yield swung by 49 basis points between April 4-11, showing that even a traditional haven asset was under simultaneous pressure.",
+    "lead_time": "concurrent, extending into the following week",
+    "source_url": "https://www.tradeweb.com/newsroom/media-center/insights/blog/bond-market-turbulence-how-tariffs-are-stress-testing-liquidity/"
+   },
+   {
+    "indicator": "Foreign selling of U.S. Treasuries",
+    "signal": "Foreign investors were net sellers of more than $50 billion in U.S. long-term securities in April (including $40 billion of Treasuries), signaling wavering confidence in dollar assets.",
+    "lead_time": "same-month data (confirmed with a lag)",
+    "source_url": "https://www.atlanticcouncil.org/blogs/new-atlanticist/to-understand-the-impact-of-trumps-tariff-war-watch-the-bond-market-and-the-fed-not-just-the-stock-market/"
+   }
+  ],
+  "aftermath": "The shock persisted through April 8; after Trump announced a 90-day tariff pause on April 9, the market staged a dramatic 9.52% rebound, and the S&P 500 recovered essentially all its losses within about a month.",
+  "refs": [
+   "https://en.wikipedia.org/wiki/2025_stock_market_crash",
+   "https://www.npr.org/2025/04/03/nx-s1-5350938/markets-plunge-after-liberation-day-tariffs",
+   "https://www.cnn.com/2025/04/09/investing/global-stock-market-reciprocal-tariffs-hnk-intl"
+  ]
+ },
+ {
+  "id": "sp500-tariff-pause-rally-2025-04-09",
+  "market": "us_index",
+  "date": "2025-04-09",
+  "asset": "S&P 500 (Dow +7.87%, Nasdaq +12.16% same day)",
+  "move_pct": 9.52,
+  "title": "Trump Pauses Reciprocal Tariffs for 90 Days, S&P 500 Surges 9.52% in a Single Session",
+  "cause": "On 'Liberation Day,' April 2, Trump announced reciprocal tariffs on nearly all trading partners on top of a 10% universal tariff, triggering a chain-reaction plunge: the S&P 500 fell 4.84% on April 3 and another 5.97% on April 4 (the Dow's 2,231-point single-day drop set a points record), a two-day cumulative loss exceeding 10%, the fifth-worst since World War II. Abnormal Treasury market selling on April 7-8 (the 10-year yield spiked from an April 4 low of 3.86% to an intraday 4.5% on April 8, with the 30-year breaking above 5%) was read as hedge funds unwinding basis trades and foreign investors reducing Treasury holdings; panic over the wavering 'safe-haven' status of Treasuries in turn pressured the White House. At 9:37 a.m. on April 9, Trump posted on Truth Social, 'THIS IS A GREAT TIME TO BUY!!! DJT,' and less than four hours later announced a 90-day tariff pause for all trading partners except China, lowering the rate to 10% (while raising China's to 125% instead). Markets surged across the board in response: the S&P 500 jumped 9.52% for the day, its largest gain since October 2008; the Dow rose 7.87%; and the Nasdaq gained 12.16%, its largest gain since January 2001 and the second-best session in its history.",
+  "precursors": [
+   {
+    "indicator": "VIX fear gauge",
+    "signal": "The VIX touched an extreme intraday high near 60 on April 7, closing at 45.31, its highest close since the 2020 pandemic crash; intraday readings during the April tariff crisis ranked among the top ten in history.",
+    "lead_time": "2 days ahead",
+    "source_url": "https://en.wikipedia.org/wiki/2025_stock_market_crash"
+   },
+   {
+    "indicator": "Abnormal spike in the 10-year Treasury yield (stocks and bonds sell off together)",
+    "signal": "The 10-year yield spiked from a low of 3.86% on April 4 to an intraday 4.5% on April 8, with the 30-year breaking above 5%, seen as a signal of hedge funds unwinding basis trades and drying liquidity -- and a direct source of pressure that forced the White House's pivot.",
+    "lead_time": "1-2 days ahead",
+    "source_url": "https://www.cnbc.com/2025/04/11/us-treasury-yields-investors-weigh-state-of-the-us-economy-.html"
+   },
+   {
+    "indicator": "Trump's Truth Social 'buy' post",
+    "signal": "At 9:37 a.m. on April 9, Trump posted 'THIS IS A GREAT TIME TO BUY!!! DJT,' and the tariff pause was announced roughly four hours later -- a sequence later questioned for possible information advantage or market manipulation.",
+    "lead_time": "~4 hours ahead",
+    "source_url": "https://www.pbs.org/newshour/politics/trump-told-investors-to-buy-on-social-media-hours-before-his-tariff-pause-rose-stocks-raising-questions-about-manipulation"
+   },
+   {
+    "indicator": "Treasury Secretary Bessent's behind-the-scenes involvement",
+    "signal": "Commerce Secretary Howard Lutnick later revealed that Bessent and Lutnick had accompanied Trump throughout the day as he drafted the tariff-pause statement, showing the decision had already been settled within a small circle before being made public.",
+    "lead_time": "hours ahead (undisclosed)",
+    "source_url": "https://www.foxbusiness.com/politics/tariff-pause-due-trump-wanting-personally-involved-negotiations-bessent"
+   }
+  ],
+  "aftermath": "The market dipped again on April 10 amid lingering uncertainty over the 90-day pause, but overall it kept recovering from April 9 onward, and the S&P 500 went on to recover all of its tariff-shock losses and hit new highs within the following months.",
+  "refs": [
+   "https://en.wikipedia.org/wiki/2025_stock_market_crash",
+   "https://www.pbs.org/newshour/politics/trump-told-investors-to-buy-on-social-media-hours-before-his-tariff-pause-rose-stocks-raising-questions-about-manipulation",
+   "https://www.cnbc.com/2025/04/09/stock-market-today-live-updates.html"
+  ]
+ },
+ {
+  "id": "micron-2026-06-23-leverage-etf-warning",
+  "market": "us_stock",
+  "date": "2026-06-23",
+  "asset": "Micron Technology (NASDAQ: MU)",
+  "move_pct": -13.3,
+  "title": "Micron Plunges 13.3% in a Day: South Korean Regulatory Warning Ignites a Leveraged Memory-Stock Selloff",
+  "cause": "Micron tumbled 13.3% in a single session on June 23, 2026, closing at $1,051.77 (having risen several-fold over the prior year on AI-storage/HBM demand). The immediate trigger was an interview that day in which Financial Supervisory Service (FSS) Governor Lee Chan-jin told Bloomberg he regretted failing to block the listing of leveraged single-stock ETFs tracking Samsung Electronics and SK Hynix, calling them 'high-risk products' where 'trading heat has not cooled despite consumer warnings already issued' -- 16 domestic Korean 2x-3x leveraged/inverse single-stock ETFs on Samsung/SK Hynix had listed on May 27, with retail investors holding roughly 92% of assets. The regulatory remarks triggered panic selling across the entire memory/semiconductor sector: Nvidia fell 4%, AMD nearly 6%, Intel 6.1%, with Micron -- the name most sensitive to AI-storage demand and most crowded with momentum positioning -- leading the decline; the selloff was amplified by momentum-fund unwinding on top of pre-earnings jitters and valuation doubts over whether the stock's massive year-to-date gains had outrun fundamentals.",
+  "precursors": [
+   {
+    "indicator": "Regulator publicly warns of leveraged ETF risk",
+    "signal": "FSS Governor Lee Chan-jin publicly said on June 23 that he regretted not blocking the listing of leveraged single-stock ETFs on Samsung/SK Hynix, directly calling them 'high-risk' and noting retail investors held 92% of assets.",
+    "lead_time": "triggered same day (the warning itself sparked the sector selloff)",
+    "source_url": "https://www.forbes.com/sites/antoniopequenoiv/2026/06/23/micron-tumbles-13-as-south-korean-etf-warning-fuels-chip-sell-off/"
+   },
+   {
+    "indicator": "Regulator weighing restrictions (earlier signal)",
+    "signal": "Bloomberg reported on June 22 that Korean regulators were already weighing measures to rein in leveraged single-stock ETFs ('Korea Mulls Steps to Rein In Leveraged Samsung, SK Hynix ETFs').",
+    "lead_time": "1 day ahead",
+    "source_url": "https://www.bloomberg.com/news/articles/2026-06-22/korea-mulls-steps-to-rein-in-leveraged-samsung-sk-hynix-etfs"
+   },
+   {
+    "indicator": "Weakening DRAM/NAND spot price momentum",
+    "signal": "TrendForce data showed DRAM spot prices still rising in early June (mainstream DDR4 1Gx8 up from $35.12 to $35.90, +2.22%), but by late June buyers had stopped chasing higher quotes, with DDR4 gaining just 0.28% and 512Gb TLC NAND wafer prices down 1.77% over the same period; the spot market had entered a standoff, with prior price-gain momentum clearly slowing before the crash.",
+    "lead_time": "~2 weeks ahead",
+    "source_url": "https://www.trendforce.com/news/2026/06/24/insights-memory-spot-price-update-dram-buyers-resist-higher-quotes-as-mainstream-ddr4-prices-gain-0-28/"
+   },
+   {
+    "indicator": "The sector had already turned down the prior session",
+    "signal": "Micron had already fallen roughly 8% in the session before the June 23 plunge, with the memory sector down sharply across both sessions in tandem as momentum money began to exit.",
+    "lead_time": "1 trading day ahead",
+    "source_url": "https://247wallst.com/investing/2026/06/24/micron-just-dropped-13-why-one-analyst-says-this-selloff-changes-nothing/"
+   }
+  ],
+  "aftermath": "The stock failed to stabilize after the plunge: it broke below $1,000 in early July on DRAM litigation and oversupply worries (Michael Burry built a put position around the same time), fell in tandem with SK Hynix's crash on July 13, and dropped another 7-8% around July 15 on news of competitive threats from China's CXMT and HBM export-control concerns, with the AI-storage sector swinging violently and repeatedly through mid-2026.",
+  "refs": [
+   "https://www.forbes.com/sites/antoniopequenoiv/2026/06/23/micron-tumbles-13-as-south-korean-etf-warning-fuels-chip-sell-off/",
+   "https://www.cmelitegroup.com/trends-and-insights/micron-stock-drops-13-in-worst-session-in-over-a-year-ahead-of-earnings/",
+   "https://247wallst.com/investing/2026/06/24/micron-just-dropped-13-why-one-analyst-says-this-selloff-changes-nothing/"
+  ]
+ },
+ {
+  "id": "sk-hynix-2026-07-13-adr-leverage-crash",
+  "market": "us_stock",
+  "date": "2026-07-13",
+  "asset": "SK Hynix (KRX: 000660 / Nasdaq ADR: SKHY)",
+  "move_pct": -15.4,
+  "title": "SK Hynix Plunges 15.4%: Leveraged Stampede Follows Three-Day ADR Listing Euphoria",
+  "cause": "Note on figures: the -15.4% refers to the Seoul-listed shares (KRX: 000660), which posted a record single-day plunge that day (closing around KRW 1.845 million, confirmed at 15.37-15.4% across multiple sources), dragging the KOSPI down nearly 9% and triggering a circuit breaker; the newly listed Nasdaq ADR (SKHY, which had begun trading July 10 at an issue price of $149 and jumped 13.3% on its first day, raising $26.5 billion in the second-largest U.S. IPO ever by a foreign company) fell about 9% the same day. The trigger chain: (1) Korea Investment & Securities (KIS) released a report that day cutting its SK Hynix Q2 operating-profit estimate to KRW 60.4 trillion, about 8% below the market consensus of KRW 65 trillion, on grounds that the company's heavily HBM-weighted product mix, locked into fixed pricing under long-term agreements (LTAs), could not capture the spike in DRAM spot prices (conventional DRAM spot prices rose roughly 30% quarter-over-quarter in Q2, NAND about 50%); KIS slashed its forecast for Q2 DRAM ASP quarter-over-quarter growth from 50% to 28.9%. (2) Renewed U.S.-Iran geopolitical tensions pushed up oil prices (WTI rose as much as 4.6% to around $75), with the resulting risk-off mood weighing on richly valued growth stocks. (3) Cross-market leveraged deleveraging tied to the ADR listing: 16 domestic Korean 2x-3x leveraged/inverse ETFs on Samsung/SK Hynix had already listed on May 27 (with retail investors holding about 92%), and U.S. 2x leveraged ETFs tracking SKHY -- SKHU, SKHX, SKHL and others -- launched in a cluster on July 13-14; with the new share issuance representing only about 2.5% of total shares outstanding and an extremely small float, intraday rebalancing by arbitrageurs and leveraged funds violently amplified two-way swings in both the local shares and the ADR (the ADR had surged 27% in a single day just the week before, only to quickly reverse).",
+  "precursors": [
+   {
+    "indicator": "Brokerage cuts profit estimate",
+    "signal": "Korea Investment & Securities released a report on July 13 cutting its SK Hynix Q2 operating-profit estimate to KRW 60.4 trillion (about 8% below the KRW 65 trillion consensus), while also cutting its 2026/2027 operating-profit forecasts by 9%/11%, pointing directly to HBM LTA pricing's inability to capture the spot-price rally.",
+    "lead_time": "triggered intraday same day",
+    "source_url": "https://finance.biggo.com/news/edb04a34-b3a7-46f7-aca1-375e930c1ad8"
+   },
+   {
+    "indicator": "Cluster of leveraged single-stock ETF listings",
+    "signal": "16 domestic Korean 2x-3x leveraged/inverse single-stock ETFs on Samsung/SK Hynix listed on May 27 (retail investors holding roughly 92%); U.S. 2x leveraged ETFs tied to the new ADR -- SKHU (ProShares), SKHX (Leverage Shares), SKHL (Direxion) and others -- launched in a cluster on July 13-14.",
+    "lead_time": "~7 weeks ahead in Korea; U.S. leveraged ETFs launched the same day/day after the plunge",
+    "source_url": "https://cryptobriefing.com/sk-hynix-us-debut-leveraged-etfs/"
+   },
+   {
+    "indicator": "Regulators issue public warnings",
+    "signal": "The Bank of Korea and the FSS had already issued multiple rounds of warnings about leveraged single-stock ETFs destabilizing the market (the FSS governor's June 23 comments had already triggered Micron's -13.3% single-day drop).",
+    "lead_time": "warnings ongoing from ~3 weeks ahead",
+    "source_url": "https://cryptobriefing.com/bank-of-korea-warns-samsung-sk-hynix-leveraged-etfs/"
+   },
+   {
+    "indicator": "Violent volatility in the ADR's first listing week",
+    "signal": "Between its July 10 debut and July 13, SKHY had already surged 27% in a single day only to reverse quickly, reflecting an extremely small float (just ~2.5% of total shares outstanding) combined with violent leveraged-fund flows -- the volatility structure was already highly unstable.",
+    "lead_time": "1-3 trading days ahead",
+    "source_url": "https://www.tradingview.com/news/stocktwits:3046832fd094b:0-skhy-stock-gives-back-some-of-its-27-pop-from-tuesday-wall-street-rolls-out-another-leveraged-bet-on-the-stock/"
+   },
+   {
+    "indicator": "Geopolitical / oil shock",
+    "signal": "Renewed U.S.-Iran tensions sent WTI crude up about 4.6% in a single day to around $75/barrel, intensifying risk-off pressure on richly valued AI/semiconductor growth stocks.",
+    "lead_time": "same day",
+    "source_url": "https://www.fool.com/coverage/stock-market-today/2026/07/13/stock-market-today-july-13-sk-hynix-tumbles-15-in-south-korea-leading-semiconductor-drop-at-midday/"
+   }
+  ],
+  "aftermath": "Extreme volatility persisted for days afterward: shares rebounded 19% in a single day on July 14 as the leveraged ETFs launched en masse, then fell another 5-9% around July 15 on profit-taking alongside Micron and other memory names -- a 'surge-crash-rebound-relapse' pattern characteristic of a leveraged squeeze, with Korean regulators continuing to warn about leveraged single-stock ETF risk.",
+  "refs": [
+   "https://www.cnbc.com/2026/07/13/sk-hynix-shares-fall-after-stellar-nasdaq-debut.html",
+   "https://www.techtimes.com/articles/320352/20260713/sk-hynix-posts-worst-seoul-session-record-hbm-contracts-limit-earnings-upside.htm",
+   "https://247wallst.com/investing/2026/07/14/sk-hynix-adr-soars-19-as-leveraged-etfs-launch-lifting-micron-sandisk-western-digital/"
+  ]
+ }
+]
