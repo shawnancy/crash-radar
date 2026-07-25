@@ -1,0 +1,750 @@
+{
+  "1929-10-28-black-monday": {
+    "ret_5d": {
+      "v": -9.37,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -7.87,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 0.22,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 3.65,
+      "truncated": false
+    },
+    "max_dd": -22.34,
+    "max_ru": 13.98,
+    "recover_days": null,
+    "path_type": "l"
+  },
+  "1929-10-29-black-tuesday": {
+    "ret_5d": {
+      "v": 4.6,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 5.97,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 11.31,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 12.48,
+      "truncated": false
+    },
+    "max_dd": -13.56,
+    "max_ru": 26.87,
+    "recover_days": 1,
+    "path_type": "v"
+  },
+  "1987-10-19-black-monday": {
+    "ret_5d": {
+      "v": 1.26,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 8.09,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 10.89,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 14.71,
+      "truncated": false
+    },
+    "max_dd": -0.41,
+    "max_ru": 20.79,
+    "recover_days": null,
+    "path_type": "l"
+  },
+  "2008-10-13-tarp-rally": {
+    "ret_5d": {
+      "v": -1.78,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -10.4,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -13.11,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -15.07,
+      "truncated": false
+    },
+    "max_dd": -32.57,
+    "max_ru": 0.25,
+    "recover_days": 7,
+    "path_type": "fade"
+  },
+  "2008-10-15-recession-fear-crash": {
+    "ret_5d": {
+      "v": -1.22,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 0.38,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -7.06,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -4.21,
+      "truncated": false
+    },
+    "max_dd": -25.48,
+    "max_ru": 10.79,
+    "recover_days": 14,
+    "path_type": "v"
+  },
+  "2010-05-06-flash-crash": {
+    "ret_5d": {
+      "v": 2.59,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -6.89,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -0.21,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 6.19,
+      "truncated": false
+    },
+    "max_dd": -9.36,
+    "max_ru": 8.65,
+    "recover_days": 4,
+    "path_type": "v"
+  },
+  "facebook-2018-07-26-earnings-crash": {
+    "ret_5d": {
+      "v": 0.06,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -0.91,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -17.15,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -16.33,
+      "truncated": false
+    },
+    "max_dd": -29.62,
+    "max_ru": 5.35,
+    "recover_days": null,
+    "path_type": "l"
+  },
+  "covid-crash-2020-03-12": {
+    "ret_5d": {
+      "v": -2.87,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 11.33,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 21.02,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 34.61,
+      "truncated": false
+    },
+    "max_dd": -9.8,
+    "max_ru": 44.35,
+    "recover_days": 19,
+    "path_type": "v"
+  },
+  "covid-crash-2020-03-16": {
+    "ret_5d": {
+      "v": -6.23,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 16.65,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 28.52,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 41.8,
+      "truncated": false
+    },
+    "max_dd": -6.23,
+    "max_ru": 50.07,
+    "recover_days": 17,
+    "path_type": "v"
+  },
+  "covid-rally-2020-03-24": {
+    "ret_5d": {
+      "v": 5.61,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 14.32,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 27.95,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 35.48,
+      "truncated": false
+    },
+    "max_dd": 0.0,
+    "max_ru": 46.32,
+    "recover_days": null,
+    "path_type": "hold"
+  },
+  "meta-2022-02-03-earnings-crash": {
+    "ret_5d": {
+      "v": -4.08,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -21.15,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -12.4,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -29.71,
+      "truncated": false
+    },
+    "max_dd": -34.45,
+    "max_ru": 0.0,
+    "recover_days": null,
+    "path_type": "l"
+  },
+  "netflix_2022_04_20_subscriber_loss": {
+    "ret_5d": {
+      "v": -16.65,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -18.88,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -1.02,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 20.42,
+      "truncated": false
+    },
+    "max_dd": -26.45,
+    "max_ru": 32.02,
+    "recover_days": null,
+    "path_type": "l"
+  },
+  "nvda-2023-05-25-ai-earnings-surge": {
+    "ret_5d": {
+      "v": 3.55,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 10.26,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 21.16,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 25.79,
+      "truncated": false
+    },
+    "max_dd": -1.33,
+    "max_ru": 32.73,
+    "recover_days": null,
+    "path_type": "hold"
+  },
+  "yen-carry-trade-unwind-2024-08-05": {
+    "ret_5d": {
+      "v": 3.05,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 6.44,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 10.46,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 16.88,
+      "truncated": false
+    },
+    "max_dd": 0.0,
+    "max_ru": 17.98,
+    "recover_days": 6,
+    "path_type": "v"
+  },
+  "nvda-2025-01-27-deepseek-monday": {
+    "ret_5d": {
+      "v": -1.49,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 10.86,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -8.18,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 48.21,
+      "truncated": false
+    },
+    "max_dd": -20.36,
+    "max_ru": 52.0,
+    "recover_days": 92,
+    "path_type": "slow"
+  },
+  "tariff_shock_2025_04_04": {
+    "ret_5d": {
+      "v": 5.7,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 10.5,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 22.69,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 32.84,
+      "truncated": false
+    },
+    "max_dd": -1.8,
+    "max_ru": 33.1,
+    "recover_days": 3,
+    "path_type": "v"
+  },
+  "sp500-tariff-pause-rally-2025-04-09": {
+    "ret_5d": {
+      "v": -3.32,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 3.72,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 14.71,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 23.42,
+      "truncated": false
+    },
+    "max_dd": -5.47,
+    "max_ru": 23.76,
+    "recover_days": null,
+    "path_type": "hold"
+  },
+  "micron-2026-06-23-leverage-etf-warning": {
+    "ret_5d": {
+      "v": 9.75,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -18.88,
+      "truncated": true
+    },
+    "ret_63d": {
+      "v": -18.88,
+      "truncated": true
+    },
+    "ret_126d": {
+      "v": -18.88,
+      "truncated": true
+    },
+    "max_dd": -18.88,
+    "max_ru": 15.38,
+    "recover_days": 2,
+    "path_type": "v"
+  },
+  "sk-hynix-2026-07-13-adr-leverage-crash": {
+    "ret_5d": {
+      "v": -0.16,
+      "truncated": true
+    },
+    "ret_21d": {
+      "v": -0.16,
+      "truncated": true
+    },
+    "ret_63d": {
+      "v": -0.16,
+      "truncated": true
+    },
+    "ret_126d": {
+      "v": -0.16,
+      "truncated": true
+    },
+    "max_dd": -0.16,
+    "max_ru": 12.85,
+    "recover_days": null,
+    "path_type": "open"
+  },
+  "2020-0312-black-thursday": {
+    "ret_5d": {
+      "v": 5.13,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 36.67,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 95.82,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 83.72,
+      "truncated": false
+    },
+    "max_dd": 0.0,
+    "max_ru": 146.52,
+    "recover_days": 48,
+    "path_type": "slow"
+  },
+  "2021-0418-hidden-leverage-flash-crash": {
+    "ret_5d": {
+      "v": -9.11,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 3.59,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -36.5,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -12.26,
+      "truncated": false
+    },
+    "max_dd": -46.98,
+    "max_ru": 17.39,
+    "recover_days": 180,
+    "path_type": "l"
+  },
+  "2021-0519-china-musk-crash": {
+    "ret_5d": {
+      "v": 4.61,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 0.93,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -13.22,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 17.76,
+      "truncated": false
+    },
+    "max_dd": -19.44,
+    "max_ru": 82.6,
+    "recover_days": 80,
+    "path_type": "slow"
+  },
+  "2021-0907-el-salvador-launch-crash": {
+    "ret_5d": {
+      "v": -1.6,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -12.34,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 43.07,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -8.71,
+      "truncated": false
+    },
+    "max_dd": -25.17,
+    "max_ru": 44.34,
+    "recover_days": 29,
+    "path_type": "v"
+  },
+  "2022-05-ust-depeg": {
+    "ret_5d": {
+      "v": -75.24,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -96.83,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -93.99,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -94.67,
+      "truncated": false
+    },
+    "max_dd": -99.18,
+    "max_ru": 0.98,
+    "recover_days": null,
+    "path_type": "zero"
+  },
+  "2022-05-luna-death-spiral": {
+    "ret_5d": {
+      "v": -94.75,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -97.16,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -97.42,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -92.78,
+      "truncated": false
+    },
+    "max_dd": -98.65,
+    "max_ru": 0.0,
+    "recover_days": null,
+    "path_type": "zero"
+  },
+  "2022-0613-celsius-3ac-contagion": {
+    "ret_5d": {
+      "v": -15.43,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -10.03,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 7.34,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -13.06,
+      "truncated": false
+    },
+    "max_dd": -29.79,
+    "max_ru": 8.61,
+    "recover_days": null,
+    "path_type": "l"
+  },
+  "2022-1108-ftt-collapse": {
+    "ret_5d": {
+      "v": -73.01,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -76.38,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -77.51,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -78.39,
+      "truncated": false
+    },
+    "max_dd": -84.8,
+    "max_ru": 0.0,
+    "recover_days": null,
+    "path_type": "zero"
+  },
+  "2022-1109-ftx-btc-panic-selloff": {
+    "ret_5d": {
+      "v": 4.64,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 8.11,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 12.93,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 53.49,
+      "truncated": false
+    },
+    "max_dd": -0.59,
+    "max_ru": 91.97,
+    "recover_days": 64,
+    "path_type": "slow"
+  },
+  "2023-1016-cointelegraph-fake-etf-pump": {
+    "ret_5d": {
+      "v": 4.91,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 22.85,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 49.46,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 81.56,
+      "truncated": false
+    },
+    "max_dd": -0.67,
+    "max_ru": 156.26,
+    "recover_days": null,
+    "path_type": "hold"
+  },
+  "2024-0112-etf-sell-the-news-crash": {
+    "ret_5d": {
+      "v": -0.26,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 0.78,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 61.96,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 56.47,
+      "truncated": false
+    },
+    "max_dd": -7.81,
+    "max_ru": 70.55,
+    "recover_days": 28,
+    "path_type": "v"
+  },
+  "2024-0805-yen-carry-unwind": {
+    "ret_5d": {
+      "v": 12.88,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 16.47,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 15.27,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 80.46,
+      "truncated": false
+    },
+    "max_dd": -0.08,
+    "max_ru": 96.61,
+    "recover_days": 3,
+    "path_type": "v"
+  },
+  "2024-1106-trump-election-pump": {
+    "ret_5d": {
+      "v": 17.27,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 26.87,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 25.65,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": 10.69,
+      "truncated": false
+    },
+    "max_dd": 0.0,
+    "max_ru": 40.34,
+    "recover_days": null,
+    "path_type": "hold"
+  },
+  "2021-0208-tesla-btc-purchase-pump": {
+    "ret_5d": {
+      "v": 1.97,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 7.44,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 29.65,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -12.94,
+      "truncated": false
+    },
+    "max_dd": -35.48,
+    "max_ru": 37.46,
+    "recover_days": 100,
+    "path_type": "hold"
+  },
+  "2025-1010-tariff-record-liquidation": {
+    "ret_5d": {
+      "v": -2.15,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -3.22,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -20.26,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -39.18,
+      "truncated": false
+    },
+    "max_dd": -44.61,
+    "max_ru": 1.82,
+    "recover_days": null,
+    "path_type": "l"
+  }
+}

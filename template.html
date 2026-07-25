@@ -179,6 +179,11 @@ table.pre td{border-bottom:1px solid var(--hairline);padding:9px 14px 9px 0;vert
 table.pre td.ind{font-weight:600;white-space:nowrap}
 table.pre td.lead{font-family:var(--mono);font-size:12.5px;white-space:nowrap;color:var(--ink-2)}
 table.pre a{font-size:12.5px}
+.ev .pathrow{font-size:12px;color:var(--ink-2);margin-bottom:9px;display:flex;flex-wrap:wrap;align-items:center;gap:5px;font-family:var(--mono)}
+.ev .pathrow .sep{color:var(--ink-3)}
+.ev .pathrow b{font-weight:700}
+.pathchip{display:inline-block;font-family:var(--sans,inherit);font-size:10.5px;letter-spacing:.02em;line-height:1.6;border:1px solid var(--claret);color:var(--claret);padding:0 6px;font-weight:600;white-space:nowrap}
+.ev .pathrow .pathnote{color:var(--ink-3);font-size:10.5px;font-family:var(--sans,inherit)}
 .ev .after{font-size:13.5px;color:var(--ink-2)}
 .ev .after b{color:var(--ink)}
 .ev .refs{margin-top:10px;font-size:12.5px;color:var(--ink-3)}
@@ -377,6 +382,8 @@ const SNAPSHOT = /*__SNAPSHOT__*/{};
 const KLINES = /*__KLINES__*/{};
 const KLINES6 = /*__KLINES6__*/{};
 const TAGLABELS = /*__TAGLABELS__*/{};
+const PATHSTATS = /*__PATHSTATS__*/{};
+const PATHLABELS = /*__PATHLABELS__*/{};
 const METHOD_HTML = /*__METHOD__*/"";
 
 /* ====== 通用 ====== */
@@ -544,6 +551,25 @@ function kline6SVG(id){
   return candleSVG(s.bars, KLINES6[id].event_date,
     {W:520,H:118,P:{t:12,r:46,b:14,l:6},thin:true,cwr:0.6,cwmin:1,logTag:true}).svg;
 }
+/* aftermath path row: compact badge + key percentages, precomputed in build.py */
+function pathRowHTML(e){
+  const ps=PATHSTATS[e.id]; if(!ps)return"";
+  const down=e.move_pct<0;
+  const badge=PATHLABELS[ps.path_type]||ps.path_type;
+  const sc=v=>v<0?"var(--down)":"var(--up)";
+  const sg=v=>(v>=0?"+":"")+v.toFixed(1)+"%";
+  const t21=ps.ret_21d.truncated, t63=ps.ret_63d.truncated, anyT=t21||t63;
+  const recLabel=down?"恢复":"回吐", recNone=down?"未恢复":"未回吐";
+  const recTxt=ps.recover_days==null?recNone:(recLabel+ps.recover_days+"交易日");
+  return `<div class="pathrow">
+    <span class="pathchip">${badge}</span>
+    <span class="sep">·</span><span>+21d <b style="color:${sc(ps.ret_21d.v)}">${sg(ps.ret_21d.v)}</b>${t21?"*":""}</span>
+    <span class="sep">·</span><span>+63d <b style="color:${sc(ps.ret_63d.v)}">${sg(ps.ret_63d.v)}</b>${t63?"*":""}</span>
+    <span class="sep">·</span><span>最深 <b style="color:${sc(ps.max_dd)}">${sg(ps.max_dd)}</b>${anyT?"*":""}</span>
+    <span class="sep">·</span><span>${recTxt}</span>
+    ${anyT?'<span class="pathnote">*数据窗口未满</span>':""}
+  </div>`;
+}
 function detailHTML(e){
   const pre=(e.precursors||[]).map(p=>`<tr>
     <td class="ind">${p.indicator}<div style="font-weight:400;font-size:11px;color:var(--ink-3)">${TAGLABELS[p.tag]||""}</div></td>
@@ -557,6 +583,7 @@ function detailHTML(e){
     <p class="cause">${e.cause}</p>
     <div class="pre-h">事前预警信号</div>
     <table class="pre"><thead><tr><th>指标</th><th>事前表现</th><th>提前量</th></tr></thead><tbody>${pre||'<tr><td colspan="3" style="color:var(--ink-3)">（外生突发，事前信号极弱——需要仓位纪律兜底的一类）</td></tr>'}</tbody></table>
+    ${pathRowHTML(e)}
     <p class="after"><b>后续：</b>${e.aftermath||""}</p>
     <p class="refs">${refs}</p>
   </div>`;

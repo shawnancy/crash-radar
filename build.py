@@ -32,6 +32,84 @@ klines6 = json.loads((ROOT / "data" / "klines_6m.json").read_text()) if (ROOT / 
 # 事件按日期倒序
 events.sort(key=lambda e: e["date"], reverse=True)
 
+# ---- 事后走势路径统计(确定性计算, 全部用收盘价) ----
+# 每个事件: 事件日收盘 c0(bars 里首个 >= event_date 的收盘) 与前一日收盘 pre 为基准,
+# 算 5/21/63/126 交易日累计涨跌、事后最深回撤/最大反弹、回到 pre 的交易日数、路径分型。
+_PATH_N = (5, 21, 63, 126)
+
+def compute_path_stats(klines6_, events_):
+    move_of = {e["id"]: e["move_pct"] for e in events_}
+    out = {}
+    for eid, k in klines6_.items():
+        bars = k.get("bars") or []
+        if len(bars) < 2 or eid not in move_of:
+            continue
+        event_date = k["event_date"]
+        ei = next((i for i, b in enumerate(bars) if b[0] >= event_date), None)
+        if ei is None:
+            ei = len(bars) - 1
+        c0 = bars[ei][4]
+        pre = bars[ei - 1][4] if ei > 0 else c0
+        move_pct = move_of[eid]
+
+        rets = {}
+        for n in _PATH_N:
+            idx = ei + n
+            trunc = idx > len(bars) - 1
+            idx = min(idx, len(bars) - 1)
+            rets[n] = {"v": round((bars[idx][4] / c0 - 1) * 100, 2), "truncated": trunc}
+
+        tail_closes = [b[4] for b in bars[ei:]]
+        min_c, max_c = min(tail_closes), max(tail_closes)
+        max_dd = round((min_c / c0 - 1) * 100, 2)
+        max_ru = round((max_c / c0 - 1) * 100, 2)
+
+        recover_days = None
+        rng = range(ei + 1, len(bars))
+        if move_pct < 0:  # 暴跌: 首次收盘回到 pre 之上
+            for j in rng:
+                if bars[j][4] > pre:
+                    recover_days = j - ei
+                    break
+        else:  # 暴涨: 首次收盘跌回 pre 之下(回吐)
+            for j in rng:
+                if bars[j][4] < pre:
+                    recover_days = j - ei
+                    break
+
+        end_close = bars[-1][4]
+        avail = len(bars) - 1 - ei  # 事件后已有交易日数; 窗口未满时不下终审分型(E9)
+        if move_pct < 0:
+            if end_close < pre * 0.20:
+                path_type = "zero"
+            elif recover_days is not None and recover_days <= 42:
+                path_type = "v"
+            elif recover_days is not None and recover_days <= 126:
+                path_type = "slow"
+            elif avail < 126:
+                path_type = "open"
+            else:
+                path_type = "l"
+        else:
+            path_type = "open" if (avail < 63 and recover_days is None) else ("hold" if rets[63]["v"] >= 0 else "fade")
+
+        out[eid] = {
+            "ret_5d": rets[5], "ret_21d": rets[21], "ret_63d": rets[63], "ret_126d": rets[126],
+            "max_dd": max_dd, "max_ru": max_ru,
+            "recover_days": recover_days,
+            "path_type": path_type,
+        }
+    return out
+
+PATH_STATS = compute_path_stats(klines6, events)
+(ROOT / "data" / "path_stats.json").write_text(json.dumps(PATH_STATS, ensure_ascii=False, indent=2))
+print(f"path stats: {len(PATH_STATS)} events")
+
+PATH_LABELS_ZH = {"zero": "归零/近归零", "v": "V型反转", "slow": "缓慢修复", "l": "L型未修复",
+                   "hold": "涨幅站住", "fade": "冲高回落", "open": "观察中·窗口未满"}
+PATH_LABELS_EN = {"zero": "Wiped out", "v": "V-shaped rebound", "slow": "Slow repair", "l": "L-shaped, unrecovered",
+                   "hold": "Gains held", "fade": "Spike faded", "open": "Still unfolding"}
+
 # ---- 前兆信号 → 标准类别(驱动监控的历史同款匹配) ----
 TAG_DEFS = [  # (key, 显示名, 正则) 优先级从上到下, 每条前兆取第一个命中
     ("term", "期限结构", r"期限结构|VIX3M|backwardation|contango"),
@@ -171,7 +249,24 @@ BTC 24h |≥8%| 预警 / |≥12%| 红警
 </div>
 <p>数据源全部走免费公开接口（Yahoo / FRED / OKX / alternative.me），连续多轮采集失败会自动发自检消息，不会静默失明。</p>
 
-<h3>四、诚实的局限</h3>
+<h3>四、同样是±10%，事后走势为何分化</h3>
+<p>把 34 个事件的事后路径量化（档案展开行的「路径」条：+21d / +63d / 最深回撤 / 恢复天数；分型规则：V型=42个交易日内收复事件前收盘、缓慢修复=126日内、L型=126日未收复、归零=期末价不足事件前20%、窗口未满标「观察中」），再按第一章的三种机制交叉，分化不是随机的：</p>
+<table style="width:100%;border-collapse:collapse;font-size:13px;margin:10px 0">
+<tr style="border-bottom:1.5px solid #333;text-align:left"><th style="padding:5px 8px">机制</th><th>n</th><th>路径分布</th><th>中位恢复日</th><th>+63d 中位</th></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:5px 8px">杠杆踩踏</td><td>14</td><td>V型7 · 缓修复2 · L型4 · 观察中1</td><td>17（10/14恢复）</td><td>+5.3%</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:5px 8px">外生冲击</td><td>4</td><td><b>V型 4/4</b></td><td>15.5</td><td>+21.9%</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:5px 8px">叙事崩塌</td><td>9</td><td><b>零V型</b> · 归零3 · L型4 · 缓修复2</td><td>仅2/9恢复过</td><td>−12.4%</td></tr>
+<tr style="border-bottom:1px solid #ddd"><td style="padding:5px 8px">政策火箭筒（涨）</td><td>3</td><td>站住2 · 回吐1</td><td>—</td><td>+14.7%</td></tr>
+<tr><td style="padding:5px 8px">叙事驱动（涨）</td><td>4</td><td>站住4</td><td>—</td><td>+27.6%</td></tr>
+</table>
+<p><b>① 第一问定生死：跌的是仓位，还是资产负债表。</b>外生冲击与杠杆踩踏摧毁的是持仓结构——强制卖压出清后资产本身没变，恢复者中位 15–17 个交易日收复失地。叙事崩塌摧毁的是资产的定价前提：9 例<b>无一例 V 型</b>，3 例归零（UST 的锚、LUNA 的增发机制、FTT 的抵押价值——死的是资产负债表本身，+63d 中位 −94%），4 例 L 型（Facebook +63d 仍 −17.2%、META −12.4%，DAU 与订阅叙事要等几个季度的财报才能重建）。<b>价格错了会被买回来，前提没了不会。</b></p>
+<p><b>② 外生冲击 4/4 全 V 型，不全是运气。</b>冲击不损伤偿付能力，且大冲击会逼出政策响应：2020-03 两次熔断后 3 月 23 日美联储无限 QE（17–19 天收复），2025-04-04 关税冲击 3 天后暂停落地。政策速度同样解释踩踏组内部的分层——2024-08-05 日元套息（日银次日安抚）3–6 天收复、2010 闪崩 4 天，而 1929 / 1987 / 2025-10-10 没有等来火箭筒，全部 L 型。诚实一笔：2008-10-15 虽 14 天收复单日缺口，+63d 仍 −7.1%——<b>收复单日跌幅≠脱离熊市</b>。</p>
+<p><b>③ 杠杆出清是快反弹的前提，但出清≠修复。</b>踩踏组 7 例 V 型都发生在强平盘一次性出清后（312 虽 48 天才收复，+63d 已 +95.8%）；4 例 L 型的共性是杠杆是结构性、分层瓦解的——1929 保证金贷款、1987 组合保险、2021-04 隐藏合约杠杆、2025-10-10 山寨币杠杆，第一波强平只是开始。</p>
+<p><b>④ 暴涨方向镜像成立。</b>政策火箭筒打在趋势转折点则站住（2020-03-24 +63d +28.0%、2025-04-09 +14.7%），打在熊市半山腰则回吐（2008-10-13 单日 +11.1%，7 天后全数回吐，+63d −13.1%——政策修复不了偿付能力时，大涨只是空头回补）。</p>
+<p><b>实操：暴跌当天先答四个问题</b>——①偿付能力有没有洞（储备 / 兑付 / 资产负债表，有洞别接）；②强制卖压出清了没有（资金费率归位、保证金债务下降、OI 骤减 → 踩踏近尾声）；③政策工具箱会不会开、多快（明确响应 → V 型概率大增）；④被打击的叙事可否被下一份财报修复（能 → 缓修复，不能 → L 型）。与第二章「三层脆弱性」衔接：脆弱性判断<b>会不会跌</b>，这四问判断<b>跌完怎么走</b>。</p>
+<p>本章局限：34 例小样本，机制归类含主观判断（逐事件归类与数字可在 data/path_stats.json 复核）；分型窗口为事件后 126 个交易日——1929-10-29 在窗口内计为 V 型（次日反弹且半年内有修复浪），但 1932 年 −89% 的大底在窗口之外，二次崩塌本表不捕捉；入档的都是载入史册的大事件，「跌 10% 后无事发生」的样本不在库里（幸存者偏差）。</p>
+
+<h3>五、诚实的局限</h3>
 <ul>
 <li>脆弱性指标提高的是<b>胜率与仓位纪律</b>，不是水晶球——1987 与 2010 闪崩这类内生流动性踩踏，事前信号很弱，兜底只能靠仓位；</li>
 <li>交易所净流入、Glassnode 杠杆率、市场宽度三项没有免费程序化数据源，仪表盘标为「人工核查项」，附人工入口；</li>
@@ -195,8 +290,10 @@ out = out.replace("/*__SNAPSHOT__*/{}", json.dumps(SNAPSHOT, ensure_ascii=False)
 out = out.replace("/*__KLINES__*/{}", json.dumps(klines, ensure_ascii=False))
 out = out.replace("/*__KLINES6__*/{}", json.dumps(klines6, ensure_ascii=False))
 out = out.replace("/*__TAGLABELS__*/{}", json.dumps(TAG_LABELS, ensure_ascii=False))
+out = out.replace("/*__PATHSTATS__*/{}", json.dumps(PATH_STATS, ensure_ascii=False))
+out = out.replace("/*__PATHLABELS__*/{}", json.dumps(PATH_LABELS_ZH, ensure_ascii=False))
 out = out.replace('/*__METHOD__*/""', json.dumps(METHOD_HTML, ensure_ascii=False))
-for ph in ("__EVENTS__", "__INDICATORS__", "__SNAPSHOT__", "__KLINES__", "__KLINES6__", "__TAGLABELS__", "__METHOD__"):
+for ph in ("__EVENTS__", "__INDICATORS__", "__SNAPSHOT__", "__KLINES__", "__KLINES6__", "__TAGLABELS__", "__PATHSTATS__", "__PATHLABELS__", "__METHOD__"):
     assert ph not in out, ph
 out = out.replace("%%LANG_HREF%%", "en/")
 out = out.replace("%%LANG_LABEL%%", "EN")
@@ -246,8 +343,10 @@ out_en = out_en.replace("/*__SNAPSHOT__*/{}", json.dumps(SNAPSHOT, ensure_ascii=
 out_en = out_en.replace("/*__KLINES__*/{}", json.dumps(klines, ensure_ascii=False))       # 共用同一份
 out_en = out_en.replace("/*__KLINES6__*/{}", json.dumps(klines6, ensure_ascii=False))     # 共用同一份
 out_en = out_en.replace("/*__TAGLABELS__*/{}", json.dumps(TAG_LABELS_EN, ensure_ascii=False))
+out_en = out_en.replace("/*__PATHSTATS__*/{}", json.dumps(PATH_STATS, ensure_ascii=False))  # 共用同一份(纯数字, 无中文)
+out_en = out_en.replace("/*__PATHLABELS__*/{}", json.dumps(PATH_LABELS_EN, ensure_ascii=False))
 out_en = out_en.replace('/*__METHOD__*/""', json.dumps(METHOD_HTML_EN, ensure_ascii=False))
-for ph in ("__EVENTS__", "__INDICATORS__", "__SNAPSHOT__", "__KLINES__", "__KLINES6__", "__TAGLABELS__", "__METHOD__"):
+for ph in ("__EVENTS__", "__INDICATORS__", "__SNAPSHOT__", "__KLINES__", "__KLINES6__", "__TAGLABELS__", "__PATHSTATS__", "__PATHLABELS__", "__METHOD__"):
     assert ph not in out_en, ph
 
 # ui_strings: zh→en UI 替换表, 按 key 长度降序对整份输出 HTML 全文替换

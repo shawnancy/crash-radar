@@ -244,5 +244,11 @@
  "SK海力士": "SK Hynix",
  "LUNA(对数不适用, 线性)": "LUNA (log scale N/A, linear)",
  "标普综合指数(道指日线无公开源, 以标普替代)": "S&P Composite Index (no public source for Dow daily bars, substituted with S&P)",
- "SK海力士(首尔, 韩元)": "SK Hynix (Seoul, KRW)"
+ "SK海力士(首尔, 韩元)": "SK Hynix (Seoul, KRW)",
+ "未恢复": "Not yet recovered",
+ "未回吐": "Not yet reversed",
+ "数据窗口未满": "window not yet complete",
+ "恢复": "Recovered in ",
+ "回吐": "Reversed in ",
+ "最深": "Deepest"
 }
