@@ -1,2 +1,1 @@
-EO_NAME=crash-radar
-EO_SRC="index.html en"
+# 10-09 起主站在自有服务器(EdgeOne 月构建额度已停用), gsync 只推 git 远程; 网页发布另跑本地部署脚本

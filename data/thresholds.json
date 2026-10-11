@@ -1,0 +1,152 @@
+{
+  "_doc": [
+    "阈值单一信源 (2026-07-28 建立)。此前监控脚本 judge() 与网页 RUNTIME 判灯规则、",
+    "以及卡片上印的 warning_threshold 文案是三份各自维护的副本, 已实际漂移:",
+    "  · vix_term_structure 卡片文案写 '>0.95', 判灯代码却是 >=0.93 (与监控一致) — 文案错",
+    "  · vix_level 判灯 >=25, 监控 >=28 — 逻辑真不一致",
+    "  · skew/move/10Y-2Y/美股恐贪/put-call 只有网页有, 监控根本不采 → 页面吃死快照, 亮的是旧灯",
+    "现在: crash_radar_monitor.py 读本文件判警, build.py 读本文件校验网页 RUNTIME 与文案,",
+    "对不上直接构建失败。改阈值只改这里。",
+    "",
+    "口径原则: 以监控现行值为准(它是真在跑、真在推手机的那套, 不制造行为突变),",
+    "监控没有的指标沿用网页现值。唯一例外是 VIX 的 day_chg_pct —— 那是修坏字段不是改阈值。",
+    "",
+    "kind 语义: ge=大于等于触发 / le=小于等于触发 / abs_ge=绝对值大于等于 /",
+    "          band=区间外触发(lo 下方或 hi 上方各算一侧)",
+    "extra: 除主值外的附加触发条件(任一满足即触发该级别)",
+    "page: 网页判灯用的阈值(通常同主值); 网页只有静态数值时无法判 extra, 校验器只对主值",
+    "cat: 信号类别, 与 build.py TAG_DEFS 同一套, 用于匹配历史同款事件"
+  ],
+  "indicators": {
+    "vix_level": {
+      "cat": "vol",
+      "kind": "ge",
+      "warn": 28,
+      "danger": 36,
+      "extra": {
+        "field": "day_chg_pct",
+        "kind": "ge",
+        "warn": 30,
+        "danger": 50,
+        "note": "单日涨跌%。07-28 前此字段取自 range=5d 的 chartPreviousClose, 实为5日变动, 已修"
+      },
+      "warn_text": "VIX > 28（历史80分位以上，市场进入紧张区）或单日 +30%",
+      "danger_text": "VIX > 36 或单日 +50%（历史上多对应熔断级抛售）"
+    },
+    "vix_term_structure": {
+      "cat": "term",
+      "kind": "ge",
+      "warn": 0.93,
+      "danger": 1.0,
+      "warn_text": "VIX/VIX3M > 0.93（结构转平，contango 收窄）",
+      "danger_text": "VIX/VIX3M > 1.0（倒挂，backwardation 确认）"
+    },
+    "skew_index": {
+      "cat": "vol",
+      "kind": "ge",
+      "warn": 145,
+      "danger": 150,
+      "warn_text": "SKEW > %DYN_WARN%（自身过去 2 年的 85 分位，随分布漂移）",
+      "danger_text": "SKEW > %DYN_DANGER% 且同期 VIX 同步走高（双确认）",
+      "danger_needs": {
+        "field": "vix_level",
+        "kind": "ge",
+        "v": 28,
+        "note": "文案写的'双确认'过去只是文案, 判灯代码没实现, 07-28 补上: SKEW≥150 单独只算预警, 要 VIX 同步≥28 才升红警"
+      },
+      "dynamic": {
+        "method": "rolling_pct",
+        "series": "skew",
+        "window_days": 504,
+        "warn_q": 0.85,
+        "danger_q": 0.95,
+        "note": "07-29 用户批准: SKEW 固定线 145 已被时代漂移废掉(2007-2013触发占比0.0%, 2024占61%), 改为对比自身过去2年(504交易日)的85/95分位。实际数值由 scenario_backtest.py 每日算进 thresholds_dynamic.json, 由 monitor 与 build.py 合并覆盖下面的 warn/danger。"
+      }
+    },
+    "move_index": {
+      "cat": "vol",
+      "kind": "ge",
+      "warn": 120,
+      "danger": 160,
+      "warn_text": "MOVE > 120",
+      "danger_text": "MOVE > 160（债市波动率危机级）"
+    },
+    "hy_oas": {
+      "cat": "cred",
+      "kind": "ge",
+      "warn": 4.0,
+      "danger": 5.0,
+      "extra": {
+        "field": "chg_5d",
+        "kind": "ge",
+        "warn": 0.5,
+        "note": "5个交易日走阔0.5个百分点即预警, 不等绝对水平到线"
+      },
+      "warn_text": "HY OAS > 4.0% 或 5日走阔 ≥ 0.5pp（信用条件恶化）",
+      "danger_text": "HY OAS > 5.0%（信用市场进入危机定价）"
+    },
+    "yield_curve_10y2y": {
+      "cat": "cred",
+      "kind": "le",
+      "warn": 0,
+      "danger": -0.5,
+      "warn_text": "10Y-2Y < 0（倒挂开始）",
+      "danger_text": "10Y-2Y < -0.5（深度倒挂）"
+    },
+    "put_call_ratio": {
+      "cat": "sent",
+      "kind": "band",
+      "warn_lo": 0.6,
+      "warn_hi": 1.0,
+      "danger_lo": 0.4,
+      "danger_hi": 1.2,
+      "warn_text": "Total Put/Call < 0.6（过度乐观）或 > 1.0（恐慌加剧）",
+      "danger_text": "Total Put/Call < 0.4 或 > 1.2（情绪尾部）"
+    },
+    "fear_greed_us": {
+      "cat": "sent",
+      "kind": "band",
+      "warn_lo": 25,
+      "warn_hi": 75,
+      "danger_lo": 10,
+      "danger_hi": 90,
+      "warn_text": "< 25（极度恐惧）或 > 75（极度贪婪）",
+      "danger_text": "< 10 或 > 90（情绪极端尾部）"
+    },
+    "funding_rate_btc": {
+      "cat": "lev",
+      "kind": "abs_ge",
+      "warn": 0.05,
+      "danger": 0.1,
+      "warn_text": "年化资金费率 > 50%（单期费率约 0.05%/8h 以上）",
+      "danger_text": "单期费率 |≥ 0.10%/8h|（杠杆极度拥挤，312/519 级清算温床）"
+    },
+    "fear_greed_crypto": {
+      "cat": "sent",
+      "kind": "band",
+      "warn_lo": 20,
+      "warn_hi": 80,
+      "danger_lo": 10,
+      "danger_hi": 90,
+      "warn_text": "< 20（极度恐惧）或 > 80（极度贪婪）",
+      "danger_text": "≤ 10 或 ≥ 90（极端情绪尾部）"
+    },
+    "coinbase_premium": {
+      "cat": "sent",
+      "kind": "le",
+      "warn": -0.1,
+      "danger": -0.3,
+      "warn_text": "溢价 < -0.1%（美国现货盘净卖出）",
+      "danger_text": "溢价 < -0.3%（历史危机期水平，如 FTX 崩溃期间）"
+    },
+    "btc_24h": {
+      "cat": "mom",
+      "kind": "abs_ge",
+      "warn": 8,
+      "danger": 12,
+      "page_skip": true,
+      "warn_text": "BTC 24h |≥8%|（波动放大）",
+      "danger_text": "BTC 24h |≥12%|（极端波动进行中）"
+    }
+  }
+}

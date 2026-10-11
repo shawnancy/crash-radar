@@ -154,6 +154,12 @@
     "signal": "The short-term commercial paper market seized up after Lehman's collapse, prompting the Fed to announce the Commercial Paper Funding Facility (CPFF) on October 7 to buy corporate commercial paper directly -- a sign that real-economy short-term financing already depended on central-bank backstopping.",
     "lead_time": "~1 week ahead",
     "source_url": "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008"
+   },
+   {
+    "indicator": "VIX term-structure inversion (VIX/VIX3M)",
+    "signal": "First close above 1.0 on 2008-09-22: VIX 33.85 / VIX3M 29.73 = ratio 1.139 (backwardation confirmed); window peak 1.374 through the event date. Note this confirms rather than leads: on the day of inversion the S&P 500 was already -7.5% below its prior 45-session high, i.e. the inversion appeared after the selloff had begun. This date precedes the start of CBOE's official VIX3M CSV (2009-09-18), so VIX3M is taken from FRED's official VXVCLS series, cross-checked day-by-day against Yahoo ^VIX3M across 776 overlapping sessions (median relative difference 0%).",
+    "lead_time": "15 trading days ahead",
+    "source_url": "https://fred.stlouisfed.org/series/VXVCLS"
    }
   ],
   "aftermath": "The rally lasted only one session -- the Dow tumbled 733 points (-7.87%) on October 15 -- and the market continued to swing violently lower, ultimately bottoming at 6,547.05 on March 9, 2009, down roughly 54% from its October 2007 high.",
@@ -195,6 +201,12 @@
     "signal": "The Beige Book released on October 15 showed broadly weakening economic activity across all 12 Fed districts, reinforcing recession expectations.",
     "lead_time": "released same day",
     "source_url": "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008"
+   },
+   {
+    "indicator": "VIX term-structure inversion (VIX/VIX3M)",
+    "signal": "First close above 1.0 on 2008-09-24: VIX 35.19 / VIX3M 30.56 = ratio 1.152 (backwardation confirmed); window peak 1.374 through the event date. Note this confirms rather than leads: on the day of inversion the S&P 500 was already -8.8% below its prior 45-session high, i.e. the inversion appeared after the selloff had begun. This date precedes the start of CBOE's official VIX3M CSV (2009-09-18), so VIX3M is taken from FRED's official VXVCLS series, cross-checked day-by-day against Yahoo ^VIX3M across 776 overlapping sessions (median relative difference 0%).",
+    "lead_time": "15 trading days ahead",
+    "source_url": "https://fred.stlouisfed.org/series/VXVCLS"
    }
   ],
   "aftermath": "The market kept falling: the Dow touched a fresh low around 7,552 on November 20, before ultimately reaching the bear-market bottom of 6,547.05 on March 9, 2009.",
@@ -312,6 +324,12 @@
     "signal": "Italy imposed a nationwide lockdown on March 9 (roughly 9,172 confirmed cases nationally), the WHO declared a global pandemic on March 11, and Trump announced the Europe travel ban that same evening.",
     "lead_time": "1-3 days ahead",
     "source_url": "https://en.wikipedia.org/wiki/Timeline_of_the_COVID-19_pandemic_in_Italy"
+   },
+   {
+    "indicator": "VIX term-structure inversion (VIX/VIX3M)",
+    "signal": "First close above 1.0 on 2020-02-24: VIX 25.03 / VIX3M 21.92 = ratio 1.142 (backwardation confirmed); window peak 1.344 through the event date. Note this confirms rather than leads: on the day of inversion the S&P 500 was already -4.7% below its prior 45-session high, i.e. the inversion appeared after the selloff had begun.",
+    "lead_time": "13 trading days ahead",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "Selling continued: the S&P 500 plunged nearly 12% again on March 16, triggering a third circuit breaker, and the market kept falling until it confirmed an interim bottom on March 23.",
@@ -353,6 +371,12 @@
     "signal": "Hedge funds were forced to unwind Treasury cash-futures basis trades in March, cutting their Treasury holdings by roughly $127 billion for the month (about 90% of the total decline in hedge fund Treasury holdings) -- a rare occurrence of trading dysfunction in what is normally 'the world's deepest liquid market.'",
     "lead_time": "concurrent (deteriorating steadily through early-to-mid March)",
     "source_url": "https://www.financialresearch.gov/briefs/files/OFRBr_2020_01_Basis-Trades.pdf"
+   },
+   {
+    "indicator": "VIX term-structure inversion (VIX/VIX3M)",
+    "signal": "First close above 1.0 on 2020-02-24: VIX 25.03 / VIX3M 21.92 = ratio 1.142 (backwardation confirmed); window peak 1.344 through the event date. Note this confirms rather than leads: on the day of inversion the S&P 500 was already -4.7% below its prior 45-session high, i.e. the inversion appeared after the selloff had begun.",
+    "lead_time": "15 trading days ahead",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "The market kept swinging violently lower until the S&P 500 bottomed at 2,237.40 on March 23, a cumulative decline of 34% over five weeks.",
@@ -388,6 +412,12 @@
     "signal": "The S&P 500 closed at 2,237.40 on March 23 (down 34% over five weeks, the fastest 30%-plus decline in history, and extremely oversold); Pelosi said the same day that Congress had 'real optimism' about a roughly $2 trillion stimulus package.",
     "lead_time": "1 day ahead",
     "source_url": "https://www.cnbc.com/2020/03/23/this-was-the-fastest-30percent-stock-market-decline-ever.html"
+   },
+   {
+    "indicator": "VIX term-structure inversion (VIX/VIX3M)",
+    "signal": "First close above 1.0 on 2020-03-03: VIX 36.82 / VIX3M 30.17 = ratio 1.220 (backwardation confirmed); window peak 1.318 through the event date. Note this confirms rather than leads: on the day of inversion the S&P 500 was already -11.3% below its prior 45-session high, i.e. the inversion appeared after the selloff had begun.",
+    "lead_time": "15 trading days ahead",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "The Senate passed the CARES Act 96-0 on March 25, and it was signed into law on March 27; the March 23 low of 2,237.40 was ultimately confirmed as the bear-market bottom, and the S&P 500 went on to reclaim its all-time high in roughly five months (August 2020).",
@@ -616,6 +646,12 @@
     "signal": "Foreign investors were net sellers of more than $50 billion in U.S. long-term securities in April (including $40 billion of Treasuries), signaling wavering confidence in dollar assets.",
     "lead_time": "same-month data (confirmed with a lag)",
     "source_url": "https://www.atlanticcouncil.org/blogs/new-atlanticist/to-understand-the-impact-of-trumps-tariff-war-watch-the-bond-market-and-the-fed-not-just-the-stock-market/"
+   },
+   {
+    "indicator": "VIX term-structure inversion (VIX/VIX3M)",
+    "signal": "First close above 1.0 on 2025-04-03: VIX 30.02 / VIX3M 27.38 = ratio 1.096 (backwardation confirmed); window peak 1.096 through the event date. Note this confirms rather than leads: on the day of inversion the S&P 500 was already -12.2% below its prior 45-session high, i.e. the inversion appeared after the selloff had begun.",
+    "lead_time": "1 trading days ahead",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "The shock persisted through April 8; after Trump announced a 90-day tariff pause on April 9, the market staged a dramatic 9.52% rebound, and the S&P 500 recovered essentially all its losses within about a month.",
@@ -657,6 +693,12 @@
     "signal": "Commerce Secretary Howard Lutnick later revealed that Bessent and Lutnick had accompanied Trump throughout the day as he drafted the tariff-pause statement, showing the decision had already been settled within a small circle before being made public.",
     "lead_time": "hours ahead (undisclosed)",
     "source_url": "https://www.foxbusiness.com/politics/tariff-pause-due-trump-wanting-personally-involved-negotiations-bessent"
+   },
+   {
+    "indicator": "VIX term-structure inversion (VIX/VIX3M)",
+    "signal": "First close above 1.0 on 2025-04-03: VIX 30.02 / VIX3M 27.38 = ratio 1.096 (backwardation confirmed); window peak 1.274 through the event date. Note this confirms rather than leads: on the day of inversion the S&P 500 was already -12.2% below its prior 45-session high, i.e. the inversion appeared after the selloff had begun.",
+    "lead_time": "4 trading days ahead",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "The market dipped again on April 10 amid lingering uncertainty over the 90-day pause, but overall it kept recovering from April 9 onward, and the S&P 500 went on to recover all of its tariff-shock losses and hit new highs within the following months.",

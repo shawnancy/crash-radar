@@ -1,0 +1,14 @@
+{
+ "generated": "2026-10-11",
+ "indicators": {
+  "skew_index": {
+   "warn": 157.8,
+   "danger": 167.9,
+   "asof": "2026-07-24",
+   "current": 147.27999877929688,
+   "window_days": 504,
+   "warn_q": 0.85,
+   "danger_q": 0.95
+  }
+ }
+}

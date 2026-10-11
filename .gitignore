@@ -3,3 +3,9 @@
 __pycache__/
 *.pyc
 .wrangler/
+live.json
+test_*.html
+en/test_*.html
+data/series_cache.json
+deploy_live.sh
+daily_rebuild.sh

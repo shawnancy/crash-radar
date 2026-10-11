@@ -25,6 +25,12 @@
     "signal": "崩盘中资金费率骤降至-0.375%/8小时（年化约400%），显示空头极度主导、多头挤兑压力集中在同一交易所",
     "lead_time": "崩盘当日",
     "source_url": "https://www.newsbtc.com/news/bitcoin-funding-rates-bitmex-deep-red-why-bullish/"
+   },
+   {
+    "indicator": "VIX期限结构倒挂（VIX/VIX3M）",
+    "signal": "2020-02-24 收盘首次升破 1.0：VIX 25.03 / VIX3M 21.92 = 比值 1.142（backwardation 确认）；至事件日窗口内峰值 1.344。⚠ 性质是确认而非领先：倒挂当日 BTC 已自前 45 个交易日高点回落 -6.5%，即结构倒挂出现在跌势启动之后",
+    "lead_time": "提前 13 个交易日",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "BitMEX因宕机+保险基金损失1627 BTC遭遇信任危机，两周内OI从11.5万BTC腰斩至5.5万BTC，交易量份额被Binance反超；比特币此后受美联储无限QE刺激，年底反弹至历史新高。",

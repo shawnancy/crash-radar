@@ -25,7 +25,7 @@
   "market": "us",
   "name": "VIX期限结构倒挂（VIX/VIX3M）",
   "what": "短期VIX与3个月期VIX（VIX3M）之比，衡量期限结构是否从正常contango转为backwardation",
-  "why": "正常市场VIX<VIX3M（比值<1，contango）；当短期恐慌骤升导致比值>1（倒挂/backwardation）时，历史上多次精确标记危机启动点：2015-08中国汇改闪崩、2018-02 Volmageddon、2020-02-24至03启动COVID崩盘当周比值均升破1.0-1.2，随后标普500在1-3周内下跌10%以上",
+  "why": "正常市场 VIX<VIX3M（比值<1，contango）；比值>1（倒挂/backwardation）标记短期恐慌骤升。但实测三次典型倒挂后的走势分化极大：2020-02-24（比值 1.14）之后 3 周标普500 最低 -26.0%；而 2015-08-24（1.31）与 2018-02-05（1.33）之后 3 周最低仅 -1.4% / -2.6%，属快速反转。更关键的是它的性质是确认而非预警——本档案 8 个带该标签的事件里，倒挂当日标的已自前 45 个交易日高点回落 4.7%~12.2%。另：该线 ≥0.93 在全样本 34.3% 的交易日都成立，单独亮灯几乎没有筛选力，须与其他类别共振才有参考价值。",
   "warning_threshold": "VIX/VIX3M > 0.95（结构转平，contango收窄）",
   "danger_threshold": "VIX/VIX3M > 1.0（倒挂，backwardation确认）",
   "check_url": "https://www.cboe.com/us/indices/dashboard/vix3m/",

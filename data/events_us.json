@@ -154,6 +154,12 @@
     "signal": "雷曼倒闭后短期商业票据市场急冻, 美联储于10月7日宣布设立商业票据融资便利(CPFF)直接购买企业商业票据, 反映实体企业短期融资已依赖央行兜底",
     "lead_time": "提前约1周",
     "source_url": "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008"
+   },
+   {
+    "indicator": "VIX期限结构倒挂（VIX/VIX3M）",
+    "signal": "2008-09-22 收盘首次升破 1.0：VIX 33.85 / VIX3M 29.73 = 比值 1.139（backwardation 确认）；至事件日窗口内峰值 1.374。⚠ 性质是确认而非领先：倒挂当日 标普500 已自前 45 个交易日高点回落 -7.5%，即结构倒挂出现在跌势启动之后；该日期早于 CBOE 官方 VIX3M CSV 起点（2009-09-18），VIX3M 取自 FRED 官方 VXVCLS 序列，已与 Yahoo ^VIX3M 在 776 个重叠交易日逐日核对（相对差中位 0%）",
+    "lead_time": "提前 15 个交易日",
+    "source_url": "https://fred.stlouisfed.org/series/VXVCLS"
    }
   ],
   "aftermath": "反弹仅维持一个交易日, 10月15日道指即重挫733点(-7.87%); 此后市场持续剧烈震荡下行, 于2009年3月9日最终探底6547.05点, 较2007年10月高点跌去约54%。",
@@ -195,6 +201,12 @@
     "signal": "10月15日公布的褐皮书显示12个联储辖区经济活动普遍走弱, 强化衰退预期",
     "lead_time": "当日公布",
     "source_url": "https://en.wikipedia.org/wiki/Global_financial_crisis_in_October_2008"
+   },
+   {
+    "indicator": "VIX期限结构倒挂（VIX/VIX3M）",
+    "signal": "2008-09-24 收盘首次升破 1.0：VIX 35.19 / VIX3M 30.56 = 比值 1.152（backwardation 确认）；至事件日窗口内峰值 1.374。⚠ 性质是确认而非领先：倒挂当日 标普500 已自前 45 个交易日高点回落 -8.8%，即结构倒挂出现在跌势启动之后；该日期早于 CBOE 官方 VIX3M CSV 起点（2009-09-18），VIX3M 取自 FRED 官方 VXVCLS 序列，已与 Yahoo ^VIX3M 在 776 个重叠交易日逐日核对（相对差中位 0%）",
+    "lead_time": "提前 15 个交易日",
+    "source_url": "https://fred.stlouisfed.org/series/VXVCLS"
    }
   ],
   "aftermath": "此后市场并未止跌, 11月20日道指一度探至7552点区间新低, 最终于2009年3月9日触及本轮熊市底部6547.05点。",
@@ -312,6 +324,12 @@
     "signal": "意大利3月9日实施全国封锁(全国确诊约9172例), 3月11日WHO宣布全球大流行, 同日晚特朗普宣布欧洲旅行禁令",
     "lead_time": "提前1-3天",
     "source_url": "https://en.wikipedia.org/wiki/Timeline_of_the_COVID-19_pandemic_in_Italy"
+   },
+   {
+    "indicator": "VIX期限结构倒挂（VIX/VIX3M）",
+    "signal": "2020-02-24 收盘首次升破 1.0：VIX 25.03 / VIX3M 21.92 = 比值 1.142（backwardation 确认）；至事件日窗口内峰值 1.344。⚠ 性质是确认而非领先：倒挂当日 标普500 已自前 45 个交易日高点回落 -4.7%，即结构倒挂出现在跌势启动之后",
+    "lead_time": "提前 13 个交易日",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "跌势未止, 3月16日标普500再度暴跌近12%并第三次触发熔断, 市场持续下探至3月23日才确认阶段性底部。",
@@ -353,6 +371,12 @@
     "signal": "对冲基金3月被迫平仓国债期现基差交易, 其国债持仓当月减少约1270亿美元(占对冲基金国债持仓总降幅约90%), '全球最深流动性市场'罕见出现国债交易困难",
     "lead_time": "同期并发(3月上中旬持续恶化)",
     "source_url": "https://www.financialresearch.gov/briefs/files/OFRBr_2020_01_Basis-Trades.pdf"
+   },
+   {
+    "indicator": "VIX期限结构倒挂（VIX/VIX3M）",
+    "signal": "2020-02-24 收盘首次升破 1.0：VIX 25.03 / VIX3M 21.92 = 比值 1.142（backwardation 确认）；至事件日窗口内峰值 1.344。⚠ 性质是确认而非领先：倒挂当日 标普500 已自前 45 个交易日高点回落 -4.7%，即结构倒挂出现在跌势启动之后",
+    "lead_time": "提前 15 个交易日",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "此后市场仍剧烈震荡下探, 直至3月23日标普500跌至2237.40点方才见底, 五周内累计跌幅达34%。",
@@ -388,6 +412,12 @@
     "signal": "标普500于3月23日收于2237.40点(五周暴跌34%, 为史上最快的30%级下跌, 极端超卖), 同日佩洛西公开表示国会对约2万亿美元刺激法案'有真正的乐观情绪'",
     "lead_time": "提前1天",
     "source_url": "https://www.cnbc.com/2020/03/23/this-was-the-fastest-30percent-stock-market-decline-ever.html"
+   },
+   {
+    "indicator": "VIX期限结构倒挂（VIX/VIX3M）",
+    "signal": "2020-03-03 收盘首次升破 1.0：VIX 36.82 / VIX3M 30.17 = 比值 1.220（backwardation 确认）；至事件日窗口内峰值 1.318。⚠ 性质是确认而非领先：倒挂当日 标普500 已自前 45 个交易日高点回落 -11.3%，即结构倒挂出现在跌势启动之后",
+    "lead_time": "提前 15 个交易日",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "参议院3月25日以96-0全票通过CARES Act, 3月27日签署生效; 3月23日2237.40点最终确立为本轮熊市底部, 标普500随后仅用约5个月(2020年8月)即收复历史高点。",
@@ -616,6 +646,12 @@
     "signal": "4月当月海外净卖出美国长期证券超500亿美元(其中400亿美元为美债),显示外资对美元资产信心动摇",
     "lead_time": "同月数据(滞后确认)",
     "source_url": "https://www.atlanticcouncil.org/blogs/new-atlanticist/to-understand-the-impact-of-trumps-tariff-war-watch-the-bond-market-and-the-fed-not-just-the-stock-market/"
+   },
+   {
+    "indicator": "VIX期限结构倒挂（VIX/VIX3M）",
+    "signal": "2025-04-03 收盘首次升破 1.0：VIX 30.02 / VIX3M 27.38 = 比值 1.096（backwardation 确认）；至事件日窗口内峰值 1.096。⚠ 性质是确认而非领先：倒挂当日 标普500 已自前 45 个交易日高点回落 -12.2%，即结构倒挂出现在跌势启动之后",
+    "lead_time": "提前 1 个交易日",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "冲击持续至4月8日,4月9日特朗普宣布90天关税暂缓后市场绝地反弹9.52%,标普500用约1个月基本收复失地。",
@@ -657,6 +693,12 @@
     "signal": "商务部长卢特尼克事后透露, 贝森特与卢特尼克当日全程陪同特朗普起草暂停关税声明, 显示决策已在小圈子内敲定但未公开",
     "lead_time": "提前数小时(未公开)",
     "source_url": "https://www.foxbusiness.com/politics/tariff-pause-due-trump-wanting-personally-involved-negotiations-bessent"
+   },
+   {
+    "indicator": "VIX期限结构倒挂（VIX/VIX3M）",
+    "signal": "2025-04-03 收盘首次升破 1.0：VIX 30.02 / VIX3M 27.38 = 比值 1.096（backwardation 确认）；至事件日窗口内峰值 1.274。⚠ 性质是确认而非领先：倒挂当日 标普500 已自前 45 个交易日高点回落 -12.2%，即结构倒挂出现在跌势启动之后",
+    "lead_time": "提前 4 个交易日",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "4月10日市场因90天暂停仍存不确定性再度下挫, 但整体自4月9日起持续修复, 标普500此后数月收复全部关税冲击跌幅并创出新高。",

@@ -121,7 +121,7 @@ TAG_DEFS = [  # (key, 显示名, 正则) 优先级从上到下, 每条前兆取�
     ("pol", "政策与监管", r"央行|美联储|加息|降息|监管|警示|禁令|关税|政策|财政|QE|三部|立法|新政|表态|喊单|大流行|旅行禁令|封锁|预警|警告|骚乱|社会阻力|沟通|价格战|评级"),
     ("peer", "同业与传染", r"同业|Snap|联动|传导|外溢|日经|领先|先行|stETH|先例|竞争|MicroStrategy|App Store|排名|传播"),
     ("sent", "情绪与估值", r"恐惧贪婪|Put/Call|市盈率|P/E|估值|溢价|赔率|集中度|基差|过热|投注|敏感度|拥挤度|SEC文件"),
-    ("mom", "价格结构", r"暴跌|下跌|熔断|抛售|成交量|超卖|透支|涨幅|前一|闪崩|跌势|转弱|升值|走强|新高|涨跌|波动|裂缝|破位|失效|价格"),
+    ("mom", "价格结构", r"暴跌|下跌|熔断|抛售|成交量|超卖|透支|涨幅|闪崩|跌势|转弱|升值|走强|新高|涨跌|波动|裂缝|破位|失效|价格"),
 ]
 TAG_LABELS = {k: v for k, v, _ in TAG_DEFS}
 
@@ -132,6 +132,11 @@ OVERRIDES = [  # (indicator前缀, tag) 修正正则误标, 人工审核结论
     ("此前财报已下修", "fund"), ("退出俄罗斯市场", "pol"), ("同业(Snap)财报预警", "peer"),
     ("组合保险", "lev"), ("MicroStrategy机构购币", "peer"), ("9月零售销售", "pol"),
     ("美联储3月23日", "pol"), ("Curve UST-3pool", "chain"), ("剑桥分析", "pol"),
+    # 07-30 弱匹配重审: 这四条原来靠泛词(失效/传播/表态/持仓)误命中, 逐条核 signal 原文后重判
+    ("银行家护盘联盟失效", "pol"),        # 命中"失效"纯巧合; 实质=官方/财团干预失效
+    ("DeepSeek极低训练成本", "fund"),     # 命中"传播"; 实质=高算力需求叙事被证伪
+    ("马斯克/特斯拉表态", "peer"),        # 命中"表态"落 pol, 但马斯克非政策监管方(同 MicroStrategy 归 peer)
+    ("CZ公开表态抛售FTT", "peer"),        # 命中"持仓"落 lev; 实质=币安对 FTX 的同业攻击
 ]
 
 def tag_of(p):
@@ -199,27 +204,142 @@ SNAPSHOT = {
     },
 }
 
-# 用本地监控最近一轮采集值刷新快照(30min内新鲜), 美股侧无CORS指标靠这个保准
+# 用本地监控最近一轮采集值刷新快照。优先读监控写的 live.json —— 它已经是"网页 id : 值"
+# 的统一口径且含全部 12 项指标; 读不到再退回 state.json 的老 key 映射(向后兼容)。
 # (英文版与中文版共用同一份 SNAPSHOT 对象, 数值/中文 txt 之后统一走 ui_strings 全文替换清洗)
-_mon_state = mon_dir / "state.json"
-if _mon_state.exists():
+#
+# ⚠ built(构建日期) 与 asof(数据日期) 必须分开。历史教训: 以前只有 built, 于是一个 07-15 的
+# SKEW 值被页面标成"快照 2026-07-25", 标签本身就在骗人。现在 asof 单独走一个字段。
+from datetime import date as _d
+SNAPSHOT["built"] = _d.today().isoformat()
+_live_f = mon_dir / "live.json"
+if _live_f.exists():
     try:
-        _lv = json.loads(_mon_state.read_text()).get("last_values", {})
-        if "vix" in _lv:
-            SNAPSHOT["values"]["vix_level"] = {"v": _lv["vix"]["v"], "txt": f"{_lv['vix']['v']:.2f}"}
-        if "vix_term" in _lv:
-            SNAPSHOT["values"]["vix_term_structure"] = {"v": _lv["vix_term"]["v"], "txt": f"{_lv['vix_term']['v']:.3f}"}
-        if "hy_oas" in _lv:
-            SNAPSHOT["values"]["hy_oas"] = {"v": _lv["hy_oas"]["v"], "txt": f"{_lv['hy_oas']['v']:.2f}%"}
-        if "btc_funding" in _lv:
-            SNAPSHOT["values"]["funding_rate_btc"] = {"v": _lv["btc_funding"]["v"], "txt": f"{_lv['btc_funding']['v']:+.4f}%/8h"}
-        if "crypto_fng" in _lv:
-            SNAPSHOT["values"]["fear_greed_crypto"] = {"v": _lv["crypto_fng"]["v"], "txt": f"{_lv['crypto_fng']['v']} · {_lv['crypto_fng']['label']}"}
-        from datetime import date as _d
-        SNAPSHOT["built"] = _d.today().isoformat()
-        print("snapshot refreshed from monitor state")
+        _lj = json.loads(_live_f.read_text())
+        for _iid, _rec in (_lj.get("values") or {}).items():
+            if _rec.get("v") is not None:
+                SNAPSHOT["values"][_iid] = {"v": _rec["v"], "txt": _rec.get("txt", str(_rec["v"]))}
+        SNAPSHOT["asof"] = _lj.get("asof")
+        print(f"snapshot refreshed from live.json  asof={_lj.get('asof')}  "
+              f"{len(_lj.get('values') or {})} 项")
     except Exception as _e:
-        print("monitor state skip:", _e)
+        print("live.json skip:", _e)
+else:
+    _mon_state = mon_dir / "state.json"
+    if _mon_state.exists():
+        try:
+            _st = json.loads(_mon_state.read_text())
+            _lv = _st.get("last_values", {})
+            if "vix" in _lv:
+                SNAPSHOT["values"]["vix_level"] = {"v": _lv["vix"]["v"], "txt": f"{_lv['vix']['v']:.2f}"}
+            if "vix_term" in _lv:
+                SNAPSHOT["values"]["vix_term_structure"] = {"v": _lv["vix_term"]["v"], "txt": f"{_lv['vix_term']['v']:.3f}"}
+            if "hy_oas" in _lv:
+                SNAPSHOT["values"]["hy_oas"] = {"v": _lv["hy_oas"]["v"], "txt": f"{_lv['hy_oas']['v']:.2f}%"}
+            if "btc_funding" in _lv:
+                SNAPSHOT["values"]["funding_rate_btc"] = {"v": _lv["btc_funding"]["v"], "txt": f"{_lv['btc_funding']['v']:+.4f}%/8h"}
+            if "crypto_fng" in _lv:
+                SNAPSHOT["values"]["fear_greed_crypto"] = {"v": _lv["crypto_fng"]["v"], "txt": f"{_lv['crypto_fng']['v']} · {_lv['crypto_fng']['label']}"}
+            SNAPSHOT["asof"] = _st.get("last_run")
+            print("snapshot refreshed from state.json (无 live.json, 走兼容路径)")
+        except Exception as _e:
+            print("monitor state skip:", _e)
+
+# ============ 阈值单一信源: 覆盖卡片文案 + 校验判灯代码 (2026-07-28) ============
+# 病根: 判灯规则(template.html 的 RUNTIME)、卡片阈值文案(indicators.json)、监控脚本
+# judge() 三处各写一份阈值, 已实际漂移 —— 卡片印 "VIX/VIX3M > 0.95" 而代码判 0.93,
+# 判灯 VIX≥25 而监控 ≥28。现在:
+#   ① 文案由 thresholds.json **覆盖生成**, 从结构上不可能再和阈值不符
+#   ② 判灯规则由 THRESH 注入页面动态生成(见 template.html ruleFor), 不再手写
+#   ③ 下面这段硬校验兜底: 万一 template 里还残留手写 rule, 直接让构建失败
+_THRESH_RAW = json.loads((ROOT / "data" / "thresholds.json").read_text())["indicators"]
+# 动态阈值 overlay: 部分指标的固定线会被时代漂移废掉(SKEW 145 → 2024 年有 61% 的天数在线上),
+# 改成"对比自身过去N年的分位", 实际数值由 scenario_backtest.py 每日重算。
+# 文案里的 %DYN_WARN%/%DYN_DANGER% 占位符在这里替换成当日实际值 —— 页面上必须显示真实数字,
+# 不能只写"85分位"让用户猜是多少。
+_dyn_f = ROOT / "data" / "thresholds_dynamic.json"
+if _dyn_f.exists():
+    _dyn = json.loads(_dyn_f.read_text()).get("indicators", {})
+    for _iid, _v in _dyn.items():
+        if _iid in _THRESH_RAW and _v.get("warn") is not None:
+            _t = _THRESH_RAW[_iid]
+            _t["warn"], _t["danger"] = _v["warn"], _v["danger"]
+            for _k in ("warn_text", "danger_text"):
+                _t[_k] = (_t.get(_k, "").replace("%DYN_WARN%", str(_v["warn"]))
+                          .replace("%DYN_DANGER%", str(_v["danger"])))
+    print(f"动态阈值已合并: {', '.join(f'{k}={v[chr(34)+chr(34)] if False else v[chr(119)+chr(97)+chr(114)+chr(110)]}' for k, v in _dyn.items())}")
+else:
+    print("⚠ 没有 data/thresholds_dynamic.json, 动态阈值指标沿用静态值(文案里的占位符会露出来)")
+# note/_doc 是给维护者看的开发注释, 不进页面 payload (进了就得连带翻译, 白占体积)
+THRESH = {k: {kk: vv for kk, vv in v.items() if kk != "note"} for k, v in _THRESH_RAW.items()}
+for _v in THRESH.values():
+    if isinstance(_v.get("dynamic"), dict):     # dynamic.note 也是开发注释, 别进 payload
+        _v["dynamic"] = {kk: vv for kk, vv in _v["dynamic"].items() if kk != "note"}
+for _v in THRESH.values():
+    if isinstance(_v.get("extra"), dict):
+        _v["extra"] = {kk: vv for kk, vv in _v["extra"].items() if kk != "note"}
+    if isinstance(_v.get("danger_needs"), dict):
+        _v["danger_needs"] = {kk: vv for kk, vv in _v["danger_needs"].items() if kk != "note"}
+_covered = 0
+for ind in indicators:
+    t = THRESH.get(ind["id"])
+    if not t:
+        continue
+    ind["warning_threshold"] = t["warn_text"]
+    ind["danger_threshold"] = t["danger_text"]
+    _covered += 1
+print(f"阈值文案已由 thresholds.json 覆盖: {_covered}/{len(indicators)} 个指标")
+
+for _iid, _t in _THRESH_RAW.items():
+    for _k in ("warn_text", "danger_text"):
+        if "%DYN_" in _t.get(_k, ""):
+            raise SystemExit(f"✘ 构建中止: {_iid}.{_k} 里的动态阈值占位符没被替换 —— "
+                             f"先跑 scenario_backtest.py 生成 data/thresholds_dynamic.json")
+
+_tpl_probe = (ROOT / "template.html").read_text()
+_hardcoded = re.findall(r"^\s*(\w+):\{\s*rule:", _tpl_probe, re.M)
+if _hardcoded:
+    raise SystemExit(f"✘ 构建中止: template.html 的 RUNTIME 里仍有手写判灯规则 {_hardcoded}\n"
+                     f"  判灯阈值只能来自 data/thresholds.json(经 THRESH 注入 + ruleFor 生成)。\n"
+                     f"  手写一份就是下一次'页面说0.95、监控判0.93'的开始。")
+for _need in ("/*__THRESH__*/", "function ruleFor(", "const THRESH ="):
+    if _need not in _tpl_probe:
+        raise SystemExit(f"✘ 构建中止: template.html 缺少 {_need}, 判灯规则无法由阈值表生成")
+
+FORECAST = {}
+_fc_f = ROOT / "data" / "analog_forecast.json"
+if _fc_f.exists():
+    FORECAST = json.loads(_fc_f.read_text())
+    _v = {k: v.get("verdict") for k, v in FORECAST.get("targets", {}).items()}
+    print(f"半年推演数据: {len(FORECAST.get('targets', {}))} 个标的, 自检结论 {_v}")
+else:
+    print("⚠ 没有 data/analog_forecast.json, 半年推演板块将为空 —— 先跑 analog_forecast.py")
+
+# 阈值基准率审计: 每次构建都跑一遍, 把"这条线多久触发一次"打出来。
+# 只报告不自动改 —— 07-29 的教训是"三处数字一致"的校验保证不了"数字本身对"，
+# 但也不能反过来一刀切按分位重设(10Y-2Y ≤0 的绝对含义是真的)。让人看着数字判断。
+try:
+    import subprocess as _sp
+    _au = _sp.run([sys.executable, str(ROOT / "threshold_audit.py")],
+                  capture_output=True, text=True, timeout=120)
+    if _au.returncode == 0:
+        _warn = [l for l in _au.stdout.splitlines() if l.strip().startswith("⚠")]
+        print(f"阈值基准率审计: {len(_warn)} 条需关注" + ("" if not _warn else " →"))
+        for _l in _warn:
+            print("   " + _l.strip())
+    else:
+        print("⚠ 阈值基准率审计跑失败(不阻断构建):", (_au.stderr or "").strip()[:120])
+except Exception as _e:
+    print("⚠ 阈值基准率审计跳过:", _e)
+
+SCENARIO = {}
+_scen_f = ROOT / "data" / "scenario_stats.json"
+if _scen_f.exists():
+    SCENARIO = json.loads(_scen_f.read_text())
+    print(f"情景推演数据: {len(SCENARIO.get('indicators', {}))} 个指标, "
+          f"生成于 {SCENARIO.get('generated')}")
+else:
+    print("⚠ 没有 data/scenario_stats.json, 情景推演板块将为空 —— 先跑 scenario_backtest.py")
 
 METHOD_HTML = """
 <h3>一、34 份档案归纳下来，暴跌只有三种发生机制</h3>
@@ -266,7 +386,18 @@ BTC 24h |≥8%| 预警 / |≥12%| 红警
 <p><b>实操：暴跌当天先答四个问题</b>——①偿付能力有没有洞（储备 / 兑付 / 资产负债表，有洞别接）；②强制卖压出清了没有（资金费率归位、保证金债务下降、OI 骤减 → 踩踏近尾声）；③政策工具箱会不会开、多快（明确响应 → V 型概率大增）；④被打击的叙事可否被下一份财报修复（能 → 缓修复，不能 → L 型）。与第二章「三层脆弱性」衔接：脆弱性判断<b>会不会跌</b>，这四问判断<b>跌完怎么走</b>。</p>
 <p>本章局限：34 例小样本，机制归类含主观判断（逐事件归类与数字可在 data/path_stats.json 复核）；分型窗口为事件后 126 个交易日——1929-10-29 在窗口内计为 V 型（次日反弹且半年内有修复浪），但 1932 年 −89% 的大底在窗口之外，二次崩塌本表不捕捉；入档的都是载入史册的大事件，「跌 10% 后无事发生」的样本不在库里（幸存者偏差）。</p>
 
-<h3>五、诚实的局限</h3>
+<h3>五、这套标签体系到底有没有区分力（自检，结论不合格照样贴出来）</h3>
+<p>档案里每个事件都被打了前兆类别标签，「可参考事件」与「指标仪表盘」的匹配全靠它。它管不管用，量的是<b>暴跌已经发生之后、后续 63 个交易日往哪走</b>——这是本站真正想答的问题（会不会跌由第二章的脆弱性三层管，跌完怎么走才是能下手的部分）。方法是把某类标签下事件的事后 63 日中位收益，与「按同样市场构成、不做任何匹配」的无条件中位相比。</p>
+<p>基准必须按市场构成取，不能拿全档案混合中位：加密归零事件（UST −99%、LUNA −99%、FTT −85%）会把混合中位拉到 −16.2%，而美股大盘事件的无条件中位只有 −7.8%，差三倍以上。混池比较会让任何以美股为主的标签都显得「更温和」，那是口径错不是信号有效。</p>
+<div id="tagaudit"></div>
+<p>读法：<b>后续继续弱</b>＝这类信号亮过之后，标的在其后 63 日跑得比同市场常态更差，是真正该减的信号；<b>后续更强</b>＝亮灯之后反而涨得比常态多，历史上更接近买入窗口，把它当减仓理由是反的；<b>与基准无异</b>＝对判断后续方向没有贡献。最深回撤一列是同期风险，看方向时别只看收益。表内数字随档案与行情每日重算，不是写死的。</p>
+
+<h3>六、收录标准（以及不符合标准的那几个）</h3>
+<p>本页标题写的是 ±10%，但真实门槛按市场分档，因为同样的百分比在不同市场的稀有度差好几个数量级：<b>美股大盘指数 ≥4%</b>、<b>美股个股 ≥10%</b>、<b>加密 24 小时 ≥10%</b>。监控每 30 分钟按这套门槛扫 21 个标的，命中即进候选队列等人工补录（因果链与前兆必须逐条附信源，不接受凭记忆填写）。</p>
+<div id="admission"></div>
+<p>为什么不把破格的直接删掉：它们是历史上确实重要的节点（日元套息平仓当日日经跌 12.4%、两次 BTC 消息面急拉是后来行情的起点），删了档案会缺一块。但留着就必须标出来——否则「±10% 全档案」这个说法在统计上是假的，而所有分组中位数都建立在这份名单上。<b>破格与否由人判断，是否显示不由人判断：低于门槛的事件由页面自动列出，新增事件只要不达标就会自己冒出来，不靠谁记得。</b></p>
+
+<h3>七、诚实的局限</h3>
 <ul>
 <li>脆弱性指标提高的是<b>胜率与仓位纪律</b>，不是水晶球——1987 与 2010 闪崩这类内生流动性踩踏，事前信号很弱，兜底只能靠仓位；</li>
 <li>交易所净流入、Glassnode 杠杆率、市场宽度三项没有免费程序化数据源，仪表盘标为「人工核查项」，附人工入口；</li>
@@ -283,6 +414,19 @@ if "--tags" in sys.argv:  # 打标抽查
 
 tpl = (ROOT / "template.html").read_text()
 
+# ---- 收录标准审计: 只报告不阻断(破格是人的判断), 但必须每次构建都吼一遍 ----
+# 用户 07-30: "样本也不是一定要很多, 符合标准"。所以标准不能只写在 SOP 里靠人记,
+# 构建期就要把不达标的点出来 —— 页面同时会自动列出, 两边都不依赖谁记得。
+_ADMIT_TH = {"us_index": 4.0, "us_stock": 10.0, "crypto": 10.0}
+_below = [e for e in events if abs(e["move_pct"]) < _ADMIT_TH.get(e["market"], 10.0)]
+if _below:
+    print(f"收录标准审计: {len(_below)} 个事件低于自身市场门槛(破格收录, 页面已自动披露) →")
+    for e in _below:
+        th = _ADMIT_TH.get(e["market"], 10.0)
+        print(f"   ⚠ {e['date']} {e['market']:9} {abs(e['move_pct']):5.2f}% < {th}%  {e['id']}")
+else:
+    print("收录标准审计: 全部事件达到所属市场门槛")
+
 # ============ 中文构建 (原逻辑不变, 只多语言按钮两个占位符) ============
 out = tpl.replace("/*__EVENTS__*/[]", json.dumps(events, ensure_ascii=False))
 out = out.replace("/*__INDICATORS__*/[]", json.dumps(indicators, ensure_ascii=False))
@@ -293,7 +437,10 @@ out = out.replace("/*__TAGLABELS__*/{}", json.dumps(TAG_LABELS, ensure_ascii=Fal
 out = out.replace("/*__PATHSTATS__*/{}", json.dumps(PATH_STATS, ensure_ascii=False))
 out = out.replace("/*__PATHLABELS__*/{}", json.dumps(PATH_LABELS_ZH, ensure_ascii=False))
 out = out.replace('/*__METHOD__*/""', json.dumps(METHOD_HTML, ensure_ascii=False))
-for ph in ("__EVENTS__", "__INDICATORS__", "__SNAPSHOT__", "__KLINES__", "__KLINES6__", "__TAGLABELS__", "__PATHSTATS__", "__PATHLABELS__", "__METHOD__"):
+out = out.replace("/*__THRESH__*/{}", json.dumps(THRESH, ensure_ascii=False))
+out = out.replace("/*__SCENARIO__*/{}", json.dumps(SCENARIO, ensure_ascii=False, separators=(",", ":")))
+out = out.replace("/*__FORECAST__*/{}", json.dumps(FORECAST, ensure_ascii=False, separators=(",", ":")))
+for ph in ("__EVENTS__", "__INDICATORS__", "__SNAPSHOT__", "__KLINES__", "__KLINES6__", "__TAGLABELS__", "__PATHSTATS__", "__PATHLABELS__", "__METHOD__", "__THRESH__", "__SCENARIO__", "__FORECAST__"):
     assert ph not in out, ph
 out = out.replace("%%LANG_HREF%%", "en/")
 out = out.replace("%%LANG_LABEL%%", "EN")
@@ -346,11 +493,31 @@ out_en = out_en.replace("/*__TAGLABELS__*/{}", json.dumps(TAG_LABELS_EN, ensure_
 out_en = out_en.replace("/*__PATHSTATS__*/{}", json.dumps(PATH_STATS, ensure_ascii=False))  # 共用同一份(纯数字, 无中文)
 out_en = out_en.replace("/*__PATHLABELS__*/{}", json.dumps(PATH_LABELS_EN, ensure_ascii=False))
 out_en = out_en.replace('/*__METHOD__*/""', json.dumps(METHOD_HTML_EN, ensure_ascii=False))
-for ph in ("__EVENTS__", "__INDICATORS__", "__SNAPSHOT__", "__KLINES__", "__KLINES6__", "__TAGLABELS__", "__PATHSTATS__", "__PATHLABELS__", "__METHOD__"):
+# THRESH/SCENARIO 共用同一份中文对象: 里面的中文(阈值文案/成因说明)由下方 ui_strings
+# 全文替换统一译成英文, 不另维护一份 en 数据 —— 两份数据必然漂移, 一份加替换表不会。
+out_en = out_en.replace("/*__THRESH__*/{}", json.dumps(THRESH, ensure_ascii=False))
+out_en = out_en.replace("/*__SCENARIO__*/{}", json.dumps(SCENARIO, ensure_ascii=False, separators=(",", ":")))
+out_en = out_en.replace("/*__FORECAST__*/{}", json.dumps(FORECAST, ensure_ascii=False, separators=(",", ":")))
+for ph in ("__EVENTS__", "__INDICATORS__", "__SNAPSHOT__", "__KLINES__", "__KLINES6__", "__TAGLABELS__", "__PATHSTATS__", "__PATHLABELS__", "__METHOD__", "__THRESH__", "__SCENARIO__", "__FORECAST__"):
     assert ph not in out_en, ph
 
 # ui_strings: zh→en UI 替换表, 按 key 长度降序对整份输出 HTML 全文替换
 # (顺带把 SNAPSHOT/klines 里残留的中文 txt/label 一起清掉)
+# 先剥掉整块的中文代码注释 —— 它们是给维护者看的开发文档, 不是用户可见文案。
+# 以前靠往 ui_strings 里塞注释译文来过"零中文残留"校验, 那是把校验当敌人对付:
+# 注释译文没人读, 还白占英文版体积, 更糟的是新增一条中文注释就得配一条翻译, 迟早漏。
+# 现在: 英文产物直接不带这些注释, 校验只管真正会被用户看到的字。
+# 只删"独占整行、且含中文"的 /* */ 块 —— 此时所有 /*__占位符__*/ 都已替换完, 不会误伤;
+# 也不碰行内注释和字符串里的内容。
+_cjk = re.compile(r"[一-鿿]")
+def _strip_zh_comments(src):
+    def repl(m):
+        return "" if _cjk.search(m.group(0)) else m.group(0)
+    return re.sub(r"(?m)^[ \t]*/\*(?:(?!\*/)[\s\S])*\*/[ \t]*\n", repl, src)
+_before = len(out_en)
+out_en = _strip_zh_comments(out_en)
+print(f"en: 剥离中文代码注释 {_before - len(out_en)} 字符")
+
 ui_strings = json.loads((ROOT / "data" / "en" / "ui_strings.json").read_text())
 for k in sorted(ui_strings.keys(), key=len, reverse=True):
     if k in out_en:

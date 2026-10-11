@@ -118,10 +118,12 @@ section{padding:26px 0 16px}
 .tip{
   position:fixed;pointer-events:none;z-index:50;display:none;
   background:var(--ink);color:#fdf8ef;font-size:12.5px;line-height:1.55;
-  padding:9px 12px;max-width:260px;border-radius:2px;
+  padding:9px 12px;max-width:300px;border-radius:2px;
 }
 .tip .t-date{font-family:var(--mono);color:#cbb;font-size:11px}
 .tip .t-move{font-family:var(--mono);font-weight:700}
+.tip .tiny{font-size:10.5px;color:#b9b2a8}
+.tip b{font-family:var(--mono)}
 
 /* ---------- filters ---------- */
 .filters{display:flex;flex-wrap:wrap;gap:0;margin:30px 0 6px;border:1px solid var(--hairline-2);width:fit-content}
@@ -163,9 +165,6 @@ td.c-sig{max-width:300px}
 .kbox .kcap b{color:var(--ink)}
 .kbox svg{width:100%;display:block}
 .kbox svg text{font-family:var(--mono);font-size:10px;fill:var(--ink-3)}
-.histcases{font-size:12px;color:var(--ink-3);line-height:1.8;border-top:1px dashed var(--hairline-2);padding-top:6px}
-.histcases a{font-family:var(--mono);font-size:11.5px;margin-right:8px;border-bottom:none}
-.histcases a:hover{border-bottom:1px solid var(--claret)}
 tr.detail td{background:var(--surface);border-bottom:2px solid var(--hairline-2);padding:16px 18px 18px}
 .ev h3{font-family:var(--serif);font-size:16.5px;font-weight:900;line-height:1.5;margin-bottom:8px}
 .ev .cause{font-size:13.5px;color:var(--ink-2);margin-bottom:14px;max-width:860px}
@@ -210,6 +209,78 @@ table.pre a{font-size:12.5px}
 .card .ths{font-size:12.5px;line-height:1.7;color:var(--ink-2);border-top:1px dashed var(--hairline-2);padding-top:8px}
 .card .ths .num{color:var(--ink)}
 .card .why{font-size:12.5px;color:var(--ink-3);line-height:1.65}
+
+/* ===== 情景推演板块 (2026-07-28) ===== */
+.scencard{border:1px solid var(--hairline);border-left:3px solid var(--ochre);background:#fffdf9;
+  padding:16px 18px;margin:0 0 20px}
+.scencard.danger{border-left-color:var(--claret)}
+.scenhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.scenhead h3{font-size:17px;margin:0}
+.scenhead .scenval{font-family:var(--mono);font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+.scencard .why{font-size:13px;color:var(--ink-2);line-height:1.75;margin:0 0 12px;
+  border-left:2px solid var(--hairline-2);padding-left:12px}
+.scencard .why b{display:block;font-size:12px;color:var(--claret);letter-spacing:.04em;margin-bottom:3px}
+.scen-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--ink-3);margin-bottom:8px;
+  font-family:var(--mono)}
+.scen-meta .grade{font-weight:700}
+.scen-meta .grade.ok{color:var(--blue)} .scen-meta .grade.weak{color:var(--ochre)}
+table.simtab{width:100%;border-collapse:collapse;font-size:12.5px;margin:6px 0 12px}
+table.simtab th{text-align:left;font-size:11px;color:var(--ink-3);font-weight:600;
+  border-bottom:1px solid var(--hairline-2);padding:3px 6px}
+table.simtab td{padding:6px;vertical-align:top;border-bottom:1px solid var(--hairline-2)}
+table.simtab td b{font-family:var(--mono);font-size:15px;display:block}
+table.simtab td b.up{color:var(--up)} table.simtab td b.dn{color:var(--down)}
+table.simtab .tiny{display:block;color:var(--ink-3);font-size:10.5px;margin-top:2px}
+svg.simchart{width:100%;height:auto;display:block;background:#fffefb;border:1px solid var(--hairline-2)}
+.simlegend{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:11px;color:var(--ink-3);
+  margin:6px 0 4px}
+.simlegend i.sw{display:inline-block;width:16px;height:0;border-top-width:2px;border-top-style:solid;
+  vertical-align:middle;margin-right:4px}
+.simlegend i.sw.med{border-top-color:#0f5499;border-top-width:3px}
+.simlegend i.sw.band{border-top:9px solid rgba(15,84,153,.18)}
+.simlegend i.sw.worst{border-top-style:dashed;border-top-color:#990f3d}
+.simlegend i.sw.base{border-top-style:dashed;border-top-color:#9a9188}
+.scencard .proxy{font-size:11.5px;color:var(--ochre);background:#fdf6e8;padding:7px 10px;margin:8px 0 0;
+  line-height:1.6}
+.scenev{font-size:12px;color:var(--ink-3);margin-top:12px;padding-top:10px;
+  border-top:1px dashed var(--hairline-2);line-height:1.9}
+.scenev b{display:block;font-size:11px;color:var(--claret);letter-spacing:.04em;margin-bottom:2px}
+.fccard{border:1px solid var(--hairline);background:#fffdf9;padding:16px 18px;margin:0 0 22px}
+.verdict{border-left:3px solid var(--claret);background:#fdf3f5;padding:12px 14px;margin:0 0 14px}
+.verdict.ok{border-left-color:var(--blue);background:#f2f6fb}
+.verdict>b:first-child{display:block;font-size:14px;margin-bottom:5px;color:var(--claret)}
+.verdict.ok>b:first-child{color:var(--blue)}
+.verdict p b{color:var(--claret);font-weight:700}
+.verdict p{font-size:12.5px;line-height:1.75;color:var(--ink-2);margin:0 0 8px}
+.verdict table.simtab{margin:8px 0}
+.verdict table.simtab td{font-family:var(--mono);font-size:12px;padding:4px 6px}
+.verdict table.simtab td.up{color:var(--up);font-weight:700}
+.verdict table.simtab td.dn{color:var(--down);font-weight:700}
+table.simtab.fctab td{font-family:var(--mono)}
+table.simtab.fctab td b{display:inline;font-size:14px}
+table.simtab.fctab td .tiny{display:block;color:var(--ink-3)}
+.anwrap{margin-top:12px;border-top:1px dashed var(--hairline-2);padding-top:10px}
+.anwrap b{display:block;font-size:11px;color:var(--claret);letter-spacing:.04em;margin-bottom:4px}
+.anwrap table.simtab td{font-family:var(--mono);font-size:12px}
+.anwrap table.simtab td.up{color:var(--up)} .anwrap table.simtab td.dn{color:var(--down)}
+.simlegend .nbadge{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--blue);
+  background:#eef3f9;padding:2px 8px;border-radius:2px}
+svg.pchart{cursor:crosshair}
+
+.simlegend i.sw.hist{border-top-color:#b45309;border-top-width:2px;opacity:.6}
+h4.scengrp{font-size:13px;letter-spacing:.06em;color:var(--claret);margin:22px 0 10px;
+  padding-bottom:5px;border-bottom:1px solid var(--hairline);font-weight:700}
+h4.scengrp:first-child{margin-top:0}
+h4.scengrp .tiny{font-weight:400;color:var(--ink-3);letter-spacing:0;margin-left:8px}
+.scencard.ok{border-left-color:var(--ink-3);opacity:.92}
+.offnote{font-size:12px;line-height:1.7;color:var(--ochre);background:#fdf6e8;
+  padding:8px 11px;margin:0 0 10px}
+details.scenrest{margin-top:22px;border-top:1px solid var(--hairline);padding-top:12px}
+details.scenrest>summary{cursor:pointer;font-size:13px;color:var(--blue);
+  letter-spacing:.04em;font-weight:600;margin-bottom:12px}
+details.scenrest>summary:hover{color:var(--claret)}
+.nobox{border:1px dashed var(--hairline);padding:22px;text-align:center;color:var(--ink-2);font-size:14px}
+.nobox .tiny{display:block;margin-top:6px;color:var(--ink-3)}
 .card .src{margin-top:auto;padding-top:8px;font-size:12.5px}
 
 /* ---------- indicator drill-down (该指标历史事件 + 事发后半年K线) ---------- */
@@ -218,6 +289,29 @@ table.pre a{font-size:12.5px}
   width:100%;text-align:left;line-height:1.5;border-radius:2px}
 .ind-more:hover{border-color:var(--claret);color:var(--claret)}
 .ind-more b{color:var(--claret)}
+.ind-none{font-size:12px;color:var(--ink-3);line-height:1.7;margin-top:8px;padding:7px 10px;
+  background:var(--paper);border-left:3px solid var(--hairline-2)}
+.ind-none b{color:var(--ink-2)}
+.catedge{font-size:12px;color:var(--ink-2);line-height:1.7;margin:7px 0 0;padding:7px 10px;
+  background:var(--surface);border-left:3px solid var(--ink-3)}
+.etag{display:inline-block;margin-top:3px;font-size:10.5px;font-family:var(--mono);
+  padding:1px 5px;border:1px solid var(--hairline-2);white-space:nowrap}
+.etag.eff{color:var(--down);border-color:var(--down)}
+.etag.inv{color:#8a5a00;border-color:#c9a227}
+.etag.nil{color:var(--ink-3)}
+.etag.up{color:var(--up);border-color:var(--up)}
+table.tagaudit td.n.few{background:rgba(154,145,136,.14);font-weight:700}
+table.tagaudit tr.up td.v{color:var(--up)}
+table.tagaudit td .tr{color:#8a5a00;font-size:10px;margin-left:2px}
+table.tagaudit{width:100%;border-collapse:collapse;margin:12px 0;font-size:12.5px}
+table.tagaudit th{text-align:left;font-weight:700;padding:6px 8px;border-bottom:1px solid var(--ink);
+  font-size:11.5px;color:var(--ink-2);white-space:nowrap}
+table.tagaudit td{padding:6px 8px;border-bottom:1px solid var(--hairline-2)}
+table.tagaudit td.n,table.tagaudit td.v{font-family:var(--mono);font-size:11.5px;white-space:nowrap}
+table.tagaudit tr.eff td.v{color:var(--down)}
+table.tagaudit tr.inv td.v{color:#8a5a00}
+p.taudit-sum{font-size:12.5px;color:var(--ink-2);background:var(--surface);
+  border-left:3px solid var(--ink-3);padding:8px 11px;line-height:1.7}
 .ind-events{margin-top:8px;display:flex;flex-direction:column;gap:10px}
 .iev{border:1px solid var(--hairline);background:var(--paper);padding:9px 11px 5px}
 .iev.hot{border-color:var(--claret);border-left-width:3px;background:#fdf6f0}
@@ -256,6 +350,21 @@ table.pre a{font-size:12.5px}
 .refcard .rc-jump{font-size:11.5px;margin-top:2px}
 .simcard{border:2px solid var(--down);background:var(--danger-bg);padding:14px 18px;margin:0 0 20px}
 .simcard.locked{border:1px dashed var(--hairline-2);background:var(--paper)}
+.now-sub.off{color:var(--ink-2)}
+.nowcard.offcard{border-left-color:var(--ink-3);background:var(--paper)}
+.lamp.off{background:rgba(154,145,136,.18);color:var(--ink-2)}
+svg.spark{width:104px;height:26px;display:block}
+table.antab td,table.antab th{padding:5px 6px;font-size:11.5px;white-space:nowrap}
+.anwarn{font-size:12px;line-height:1.7;background:var(--danger-bg);border-left:3px solid var(--down);
+  padding:8px 11px;margin:7px 0}
+.simcard.mild{border:2px solid var(--hairline-2);background:var(--paper)}
+.simcard.mild .simbtn{border-color:var(--ink-3);color:var(--ink-2)}
+.simcard.mild .simbtn:hover{background:var(--ink-2);color:#fff}
+.simcard .sc-trend{margin:9px 0;padding:9px 12px;background:var(--paper);border-left:3px solid var(--claret);
+  font-size:12.5px;line-height:1.7}
+.simcard .sc-num2{font-family:var(--mono);font-weight:700}
+.simcard .sc-base{margin:9px 0;padding:9px 12px;background:var(--surface);border-left:3px solid var(--ink-3);
+  font-size:12.5px;line-height:1.7}
 .simcard h4{font-family:var(--serif);font-size:15.5px;font-weight:900;margin-bottom:6px}
 .simcard.locked h4{color:var(--ink-3)}
 .simcard .sc-body{font-size:13px;color:var(--ink-2);line-height:1.75}
@@ -313,6 +422,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
 
 <nav class="tabs"><div class="wrap">
   <button data-tab="now" class="on">当前信号</button>
+  <button data-tab="scenario">情景推演</button>
+  <button data-tab="forecast">半年推演</button>
   <button data-tab="archive">事件档案</button>
   <button data-tab="timeline">时间轴</button>
   <button data-tab="indicators">指标仪表盘</button>
@@ -326,6 +437,18 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
   <p class="secintro">实时判灯：现在哪些指标进入预警区、历史上同款信号在哪些事件前亮过。点事件名跳到档案（含当时前后 2 个月 K 线），点「指标现状」看该指标详情。</p>
   <div id="nowbox"></div>
   <div id="refbox"></div>
+</section>
+
+<section id="scenario" class="pane">
+  <div class="sechead"><span class="no">02</span><h2>情景推演</h2><span class="sub" id="scen-time"></span></div>
+  <p class="secintro">当前每一个异常指标，历史上越过同一条预警线之后，标普500 / BTC 实际走了什么路径。下面给出：异常成因 → 历史同款事件 → 从今天价位推演的路径模拟。<b>推演不是预测</b>，它是历史同类样本的分位数，样本量 n 与对照基准一并列出，n 小于 20 的只能当线索看。</p>
+  <div id="scenbox"></div>
+</section>
+
+<section id="forecast" class="pane">
+  <div class="sechead"><span class="no">03</span><h2>半年推演</h2><span class="sub" id="fc-time"></span></div>
+  <p class="secintro">把当前全部指标合成一个状态向量，在历史里找出最像今天的日子，把它们之后 126 个交易日的真实日线路径叠起来。图上每一条线都真实发生过，没有任何一根是模型外推的。请先读下面的自检结论再看图。</p>
+  <div id="fcbox"></div>
 </section>
 
 <section id="archive" class="pane">
@@ -385,6 +508,12 @@ const TAGLABELS = /*__TAGLABELS__*/{};
 const PATHSTATS = /*__PATHSTATS__*/{};
 const PATHLABELS = /*__PATHLABELS__*/{};
 const METHOD_HTML = /*__METHOD__*/"";
+/* 阈值单一信源 data/thresholds.json, 判灯规则由它生成 */
+const THRESH = /*__THRESH__*/{};
+/* 情景推演回测统计 data/scenario_stats.json */
+const SCENARIO = /*__SCENARIO__*/{};
+/* 半年推演类比集合 data/analog_forecast.json */
+const FORECAST = /*__FORECAST__*/{};
 
 /* ====== 通用 ====== */
 const $ = s => document.querySelector(s);
@@ -665,28 +794,52 @@ $("#filters").addEventListener("click",ev=>{
 });
 
 /* ====== 指标仪表盘 ====== */
-/* 阈值判灯 + 浏览器可直连(CORS放行)的实时拉取器, 按指标id挂载 */
+/* 判灯规则不再手写: 全部由 THRESH(=data/thresholds.json) 生成, 与监控脚本 judge() 同一份阈值。
+   历史教训: 判灯代码、卡片阈值文案、监控脚本三处各写一遍, 已实际漂移——
+   卡片印"VIX/VIX3M > 0.95"而代码判 0.93、判灯 VIX≥25 而监控 ≥28。现在只有一个信源。 */
 const j = u => fetch(u).then(r=>r.json());
+function fires(spec,v,lvl){
+  if(spec.kind==="band"){
+    const lo=spec[lvl+"_lo"], hi=spec[lvl+"_hi"];
+    return (lo!=null&&v<lo)||(hi!=null&&v>hi);
+  }
+  const t=spec[lvl]; if(t==null)return false;
+  if(spec.kind==="ge")return v>=t;
+  if(spec.kind==="le")return v<=t;
+  if(spec.kind==="abs_ge")return Math.abs(v)>=t;
+  return false;
+}
+function ruleFor(id){
+  const s=THRESH[id]; if(!s)return null;
+  return v=>{
+    if(fires(s,v,"danger")){
+      /* 双确认: 如 SKEW≥150 还需 VIX 同步≥28 才算红警(文案一直这么写, 代码此前没实现) */
+      const need=s.danger_needs;
+      if(need){
+        const other=curVal(need.field);
+        if(other==null||!fires({kind:need.kind,warn:need.v},other,"warn"))return "warn";
+      }
+      return "danger";
+    }
+    return fires(s,v,"warn")?"warn":"ok";
+  };
+}
+function curVal(id){
+  const ind=INDICATORS.find(x=>x.id===id);
+  if(ind&&ind._num!=null)return ind._num;
+  const s=(SNAPSHOT.values||{})[id]; return s?s.v:null;
+}
+/* RUNTIME 现在只放"浏览器能直连(CORS放行)的实时拉取器"。这些是加密侧接口, 页面打开即拉,
+   比 live.json(每30分钟一轮)更新鲜; 美股侧接口(Yahoo/FRED/CNN)全部不发 CORS 头,
+   浏览器永远拉不到, 只能靠监控写的同源 live.json —— 这正是过去页面显示旧数的根因。 */
 const RUNTIME = {
-  vix_level:{ rule:v=>v>=35?"danger":v>=25?"warn":"ok" },
-  vix_term_structure:{ rule:v=>v>=1.0?"danger":v>=0.93?"warn":"ok" },
-  skew_index:{ rule:v=>v>=150?"danger":v>=145?"warn":"ok" },
-  move_index:{ rule:v=>v>=160?"danger":v>=120?"warn":"ok" },
-  hy_oas:{ rule:v=>v>=8?"danger":v>=5?"warn":"ok" },
-  yield_curve_10y2y:{ rule:v=>v<0?"warn":"ok" },
-  put_call_ratio:{ rule:v=>v>=1.2?"danger":(v<0.6||v>=1.0)?"warn":"ok" },
-  fear_greed_us:{ rule:v=>(v<10||v>90)?"danger":(v<25||v>75)?"warn":"ok" },
   fear_greed_crypto:{
-    rule:v=>(v<=10||v>=90)?"danger":(v<20||v>80)?"warn":"ok",
     fetchLive:async()=>{const d=await j("https://api.alternative.me/fng/?limit=1");const it=d.data[0];return{v:+it.value,txt:it.value+" · "+it.value_classification}}
   },
   funding_rate_btc:{
-    rule:v=>Math.abs(v)>=0.10?"danger":Math.abs(v)>=0.05?"warn":"ok",
     fetchLive:async()=>{const d=await j("https://www.okx.com/api/v5/public/funding-rate?instId=BTC-USDT-SWAP");const r=+d.data[0].fundingRate*100;return{v:r,txt:(r>=0?"+":"")+r.toFixed(4)+"%/8h"}}
   },
-  futures_basis_annualized:{ rule:v=>(v>=30||v<=-10)?"danger":(v>=15||v<0)?"warn":"ok" },
   coinbase_premium:{
-    rule:v=>v<=-0.3?"danger":v<=-0.1?"warn":"ok",
     fetchLive:async()=>{
       const[cb,ok]=await Promise.all([j("https://api.exchange.coinbase.com/products/BTC-USD/ticker"),j("https://www.okx.com/api/v5/market/ticker?instId=BTC-USDT")]);
       const p=(+cb.price/ +ok.data[0].last-1)*100;return{v:p,txt:(p>=0?"+":"")+p.toFixed(3)+"%"};
@@ -696,7 +849,10 @@ const RUNTIME = {
     fetchLive:async()=>{const d=await j("https://api.coingecko.com/api/v3/coins/categories");const s=d.find(x=>x.id==="stablecoins");return s?{v:null,txt:(s.market_cap/1e9).toFixed(1)+" B$"}:null}
   }
 };
-INDICATORS.forEach(ind=>Object.assign(ind,RUNTIME[ind.id]||{}));
+INDICATORS.forEach(ind=>{
+  Object.assign(ind,RUNTIME[ind.id]||{});
+  const r=ruleFor(ind.id); if(r)ind.rule=r;
+});
 
 /* 指标 → 信号类别 → 历史事件(与监控脚本同一套映射) */
 const IND_CAT={vix_level:"vol",vix_term_structure:"term",skew_index:"vol",move_index:"vol",
@@ -705,12 +861,44 @@ const IND_CAT={vix_level:"vol",vix_term_structure:"term",skew_index:"vol",move_i
   liquidation_volume:"lev",futures_basis_annualized:"sent",stablecoin_mcap:"chain",
   exchange_netflow:"chain",coinbase_premium:"sent",fear_greed_crypto:"sent",leverage_ratio:"lev"};
 let ACTIVE_CATS = new Set();      // 当前正在亮灯(预警/红警)的信号类别
-const SIM_THRESHOLD = 4;          // 可参考事件参考分合计 ≥ 此值 → 解锁模拟操作
+/* 解锁判据 (2026-07-29 重构)
+   旧版用"前6个事件参考分加总 ≥4"，实测这条筛不掉任何东西: 10 个类别里 9 个的事件数都 ≥5,
+   任一类单独亮灯加总就必然 ≥4, 唯一挡得住的是 term(档案里 0 个事件)。
+   新判据 = 存在至少一个历史事件同时命中 ≥2 个当前亮灯类别 (真·共振),
+   与本页 renderNow 的 combo 匹配(n>=2)统一口径。 */
+const SIM_MIN_BEST = 2;
+/* 笨基准门槛: 匹配组的事后中位回撤要比"全档案所有事件"的中位回撤深至少这么多个百分点,
+   才算这组信号确实指向更坏的结果。达不到就明说"与随机抽取无区别", 不给敞口建议。
+   来源 E18/E19: 预测类功能必须自带笨基准对照, 且判定要设实质幅度门槛。 */
+const BASE_EDGE_PP = 5;
+/* 趋势口径的判定门槛: 事后累计收益与同构成基准差多少个百分点才算有方向。
+   比回撤口径的 5pp 略宽 —— 收益的离散度本身更大。 */
+const TREND_EDGE_PP = 8;
+/* 一组事件的事后半年中位回撤 vs 全档案无条件基准。
+   凡是"列出某类信号历史亮灯后的走势"的地方都要带上它 —— 不带基准, 用户会把
+   "这类信号后中位跌 7.8%" 读成风险提示, 而全档案无条件中位是 -16.2%, 那其实
+   比随机抽一天还温和。(E34: 站里做这件事的地方不止一处) */
+function catEdgeHTML(cases){
+  const ok=cases.filter(e=>stats6(e.id));
+  const dds=ok.map(e=>stats6(e.id).maxDD);
+  if(!dds.length)return"";
+  const med=median(dds), mb=matchedBaseline(ok);
+  if(mb==null)return"";
+  const d=med-mb;
+  const verdict = d<=-BASE_EDGE_PP ? `<b>比基准深 ${Math.abs(d).toFixed(1)}pp</b>，这类信号确实指向更坏的结果`
+    : d>=BASE_EDGE_PP ? `<b>比基准浅 ${d.toFixed(1)}pp</b>，这类信号后的走势反而比档案常态更温和`
+    : `相差不足 ${BASE_EDGE_PP}pp，<b>与随机抽取无区别</b>`;
+  return `<div class="catedge">这 ${dds.length} 次事后半年中位最深回撤 <b>${fmtPct(med)}</b>。按同样的市场构成取无条件中位是 <b>${fmtPct(mb)}</b> —— ${verdict}。</div>`;
+}
 function indDrill(ind){
   const cat=IND_CAT[ind.id]; if(!cat)return"";
   const cases=EVENTS.filter(ev=>(ev.tags||[]).includes(cat));
-  if(!cases.length)return"";
+  /* 零对应事件时不能静默返回空: 用户分不清"没查"和"档案里真没有"。
+     期限结构类就是 0 —— 这条指标亮灯时匹配不到任何历史同款, 必须说出来。 */
+  if(!cases.length)
+    return `<div class="ind-none">该类信号（${TAGLABELS[cat]}）在 ${EVENTS.length} 例档案中<b>暂无对应事件</b>——它亮灯时匹配不到历史同款，只能当独立观察项。</div>`;
   return `<button class="ind-more" data-drill="${ind.id}">该类信号（${TAGLABELS[cat]}）历史出现在 <b>${cases.length}</b> 次事件前 · 点开看事发后半年走势 ▾</button>
+    ${catEdgeHTML(cases)}
     <div class="ind-events" id="indev-${ind.id}" hidden></div>`;
 }
 function renderIndEvents(indId){
@@ -733,15 +921,6 @@ function renderIndEvents(indId){
   }).join("");
   box.dataset.done="1";
 }
-function histCases(ind){
-  const cat=IND_CAT[ind.id]; if(!cat)return"";
-  const cases=EVENTS.filter(ev=>(ev.tags||[]).includes(cat));
-  if(!cases.length)return"";
-  return `<div class="histcases">历史亮灯 · ${TAGLABELS[cat]}类信号出现在 <b>${cases.length}</b> 次事件前：<br>${
-    cases.map(ev=>`<a href="#archive" data-ev="${ev.id}">${ev.date.slice(2)}·${shortAsset(ev.asset).slice(0,5)}</a>`).join("")
-  }</div>`;
-}
-
 function renderDash(){
   $("#dash").innerHTML=INDICATORS.map(ind=>{
     const snap=(SNAPSHOT.values||{})[ind.id]||{};
@@ -782,6 +961,58 @@ function setLamp(ind,val){
   }
   el.innerHTML=`<span class="lamp ${cls}">${txt}</span>`;
 }
+/* ====== 同源实时通道 (2026-07-28) ======
+   本机监控脚本每 30 分钟采完 12 项指标, 把结果写成 live.json 跟本页部署在同一域名下。
+   页面 fetch("./live.json") 是**同源请求**, 不受 CORS 限制 —— 而 Yahoo/FRED/CNN 都不发
+   CORS 头, 浏览器直连永远拉不到, 这就是过去美股侧指标只能吃构建期静态快照、
+   页面上显示的 SKEW 其实是 9 个交易日前旧数的根因。
+   失败静默降级回快照(本地 file:// 打开、或部署漏文件时)。 */
+async function loadLive(){
+  /* 中文版在站根, 英文版在 /en/ 子目录 —— 同一份模板两处部署, "./live.json" 在英文页会
+     解析成 /en/live.json(不存在)。两个候选路径依次试, 别假设自己在哪一层。 */
+  for(const u of ["./live.json","../live.json"]){
+    if(await tryLive(u))return true;
+  }
+  return false;
+}
+async function tryLive(url){
+  try{
+    const r=await fetch(url+"?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok)return false;
+    const d=await r.json();
+    if(!d||!d.values)return false;
+    SNAPSHOT.values=SNAPSHOT.values||{};
+    for(const[id,rec] of Object.entries(d.values)){
+      if(rec&&rec.v!=null)SNAPSHOT.values[id]={v:rec.v,txt:rec.txt,asof:d.asof,src:"live"};
+    }
+    SNAPSHOT.asof=d.asof; SNAPSHOT.liveErrs=d.errs||[];
+    /* 近期熄灭的指标, 见情景推演第二组 */
+    SNAPSHOT.recentOff=d.recent_off||[];
+    /* 监控判定的亮灯集合 (10-09): 手机报警来自监控, 浏览器实时价若刚好在阈值线另一侧
+       (实测监控 -0.104% / 浏览器 -0.099%), 页面会判"已熄灭"而手机正在响 —— 两边各说各话。
+       监控数据新鲜(≤90分钟)时, 它判亮的灯在页面上也必须亮。 */
+    SNAPSHOT.monLit={}; (d.lit||[]).forEach(x=>SNAPSHOT.monLit[x.id]=x);
+    return true;
+  }catch(_){return false;}
+}
+function asofTxt(){
+  if(!SNAPSHOT.asof)return"";
+  const t=new Date(SNAPSHOT.asof), m=Math.round((Date.now()-t)/60000);
+  const ago=m<60?(m+" 分钟前"):(Math.round(m/60)+" 小时前");
+  /* 别用 toLocaleString().slice(0,16) 截 —— zh-CN 输出 "2026/7/28 03:44:42",
+     月/日是变长的, 定长切片会切进秒里, 线上真出现过 "03:44:（14 分钟前）"。按字段拼。 */
+  const z=n=>String(n).padStart(2,"0");
+  const stamp=t.getFullYear()+"/"+(t.getMonth()+1)+"/"+t.getDate()+" "+z(t.getHours())+":"+z(t.getMinutes());
+  return stamp+"（"+ago+"）";
+}
+function liveAgeMin(){return SNAPSHOT.asof?(Date.now()-new Date(SNAPSHOT.asof))/60000:Infinity}
+function liveFresh(){return liveAgeMin()<=90}
+/* days_ago 以前由监控写死在 live.json 里, 线上一冻结就永远显示同一个"10.2 天前"(10-09 实测) —— 一律按 off_at 现场算 */
+function offAgo(m){const d=m.off_at?(Date.now()-new Date(m.off_at))/864e5:m.days_ago;return d*24<1?Math.max(1,Math.round(d*1440))+" 分钟前":d<1?Math.round(d*24)+" 小时前":d.toFixed(1)+" 天前"}
+function staleBanner(){
+  const a=liveAgeMin(); if(a<=90)return"";
+  return `<div class="combo" style="background:#fbe3df;border-color:#c0392b;color:#7a1f14">⚠️ 监控数据${a===Infinity?"未加载到":"停在 "+asofTxt()}——美股侧指标与亮灯状态可能已过期，以手机报警为准。</div>`;
+}
 async function refreshLive(){
   for(const ind of INDICATORS){
     const snap=(SNAPSHOT.values||{})[ind.id]||{};
@@ -796,12 +1027,23 @@ async function refreshLive(){
         }
       }catch(_){}
     }
+    const ml=(SNAPSHOT.monLit||{})[ind.id];
+    if(ml&&liveFresh()&&snap.v!=null&&ind.rule&&ind.rule(num)==="ok"){
+      ind._liveTxt=snap.txt+"（监控判定·浏览器实时 "+(ind._liveTxt||"—")+"）";
+      num=snap.v; live=false;
+    }
     ind._num=num; ind._isLive=live;
     const lt=$("#lt-"+ind.id);
-    if(lt)lt.textContent=live?"实时":(snap.txt!=null?"快照 "+(SNAPSHOT.built||""):"");
+    /* 数据时间 ≠ 构建时间。以前这里一律写"快照 {构建日期}", 于是一个 07-15 的 SKEW 值
+       被标成"快照 2026-07-25", 连标签本身都在误导。现在分三档如实标注。 */
+    if(lt)lt.textContent = live ? "浏览器实时"
+        : (snap.src==="live" ? "监控 "+asofTxt()
+        : (snap.txt!=null ? "构建期快照 "+(SNAPSHOT.built||"")+"（非实时）" : ""));
     setLamp(ind,num);
   }
   renderNow();
+  if(typeof renderScenario==="function")renderScenario();
+  if(typeof renderForecast==="function")renderForecast();
 }
 
 /* ====== 当前信号对照 ====== */
@@ -815,7 +1057,12 @@ function renderNow(){
     return {ind,num,txt,st};
   });
   const alerts=rows.filter(r=>r.st==="warn"||r.st==="danger").sort((a,b)=>(a.st==="danger"?0:1)-(b.st==="danger"?0:1));
-  const oks=rows.filter(r=>r.st==="ok");
+  /* 近期熄灭: 情景推演页早有这一组, 首屏一直没有 —— 于是指标一回落就从首屏彻底消失,
+     用户 07-29 问过"VIX 怎么不见了"、07-30 又问"现在只有一个指标了", 同一个问题两次。
+     刚熄灭的信号恰恰最该继续盯, 首屏必须自己说清它去哪了。 */
+  const offMeta={}; (SNAPSHOT.recentOff||[]).forEach(x=>offMeta[x.id]=x);
+  const offs=rows.filter(r=>r.st==="ok"&&offMeta[r.ind.id]);
+  const oks=rows.filter(r=>r.st==="ok"&&!offMeta[r.ind.id]);
   const nas=INDICATORS.filter(i=>!i.rule);
   const activeCats=[...new Set(alerts.map(r=>IND_CAT[r.ind.id]).filter(Boolean))];
   ACTIVE_CATS=new Set(activeCats);
@@ -847,10 +1094,19 @@ function renderNow(){
       <td><span class="lamp ok">正常</span></td>
       <td><a href="#" data-goind="${r.ind.id}" style="font-size:12px">现状 →</a></td>
     </tr>`).join("");
-  $("#nowbox").innerHTML=
+  $("#nowbox").innerHTML=staleBanner()+
     (alerts.length
       ? `<div class="now-sub">🚨 正在亮灯（${alerts.length}）</div><div class="nowgrid">${alertCards}</div>${combo}`
       : `<div class="combo" style="background:#eaf3ec">当前 ${rows.length} 项可判级指标全部处于正常区间，无历史事件前兆对应。</div>`)
+    +(offs.length?`<div class="now-sub off">🕯 近期熄灭（${offs.length}）<span class="tiny">14 天内亮过、现已回落——刚熄灭的信号仍值得盯</span></div>
+      <div class="nowgrid">${offs.map(r=>{const m=offMeta[r.ind.id];
+        const ago=offAgo(m);
+        return `<div class="nowcard offcard">
+          <div class="nc-h"><h4>${r.ind.name}</h4><span class="lamp off">已熄灭</span></div>
+          <div class="nc-v">${r.txt}</div>
+          <div class="nc-th">于 <b>${ago}</b>熄灭，熄灭前读数 <b>${m.txt_when_lit||"—"}</b><br>预警 <span class="num">${r.ind.warning_threshold}</span></div>
+          <p class="goto"><a href="#" data-goind="${r.ind.id}">指标现状详情 →</a></p>
+        </div>`;}).join("")}</div>`:"")
     +`<div class="now-sub">正常区间（${oks.length}）</div>
       <div class="tblwrap"><table class="oktbl">${okRows}</table></div>
       <p style="font-size:12px;color:var(--ink-3);margin-top:10px">另有 ${nas.length} 项为人工核查/月度指标（无自动判级），见「指标仪表盘」页。本地监控每 30 分钟同规则巡检，触发即 iMessage 推送。</p>`;
@@ -862,6 +1118,54 @@ const SIMLOG_KEY="cr_simlog";
 function getSimLog(){try{return JSON.parse(localStorage.getItem(SIMLOG_KEY)||"[]")}catch(_){return[]}}
 function setSimLog(a){try{localStorage.setItem(SIMLOG_KEY,JSON.stringify(a.slice(-20)))}catch(_){}}
 function median(arr){if(!arr.length)return null;const s=arr.slice().sort((a,b)=>a-b);const m=Math.floor(s.length/2);return s.length%2?s[m]:(s[m-1]+s[m])/2;}
+/* 笨基准: 全档案所有可算路径事件的事后半年中位最深回撤。
+   任何"匹配组"的结果都要跟它比 —— 比不过就说明这次匹配没有挑出比随机抽取更坏的样本。 */
+let _baseCache=null;
+function baselineDD(){
+  if(_baseCache)return _baseCache;
+  const dds=EVENTS.map(e=>stats6(e.id)).filter(Boolean).map(s=>s.maxDD);
+  return _baseCache={med:median(dds),n:dds.length};
+}
+/* 分市场的无条件基准。混合全档案中位(-16.2%)被加密归零事件拉深(UST -99%/LUNA -99%/FTT -85%),
+   而美股指数事件的无条件中位只有 -7.8% —— 拿混合基准去比一组美股事件, 任何美股子集都会
+   显得"更温和", 那是口径错不是信号没用。 */
+let _mktCache=null;
+function baselineByMarket(){
+  if(_mktCache)return _mktCache;
+  const g={};
+  EVENTS.forEach(e=>{const s=stats6(e.id); if(s)(g[e.market]=g[e.market]||[]).push(s.maxDD);});
+  const o={}; Object.keys(g).forEach(m=>o[m]={med:median(g[m]),n:g[m].length});
+  return _mktCache=o;
+}
+/* 同构成基准: 把匹配组里每个事件换成"它所属市场的无条件中位", 再取中位。
+   基准的市场构成因此与匹配组一致, 比较才是同类比同类。 */
+function matchedBaseline(evs){
+  const mk=baselineByMarket();
+  const vs=evs.map(e=>mk[e.market]?mk[e.market].med:null).filter(v=>v!=null);
+  return vs.length?median(vs):null;
+}
+/* 事后趋势口径的基准(按 market): 用户 07-30 定调 —— 这个系统要答的不是"会不会跌",
+   而是"暴跌已经发生之后后续往哪走", 那才是能下手的钱。所以主口径是事后累计收益
+   (ret_63d/ret_126d)与方向, 最深回撤只作风险辅助列。 */
+let _trendCache=null;
+function trendBaseByMarket(){
+  if(_trendCache)return _trendCache;
+  const g={};
+  EVENTS.forEach(e=>{
+    const ps=PATHSTATS[e.id]; if(!ps)return;
+    const o=(g[e.market]=g[e.market]||{r63:[],r126:[]});
+    if(ps.ret_63d&&ps.ret_63d.v!=null)o.r63.push(ps.ret_63d.v);
+    if(ps.ret_126d&&ps.ret_126d.v!=null)o.r126.push(ps.ret_126d.v);
+  });
+  const o={}; Object.keys(g).forEach(m=>o[m]={r63:median(g[m].r63),r126:median(g[m].r126)});
+  return _trendCache=o;
+}
+/* 同构成的趋势基准: 与 matchedBaseline 同思路, 只是量的是事后收益不是回撤。 */
+function matchedTrendBase(evs,f){
+  const mb=trendBaseByMarket();
+  const vs=evs.map(e=>mb[e.market]?mb[e.market][f]:null).filter(v=>v!=null);
+  return vs.length?median(vs):null;
+}
 function renderRefEvents(){
   const box=$("#refbox"); if(!box)return;
   const active=ACTIVE_CATS, hasSignal=active.size>0;
@@ -869,16 +1173,28 @@ function renderRefEvents(){
     const hit=(e.tags||[]).filter(t=>active.has(t));
     return {e,score:hit.length,hit};
   });
-  let list,note,total;
+  /* 亮灯了但档案里一个对应事件都没有的类别: 它对匹配的贡献是 0, 必须说出来,
+     否则用户会以为"2 类信号亮灯"= 两类都找到了历史同款。 */
+  const deadCats=[...active].filter(c=>!EVENTS.some(e=>(e.tags||[]).includes(c)));
+  let list,hitAll=[],note,total,best=0;
   if(hasSignal){
-    list=scored.filter(x=>x.score>=1)
-      .sort((a,b)=>b.score-a.score||Math.abs(b.e.move_pct)-Math.abs(a.e.move_pct)).slice(0,6);
-    total=list.reduce((s,x)=>s+x.score,0);
-    note=`当前亮灯类别【${[...active].map(c=>TAGLABELS[c]).join('＋')}】。每个历史事件的<b>参考分＝它的前兆类别与当前亮灯类别的重合数</b>，重合越多＝当下越像它的前夜。参考分合计 <b>${total}</b>（解锁模拟操作需 合计≥${SIM_THRESHOLD} 且 ≥2 类信号同时亮灯）。`;
+    /* hitAll = 全部命中事件, list = 展示用的前 6 个。
+       统计(笨基准对照/best)一律用 hitAll —— 拿被展示上限截断过的 list 做统计, 会让
+       "命中 8 个只统计了前 6 个" 这件事在页面上看不出来(silent cap)。展示可以截断,
+       统计不能, 且截掉了几个必须写在文案里。 */
+    hitAll=scored.filter(x=>x.score>=1)
+      .sort((a,b)=>b.score-a.score||Math.abs(b.e.move_pct)-Math.abs(a.e.move_pct));
+    list=hitAll.slice(0,6);
+    total=hitAll.reduce((s,x)=>s+x.score,0);
+    best=hitAll.length?Math.max(...hitAll.map(x=>x.score)):0;
+    const deadNote=deadCats.length
+      ? `<br><b>注意</b>：亮灯类别中的【${deadCats.map(c=>TAGLABELS[c]).join('、')}】在档案的 ${EVENTS.length} 例事件里<b>没有任何对应</b>，本次匹配它贡献 0 分，下列事件全部来自其余类别。`
+      : "";
+    note=`当前亮灯类别【${[...active].map(c=>TAGLABELS[c]).join('＋')}】。每个历史事件的<b>参考分＝它的前兆类别与当前亮灯类别的重合数</b>，重合越多＝当下越像它的前夜。<b>最高单事件参考分 ${best}</b>（解锁模拟操作需有事件达到 ${SIM_MIN_BEST} 分，即单个事件同时命中两类亮灯信号；参考分合计只表示命中面有多广，不代表像不像）。${deadNote}`;
   }else{
     list=EVENTS.slice().sort((a,b)=>Math.abs(b.move_pct)-Math.abs(a.move_pct)).slice(0,6).map(e=>({e,score:0,hit:[]}));
     total=0;
-    note=`当前<b>没有指标进入预警区</b>，无"当下同款"的高吻合事件。以下按历史严重度列出可参考事件供研究；一旦有指标亮灯，这里会自动切换为按当下吻合度排序并累计参考分。`;
+    note=`当前<b>没有指标进入预警区</b>，无"当下同款"的高吻合事件。以下按历史严重度列出可参考事件供研究；一旦有指标亮灯，这里会自动切换为按当下吻合度排序并计算参考分。`;
   }
   const cards=list.map(x=>{
     const e=x.e,s=stats6(e.id),mk=MKMETA[e.market];
@@ -891,34 +1207,75 @@ function renderRefEvents(){
       <p class="rc-jump"><a href="#" data-ev="${e.id}">看完整档案（含事前信号）↗</a></p>
     </div>`;
   }).join("");
-  // 解锁需两条同时满足: ①参考分合计达阈值(有足够历史同款) ②至少2类信号同时亮灯(单指标亮灯=噪音, 不触发防御, 与本站"组合警报/三层同时成立才减仓"一致)
+  /* 解锁 = 存在单个历史事件同时命中 ≥SIM_MIN_BEST 个当前亮灯类别。
+     旧的"参考分合计≥4"已证明筛不掉任何东西(见 SIM_MIN_BEST 处注释), 不再作为判据。 */
   const catCount=active.size;
-  const unlocked = total>=SIM_THRESHOLD && catCount>=2;
-  const dds=list.map(x=>stats6(x.e.id)).filter(Boolean).map(s=>s.maxDD);
+  const unlocked = best>=SIM_MIN_BEST;
+  const statSrc=hitAll.length?hitAll:list;
+  const dds=statSrc.map(x=>stats6(x.e.id)).filter(Boolean).map(s=>s.maxDD);
   const medDD=median(dds), worstDD=dds.length?Math.min(...dds):null;
+  /* 笨基准对照: 匹配组 vs **同市场构成**的无条件基准。edge<0 = 匹配组更坏。 */
+  const base=baselineDD();
+  const mbase=matchedBaseline(statSrc.map(x=>x.e));
+  const edge=(medDD!=null&&mbase!=null)?medDD-mbase:null;
+  const worseThanBase = edge!=null && edge<=-BASE_EDGE_PP;
+  /* 事后趋势: 用户 07-30 定调的主口径 —— 回撤只说风险, 方向才说"后续趋势钱"往哪走。 */
+  const tEvs=statSrc.map(x=>x.e).filter(e=>PATHSTATS[e.id]&&PATHSTATS[e.id].ret_63d&&PATHSTATS[e.id].ret_63d.v!=null);
+  let trendHTML="",trendEdge=null;
+  if(tEvs.length){
+    const r=tEvs.map(e=>PATHSTATS[e.id].ret_63d.v), tb=matchedTrendBase(tEvs,"r63");
+    const tm=median(r), pos=r.filter(v=>v>0).length/r.length*100;
+    if(tb!=null){
+      trendEdge=tm-tb;
+      const tv = trendEdge<=-TREND_EDGE_PP ? `<b>比同类常态弱 ${Math.abs(trendEdge).toFixed(1)}pp</b>，这组信号之后确实继续偏弱`
+        : trendEdge>=TREND_EDGE_PP ? `<b>比同类常态强 ${trendEdge.toFixed(1)}pp</b>，历史上这组信号亮过之后反而是偏强的一段，把它当减仓理由是反的`
+        : `相差 ${Math.abs(trendEdge).toFixed(1)}pp，不足 ${TREND_EDGE_PP}pp —— 对后续方向没有指示`;
+      trendHTML=`<div class="sc-trend"><b>事后趋势（能下手的部分）</b>：这 ${r.length} 个事件在事件日之后 63 个交易日的中位收益 <span class="sc-num2">${fmtPct(tm)}</span>，其中 <b>${pos.toFixed(0)}%</b> 收正；按同样市场构成的无条件中位是 <span class="sc-num2">${fmtPct(tb)}</span> —— ${tv}。<span class="tiny">样本 ${r.length} 个，方向当线索看，不足以做仓位依据。</span></div>`;
+    }
+  }
+  let baseHTML="";
+  if(medDD!=null&&mbase!=null){
+    const verdict = worseThanBase
+      ? `匹配组比基准深 <b>${Math.abs(edge).toFixed(1)}pp</b>，这组信号确实指向更坏的结果。`
+      : edge>=BASE_EDGE_PP
+        ? `匹配组反而比基准<b>浅 ${edge.toFixed(1)}pp</b> —— 按历史，这组信号选出的事件事后走势比档案平均<b>更温和</b>，不构成减仓理由。`
+        : `两者相差 <b>${Math.abs(edge).toFixed(1)}pp</b>，不足 ${BASE_EDGE_PP}pp —— 这次匹配<b>没有挑出比随机抽取更坏的样本</b>，等于没有区分力。`;
+    const capNote=statSrc.length>list.length?`（共命中 ${statSrc.length} 个，下方只列出参考分最高的 ${list.length} 个，本行统计用全部 ${statSrc.length} 个）`:"";
+    baseHTML=`<div class="sc-base"><b>笨基准对照</b>：匹配组 ${dds.length} 个事件中位最深回撤 <span class="sc-num">${fmtPct(medDD)}</span>${capNote}。相比之下，不做任何匹配、按同样的市场构成取无条件中位是 <span class="sc-num">${fmtPct(mbase)}</span>（分市场基准：${Object.entries(baselineByMarket()).map(([m,v])=>`${MKMETA[m]?MKMETA[m].label:m} ${fmtPct(v.med)}`).join('、')}）。${verdict}</div>`+trendHTML;
+  }
   let sim;
   if(unlocked&&medDD!=null){
-    const cutLo=Math.min(100,Math.round(Math.abs(medDD)/2)), cutHi=Math.min(100,Math.round(Math.abs(medDD)));
-    const logHTML=(()=>{const l=getSimLog();return l.length?`<div class="simlog">已记假想操作 ${l.length} 笔（<span class="clr" data-clrsim>清空</span>）：<br>${l.slice(-5).reverse().map(x=>`<span class="li">${x.t} · 参考分${x.score} · 参照中位回撤${x.dd}%</span>`).join("<br>")}</div>`:"";})();
-    sim=`<div class="simcard">
-      <h4>⚠️ 模拟操作已解锁（${catCount} 类信号同时亮灯 · 参考分合计 ${total} ≥ ${SIM_THRESHOLD}）</h4>
-      <div class="sc-body">上列 ${list.length} 个当下同款事件，<b>事发后半年真实走势</b>：中位最深回撤 <span class="sc-num">${fmtPct(medDD)}</span>，最坏 <span class="sc-num">${fmtPct(worstDD)}</span>。
-        <br>纯研究参考：若持有相关资产，可考虑把风险敞口下调 <b>${cutLo}%–${cutHi}%</b>（或加等量对冲），使可承受回撤覆盖上述历史区间。<b>不接盘、不构成投资建议。</b>
-        <button class="simbtn" data-sim="${total}" data-dd="${medDD.toFixed(1)}">记一笔假想减仓 / 对冲操作</button>
+    const logHTML=(()=>{const l=getSimLog();return l.length?`<div class="simlog">已记假想操作 ${l.length} 笔（<span class="clr" data-clrsim>清空</span>）：<br>${l.slice(-5).reverse().map(x=>`<span class="li">${x.t} · 最高单事件参考分${x.score} · 参照中位回撤${x.dd}%</span>`).join("<br>")}</div>`:"";})();
+    const trendWeak = trendEdge!=null && trendEdge<=-TREND_EDGE_PP;
+    const trendStrong = trendEdge!=null && trendEdge>=TREND_EDGE_PP;
+    const action = trendWeak
+      ? (()=>{const cutLo=Math.min(100,Math.round(Math.abs(medDD)/2)),cutHi=Math.min(100,Math.round(Math.abs(medDD)));
+          return `纯研究参考：若持有相关资产，可考虑把风险敞口下调 <b>${cutLo}%–${cutHi}%</b>（或加等量对冲），使可承受回撤覆盖上述历史区间。<b>不接盘、不构成投资建议。</b>
+        <button class="simbtn" data-sim="${best}" data-dd="${medDD.toFixed(1)}">记一笔假想减仓 / 对冲操作</button>`;})()
+      : trendStrong
+        ? `<b>因此这里不提示减仓，方向是反的</b>——历史同款事后 63 日跑得比同市场常态更强，据此减仓属于把买入窗口当危险信号。仍可记一笔，用于日后回看当时的判断。
+        <button class="simbtn" data-sim="${best}" data-dd="${medDD.toFixed(1)}">记一笔（仅存档，不含减仓建议）</button>`
+        : `<b>因此这里不给敞口调整建议</b>——历史同款已找到，但它们事后的走势对方向没有指示，据此调仓等于按噪音下手。仍可记一笔，用于日后回看当时的判断。
+        <button class="simbtn" data-sim="${best}" data-dd="${medDD.toFixed(1)}">记一笔（仅存档，不含减仓建议）</button>`;
+    sim=`<div class="simcard${trendWeak?"":" mild"}">
+      <h4>历史同款已匹配到（最高单事件参考分 ${best} ≥ ${SIM_MIN_BEST}，即有事件同时命中两类亮灯信号）</h4>
+      <div class="sc-body">当下同款事件共 ${dds.length} 个，<b>事发后半年真实走势</b>：中位最深回撤 <span class="sc-num">${fmtPct(medDD)}</span>，最坏 <span class="sc-num">${fmtPct(worstDD)}</span>。
+        ${baseHTML}
+        ${action}
         ${logHTML}
       </div></div>`;
   }else{
     const why = !hasSignal ? '当前无指标亮灯——市场平静，无需防御动作。'
       : catCount<2 ? `当前仅 <b>${catCount}</b> 类信号亮灯（${[...active].map(c=>TAGLABELS[c]).join('')}）。单一指标亮灯多为噪音，需 <b>≥2 类信号同时亮灯</b> 才解锁模拟操作——与本站"组合警报/三层同时成立才减仓"一致。`
-      : `参考分合计 <b>${total}</b>，未达阈值 ${SIM_THRESHOLD}（历史同款不足）。`;
+      : `虽然已有 <b>${catCount}</b> 类信号亮灯，但下列事件的<b>最高单事件参考分只有 ${best}</b>：没有任何一个历史事件同时命中这两类信号，只是若干事件各自沾了其中一类。<b>"五个事件各像一点"不等于"当下很像某一次危机前夜"</b>，因此不解锁模拟操作。`;
     sim=`<div class="simcard locked">
       <h4>🔒 模拟操作未解锁</h4>
-      <div class="sc-body">${why}</div></div>`;
+      <div class="sc-body">${why}${baseHTML}</div></div>`;
   }
   box.innerHTML=`<div class="now-sub" style="margin-top:26px">🎯 可参考事件（按当前吻合度排序）</div>
     <div class="refwrap">
       <div class="rw-h"><h4>${hasSignal?'当下同款历史事件':'可参考历史事件（按严重度）'}</h4>
-        <span class="score">参考分合计 <b>${total}</b></span></div>
+        <span class="score">最高单事件参考分 <b>${best}</b></span></div>
       <div class="rw-note">${note}</div>
       <div class="refgrid">${cards}</div>
     </div>
@@ -944,10 +1301,457 @@ document.addEventListener("click",ev=>{
 });
 renderDash();
 renderNow();
-refreshLive();
+/* 先取同源 live.json(全部12项指标的真实时值), 再跑判灯与各板块渲染 */
+loadLive().then(refreshLive);
+
+/* ====== 情景推演 ====== */
+/* 一个异常指标 → 它在 scenario_stats.json 里的回测键。加密恐贪是双向 band, 按当前值选一端。 */
+function scenKey(id,val){
+  if(id==="fear_greed_crypto")return val!=null&&val<=50?"fear_greed_crypto_low":"fear_greed_crypto_high";
+  return id;
+}
+/* 模拟图横轴刻度(交易日) */
+/* 路径图的十字准星注册表 —— 与 K 线图的 KCHARTS 分开, 因为横轴语义不同
+   (K线是"某一天的真实价格", 路径图是"第N个交易日的分位数, 背后有 n 个样本")。
+   悬停要能读出该天的 n, 否则用户看不出尾部样本在变少。 */
+let _pid=0; const PCHARTS={};
+/* 路径图十字准星 + 每日读数(委托到 document, 覆盖所有 .pchart)。
+   横轴是"第N个交易日"不是日期, 所以读数里必须带 n —— 尾部样本会变少, 不标出来
+   用户会误以为第126日和第1日一样可靠。 */
+(function(){
+  const tip=$("#tip"); let cur=null;
+  function hide(){ if(!cur)return; const c=cur.querySelector(".pcross"); if(c)c.style.display="none"; cur=null; tip.style.display="none"; }
+  const sc=v=>v<0?"#f2a0a0":"#8fd0af";
+  const sg=v=>v==null?"—":(v>=0?"+":"")+v.toFixed(2)+"%";
+  document.addEventListener("pointermove",ev=>{
+    const svg=ev.target.closest("svg.pchart");
+    if(!svg){hide();return;}
+    const reg=PCHARTS[svg.id]; if(!reg){hide();return;}
+    if(cur&&cur!==svg){const c=cur.querySelector(".pcross"); if(c)c.style.display="none";}
+    cur=svg;
+    const r=svg.getBoundingClientRect(); if(!r.width)return;
+    const vbx=(ev.clientX-r.left)*reg.W/r.width;
+    let d=Math.round((vbx-reg.L)/reg.iw*reg.maxd);
+    d=Math.max(0,Math.min(reg.maxd,d));
+    let row=reg.rows.find(x=>x.d===d);
+    if(!row){ row=reg.rows.reduce((a,b)=>Math.abs(b.d-d)<Math.abs(a.d-d)?b:a); d=row.d; }
+    const cx=reg.L+reg.iw*d/reg.maxd, cross=svg.querySelector(".pcross");
+    if(cross){cross.setAttribute("x1",cx);cross.setAttribute("x2",cx);cross.style.display="";}
+    const px=v=>v==null?"—":(reg.base*(1+v/100)).toLocaleString(undefined,{maximumFractionDigits:0});
+    let h=`<div class="t-date">${d===0?"起点（今天）":"第 "+d+" 个交易日"} · 样本 n=<b>${row.n!=null?row.n:"—"}</b></div>`
+      +`<div>中位 <b>${px(row.med)}</b> <span class="t-move" style="color:${sc(row.med)}">${sg(row.med)}</span></div>`;
+    if(reg.kind==="forecast"){
+      h+=`<div>50% 区间 ${px(row.p25)} – ${px(row.p75)} <span class="tiny">${sg(row.p25)} ~ ${sg(row.p75)}</span></div>`
+       + `<div>80% 区间 ${px(row.p10)} – ${px(row.p90)} <span class="tiny">${sg(row.p10)} ~ ${sg(row.p90)}</span></div>`
+       + `<div>笨基准中位 <span class="t-move" style="color:${sc(row.base)}">${sg(row.base)}</span></div>`;
+    }else{
+      h+=`<div>25–75 分位 ${px(row.p25)} – ${px(row.p75)} <span class="tiny">${sg(row.p25)} ~ ${sg(row.p75)}</span></div>`
+       + `<div>历史最差 <span class="t-move" style="color:${sc(row.min)}">${sg(row.min)}</span></div>`
+       + `<div>基准中位 <span class="t-move" style="color:${sc(row.base)}">${sg(row.base)}</span></div>`;
+    }
+    if(row.pos!=null)h+=`<div class="tiny">该时点历史正收益比例 ${row.pos.toFixed(0)}%</div>`;
+    tip.innerHTML=h;
+    tip.style.display="block";
+    tip.style.left=Math.min(ev.clientX+14,innerWidth-280)+"px";
+    tip.style.top=Math.min(ev.clientY+14,innerHeight-160)+"px";
+  },{passive:true});
+  document.addEventListener("pointerdown",ev=>{ if(!ev.target.closest("svg.pchart")) hide(); },{passive:true});
+})();
+const HZ=[0,10,21,42,63];
+/* 推演到 63 个交易日 ≈ 3 个月 */
+const SIMDAYS=63;
+
+/* 路径模拟图: 以今天收盘价为起点, 把历史同款样本的分位数路径投影成价格区间。
+   画的是"历史上这条线越过后, 标的走过的路径分布", 不是对未来的预测 —— 文案里必须说清。 */
+function simSVG(rec,base,label){
+  const P=rec.warn_path||{}, B=rec.base_path||{};
+  const days=[]; for(let d=0;d<=SIMDAYS;d++){ if(P[d])days.push(d); }
+  if(days.length<10)return '<p class="tiny">样本不足，无法作路径模拟。</p>';
+  const W=720,H=280,L=58,R=14,T=14,Bm=30;
+  const iw=W-L-R, ih=H-T-Bm;
+  /* 纵轴只按"中位+25/75分位带"定标, 不让最差样本决定刻度。
+     否则一条 -34% 的极端路径会把整个分位带压成顶部一条细线, 主信号看不见 ——
+     最差路径仍然画(超出图幅的部分用 clipPath 裁掉), 它的准确数字在上方统计表里。 */
+  let lo=Infinity,hi=-Infinity;
+  days.forEach(d=>{const p=P[d];lo=Math.min(lo,p.p25);hi=Math.max(hi,p.p75);});
+  let worst=Infinity; days.forEach(d=>{worst=Math.min(worst,P[d].min);});
+  lo=Math.min(lo,-1); hi=Math.max(hi,1);
+  const pad=(hi-lo)*0.18; lo-=pad; hi+=pad;
+  const clipped=worst<lo;
+  const X=d=>L+iw*d/SIMDAYS, Y=v=>T+ih*(hi-v)/(hi-lo);
+  const price=v=>base*(1+v/100);
+  const fmtP=v=>base>=1000?Math.round(price(v)).toLocaleString():price(v).toFixed(0);
+  const line=(get,cls)=>days.map((d,i)=>(i?"L":"M")+X(d).toFixed(1)+" "+Y(get(P[d])).toFixed(1)).join(" ");
+  const bandTop=days.map((d,i)=>(i?"L":"M")+X(d).toFixed(1)+" "+Y(P[d].p75).toFixed(1)).join(" ");
+  const bandBot=days.slice().reverse().map(d=>"L"+X(d).toFixed(1)+" "+Y(P[d].p25).toFixed(1)).join(" ");
+  const baseLine=days.filter(d=>B[d]).map((d,i)=>(i?"L":"M")+X(d).toFixed(1)+" "+Y(B[d].med).toFixed(1)).join(" ");
+  let grid="";
+  const step=(hi-lo)/4;
+  for(let k=0;k<=4;k++){
+    const v=lo+step*k;
+    grid+=`<line x1="${L}" y1="${Y(v).toFixed(1)}" x2="${W-R}" y2="${Y(v).toFixed(1)}" stroke="#e6e1d8"/>`
+        +`<text x="${L-6}" y="${(Y(v)+3).toFixed(1)}" text-anchor="end" font-size="10" fill="#8a8178">${fmtP(v)}</text>`;
+  }
+  let xax="";
+  HZ.filter(d=>d<=SIMDAYS).forEach(d=>{
+    xax+=`<line x1="${X(d).toFixed(1)}" y1="${T}" x2="${X(d).toFixed(1)}" y2="${T+ih}" stroke="#f0ece4"/>`
+       +`<text x="${X(d).toFixed(1)}" y="${H-10}" text-anchor="middle" font-size="10" fill="#8a8178">${d===0?"信号日":"+"+d+"日"}</text>`;
+  });
+  const last=P[days[days.length-1]];
+  const cid="clip"+Math.random().toString(36).slice(2,8);
+  const pid="pc"+(++_pid);
+  const ns=days.map(d=>P[d].n||0);
+  PCHARTS[pid]={days,W,L,iw,T,ih,hi,lo,base,label,maxd:SIMDAYS,
+    rows:days.map(d=>({d,n:P[d].n,med:P[d].med,p25:P[d].p25,p75:P[d].p75,
+                       min:P[d].min,pos:P[d].pos,base:(B[d]||{}).med})),
+    kind:"scenario"};
+  return `<svg id="${pid}" viewBox="0 0 ${W} ${H}" class="simchart pchart" preserveAspectRatio="xMidYMid meet"
+      role="img" aria-label="路径分位图，悬停看每个交易日的分位与样本数">
+    <defs><clipPath id="${cid}"><rect x="${L}" y="${T}" width="${iw}" height="${ih}"/></clipPath></defs>
+    ${grid}${xax}
+    <g clip-path="url(#${cid})">
+      <path d="${bandTop} ${bandBot} Z" fill="#0f5499" fill-opacity="0.13"/>
+      <path d="${baseLine}" fill="none" stroke="#9a9188" stroke-width="1.2" stroke-dasharray="3 3"/>
+      <path d="${line(p=>p.min)}" fill="none" stroke="#990f3d" stroke-width="1.1" stroke-dasharray="5 3" opacity="0.75"/>
+      <path d="${line(p=>p.med)}" fill="none" stroke="#0f5499" stroke-width="2.2"/>
+    </g>
+    <line class="pcross" x1="${L}" y1="${T}" x2="${L}" y2="${T+ih}" stroke="#990f3d" stroke-width="1" stroke-dasharray="3 2" style="display:none"/>
+    <line x1="${L}" y1="${Y(0).toFixed(1)}" x2="${W-R}" y2="${Y(0).toFixed(1)}" stroke="#33302c" stroke-width="1"/>
+    ${clipped?`<text x="${W-R-4}" y="${T+ih-6}" text-anchor="end" font-size="10" fill="#990f3d">最差样本 ${worst.toFixed(1)}% 已超出图幅</text>`:""}
+  </svg>
+  <div class="simlegend">
+    <span><i class="sw med"></i>历史中位路径</span>
+    <span><i class="sw band"></i>25–75 分位区间</span>
+    <span><i class="sw worst"></i>历史最差样本</span>
+    <span><i class="sw base"></i>基准（同期任意一天）</span>
+    <span class="nbadge">样本 n=${ns[0]}${Math.min(...ns)!==ns[0]?"，第"+SIMDAYS+"日样本剩 "+Math.min(...ns):""}</span>
+    <span class="tiny">鼠标滑过看每日读数 ｜ 纵轴＝${label}价位，起点 ${base>=1000?Math.round(base).toLocaleString():base.toFixed(2)}</span>
+  </div>`;
+}
+
+/* 判"信号后走势 vs 基准"要设实质幅度门槛: 差不足这么多个百分点就算没区别。
+   E19 的教训 —— 原来写的是裸比较 p.med>b.med, 差 0.01% 也翻标记, 会随噪音来回跳的
+   结论本身不是结论。另: 标记从**指标有效性**角度表述, 不从"标的涨跌"角度 ——
+   信号亮灯后走得比基准差, 说明这条预警指标是有效的; 走得更好则是反指, 用 ↑
+   这种"通常表示好"的符号会让人读反。 */
+const SCEN_EDGE_PP = 1.0;
+function edgeTag(pMed,bMed){
+  if(bMed==null)return "";
+  const d=pMed-bMed;
+  if(d<=-SCEN_EDGE_PP)return `<span class="etag eff">预警有效 ${d.toFixed(1)}pp</span>`;
+  if(d>=SCEN_EDGE_PP)return `<span class="etag inv">反指 +${d.toFixed(1)}pp</span>`;
+  return `<span class="etag nil">与基准无异</span>`;
+}
+function statRow(rec){
+  const P=rec.warn_path||{},B=rec.base_path||{};
+  const cells=[5,10,21,63].map(h=>{
+    const p=P[h],b=B[h];
+    if(!p)return `<td>—</td>`;
+    return `<td><b class="${p.med>=0?'up':'dn'}">${p.med>=0?"+":""}${p.med.toFixed(2)}%</b>
+      <span class="tiny">正比例 ${p.pos.toFixed(0)}% ｜ 对照基准 ${b?((b.med>=0?"+":"")+b.med.toFixed(2)+"%"):"—"}</span>
+      ${edgeTag(p.med,b?b.med:null)}</td>`;
+  }).join("");
+  const w21=P[21]||{};
+  return `<table class="simtab"><tr><th>+5日</th><th>+10日</th><th>+21日</th><th>+63日</th><th>21日内最差</th></tr>
+    <tr>${cells}<td><b class="dn">${w21.min!=null?w21.min.toFixed(2)+"%":"—"}</b></td></tr></table>`;
+}
+
+function renderScenario(){
+  const box=$("#scenbox"); if(!box)return;
+  $("#scen-time").textContent = SNAPSHOT.asof ? ("数据 "+asofTxt()) : "数据：构建期快照";
+  const scored=INDICATORS.filter(i=>i.rule&&i._num!=null&&!isNaN(i._num));
+  const lit=scored.filter(i=>i.rule(i._num)!=="ok");
+  /* 近期熄灭: 指标回落到阈值下方就从页面消失过一次(用户 07-29 反馈"VIX 怎么不见了")。
+     刚熄灭的信号恰恰最该继续看, 所以单列一组, 并写清何时灭的、灭之前是什么读数。 */
+  const offIds=new Set((SNAPSHOT.recentOff||[]).map(x=>x.id));
+  const offMeta={}; (SNAPSHOT.recentOff||[]).forEach(x=>offMeta[x.id]=x);
+  const off=scored.filter(i=>offIds.has(i.id)&&i.rule(i._num)==="ok");
+  const rest=scored.filter(i=>i.rule(i._num)==="ok"&&!offIds.has(i.id));
+  const SI=SCENARIO.indicators||{}, SB=SCENARIO.base||{};
+  const card=(ind,forceState)=>{
+    const st=forceState||ind.rule(ind._num);
+    const key=scenKey(ind.id,ind._num), rec=SI[key];
+    const snap=(SNAPSHOT.values||{})[ind.id]||{};
+    const cat=IND_CAT[ind.id];
+    const evs=cat?EVENTS.filter(ev=>(ev.tags||[]).includes(cat)):[];
+    /* nick 本身已含日期(如 "2025-01-27 NVIDIA"), 别再前缀一次 ev.date */
+const evLinks=evs.slice(0,8).map(ev=>`<a href="#" data-ev="${ev.id}">${ev.nick}</a>`).join("　");
+    let body;
+    if(!rec){
+      body=`<p class="tiny">该指标没有可回测的免费历史序列，暂无路径模拟（只做判灯与历史同款事件匹配）。</p>`;
+    }else{
+      const tgt=rec.target==="btc"?"BTC":"标普500";
+      const base=(SB[rec.target]||{}).last||0;
+      const n=rec.warn_n||0;
+      const grade=n>=20?"【实证】":"【线索】";
+      body=`<div class="scen-meta">
+          <span>历史同款事件数 <b>${n}</b></span>
+          <span>样本起点 ${rec.span?rec.span[0]:"—"}</span>
+          <span class="grade ${n>=20?'ok':'weak'}">${grade}${n>=20?"样本足":"样本 n&lt;20，只能当线索"}</span>
+        </div>
+        ${statRow(rec)}
+        ${simSVG(rec,base,tgt)}
+        ${rec.proxy?`<p class="proxy">⚠ 口径说明：${rec.proxy}</p>`:""}`;
+    }
+    const m=offMeta[ind.id];
+    const offNote=(st==="ok"&&m)
+      ? `<div class="offnote">此灯已于 ${offAgo(m)}熄灭
+          ${m.txt_when_lit?"（熄灭前读数 "+m.txt_when_lit+"）":""}，现值已回到正常区间。下面的历史路径仍按它当时亮灯的口径统计，供回看用。</div>`
+      : "";
+    const lampTxt=st==="danger"?"红色警报":st==="warn"?"预警":"已熄灭";
+    return `<div class="scencard ${st}">
+      <div class="scenhead">
+        <span class="lamp ${st}">${lampTxt}</span>
+        <h3>${ind.name}</h3>
+        <span class="scenval">${ind._liveTxt||snap.txt||"—"}</span>
+        <span class="tiny">预警线 ${ind.warning_threshold}</span>
+      </div>
+      ${offNote}
+      <div class="why"><b>为什么会异常</b>${rec&&rec.why?rec.why:(ind.why||"")}</div>
+      ${body}
+      ${evLinks?`<div class="scenev"><b>历史上同类信号亮灯的事件</b>${evLinks}</div>`:""}
+    </div>`;
+  };
+
+  let html="";
+  html += `<h4 class="scengrp">正在亮灯（${lit.length}）</h4>`;
+  html += lit.length ? lit.map(i=>card(i)).join("")
+    : `<div class="nobox">当前没有指标进入预警区。<span class="tiny">一旦有指标越线，这里会自动列出它的成因、历史同款事件和路径模拟。</span></div>`;
+  if(off.length){
+    html += `<h4 class="scengrp">近期熄灭（${off.length}）<span class="tiny">14 天内亮过、现已回到正常区间——刚熄灭的信号仍值得盯</span></h4>`;
+    html += off.map(i=>card(i,"ok")).join("");
+  }
+  if(rest.length){
+    html += `<details class="scenrest"><summary>其余指标（${rest.length}）当前正常，点开也能看它们各自的历史路径</summary>`
+         +  rest.map(i=>card(i,"ok")).join("") + `</details>`;
+  }
+  box.innerHTML=html;
+}
+document.addEventListener("click",ev=>{
+  const a=ev.target.closest("#scenbox a[data-ev]");
+  if(!a)return; ev.preventDefault(); jumpToEvent(a.dataset.ev);
+});
+
+/* ====== 半年推演 (类比集合) ====== */
+/* 126 交易日扇形图: 校准后的 10-90 / 25-75 分位带 + 类比中位线 + **笨基准中位线**
+   + 8 条真实历史路径。笨基准必须画上去 —— 两条中位线几乎重合, 这是"这套没有预测力"
+   最直观的证据, 藏起来就成了拿漂亮图骗人。 */
+function fanSVG(t){
+  const Q=t.calibrated&&Object.keys(t.calibrated).length?t.calibrated:t.quantiles;
+  const RAW=t.quantiles, NA=t.naive||{}, H=t.horizon||126, base=t.base.last;
+  const days=[]; for(let d=0;d<=H;d++){ if(Q[d]&&RAW[d])days.push(d); }
+  if(days.length<20)return '<p class="tiny">样本不足。</p>';
+  const W=760,Ht=330,L=64,R=16,T=16,Bm=32, iw=W-L-R, ih=Ht-T-Bm;
+  let lo=Infinity,hi=-Infinity;
+  days.forEach(d=>{lo=Math.min(lo,Q[d].p10);hi=Math.max(hi,Q[d].p90);});
+  (t.paths||[]).forEach(p=>p.forEach((v,i)=>{if(i<=H){lo=Math.min(lo,v);hi=Math.max(hi,v);}}));
+  const pad=(hi-lo)*0.06; lo-=pad; hi+=pad;
+  const X=d=>L+iw*d/H, Y=v=>T+ih*(hi-v)/(hi-lo);
+  const px=v=>base*(1+v/100);
+  const band=(a,b)=>days.map((d,i)=>(i?"L":"M")+X(d).toFixed(1)+" "+Y(Q[d][a]).toFixed(1)).join(" ")
+      +" "+days.slice().reverse().map(d=>"L"+X(d).toFixed(1)+" "+Y(Q[d][b]).toFixed(1)).join(" ")+" Z";
+  const ln=(src,key)=>days.filter(d=>src[d]).map((d,i)=>(i?"L":"M")+X(d).toFixed(1)+" "+Y(src[d][key]).toFixed(1)).join(" ");
+  let grid="";
+  for(let k=0;k<=4;k++){
+    const v=lo+(hi-lo)*k/4;
+    grid+=`<line x1="${L}" y1="${Y(v).toFixed(1)}" x2="${W-R}" y2="${Y(v).toFixed(1)}" stroke="#e6e1d8"/>`
+        +`<text x="${L-6}" y="${(Y(v)+3).toFixed(1)}" text-anchor="end" font-size="10" fill="#8a8178">${Math.round(px(v)).toLocaleString()}</text>`;
+  }
+  let xax="";
+  [0,21,42,63,84,105,126].filter(d=>d<=H).forEach(d=>{
+    xax+=`<line x1="${X(d).toFixed(1)}" y1="${T}" x2="${X(d).toFixed(1)}" y2="${T+ih}" stroke="#f4f0e8"/>`
+       +`<text x="${X(d).toFixed(1)}" y="${Ht-10}" text-anchor="middle" font-size="10" fill="#8a8178">${d===0?"今天":"+"+d+"日"}</text>`;
+  });
+  const overlay=(t.paths||[]).map(p=>{
+    const d=p.slice(0,H+1).map((v,i)=>(i?"L":"M")+X(i).toFixed(1)+" "+Y(v).toFixed(1)).join(" ");
+    return `<path d="${d}" fill="none" stroke="#b45309" stroke-width="0.8" opacity="0.32"/>`;
+  }).join("");
+  const cid="fc"+Math.random().toString(36).slice(2,7);
+  const pid="pc"+(++_pid);
+  const ns=days.map(d=>(RAW[d]||{}).n||0);
+  PCHARTS[pid]={days,W,L,iw,T,ih,hi,lo,base,label:t.label,maxd:H,kind:"forecast",
+    rows:days.map(d=>({d,n:(RAW[d]||{}).n,pos:(RAW[d]||{}).pos,
+      med:Q[d].p50,p25:Q[d].p25,p75:Q[d].p75,p10:Q[d].p10,p90:Q[d].p90,
+      raw25:(RAW[d]||{}).p25,raw75:(RAW[d]||{}).p75,base:(NA[d]||{}).p50}))};
+  return `<svg id="${pid}" viewBox="0 0 ${W} ${Ht}" class="simchart pchart" preserveAspectRatio="xMidYMid meet"
+      role="img" aria-label="半年推演分位图，悬停看每个交易日的分位与样本数">
+    <defs><clipPath id="${cid}"><rect x="${L}" y="${T}" width="${iw}" height="${ih}"/></clipPath></defs>
+    ${grid}${xax}
+    <g clip-path="url(#${cid})">
+      <path d="${band("p90","p10")}" fill="#0f5499" fill-opacity="0.08"/>
+      <path d="${band("p75","p25")}" fill="#0f5499" fill-opacity="0.15"/>
+      ${overlay}
+      <path d="${ln(NA,"p50")}" fill="none" stroke="#9a9188" stroke-width="1.6" stroke-dasharray="4 3"/>
+      <path d="${ln(Q,"p50")}" fill="none" stroke="#0f5499" stroke-width="2.4"/>
+    </g>
+    <line class="pcross" x1="${L}" y1="${T}" x2="${L}" y2="${T+ih}" stroke="#990f3d" stroke-width="1" stroke-dasharray="3 2" style="display:none"/>
+    <line x1="${L}" y1="${Y(0).toFixed(1)}" x2="${W-R}" y2="${Y(0).toFixed(1)}" stroke="#33302c" stroke-width="1"/>
+  </svg>
+  <div class="simlegend">
+    <span><i class="sw med"></i>类比中位</span>
+    <span><i class="sw base"></i>笨基准中位（历史任意一天）</span>
+    <span><i class="sw band"></i>25–75 / 10–90 校准分位带</span>
+    <span><i class="sw hist"></i>8 条真实历史路径</span>
+    <span class="nbadge">样本 n=${ns[0]}${Math.min(...ns)!==ns[0]?"，第"+H+"日样本剩 "+Math.min(...ns):"（全程不衰减）"}</span>
+    <span class="tiny">鼠标滑过看每日读数 ｜ 纵轴＝${t.label}价位，起点 ${Math.round(base).toLocaleString()}</span>
+  </div>`;
+}
+
+function skillBox(t){
+  const S=t.skill||{}; const rows=[21,63,126].filter(h=>S[h]);
+  if(!rows.length)return"";
+  const bad=t.verdict==="no_skill";
+  const tr=rows.map(h=>{
+    const r=S[h];
+    return `<tr><td>+${h}日</td><td>${r.dir_hit}%</td><td>${r.dir_hit_naive}%</td>
+      <td>${r.mae}</td><td>${r.mae_naive}</td>
+      <td class="${r.beats_naive?'up':'dn'}">${r.beats_naive?"胜":"负"}</td></tr>`;
+  }).join("");
+  return `<div class="verdict ${bad?'bad':'ok'}">
+    <b>${bad?"自检结论：这套推演没有可证实的预测力":"自检结论：部分尺度上优于基准"}</b>
+    <p>做法：在历史上取 ${t.skill_evals} 个评估日，每次<b>只用该日之前的数据</b>重做同样的推演，再和真实结果对账。
+    ${bad?"结果是方向命中率和误差都打不过「无条件历史中位」这个笨基准——换句话说，把所有指标合起来找类比，并不比直接说「股市长期向上」多知道什么。所以<b>别把中位线当预测</b>。":""}</p>
+    <table class="simtab"><tr><th>时点</th><th>方向命中</th><th>笨基准</th><th>中位误差</th><th>笨基准误差</th><th>胜负</th></tr>${tr}</table>
+    <p class="tiny">分位带已按历史残差做共形校准（原始 25–75 带实测只覆盖约 40%，偏窄；校准后按真实覆盖率重画）。
+    这张图仍然有用的地方只有一个：<b>它告诉你不确定性有多宽</b>，可以用来定仓位，不能用来定方向。</p>
+  </div>`;
+}
+
+function renderForecast(){
+  const box=$("#fcbox"); if(!box)return;
+  const T=(FORECAST.targets)||{};
+  if(!Object.keys(T).length){box.innerHTML='<div class="nobox">推演数据未生成。</div>';return;}
+  $("#fc-time").textContent="生成于 "+(FORECAST.generated||"");
+  box.innerHTML=Object.values(T).map(t=>{
+    const Q=t.calibrated&&Object.keys(t.calibrated).length?t.calibrated:t.quantiles;
+    const rows=[21,63,126].filter(h=>Q[h]).map(h=>{
+      const c=Q[h], raw=t.quantiles[h]||{};
+      const p=v=>Math.round(t.base.last*(1+v/100)).toLocaleString();
+      return `<tr><td>+${h}日</td>
+        <td><b>${p(c.p50)}</b><span class="tiny">${c.p50>=0?"+":""}${c.p50.toFixed(1)}%</span></td>
+        <td>${p(c.p25)} – ${p(c.p75)}<span class="tiny">${c.p25.toFixed(1)}% ~ ${c.p75.toFixed(1)}%</span></td>
+        <td>${p(c.p10)} – ${p(c.p90)}<span class="tiny">${c.p10.toFixed(1)}% ~ ${c.p90.toFixed(1)}%</span></td>
+        <td>${raw.pos!=null?raw.pos.toFixed(0)+"%":"—"}</td></tr>`;
+    }).join("");
+    /* 用户 07-30: "这个事件跨度太大了...我要是有机会肯定想吃短线增加资金利用率"
+       → 补 +1/+3/+5/+10 日短周期列 + 每个类比日之后 20 个交易日的走势缩略图(fwd20 折线,
+       series_cache 只有收盘价所以是折线不是蜡烛)。
+       ⚠️ 同时必须把短周期的自检结论钉在同一张表上: walk-forward 实测 1/3/5/10 日
+       全部打不过笨基准(标普+5日方向命中 50.0% vs 基准 64.7%), 数字可以看, 但不能当信号用。 */
+    const cell=v=>`<td class="${v>=0?'up':'dn'}">${v!=null?(v>=0?"+":"")+v.toFixed(1)+"%":"—"}</td>`;
+    const spark=a=>{
+      const f=a.fwd20; if(!f||f.length<5)return"";
+      const W=104,H=26,lo=Math.min(...f,0),hi=Math.max(...f,0),sp=(hi-lo)||1;
+      const X=i=>i/(f.length-1)*W, Y=v=>H-((v-lo)/sp)*H;
+      const d=f.map((v,i)=>(i?"L":"M")+X(i).toFixed(1)+" "+Y(v).toFixed(1)).join(" ");
+      const end=f[f.length-1];
+      return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-label="其后20日走势">
+        <line x1="0" y1="${Y(0).toFixed(1)}" x2="${W}" y2="${Y(0).toFixed(1)}" stroke="#d9d3c8"/>
+        <path d="${d}" fill="none" stroke="${end>=0?'var(--up)':'var(--down)'}" stroke-width="1.4"/></svg>`;
+    };
+    const an=(t.analogs||[]).slice(0,10).map(a=>
+      `<tr><td>${a.date}</td><td class="v">${a.dist}</td>
+       ${cell(a.r1)}${cell(a.r3)}${cell(a.r5)}${cell(a.r10)}${cell(a.r21)}${cell(a.r63)}
+       <td>${spark(a)}</td></tr>`).join("");
+    const sk=t.skill||{};
+    const shortRow=[1,3,5,10].map(h=>{const r=sk[h]||sk[String(h)];
+      return r?`+${h}日 ${r.dir_hit.toFixed(0)}%/基准${r.dir_hit_naive.toFixed(0)}%`:null;}).filter(Boolean).join("　");
+    const shortWarn=shortRow?`<div class="anwarn"><b>短线周期同样没有通过自检</b>：walk-forward 方向命中率（模型/笨基准）${shortRow}
+      —— 四个短周期全部打不过"无条件历史中位"这个笨基准。<b>下面的数字与缩略图可以当形态素材看，但不构成短线信号</b>；
+      要吃短线得换一套按价格行为而非宏观波动率指标来匹配的方法。</div>`:"";
+    return `<div class="fccard">
+      <div class="scenhead"><h3>${t.label}</h3>
+        <span class="scenval">${Math.round(t.base.last).toLocaleString()}</span>
+        <span class="tiny">起点 ${t.base.date} 收盘 ｜ 类比样本 ${t.k} 个</span></div>
+      ${skillBox(t)}
+      ${fanSVG(t)}
+      <table class="simtab fctab"><tr><th>时点</th><th>中位价位</th><th>50% 区间</th><th>80% 区间</th><th>历史正比例</th></tr>${rows}</table>
+      <div class="anwrap"><b>最像今天的 10 个历史日子</b>
+      ${shortWarn}
+      <table class="simtab antab"><tr><th>日期</th><th>距离</th><th>+1日</th><th>+3日</th><th>+5日</th><th>+10日</th><th>+21日</th><th>+63日</th><th>其后20日走势</th></tr>${an}</table></div>
+    </div>`;
+  }).join("");
+}
 
 /* ====== 方法论 ====== */
 $("#methodbox").innerHTML=METHOD_HTML;
+/* 事件独立性: 同一 market 且相隔 ≤21 天的事件属于同一轮行情(2020-03-12/16/24 是一轮 COVID,
+   不是三个独立样本)。分组统计的有效样本量应按"独立轮次"读, 不能按事件数读 ——
+   期限结构 8 个事件其实只来自 4 轮。E22 精神: 样本数要显式, 且要显式到"有效"那一层。 */
+const ROUND_GAP_DAYS=21;
+let _roundCache=null;
+function roundIndex(){
+  if(_roundCache)return _roundCache;
+  const evs=EVENTS.slice().sort((a,b)=>a.date<b.date?-1:1), rounds=[], map={};
+  const day=d=>Math.floor(new Date(d+"T00:00:00Z").getTime()/86400000);
+  evs.forEach(e=>{
+    let hit=null;
+    for(const r of rounds) if(r.market===e.market&&day(e.date)-r.last<=ROUND_GAP_DAYS){hit=r;break;}
+    if(hit){hit.last=day(e.date); map[e.id]=hit.i;}
+    else {const r={market:e.market,last:day(e.date),i:rounds.length}; rounds.push(r); map[e.id]=r.i;}
+  });
+  return _roundCache={map,total:rounds.length};
+}
+function roundsOf(evs){
+  const ri=roundIndex();
+  return new Set(evs.map(e=>ri.map[e.id]).filter(v=>v!=null)).size;
+}
+/* 标签区分力自检表: 每类标签的事件组中位 vs 同构成基准。
+   数字全部现算 —— 档案增删或行情推进后自动跟着变, 不写死。
+   E18 的精神: 自检结论必须和产出一起交付, 且允许结论是"这套没用"。 */
+function renderTagAudit(){
+  const box=$("#tagaudit"); if(!box)return;
+  const rows=Object.keys(TAGLABELS).map(t=>{
+    const evs=EVENTS.filter(e=>(e.tags||[]).includes(t)&&PATHSTATS[e.id]&&PATHSTATS[e.id].ret_63d&&PATHSTATS[e.id].ret_63d.v!=null);
+    if(!evs.length)return null;
+    const r63=evs.map(e=>PATHSTATS[e.id].ret_63d.v);
+    const b63=matchedTrendBase(evs,"r63");
+    if(b63==null)return null;
+    const dds=evs.map(e=>stats6(e.id)).filter(Boolean).map(x=>x.maxDD);
+    const trunc=evs.filter(e=>PATHSTATS[e.id].ret_63d.truncated).length;
+    return {lab:TAGLABELS[t],n:evs.length,rounds:roundsOf(evs),trunc,
+      g:median(r63),b:b63,edge:median(r63)-b63,
+      pos:r63.filter(v=>v>0).length/r63.length*100,
+      dd:dds.length?median(dds):null};
+  }).filter(Boolean).sort((a,b)=>a.edge-b.edge);
+  if(!rows.length)return;
+  const cls=r=>r.edge<=-TREND_EDGE_PP?"eff":(r.edge>=TREND_EDGE_PP?"up":"nil");
+  const word=r=>r.edge<=-TREND_EDGE_PP?"后续继续弱":(r.edge>=TREND_EDGE_PP?"后续更强":"与基准无异");
+  const down=rows.filter(r=>r.edge<=-TREND_EDGE_PP).length;
+  const up=rows.filter(r=>r.edge>=TREND_EDGE_PP).length;
+  box.innerHTML=`<table class="tagaudit">
+    <thead><tr><th>前兆类别</th><th>事件数</th><th>独立轮次</th><th>事后63日中位</th><th>同构成基准</th><th>差</th><th>正收益比例</th><th>期间最深回撤</th><th>判定</th></tr></thead>
+    <tbody>${rows.map(r=>`<tr class="${cls(r)}">
+      <td>${r.lab}</td><td class="n">${r.n}${r.trunc?`<span class="tr" title="窗口未满">*${r.trunc}</span>`:""}</td><td class="n${r.rounds<r.n?" few":""}">${r.rounds}</td>
+      <td class="v">${fmtPct(r.g)}</td><td class="v">${fmtPct(r.b)}</td>
+      <td class="v">${r.edge>=0?"+":""}${r.edge.toFixed(1)}pp</td>
+      <td class="v">${r.pos.toFixed(0)}%</td>
+      <td class="v">${r.dd!=null?fmtPct(r.dd):"—"}</td>
+      <td><span class="etag ${cls(r)}">${word(r)}</span></td></tr>`).join("")}</tbody></table>
+    <p class="taudit-sum">${rows.length} 类前兆标签中，<b>${down}</b> 类后续继续弱于同类常态、<b>${up}</b> 类后续反而更强、<b>${rows.length-down-up}</b> 类与基准无异。
+      判定门槛 ${TREND_EDGE_PP}pp（差值不足此数视为无区别，避免结论随噪音来回翻）。带 * 的事件数表示其中若干事件的 63 日窗口尚未走完。
+      <b>样本量按「独立轮次」读，不要按事件数读</b>：同一 market 相隔 ${ROUND_GAP_DAYS} 天内的事件属于同一轮行情（2020-03-12/16/24 是一轮 COVID，不是三个独立样本），全档案 ${EVENTS.length} 个事件只对应 ${roundIndex().total} 个独立轮次。轮次数明显小于事件数的行（灰底），其结论主要由少数几轮行情决定，方向只能当线索、不足以做仓位依据。</p>`;
+}
+renderTagAudit();
+/* 收录标准披露 + 破格清单(现算)。
+   页面标题写 ±10% 但指数实际按 4% 收录, 不说清等于"全档案±10%"这个说法是假的。
+   低于自身门槛的事件由这里自动列出 —— 破格与否是人的判断, 是否披露不该靠人记得。 */
+const ADMIT_TH={us_index:4.0,us_stock:10.0,crypto:10.0};
+function renderAdmission(){
+  const box=$("#admission"); if(!box)return;
+  const below=EVENTS.filter(e=>Math.abs(e.move_pct)<(ADMIT_TH[e.market]!=null?ADMIT_TH[e.market]:10))
+    .sort((a,b)=>Math.abs(a.move_pct)-Math.abs(b.move_pct));
+  const sub10=EVENTS.filter(e=>Math.abs(e.move_pct)<10).length;
+  let html=`<p class="admit-sum">档案共 <b>${EVENTS.length}</b> 个事件，其中 <b>${sub10}</b> 个单日波动不足 10%（全部是按 4% 门槛收录的大盘指数事件），
+    <b>${below.length}</b> 个连自身所属市场的门槛都没达到。</p>`;
+  if(below.length) html+=`<table class="tagaudit"><thead><tr><th>事件日</th><th>市场</th><th>标的</th><th>当日波动</th><th>该市场门槛</th><th>差额</th></tr></thead>
+    <tbody>${below.map(e=>{const th=ADMIT_TH[e.market]!=null?ADMIT_TH[e.market]:10;
+      return `<tr class="inv"><td class="v">${e.date}</td><td>${MKMETA[e.market]?MKMETA[e.market].label:e.market}</td>
+      <td>${shortAsset(e.asset)}</td><td class="v">${fmtPct(e.move_pct)}</td><td class="v">${th.toFixed(1)}%</td>
+      <td class="v">${(Math.abs(e.move_pct)-th).toFixed(2)}pp</td></tr>`;}).join("")}</tbody></table>`;
+  box.innerHTML=html;
+}
+renderAdmission();
 </script>
 </body>
 </html>

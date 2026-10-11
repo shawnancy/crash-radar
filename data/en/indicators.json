@@ -25,7 +25,7 @@
   "market": "us",
   "name": "VIX Term Structure Inversion (VIX/VIX3M)",
   "what": "Ratio of near-term VIX to 3-month VIX (VIX3M), measuring whether the term structure has flipped from normal contango into backwardation",
-  "why": "In a normal market VIX < VIX3M (ratio < 1, contango); when a spike in near-term fear pushes the ratio above 1 (inversion/backwardation), this has repeatedly and precisely flagged crisis onsets historically: the ratio broke above 1.0-1.2 during the 2015-08 China devaluation flash crash, the 2018-02 Volmageddon, and the week the COVID crash began (2020-02-24 through 03), with the S&P 500 subsequently falling more than 10% within 1-3 weeks",
+  "why": "In a normal market VIX<VIX3M (ratio<1, contango); a ratio>1 (inversion/backwardation) marks a sharp spike in short-term fear. But measured outcomes after inversion diverge widely: after 2020-02-24 (ratio 1.14) the S&P 500 bottomed -26.0% within 3 weeks, whereas after 2015-08-24 (1.31) and 2018-02-05 (1.33) it bottomed at just -1.4% / -2.6% — sharp reversals. More importantly it confirms rather than leads: across the 8 events tagged with this category in the archive, on the day of inversion the asset was already 4.7%-12.2% below its prior 45-session high. Also note the >=0.93 line holds on 34.3% of all sessions, so on its own it has almost no screening power — it is only worth reading when other categories light up alongside it.",
   "warning_threshold": "VIX/VIX3M > 0.95 (term structure flattening, contango narrowing)",
   "danger_threshold": "VIX/VIX3M > 1.0 (inversion, backwardation confirmed)",
   "check_url": "https://www.cboe.com/us/indices/dashboard/vix3m/",

@@ -25,6 +25,12 @@
     "signal": "Funding rate plunged to -0.375% per 8 hours (roughly 400% annualized) during the crash, showing shorts had become extremely dominant and long-side squeeze pressure was concentrated on a single exchange",
     "lead_time": "day of the crash",
     "source_url": "https://www.newsbtc.com/news/bitcoin-funding-rates-bitmex-deep-red-why-bullish/"
+   },
+   {
+    "indicator": "VIX term-structure inversion (VIX/VIX3M)",
+    "signal": "First close above 1.0 on 2020-02-24: VIX 25.03 / VIX3M 21.92 = ratio 1.142 (backwardation confirmed); window peak 1.344 through the event date. Note this confirms rather than leads: on the day of inversion BTC was already -6.5% below its prior 45-session high, i.e. the inversion appeared after the selloff had begun.",
+    "lead_time": "13 trading days ahead",
+    "source_url": "https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX3M_History.csv"
    }
   ],
   "aftermath": "BitMEX faced a trust crisis after the outage plus a 1,627 BTC loss to its insurance fund; within two weeks its OI was cut in half, from 115,000 BTC to 55,000 BTC, and its trading-volume share was overtaken by Binance. Bitcoin later rallied to new all-time highs by year-end, fueled by the Fed's unlimited QE.",
