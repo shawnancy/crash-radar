@@ -510,5 +510,51 @@
    "https://insights4vc.substack.com/p/inside-the-19b-flash-crash",
    "https://www.coindesk.com/research/market-spotlight-the-19-billion-liquidation-that-shook-crypto"
   ]
+ },
+ {
+  "id": "eth-2026-08-19-treasury-buyback-clarity-short-squeeze",
+  "market": "crypto",
+  "date": "2026-08-19",
+  "asset": "Ethereum (ETH)",
+  "move_pct": 17.48,
+  "title": "Ethereum Surges 17.5% in a Day: Doubled Treasury Buybacks and Trump's Crypto Push Trigger the Largest Short Squeeze on Record",
+  "cause": "ETH jumped 17.48% on Aug 19 (UTC daily candle) to close at $2,251.46 (FXStreet reported roughly +18% at about $2,250, within 1 percentage point of the daily-candle figure). For about a month beforehand ETH had traded sideways between $1,800 and $1,950. Triggers per FXStreet: (1) the U.S. Treasury announced it would double the size of its long-dated bond buyback operations to at least $4 billion each (Yahoo/TheStreet: from $2 billion to at least $4 billion, effective Sept 9), lifting risk appetite; (2) President Trump said the government was considering buying 'sizable' amounts of Bitcoin and other crypto and referenced the Clarity Act (CNBC on Aug 20 said he met crypto executives at the White House and pushed Congress to pass the Clarity Act). Shorts were squeezed: ETH saw over $1.11 billion of liquidations in 24 hours, $1.02 billion of them shorts, nearly half within a single hour (Coinglass); total crypto short liquidations exceeded $2.49 billion, which FXStreet called the largest single-day short squeeze in crypto history. On the daily chart RSI was near 82 and Stochastic above 87, and price also reclaimed CryptoQuant's Realized Price (about $2,300). Same day MSTR rose 12.68%, and HOOD gained 13.70% on Aug 21: risk assets rallied together.",
+  "precursors": [
+   {
+    "indicator": "Consolidation range / EMA cap",
+    "signal": "ETH had traded sideways at $1,800-$1,950 for about a month, with the 20/50/100-day EMAs clustered at $1,886-$1,925 and price compressed beneath them; volatility was contracting before the breakout",
+    "lead_time": "about 4 weeks ahead",
+    "source_url": "https://www.fxstreet.com/cryptocurrencies/news/ethereum-price-forecast-eth-jumps-18-sparks-over-1-billion-in-liquidations-202608192358"
+   },
+   {
+    "indicator": "Macro liquidity / policy news",
+    "signal": "The U.S. Treasury announced it would raise the cap on each long-bond buyback from $2 billion to at least $4 billion (from Sept 9); risk assets rose the same day it was announced",
+    "lead_time": "triggered same day",
+    "source_url": "https://finance.yahoo.com/markets/crypto/articles/strategy-coinbase-circle-robinhood-stocks-202616660.html"
+   },
+   {
+    "indicator": "Crypto legislation expectations",
+    "signal": "CoinDesk reported on Aug 19 that Clarity Act proponents voiced optimism, with Coinbase, Circle and other crypto stocks jumping that day; CNBC said the next day that Trump and crypto executives were pushing Congress to pass it (single source, figures not verified)",
+    "lead_time": "same day to one day ahead",
+    "source_url": "https://www.coindesk.com/markets/2026/08/19/coinbase-circle-and-bullish-jump-as-clarity-act-proponents-express-optimism-about-bill"
+   },
+   {
+    "indicator": "On-chain cost basis / short fuel",
+    "signal": "ETH broke above CryptoQuant's Realized Price of about $2,300 (historically resistance); shorts had built up beforehand, and shorts made up $1.02 billion of the roughly $1.11 billion ETH liquidations that day (the pre-move positioning data itself was not found)",
+    "lead_time": "at the breakout day (short build-up was a prior state; position data not found)",
+    "source_url": "https://www.fxstreet.com/cryptocurrencies/news/ethereum-price-forecast-eth-jumps-18-sparks-over-1-billion-in-liquidations-202608192358"
+   }
+  ],
+  "aftermath": "The rally extended for days: on Aug 20 CNBC said Bitcoin had risen 12% in two days, on Aug 21 Yahoo said BTC broke above $70,000 (about 8% in one session), and TechTimes said BTC briefly cleared $75,000. ETH opened Sept 3 at $2,391.30 (about +27% over one month but -4.6% over the prior week), and after $141.39 million of net spot ETH ETF inflows on Sept 3 it rose to about $2,508 on Sept 4. ETH later faded from those highs, and by mid-October spot ETH ETFs were in a run of net outflows (Oct 12 was the tenth straight session).",
+  "refs": [
+   "https://www.fxstreet.com/cryptocurrencies/news/ethereum-price-forecast-eth-jumps-18-sparks-over-1-billion-in-liquidations-202608192358",
+   "https://finance.yahoo.com/markets/crypto/articles/strategy-coinbase-circle-robinhood-stocks-202616660.html",
+   "https://www.coindesk.com/markets/2026/08/19/coinbase-circle-and-bullish-jump-as-clarity-act-proponents-express-optimism-about-bill",
+   "https://www.cnbc.com/2026/08/20/bitcoin-surges-as-trump-crypto-execs-lead-final-push-for-clarity-act.html",
+   "https://finance.yahoo.com/markets/crypto/articles/strategy-shares-surge-bitcoin-breaks-100804571.html",
+   "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-thursday-september-3-2026-crypto-prices-lift-this-morning-despite-oil-costs-gaining-steam-113526770.html",
+   "https://blockonomi.com/ethereum-eth-climbs-5-as-141m-etf-inflows-trigger-short-squeeze/",
+   "https://invezz.com/news/2026/10/14/ethereum-leverage-hits-11-month-low-as-etf-money-exits-is-eth-losing-its-buyers/"
+  ]
  }
 ]

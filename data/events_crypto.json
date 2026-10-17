@@ -510,5 +510,51 @@
    "https://insights4vc.substack.com/p/inside-the-19b-flash-crash",
    "https://www.coindesk.com/research/market-spotlight-the-19-billion-liquidation-that-shook-crypto"
   ]
+ },
+ {
+  "id": "eth-2026-08-19-treasury-buyback-clarity-short-squeeze",
+  "market": "crypto",
+  "date": "2026-08-19",
+  "asset": "以太坊 Ethereum (ETH)",
+  "move_pct": 17.48,
+  "title": "以太坊单日暴涨17.5%: 美债回购翻倍叠加特朗普挺加密, 引爆史上最大空头踩踏",
+  "cause": "ETH 8月19日(UTC日线)大涨17.48%, 收2,251.46美元(FXStreet报道约+18%, 价约2,250, 与日线口径差<1个百分点)。此前约一个月ETH在1,800-1,950美元区间横盘。导火索据FXStreet: ①美国财政部宣布将长债回购单次规模翻倍至至少40亿美元(Yahoo/TheStreet称由20亿升至至少40亿, 9月9日起执行), 推升风险偏好; ②特朗普表示政府正考虑'大规模'购买比特币等加密货币并提及Clarity法案(8月20日CNBC称其在白宫会见加密业高管并推动国会通过Clarity法案)。空头被挤爆: ETH 24小时爆仓超11.1亿美元, 其中空头10.2亿美元, 近半数集中在1小时内(Coinglass); 全市场空头爆仓超24.9亿美元, FXStreet称为加密史上单日最大空头踩踏。技术面日线RSI约82、Stochastic超87, 价格同时站上CryptoQuant口径的已实现价格(约2,300美元)。同日MSTR +12.68%, 8月21日HOOD +13.70%, 风险资产齐涨。",
+  "precursors": [
+   {
+    "indicator": "盘整区间/均线压制",
+    "signal": "ETH此前约一个月在1,800-1,950美元横盘, 20/50/100日EMA聚集在1,886-1,925美元, 价格在均线下方被压缩, 突破前波动收敛",
+    "lead_time": "提前约4周",
+    "source_url": "https://www.fxstreet.com/cryptocurrencies/news/ethereum-price-forecast-eth-jumps-18-sparks-over-1-billion-in-liquidations-202608192358"
+   },
+   {
+    "indicator": "宏观流动性/政策消息",
+    "signal": "美国财政部宣布长债回购单次上限从20亿美元提高到至少40亿美元(9月9日起), 宣布当日即触发风险资产上涨",
+    "lead_time": "同日触发",
+    "source_url": "https://finance.yahoo.com/markets/crypto/articles/strategy-coinbase-circle-robinhood-stocks-202616660.html"
+   },
+   {
+    "indicator": "加密立法预期",
+    "signal": "CoinDesk 8月19日报道Clarity法案支持者对法案表达乐观, Coinbase、Circle等加密股当日上涨; 次日CNBC称特朗普与加密高管推动国会通过该法案(单一信源, 数值未核)",
+    "lead_time": "同日至前一交易日",
+    "source_url": "https://www.coindesk.com/markets/2026/08/19/coinbase-circle-and-bullish-jump-as-clarity-act-proponents-express-optimism-about-bill"
+   },
+   {
+    "indicator": "链上成本线/空头燃料",
+    "signal": "ETH价格涨破CryptoQuant已实现价格约2,300美元(历史上该位曾为阻力); 突破前空头头寸积累, 当日空头爆仓10.2亿美元占ETH总爆仓约92%",
+    "lead_time": "突破当日(空头堆积为事前状态, 具体仓位数据未找到)",
+    "source_url": "https://www.fxstreet.com/cryptocurrencies/news/ethereum-price-forecast-eth-jumps-18-sparks-over-1-billion-in-liquidations-202608192358"
+   }
+  ],
+  "aftermath": "涨势延续数日: 8月20日CNBC称比特币两日涨12%, 8月21日Yahoo称BTC升破7万美元(8%单日), TechTimes称BTC一度站上7.5万美元。ETH至9月3日开盘2,391.30美元(较一个月前约+27%, 但较前一周-4.6%), 9月3日现货ETH ETF净流入1.4139亿美元后9月4日升至约2,508美元。此后ETH高位回落, 10月中旬现货ETH ETF出现连续净流出(10月12日为连续第10个交易日)。",
+  "refs": [
+   "https://www.fxstreet.com/cryptocurrencies/news/ethereum-price-forecast-eth-jumps-18-sparks-over-1-billion-in-liquidations-202608192358",
+   "https://finance.yahoo.com/markets/crypto/articles/strategy-coinbase-circle-robinhood-stocks-202616660.html",
+   "https://www.coindesk.com/markets/2026/08/19/coinbase-circle-and-bullish-jump-as-clarity-act-proponents-express-optimism-about-bill",
+   "https://www.cnbc.com/2026/08/20/bitcoin-surges-as-trump-crypto-execs-lead-final-push-for-clarity-act.html",
+   "https://finance.yahoo.com/markets/crypto/articles/strategy-shares-surge-bitcoin-breaks-100804571.html",
+   "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-thursday-september-3-2026-crypto-prices-lift-this-morning-despite-oil-costs-gaining-steam-113526770.html",
+   "https://blockonomi.com/ethereum-eth-climbs-5-as-141m-etf-inflows-trigger-short-squeeze/",
+   "https://invezz.com/news/2026/10/14/ethereum-leverage-hits-11-month-low-as-etf-money-exits-is-eth-losing-its-buyers/"
+  ]
  }
 ]

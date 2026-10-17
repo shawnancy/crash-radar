@@ -795,5 +795,354 @@
    "https://www.techtimes.com/articles/320352/20260713/sk-hynix-posts-worst-seoul-session-record-hbm-contracts-limit-earnings-upside.htm",
    "https://247wallst.com/investing/2026/07/14/sk-hynix-adr-soars-19-as-leveraged-etfs-launch-lifting-micron-sandisk-western-digital/"
   ]
+ },
+ {
+  "id": "smci-2026-07-22-prelim-q4-margin-orders",
+  "market": "us_stock",
+  "date": "2026-07-22",
+  "asset": "Super Micro Computer (NASDAQ: SMCI)",
+  "move_pct": 19.84,
+  "title": "Super Micro Surges 19.8%: Preliminary FQ4 Gross Margin Doubles, New Orders Top $60B",
+  "cause": "The direct trigger was a preliminary fiscal Q4 (quarter ended June 30) update released after the close on July 21: expected gross margin was raised from prior guidance of 8.2%-8.4% to 15%-17% (the company cited 'a favorable customer and product mix'), new orders in the quarter exceeded $60B with backlog at record levels, and revenue was expected at the low end of the $11.0B-$12.5B guidance range. On July 22 the stock jumped as much as ~24% intraday and closed at $30.56, up 19.84%, on volume of 159.3M shares (about 3x the 3-month average). Background: on June 9 the company announced a ~$7B equity and equity-linked raise (to buy components for ~$39B of AI server orders) and fell sharply on June 10 (about -28% at the close per search snippets, original not re-read); this rally came after a deep drawdown (the stock touched ~$23.83 around July 20, single source). Dell rose 9.32% and HPE 3.02% the same day. Analysts stayed cautious: consensus target about $34, and the company faces securities class-action litigation and governance concerns (single source).",
+  "precursors": [
+   {
+    "indicator": "Deep drawdown after equity raise, heavy short interest",
+    "signal": "On June 9 the company announced a ~$7B equity and equity-linked raise; on June 10 the stock fell 13.6% intraday to $35.13, with 15.7% of float sold short",
+    "lead_time": "~6 weeks ahead",
+    "source_url": "https://www.schaeffersresearch.com/content/news/2026/06/10/ai-server-stock-slides-on-equity-offering-news"
+   },
+   {
+    "indicator": "Depressed valuation and earnings expectations",
+    "signal": "Latest-quarter gross margin was just under 10% and described as 'light' (Motley Fool, July 28); the stock was still down ~13% YTD before July 22 (Yahoo), and governance risks (a prior auditor resigning, smuggling charges, single source) weighed on expectations",
+    "lead_time": "persisting for weeks",
+    "source_url": "https://www.fool.com/investing/2026/07/28/after-giving-investors-great-news-is-super-micro-c/"
+   },
+   {
+    "indicator": "Order visibility",
+    "signal": "The June raise was to fund component purchases for ~$39B of AI server orders (Yahoo), foreshadowing later order/revenue release",
+    "lead_time": "~6 weeks ahead",
+    "source_url": "https://finance.yahoo.com/markets/article/supermicro-stock-jumps-on-gross-margin-raise-amid-record-60-billion-backlog-223037795.html"
+   },
+   {
+    "indicator": "Peer AI-server names strengthen",
+    "signal": "Same day Dell (DELL) rose 9.32% and HPE 3.02%, showing sector sentiment recovering in sync",
+    "lead_time": "triggered intraday same day",
+    "source_url": "https://www.fool.com/coverage/stock-market-today/2026/07/22/stock-market-today-july-22-super-micro-computer-surges-on-record-q4-orders-and-surprise-margin-beat/"
+   }
+  ],
+  "aftermath": "The formal fiscal Q4 report (mid-August) showed EPS of $1.70 vs $0.92 expected, revenue of $11.12B (slightly below the $11.6B expected) and non-GAAP gross margin of 17.6%; the stock rose ~19.5% after the report, then fell ~8.2% by August 19 (all from a single source, AllInvestView; sources disagree on whether the report date was Aug 11 or Aug 14, unverified).",
+  "refs": [
+   "https://www.schaeffersresearch.com/content/news/2026/06/10/ai-server-stock-slides-on-equity-offering-news",
+   "https://www.fool.com/investing/2026/07/28/after-giving-investors-great-news-is-super-micro-c/",
+   "https://finance.yahoo.com/markets/article/supermicro-stock-jumps-on-gross-margin-raise-amid-record-60-billion-backlog-223037795.html",
+   "https://www.fool.com/coverage/stock-market-today/2026/07/22/stock-market-today-july-22-super-micro-computer-surges-on-record-q4-orders-and-surprise-margin-beat/",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262049895-super-micro-computer-smci-stock-surges-24-percent-july-23-2026-tradingkey",
+   "https://www.allinvestview.com/earnings/SMCI/q4-2026/"
+  ]
+ },
+ {
+  "id": "tsla-2026-07-23-q2-profit-miss-capex",
+  "market": "us_stock",
+  "date": "2026-07-23",
+  "asset": "Tesla (NASDAQ: TSLA)",
+  "move_pct": -14.52,
+  "title": "Tesla Plunges 14.5%: Q2 Profit Miss Meets Negative Free Cash Flow",
+  "cause": "The direct trigger was Q2 results released after the close on July 22: revenue of $28.24B (+26% YoY, above the ~$26.3B expected) and record deliveries of 480,126 (+25%, vs ~397K expected), but non-GAAP EPS of just $0.33 against a consensus of roughly $0.50-0.53; adjusted EBITDA of $3.2B (vs $4B expected); operating income of only $398M (-57% YoY), an operating margin of 1.4% (4.1% a year earlier); regulatory credit revenue of $146M (-67%); free cash flow of -$1.09B (first negative in years); Q2 capex of $5.79B (+142%), with the CFO guiding 2026 capex to 'more than $25 billion'. The next day (July 23) the stock closed at $319.69, down 14.52%, its lowest close since August 5, 2025, erasing over $140B of market value. Background: record deliveries leaned on incentives such as cheap financing that compressed auto margins; robotaxi data was weak (paid miles flat at ~900K QoQ, active unsupervised fleet of only ~21 cars per Electrek), and investors' patience for 'spend first, prove returns later' wore thin; Morgan Stanley noted that without clear ROI proof points the market's tolerance for incremental capex would narrow.",
+  "precursors": [
+   {
+    "indicator": "Options-implied volatility",
+    "signal": "Options priced a post-earnings move of about +/-7.6% before the report (single source); the actual -14.52% was roughly 1.9x the implied move",
+    "lead_time": "~1 day ahead",
+    "source_url": "https://electrek.co/2026/07/21/tesla-tsla-q2-2026-earnings-preview/"
+   },
+   {
+    "indicator": "Widely dispersed earnings expectations",
+    "signal": "Pre-earnings consensus EPS ~$0.53 but with a range of $0.27-0.74 (Deutsche Bank only $0.36); revenue consensus ~$26.4B (Estimize ~$25.9B)",
+    "lead_time": "~1 day ahead",
+    "source_url": "https://electrek.co/2026/07/21/tesla-tsla-q2-2026-earnings-preview/"
+   },
+   {
+    "indicator": "Margin and subsidy red flags",
+    "signal": "The preview already flagged Q1 auto gross margin ex-credits of only ~12.5%, shrinking regulatory credit revenue (Q2 2025: $439M, already down >50% YoY), the $7,500 federal EV tax credit having expired Sept 30, 2025, and record deliveries possibly bought with price cuts and financing incentives",
+    "lead_time": "~1 day ahead (some issues public for months)",
+    "source_url": "https://electrek.co/2026/07/21/tesla-tsla-q2-2026-earnings-preview/"
+   }
+  ],
+  "aftermath": "The stock closed at $319.69, an 11-month low. Brokers cut targets after the print: Canaccord $450 to $410, Cantor Fitzgerald $510 to $485, JPMorgan $475 to $445 (ratings unchanged, per FinanceBuzz); the target range stayed extremely wide (Wells Fargo $130 to Wedbush $600). No reliable source for trading after July 23 was found in this research.",
+  "refs": [
+   "https://electrek.co/2026/07/21/tesla-tsla-q2-2026-earnings-preview/",
+   "https://electrek.co/2026/07/23/tesla-tsla-crashes-12-q2-2026-earnings-miss/",
+   "https://financebuzz.com/news/tesla-stock-plunges-after-earnings-miss"
+  ]
+ },
+ {
+  "id": "msft-2026-07-30-azure-accel-capex-relief",
+  "market": "us_stock",
+  "date": "2026-07-30",
+  "asset": "Microsoft (NASDAQ: MSFT)",
+  "move_pct": 15.51,
+  "title": "Microsoft Surges 15.5%: Azure Accelerates to 43%, No New Capex Increase, Best Day Since 2008",
+  "cause": "The direct trigger was fiscal Q4 2026 results released after the close on July 29: revenue of $90.01B (+18% YoY, vs ~$87.6B expected), adjusted EPS of $4.74 (vs $4.24 expected), Azure growth of 43% (vs ~40% expected, 40% prior quarter), Azure surpassing $100B in annual revenue for the first time, commercial remaining performance obligation up 84% to $678B, and over 30M paid Microsoft 365 Copilot seats; the company also did not raise its capex outlook (sources cite differing calendar-year figures, $175B or $190B) and guided FY27 Q1 revenue to $89.85-$90.95B with Azure growth of about 45% (constant currency, above consensus). On July 30 the stock closed at $451.10, up 15.51%, which CNBC reportedly called Microsoft's best day since 2008 (per search snippet), with a single source estimating about $450B added in market value. Background: before the report MSFT was down about 19%-20% YTD at only ~20x forward earnings, as the market feared AI capex would swallow free cash flow -- a week earlier Alphabet had fallen ~15% after its quarterly capex doubled to $44.9B (despite Google Cloud growing 82%), so Microsoft's combination of accelerating growth and no capex increase produced a big expectations gap; Meta, by contrast, fell a further ~8% the same day.",
+  "precursors": [
+   {
+    "indicator": "Peer earnings sparking capex panic (contrarian setup)",
+    "signal": "Alphabet fell ~15% after its July 22 report: quarterly capex of $44.9B (doubled YoY) squeezed free cash flow even with Google Cloud up 82%; the market's frame for Microsoft's report became 'higher capex = bad'",
+    "lead_time": "~1 week ahead",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262055798-microsoft-msft-price-meta-amazon-ai-tradingkey"
+   },
+   {
+    "indicator": "Valuation and positioning already deeply bearish",
+    "signal": "MSFT was down ~19%-20% YTD before the report, at $381.40 on July 26 (52-week range $349.20-$555.45), about 20x forward earnings",
+    "lead_time": "weeks to days ahead",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262055798-microsoft-msft-price-meta-amazon-ai-tradingkey"
+   },
+   {
+    "indicator": "Low consensus bar",
+    "signal": "Consensus revenue ~$87.7B, EPS $4.24, Azure growth ~40%; the bull/bear line was Azure staying above 35%",
+    "lead_time": "~1 week ahead",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262055798-microsoft-msft-price-meta-amazon-ai-tradingkey"
+   },
+   {
+    "indicator": "Earnings date confirmed",
+    "signal": "Microsoft's July 8 notice set the quarterly earnings release date (after the U.S. close on July 29; per search result title/date, page body not re-read)",
+    "lead_time": "~3 weeks ahead",
+    "source_url": "https://news.microsoft.com/source/2026/07/08/microsoft-announces-quarterly-earnings-release-date-68/"
+   }
+  ],
+  "aftermath": "Over the two days after the release the stock gained about 19% cumulatively, and Microsoft rose 24.6% in July as a whole (S&P 500 flat and Nasdaq -3.2% over the same period, per Motley Fool / S&P Global Market Intelligence); by August 4 MSFT was up about 2.3% YTD (from roughly -19% before the report). Analysts said the results might mark a turning point for the struggling tech stock. The October 16 quote was $529.05 (live quote on the Motley Fool page, single source).",
+  "refs": [
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262055798-microsoft-msft-price-meta-amazon-ai-tradingkey",
+   "https://news.microsoft.com/source/2026/07/08/microsoft-announces-quarterly-earnings-release-date-68/",
+   "https://www.cnbc.com/2026/07/30/microsoft-msft-meta-stock-today-earnings.html",
+   "https://www.fool.com/investing/2026/08/04/msft-stock-up-july-earnings-ai-cloud/",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262088121-microsoft-msft-q4-fy2026-earnings-azure-growth-guidance-raise-tradingkey"
+  ]
+ },
+ {
+  "id": "amzn-2026-07-31-aws-reacceleration-earnings-surge",
+  "market": "us_stock",
+  "date": "2026-07-31",
+  "asset": "Amazon (NASDAQ: AMZN)",
+  "move_pct": 15.32,
+  "title": "Amazon Surges 15.3%: AWS Growth Accelerates to 37%, Biggest One-Day Gain Since 2012",
+  "cause": "The direct trigger was the Q2 2026 report released after the close on July 30: revenue of $200.6 billion, operating income of $27.5 billion (+43%), and AWS revenue of $42.2 billion, up 37% year over year (the fastest in 18 quarters, 39.4% operating margin, $496 billion contract backlog); full-year capex guidance was raised from $200 billion to about $220 billion, which the market read as AI spending starting to pay off. The stock closed at $271.58 on July 31 (+15.32%), the biggest one-day gain since 2012 per Bloomberg. Background: shares had been sliding into the print, with investors worried that Microsoft Azure and Google Cloud were eroding Amazon's cloud share, so low expectations amplified the beat. Caveat: GAAP EPS of $5.75 included roughly $53.4 billion of non-operating pre-tax income (mainly a non-cash revaluation of its Anthropic stake), and trailing-12-month free cash flow was -$7.6 billion, so not all of the news was operating good news.",
+  "precursors": [
+   {
+    "indicator": "Earnings date and options-implied move",
+    "signal": "Earnings were scheduled for July 30 after the close, with the options market pricing a range of about +/-$15 (about 6.5% on a ~$231 stock); the actual next-day gain of 15.32% was about 2.4x the implied move",
+    "lead_time": "about 1 week ahead",
+    "source_url": "https://www.tastylive.com/news-insights/amazon-earnings-preview-is-wall-street-s-aws-bar-set-too-low-"
+   },
+   {
+    "indicator": "Weak stock into earnings, low expectations",
+    "signal": "Closed at $231.55 on July 26, about 17% below the 52-week high of $278.56, and down roughly 7% in the prior week",
+    "lead_time": "about 4 days ahead",
+    "source_url": "https://www.tastylive.com/news-insights/amazon-earnings-preview-is-wall-street-s-aws-bar-set-too-low-"
+   },
+   {
+    "indicator": "Analyst AWS estimates well below the actual",
+    "signal": "Before the report, BofA forecast Q2 AWS growth of 33% and Goldman about 33% for 2026; consensus was revenue of ~$196.7 billion and EPS of $1.82; actual AWS growth was 37% and revenue $200.6 billion",
+    "lead_time": "about 1 week ahead",
+    "source_url": "https://www.tastylive.com/news-insights/amazon-earnings-preview-is-wall-street-s-aws-bar-set-too-low-"
+   },
+   {
+    "indicator": "Concern over cloud share loss",
+    "signal": "Shares had fallen for about two months before the report as investors worried Microsoft Azure and Google Cloud were taking share (single source)",
+    "lead_time": "about 2 months ahead",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262067651-stock-us-amzon-amzn-price-aws-ai-msti-google-microsoft-nvidia-tradingkey"
+   }
+  ],
+  "aftermath": "On August 3 the stock hit a new all-time high, pushing market cap past $3 trillion, then pulled back, closing at $272.65 on August 5 (-1.72% on the day), just below the peak (single source). After the report Wall Street raised targets: Morgan Stanley/RBC $330, Telsey $335, Roth $325 (Tradingkey), while RSI of about 80 signaled overbought conditions.",
+  "refs": [
+   "https://www.tastylive.com/news-insights/amazon-earnings-preview-is-wall-street-s-aws-bar-set-too-low-",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262067651-stock-us-amzon-amzn-price-aws-ai-msti-google-microsoft-nvidia-tradingkey",
+   "https://www.fxleaders.com/news/2026/07/31/amazon-stock-jumps-9-as-aws-growth-hits-37-and-revenue-tops-200-billion/",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262070362-amazon-amzn-stock-forecast-august-3-2026-aws-37-percent-openai-35b-tradingkey",
+   "https://www.tikr.com/blog/amazon-set-a-record-high-after-earnings-then-gave-it-back-heres-where-the-stock-could-go"
+  ]
+ },
+ {
+  "id": "sk-hynix-2026-07-31-limit-up-rebound",
+  "market": "us_stock",
+  "date": "2026-07-31",
+  "asset": "SK Hynix (KRX: 000660)",
+  "move_pct": 29.95,
+  "title": "SK Hynix Hits 29.95% Limit-Up: Leverage-Flush Relief Rally After a Three-Day Crash",
+  "cause": "On July 31 SK Hynix closed at the limit-up price of KRW 1,718,000 (+29.95%, opening about 28% higher and touching the 30% ceiling), while the KOSPI jumped 17.91% to 6,595.45, its largest one-day gain on record, and Samsung Electronics rose about 26.8%. It was a post-crash relief rally: from July 28, Asian chip stocks sold off on China's chip push (CXMT's Shanghai debut surged 466%) and on 'circular financing' worries over reports that Nvidia might guarantee about $250 billion of financing for an OpenAI data center. SK Hynix fell 14.65% on July 28 (its third roughly -15% day in July, after -14.57% on July 2 and -15.4% on July 13), while the KOSPI lost about 17% over July 28-30, triggered circuit breakers on two consecutive days, and saw leveraged-ETF blowups (1.2 million+ accounts hit margin-call levels). On July 30, Microsoft's better-than-expected earnings, Micron's overnight gain of over 18% and SanDisk's of about 26% lifted U.S. memory names, and SK Group Chairman Chey Tae-won made his first-ever direct purchase of SK Hynix shares; the next day SK Hynix went straight to limit-up. The close was still about 42% below its 52-week high.",
+  "precursors": [
+   {
+    "indicator": "Valuation trough",
+    "signal": "12-month forward P/E hit a then-record low of 4.74x on July 30 (later broken by 4.54x on October 13)",
+    "lead_time": "close of the session before the limit-up (single source)",
+    "source_url": "https://www.koreatimes.co.kr/economy/20261013/kospi-plunges-546-as-foreign-selling-drives-valuations-to-record-low"
+   },
+   {
+    "indicator": "Three-day oversold slide",
+    "signal": "KOSPI closed above 6,700 on July 27 and fell about 17% over July 28-30 to 5,593; SK Hynix lost 14.65% on July 28, and the KOSPI hit a market-wide circuit breaker on July 28 and a second one on July 29",
+    "lead_time": "1-3 trading days ahead",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262067362-samsung-skhynix-surge-leveraged-etf-risks-south-korea-stock-tradingkey"
+   },
+   {
+    "indicator": "Leverage flush-out",
+    "signal": "16 leveraged ETFs launched in late May with KRW 5 trillion on day one, growing to KRW 16 trillion by end-June; 1.2 million+ leveraged accounts hit margin-call levels and roughly 320,000-460,000 were force-liquidated (single source); from July 16 margin requirements were tripled and a 20% individual cap on single-stock leveraged ETFs was imposed",
+    "lead_time": "forced selling concentrated in the prior 3 days; regulatory tightening ~2 weeks ahead",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262067362-samsung-skhynix-surge-leveraged-etf-risks-south-korea-stock-tradingkey"
+   },
+   {
+    "indicator": "U.S. memory names moved first overnight",
+    "signal": "Microsoft's better-than-expected earnings on July 30 eased AI-capex worries; overnight SanDisk rose about 26% and Micron over 18%",
+    "lead_time": "~half a day ahead (before Seoul open)",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262067362-samsung-skhynix-surge-leveraged-etf-risks-south-korea-stock-tradingkey"
+   },
+   {
+    "indicator": "Group chairman buys shares",
+    "signal": "SK Group Chairman Chey Tae-won bought 3,620 SK Hynix shares on the open market on July 30 (about KRW 4.79 billion), his first direct purchase of the stock (single source)",
+    "lead_time": "~1 day ahead",
+    "source_url": "https://www.koreaherald.com/article/10827196"
+   }
+  ],
+  "aftermath": "The limit-up was not a one-step bottom: on August 13 SK Hynix rose about 6% in a day, and by August 14 the KOSPI had climbed to a three-week high on course to end seven straight weekly losses; after the close on August 19 SK Hynix announced a KRW 40 trillion buyback-and-cancellation, and at 10:32 on August 20 it was up 11.07% at KRW 1,666,000 (an intraday figure, not a close). The gains later faded: SK Hynix lost 31.5% over the seven sessions from October 6 and closed at KRW 1,262,000 on October 15, about 27% below the July 31 limit-up close.",
+  "refs": [
+   "https://www.koreatimes.co.kr/economy/20261013/kospi-plunges-546-as-foreign-selling-drives-valuations-to-record-low",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262067362-samsung-skhynix-surge-leveraged-etf-risks-south-korea-stock-tradingkey",
+   "https://www.koreaherald.com/article/10827196",
+   "https://www.kedglobal.com/korean-stock-market/newsView/ked202607310001",
+   "https://www.indmoney.com/blog/us-stocks/kospi-crash-skhynix-skhy-samsung-stock-analysis",
+   "https://www.businesstoday.com.my/2026/08/16/kospi-breaks-seven-week-losing-run-as-chip-rally-drives-rebound/",
+   "https://www.mt.co.kr/en/stock/2026/08/20/2026082010302960536",
+   "https://www.koreatimes.co.kr/economy/20261016/samsung-sk-hynix-sell-off-excessive-as-memory-outlook-stays-strong-analysts"
+  ]
+ },
+ {
+  "id": "pltr-2026-08-04-q2-blowout-guidance-raise",
+  "market": "us_stock",
+  "date": "2026-08-04",
+  "asset": "Palantir Technologies (NASDAQ: PLTR)",
+  "move_pct": 29.45,
+  "title": "Palantir Soars 29.45%: Q2 Revenue +93% and Record Guidance Raise Wipe Out About $3 Billion of Short Gains",
+  "cause": "The trigger was the Q2 report released after the close on August 3: revenue of $1.935 billion, up 93% year over year (consensus about $1.81 billion), U.S. commercial revenue of $764 million (+149%), U.S. government revenue of $809 million (+90%), and adjusted EPS of $0.41 (vs. about $0.34-0.35 expected). Full-year revenue guidance was raised from about $7.65 billion to $8.15-8.158 billion (midpoint up about $498 million) and adjusted free cash flow guidance up $300 million. On August 4 the stock closed at $162.66 (+29.45%) on about 174.5 million shares (over 4x the prior 65-session average), adding about $88.8 billion of market value (to about $390 billion), the biggest one-day gain since February 2024. Background: ahead of the print the stock was weak on rich valuation (about 90x forward earnings), insider selling, and worries that AI agents could reshape software business models, with shorts having built paper gains; the beat triggered short covering. Note on the given figures: the -10% single-day drop on July 28 supplied in the brief could not be confirmed in any retrievable source (only a ~4% fall on July 22 and one auto-generated note citing -5.26% on July 28), so it is not used.",
+  "precursors": [
+   {
+    "indicator": "Valuation and insider selling weighing",
+    "signal": "On July 22 (Wednesday) shares fell about 4%: valuation near 90x forward earnings, the CTO sold about $24 million under a pre-arranged plan in early July, a director sold over $2 million on July 15, and AI software names were under pressure",
+    "lead_time": "about 2 weeks ahead",
+    "source_url": "https://finance.yahoo.com/markets/stocks/articles/palantir-stock-tumbles-ahead-earnings-210010825.html"
+   },
+   {
+    "indicator": "Short positioning built up",
+    "signal": "Shorts had about $2.7 billion of mark-to-market gains for 2026 before earnings and short interest was about 3.2% of shares outstanding; the rally cost shorts roughly $3 billion in one day (3.2% short interest is from Tradingkey; the $2.7B/$3B figures from GuruFocus citing Bloomberg)",
+    "lead_time": "weeks ahead through the print",
+    "source_url": "https://www.gurufocus.com/news/9005493/palantir-stock-massive-jump-wipes-out-3-billion-in-shortseller-gains"
+   },
+   {
+    "indicator": "Low analyst expectations",
+    "signal": "Consensus before the report was revenue of about $1.81 billion and adjusted EPS of about $0.34-0.35; actual were $1.935 billion and $0.41, with the largest guidance raise in company history (earnings date of Aug 3 was public)",
+    "lead_time": "confirmed same-day pre-market (date announced in advance)",
+    "source_url": "https://finviz.com/news/376477/palantir-shares-soar-after-record-quarter-and-major-guidance-upgrade"
+   },
+   {
+    "indicator": "Depressed share price into earnings",
+    "signal": "The stock was still down about 10% for 2026 even after the surge; back-solving from the 29% gain implies a prior close of roughly $125-126 (derived, not reported; single source)",
+    "lead_time": "weeks ahead",
+    "source_url": "https://www.tikr.com/blog/palantir-jumped-29-today-heres-what-could-keep-the-ai-rally-going-through-2026"
+   }
+  ],
+  "aftermath": "After hours it slipped about 1.9% to $159.52. It then kept climbing: reportedly up about 60% for Q3, and in October it hit a record high of about $213, erasing a near-50% drawdown; on October 16, however, AI-financing worries pushed it below $190, down about 10% for the week (single source). After the report Citi had a $245 target, Mizuho $215, and Deutsche Bank upgraded to Buy with $200.",
+  "refs": [
+   "https://finance.yahoo.com/markets/stocks/articles/palantir-stock-tumbles-ahead-earnings-210010825.html",
+   "https://www.gurufocus.com/news/9005493/palantir-stock-massive-jump-wipes-out-3-billion-in-shortseller-gains",
+   "https://finviz.com/news/376477/palantir-shares-soar-after-record-quarter-and-major-guidance-upgrade",
+   "https://www.tikr.com/blog/palantir-jumped-29-today-heres-what-could-keep-the-ai-rally-going-through-2026",
+   "https://coincentral.com/palantir-pltr-stock-soars-ai-demand-adds-89-billion-market-value/",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262080546-palantir-pltr-stock-surges-after-q2-earnings-ai-demand-guidance-tradingkey",
+   "https://www.fxleaders.com/news/2026/10/16/pltr-stock-falls-below-190-as-ai-financing-risks-trigger-tech-sell-off/"
+  ]
+ },
+ {
+  "id": "meta-2026-09-21-muse-traction-wells-fargo-upgrade",
+  "market": "us_stock",
+  "date": "2026-09-21",
+  "asset": "Meta Platforms (NASDAQ: META)",
+  "move_pct": 11.34,
+  "title": "Meta Jumps 11.34%: Muse AI Assistant Tops App Charts as Wells Fargo Lifts Target Sharply",
+  "cause": "The direct trigger was Wells Fargo analyst Ken Gawrelski raising his Meta price target from $640 to $796 on Monday, September 21 (about 20% above the prior close), citing strong early traction for Muse, Meta's new personal AI agent: SensorTower data showed a record 264,000 U.S. downloads on September 19 and 448,000 daily active users the day before, and Muse topped Apple's App Store. The stock closed at $741.25 (+11.34% from $665.75) on 48.25 million shares, adding roughly $190 billion of market value (ts2 estimate), the biggest one-day move since April 2025. Background: Meta had fallen from $738 at end-June 2025 to $563 on June 30, 2026 (-24%) on doubts about AI monetization and capex; low expectations plus the Meta Connect catalyst on September 23 amplified the rebound.",
+  "precursors": [
+   {
+    "indicator": "Muse app usage surged first",
+    "signal": "SensorTower: record 264,000 U.S. Muse downloads on Sep 19 and 448,000 daily actives on Sep 18 (cited in Wells Fargo note); the market priced it fully only the next trading day",
+    "lead_time": "1-2 trading days ahead",
+    "source_url": "https://www.tikr.com/blog/meta-stock-jumped-11-monday-heres-where-shares-could-go-further-in-2026"
+   },
+   {
+    "indicator": "Depressed price and low expectations",
+    "signal": "Shares fell from $738 (end-June 2025) to $563 (June 30, 2026, -24%); mean analyst target eased from $867 (Sep 2025 peak) to about $827 and analysts with price targets fell from 62 to 56",
+    "lead_time": "months ahead",
+    "source_url": "https://www.tikr.com/blog/meta-stock-jumped-11-monday-heres-where-shares-could-go-further-in-2026"
+   },
+   {
+    "indicator": "Meta Connect catalyst announced",
+    "signal": "The annual AI showcase was scheduled for September 23; Wells Fargo expected new Muse features and Muse Spark model details and said Meta 'now has a story to tell'",
+    "lead_time": "about 2 days ahead",
+    "source_url": "https://www.ibtimes.co.uk/meta-shares-rise-wells-fargo-muse-ai-meta-connect-1821084"
+   },
+   {
+    "indicator": "Sell-side bullish but targets low",
+    "signal": "LSEG: 57 of 64 brokerages rated Meta buy or better with a median target of $750, near the then price",
+    "lead_time": "same-day pre-market trigger",
+    "source_url": "https://www.tikr.com/blog/meta-stock-jumped-11-monday-heres-where-shares-could-go-further-in-2026"
+   }
+  ],
+  "aftermath": "On Connect day (Sep 23) the stock closed at $744.10 (+1.02%), then slipped 1.36% to $734 after hours (ts2, single source); Reuters, as cited by Tapbit, reported 2.8 million Muse downloads in its first 12 days (single source). Wells Fargo lifted its target again to $1,000 on October 7. Meta's September gain was reported at roughly 30%-36% depending on the source.",
+  "refs": [
+   "https://www.tikr.com/blog/meta-stock-jumped-11-monday-heres-where-shares-could-go-further-in-2026",
+   "https://www.ibtimes.co.uk/meta-shares-rise-wells-fargo-muse-ai-meta-connect-1821084",
+   "https://ts2.tech/en/meta-stock-closes-11-higher-despite-amazons-muse-shopping-block/",
+   "https://www.tapbit.com/en/learn/article/meta-connect-2026-ai-glasses-muse-meta-stock-20260924"
+  ]
+ },
+ {
+  "id": "sk-hynix-2026-10-15-rates-ai-debt-selloff",
+  "market": "us_stock",
+  "date": "2026-10-15",
+  "asset": "SK Hynix (KRX: 000660)",
+  "move_pct": -11.06,
+  "title": "SK Hynix Plunges 11.06%: Hot U.S. Inflation Meets AI-Debt Fears, KOSPI Halted",
+  "cause": "On October 15 SK Hynix closed at KRW 1,262,000 (-11.06%), Samsung Electronics fell 9.48%, and the KOSPI dropped 7.57% to 5,554.22, with circuit breakers briefly halting trading in both markets. The direct trigger was a hotter-than-expected U.S. September CPI (3.7% y/y vs 3.6% consensus; single source) that pushed Treasury yields up and briefly put roughly even odds on a Fed hike, combined with worries over debt-funded AI buildouts (CoreWeave's 2032 bonds fell to 78 cents on the dollar and its stock lost 15% in a session); the Philadelphia Semiconductor Index fell about 4.3% in a day, and U.S. chip and AI names were hit overnight. Background: on October 13 SK Hynix had already fallen 10.09% (to KRW 1,443,000) on CXMT's planned new server memory products and an FT report that OpenAI's annualized revenue was about $50 billion, roughly 30% below the earlier $70 billion; Samsung's buyback ended October 7 and SK Hynix's ended that week, removing a cushion that had absorbed an average KRW 1.61 trillion of daily selling in August-September, and foreigners sold over $10 billion in October (single source). Over the seven sessions from October 6 SK Hynix lost 31.5%, and it is now about 56% below its 52-week high of KRW 2,919,000.",
+  "precursors": [
+   {
+    "indicator": "Buyback cushion disappears",
+    "signal": "Samsung's buyback ended October 7 and SK Hynix's ended the week of October 13; buybacks had absorbed an average KRW 1.61 trillion of daily selling in August-September, a period in which foreigners net sold KRW 31.7 trillion",
+    "lead_time": "~1 week ahead",
+    "source_url": "https://www.koreatimes.co.kr/economy/20261013/kospi-plunges-546-as-foreign-selling-drives-valuations-to-record-low"
+   },
+   {
+    "indicator": "Foreign selling accelerates + peers move first",
+    "signal": "On October 13 foreigners net sold KRW 4.51 trillion in one day; the KOSPI fell 5.46% to 6,035.35 and triggered the year's 26th sell-side sidecar, with SK Hynix down 10.09% to KRW 1,443,000; catalysts included CXMT's new server memory and the FT's report of OpenAI revenue below earlier reports",
+    "lead_time": "2 trading days ahead",
+    "source_url": "https://www.koreatimes.co.kr/economy/20261013/kospi-plunges-546-as-foreign-selling-drives-valuations-to-record-low"
+   },
+   {
+    "indicator": "U.S. CPI surprise + AI debt",
+    "signal": "U.S. September CPI on October 14 at 3.7% y/y vs 3.6% expected (single source), futures briefly priced ~50% odds of a Fed hike; the Philadelphia Semiconductor Index fell about 4.3% in a day, CoreWeave and Nebius each lost over 11%; SK Hynix's U.S. ADR SKHY closed October 14 at $147.55 (-6.06%)",
+    "lead_time": "~half a day ahead (the night before Asia opened)",
+    "source_url": "https://www.roic.ai/news/nasdaq-extends-declines-last-down-2-as-inflation-yields-and-ai-selloff-bite-10-14-2026"
+   },
+   {
+    "indicator": "Seven-day slide and extreme valuation",
+    "signal": "SK Hynix lost 31.5% over seven sessions from October 6, Samsung 23.9%, and the KOSPI 1,449.52 points (21%); the 12-month forward P/E hit a record-low 4.54x on October 13, which analysts said implies a 35%-51% earnings decline",
+    "lead_time": "from ~1 week ahead",
+    "source_url": "https://www.koreatimes.co.kr/economy/20261016/samsung-sk-hynix-sell-off-excessive-as-memory-outlook-stays-strong-analysts"
+   }
+  ],
+  "aftermath": "As of October 17: on October 16 the KOSPI rebounded 2.05% to 5,668.05, foreigners turned net buyers (about KRW 341 billion) for the first time in eight sessions, and SK Hynix's local shares rose about 0.79%, but U.S. markets weakened again overnight (Nasdaq -2.14%, SKHY about -3% intraday, Micron down over 5%, SKHY down about 15% over five days). Brokers (KB Securities, SK Securities) called the fall an excessive correction, citing rising HBM prices and long-term supply agreements supporting earnings; SK Hynix reports Q3 results on October 28. Whether this is the bottom remains unsettled.",
+  "refs": [
+   "https://www.koreatimes.co.kr/economy/20261013/kospi-plunges-546-as-foreign-selling-drives-valuations-to-record-low",
+   "https://www.roic.ai/news/nasdaq-extends-declines-last-down-2-as-inflation-yields-and-ai-selloff-bite-10-14-2026",
+   "https://www.koreatimes.co.kr/economy/20261016/samsung-sk-hynix-sell-off-excessive-as-memory-outlook-stays-strong-analysts",
+   "https://en.bloomingbit.io/feed/news/122318",
+   "https://finance.yahoo.com/markets/stocks/articles/sk-hynix-sinks-ai-stocks-173800193.html",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262220965-stock-memory-ai-skhy-micron-wdc-sndk-stx-cpi-ppi-tradingkey",
+   "https://www.gurufocus.com/news/9124811/sk-hynix-shares-drop-over-10-amid-rising-borrowing-costs-concerns-ticker-skhy"
+  ]
  }
 ]

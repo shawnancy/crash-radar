@@ -16,11 +16,15 @@ def sym_for(e):
         return "^GSPC", note
     if e["market"] == "us_stock":
         m = {"meta": "META", "facebook": "META", "netflix": "NFLX", "nvda": "NVDA",
-             "micron": "MU", "hynix": "000660.KS"}
+             "micron": "MU", "hynix": "000660.KS",
+             "tsla": "TSLA", "smci": "SMCI", "msft": "MSFT", "amzn": "AMZN",
+             "pltr": "PLTR", "mstr": "MSTR"}
         for k, v in m.items():
             if k in e["id"].lower():
                 lbl = {"META": "Meta/Facebook", "NFLX": "Netflix", "NVDA": "NVIDIA",
-                       "MU": "美光", "000660.KS": "SK海力士(首尔, 韩元)"}[v]
+                       "MU": "美光", "000660.KS": "SK海力士(首尔, 韩元)",
+                       "TSLA": "特斯拉", "SMCI": "超微电脑", "MSFT": "微软", "AMZN": "亚马逊",
+                       "PLTR": "Palantir", "MSTR": "Strategy(MSTR)"}[v]
                 return v, lbl
         raise ValueError("unmapped stock " + e["id"])
     if "ust" in e["id"] and "depeg" in e["id"]:
@@ -29,6 +33,8 @@ def sym_for(e):
         return "LUNA1-USD", "LUNA(对数不适用, 线性)"
     if "ftt" in e["id"]:
         return "FTT-USD", "FTT"
+    if e["id"].lower().startswith("eth-"):
+        return "ETH-USD", "ETH"
     return "BTC-USD", "BTC"
 
 
@@ -79,7 +85,18 @@ def main():
             fails.append((e["id"], str(ex)))
             print(f"FAIL {e['id']}: {ex}")
         time.sleep(0.6)
-    (ROOT / "data" / "klines_6m.json").write_text(json.dumps(out, ensure_ascii=False))
+    # 10-17 修: 原来整份重写, 取不到的事件(UST/LUNA 已被 Yahoo 下架 404)旧K线被静默删掉。
+    # 现在失败的事件沿用文件里原有的K线, 不丢数据。
+    f = ROOT / "data" / "klines_6m.json"
+    try:
+        prev = json.loads(f.read_text())
+    except Exception:
+        prev = {}
+    for eid, _err in fails:
+        if eid in prev and eid not in out:
+            out[eid] = prev[eid]
+            print(f"KEEP {eid}: 本次取数失败, 沿用旧K线")
+    f.write_text(json.dumps(out, ensure_ascii=False))
     print(f"\n{len(out)}/{len(events)} saved, {len(fails)} fails", fails or "")
 
 

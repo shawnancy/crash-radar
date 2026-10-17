@@ -795,5 +795,354 @@
    "https://www.techtimes.com/articles/320352/20260713/sk-hynix-posts-worst-seoul-session-record-hbm-contracts-limit-earnings-upside.htm",
    "https://247wallst.com/investing/2026/07/14/sk-hynix-adr-soars-19-as-leveraged-etfs-launch-lifting-micron-sandisk-western-digital/"
   ]
+ },
+ {
+  "id": "smci-2026-07-22-prelim-q4-margin-orders",
+  "market": "us_stock",
+  "date": "2026-07-22",
+  "asset": "超微电脑 Super Micro Computer (NASDAQ: SMCI)",
+  "move_pct": 19.84,
+  "title": "超微电脑大涨19.8%: 财年Q4初步业绩毛利率翻倍、新订单超600亿美元",
+  "cause": "直接导火索是7月21日美股收盘后公司发布的财年Q4(截至6月30日)初步业绩更新: 毛利率预期从此前指引的8.2%-8.4%上调至15%-17%(公司称因'有利的客户与产品组合'), 季度新订单超过600亿美元、在手订单创纪录; 营收预计落在110亿-125亿美元指引区间的低端。7月22日股价盘中一度涨约24%, 收30.56美元, 涨19.84%, 成交量1.593亿股(约为3个月均量的3倍)。背景: 6月9日公司宣布约70亿美元股权及股权挂钩融资(用于为约390亿美元AI服务器订单采购零部件), 6月10日单日大幅重挫(检索摘要口径收盘约-28%, 未回读原文), 此次大涨是在深度回撤后的反弹(7月20日前后一度逼近23.83美元的低点, 单一信源); 同日戴尔涨9.32%、HPE涨3.02%。分析师仍偏谨慎: 共识目标价约34美元, 公司还面临证券集体诉讼与治理质疑(单一信源)。",
+  "precursors": [
+   {
+    "indicator": "股权融资后的深度回撤与高做空",
+    "signal": "6月9日宣布约70亿美元股权及股权挂钩融资, 6月10日盘中跌13.6%至35.13美元; 当时空头占流通股15.7%",
+    "lead_time": "提前约6周",
+    "source_url": "https://www.schaeffersresearch.com/content/news/2026/06/10/ai-server-stock-slides-on-equity-offering-news"
+   },
+   {
+    "indicator": "悲观的估值与盈利预期",
+    "signal": "最近一季毛利率略低于10%, 被评价为偏'轻'(Motley Fool 7月28日); 7月22日前股价年内仍下跌约13%(Yahoo口径), 另有前任审计师辞职与走私指控等治理风险压低预期(单一信源)",
+    "lead_time": "提前数周持续存在",
+    "source_url": "https://www.fool.com/investing/2026/07/28/after-giving-investors-great-news-is-super-micro-c/"
+   },
+   {
+    "indicator": "订单能见度",
+    "signal": "6月融资的用途是为约390亿美元AI服务器订单采购零部件(Yahoo), 预示后续订单/营收的潜在释放",
+    "lead_time": "提前约6周",
+    "source_url": "https://finance.yahoo.com/markets/article/supermicro-stock-jumps-on-gross-margin-raise-amid-record-60-billion-backlog-223037795.html"
+   },
+   {
+    "indicator": "同业AI服务器链条走强",
+    "signal": "同日戴尔(DELL)涨9.32%, 惠普企业(HPE)涨3.02%, 说明板块情绪同步回暖",
+    "lead_time": "同日盘中触发",
+    "source_url": "https://www.fool.com/coverage/stock-market-today/2026/07/22/stock-market-today-july-22-super-micro-computer-surges-on-record-q4-orders-and-surprise-margin-beat/"
+   }
+  ],
+  "aftermath": "财年Q4正式财报(8月中旬)EPS 1.70美元 vs 0.92美元预期, 营收111.2亿美元(略低于116亿美元预期), 非GAAP毛利率17.6%, 财报后股价约涨19.5%, 其后至8月19日回落约8.2%(以上均为单一信源AllInvestView, 财报日期来源间有8月11日/14日之分, 未能核实)。",
+  "refs": [
+   "https://www.schaeffersresearch.com/content/news/2026/06/10/ai-server-stock-slides-on-equity-offering-news",
+   "https://www.fool.com/investing/2026/07/28/after-giving-investors-great-news-is-super-micro-c/",
+   "https://finance.yahoo.com/markets/article/supermicro-stock-jumps-on-gross-margin-raise-amid-record-60-billion-backlog-223037795.html",
+   "https://www.fool.com/coverage/stock-market-today/2026/07/22/stock-market-today-july-22-super-micro-computer-surges-on-record-q4-orders-and-surprise-margin-beat/",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262049895-super-micro-computer-smci-stock-surges-24-percent-july-23-2026-tradingkey",
+   "https://www.allinvestview.com/earnings/SMCI/q4-2026/"
+  ]
+ },
+ {
+  "id": "tsla-2026-07-23-q2-profit-miss-capex",
+  "market": "us_stock",
+  "date": "2026-07-23",
+  "asset": "特斯拉 Tesla (NASDAQ: TSLA)",
+  "move_pct": -14.52,
+  "title": "特斯拉暴跌14.5%: Q2利润大幅不及预期叠加自由现金流转负",
+  "cause": "直接导火索是7月22日盘后发布的Q2财报: 营收282.4亿美元(同比+26%, 高于约263亿美元预期), 交付量48.0126万辆(+25%, 高于约39.7万辆预期), 但非GAAP每股收益仅0.33美元, 远低于约0.50-0.53美元一致预期; 调整后EBITDA 32亿美元(预期40亿); 营业利润仅3.98亿美元(同比-57%), 营业利润率1.4%(去年同期4.1%); 监管积分收入1.46亿美元(-67%); 自由现金流为-10.9亿美元(首次转负); Q2资本开支57.9亿美元(+142%), CFO称2026全年资本开支将'超过250亿美元'。次日(7月23日)股价收319.69美元, 跌14.52%, 为2025年8月5日以来最低收盘, 一日蒸发市值超1400亿美元。背景: 记录交付依赖低息融资等激励压缩了汽车毛利, Robotaxi数据偏弱(付费里程环比持平约90万英里, 无监督车队仅约21辆, Electrek口径), 投资者对'先烧钱后证明回报'的耐心下降; 摩根士丹利指出缺乏清晰ROI证据时市场对增量资本开支的容忍度将收窄。",
+  "precursors": [
+   {
+    "indicator": "期权隐含波动率",
+    "signal": "财报前期权定价的财报后波动约±7.6%(单一信源); 实际跌14.52%约为隐含波动的1.9倍",
+    "lead_time": "提前约1天",
+    "source_url": "https://electrek.co/2026/07/21/tesla-tsla-q2-2026-earnings-preview/"
+   },
+   {
+    "indicator": "盈利预期分歧大",
+    "signal": "财报前一致预期EPS约0.53美元, 但区间宽达0.27-0.74美元(德银仅0.36); 营收预期约264亿美元(Estimize约259亿)",
+    "lead_time": "提前约1天",
+    "source_url": "https://electrek.co/2026/07/21/tesla-tsla-q2-2026-earnings-preview/"
+   },
+   {
+    "indicator": "利润率与补贴隐患",
+    "signal": "前瞻文章已点明: Q1汽车毛利(剔除积分)仅约12.5%, 监管积分收入持续萎缩(去年Q2为4.39亿美元, 已同比降逾50%), 7500美元联邦电动车税收抵免已于2025年9月30日到期, 记录交付可能靠降价和融资激励换取",
+    "lead_time": "提前约1天(部分隐患提前数月公开)",
+    "source_url": "https://electrek.co/2026/07/21/tesla-tsla-q2-2026-earnings-preview/"
+   }
+  ],
+  "aftermath": "股价收于319.69美元, 为11个月低点。财报后多家券商下调目标价: Canaccord 450降至410美元, Cantor Fitzgerald 510降至485美元, 摩根大通475降至445美元(均维持原评级, 来源FinanceBuzz); 目标价区间仍极分散(Wells Fargo 130美元至Wedbush 600美元)。7月23日之后的走势本次未查到可靠来源。",
+  "refs": [
+   "https://electrek.co/2026/07/21/tesla-tsla-q2-2026-earnings-preview/",
+   "https://electrek.co/2026/07/23/tesla-tsla-crashes-12-q2-2026-earnings-miss/",
+   "https://financebuzz.com/news/tesla-stock-plunges-after-earnings-miss"
+  ]
+ },
+ {
+  "id": "msft-2026-07-30-azure-accel-capex-relief",
+  "market": "us_stock",
+  "date": "2026-07-30",
+  "asset": "微软 Microsoft (NASDAQ: MSFT)",
+  "move_pct": 15.51,
+  "title": "微软大涨15.5%: Azure增速加速至43%、资本开支未再加码, 创2008年以来最佳单日",
+  "cause": "直接导火索是7月29日盘后公布的2026财年Q4财报: 营收900.1亿美元(同比+18%, 预期约876亿美元), 调整后EPS 4.74美元(预期4.24美元), Azure增长43%(预期约40%, 上季40%), Azure年收入首次突破1000亿美元, 商业剩余履约义务(RPO)同比+84%至6780亿美元, Microsoft 365 Copilot付费席位超3000万; 同时资本开支指引未再上调(各来源给出的日历年数值不一, 1750亿或1900亿美元), 并给出FY27Q1营收指引898.5-909.5亿美元、Azure增速约45%(固定汇率, 高于市场预期)。7月30日股价收451.10美元, 涨15.51%, CNBC称为2008年以来最佳单日(检索摘要口径), 另有单一信源估算约增加4500亿美元市值。背景: 财报前MSFT年内已下跌约19%-20%, 前瞻PE仅约20倍, 市场正担心AI资本开支吞噬自由现金流——一周前Alphabet因单季资本开支449亿美元翻倍而财报后下跌约15%(尽管Google Cloud增长82%), 微软同日对比下'增速加速+资本开支不加码'的组合带来强烈的预期差; 同日Meta则继续下跌约8%。",
+  "precursors": [
+   {
+    "indicator": "同业财报引发的资本开支恐慌(反向前兆)",
+    "signal": "7月22日Alphabet财报后下跌约15%: 单季资本开支449亿美元(同比翻倍)吞噬自由现金流, 即使Google Cloud增长82%; 市场对微软财报的预期框架因此转为'资本开支加码=利空'",
+    "lead_time": "提前约1周",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262055798-microsoft-msft-price-meta-amazon-ai-tradingkey"
+   },
+   {
+    "indicator": "估值与仓位已极度悲观",
+    "signal": "财报前MSFT年内下跌约19%-20%, 7月26日报381.40美元(52周区间349.20-555.45), 前瞻PE约20倍",
+    "lead_time": "提前数周至数日",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262055798-microsoft-msft-price-meta-amazon-ai-tradingkey"
+   },
+   {
+    "indicator": "分析师一致预期门槛偏低",
+    "signal": "一致预期营收约877亿美元、EPS 4.24美元、Azure增长约40%; 市场牛熊分界为Azure维持35%以上",
+    "lead_time": "提前约1周",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262055798-microsoft-msft-price-meta-amazon-ai-tradingkey"
+   },
+   {
+    "indicator": "财报公布时点已确定",
+    "signal": "微软7月8日发布公告确定季度财报发布日期(7月29日美股盘后, 来源见检索结果标题与日期; 页面正文未回读)",
+    "lead_time": "提前约3周",
+    "source_url": "https://news.microsoft.com/source/2026/07/08/microsoft-announces-quarterly-earnings-release-date-68/"
+   }
+  ],
+  "aftermath": "财报后两日累计涨约19%, 微软7月全月涨24.6%(同期标普500持平、纳指跌3.2%, 来源Motley Fool/S&P Global Market Intelligence); 截至8月4日MSFT年内转为上涨约2.3%(此前约-19%)。分析师称这次财报或为这只受挫科技股的转折点。10月16日报价为529.05美元(来自Motley Fool页面实时报价, 单一信源)。",
+  "refs": [
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262055798-microsoft-msft-price-meta-amazon-ai-tradingkey",
+   "https://news.microsoft.com/source/2026/07/08/microsoft-announces-quarterly-earnings-release-date-68/",
+   "https://www.cnbc.com/2026/07/30/microsoft-msft-meta-stock-today-earnings.html",
+   "https://www.fool.com/investing/2026/08/04/msft-stock-up-july-earnings-ai-cloud/",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262088121-microsoft-msft-q4-fy2026-earnings-azure-growth-guidance-raise-tradingkey"
+  ]
+ },
+ {
+  "id": "amzn-2026-07-31-aws-reacceleration-earnings-surge",
+  "market": "us_stock",
+  "date": "2026-07-31",
+  "asset": "亚马逊 Amazon (NASDAQ: AMZN)",
+  "move_pct": 15.32,
+  "title": "亚马逊暴涨15.3%: AWS增速升至37%, 为2012年以来最大单日涨幅",
+  "cause": "直接导火索是7月30日盘后发布的2026年Q2财报: 营收2006亿美元, 营业利润275亿美元(+43%), AWS收入422亿美元、同比增37%(18个季度来最快增速, 营业利润率39.4%, 合同积压4960亿美元), 全年资本开支指引由2000亿上调至约2200亿美元, 市场将其解读为AI投入开始兑现。7月31日收盘271.58美元(+15.32%), 据彭博报道为2012年以来最大单日涨幅。背景是财报前股价已连跌, 市场担忧微软Azure与谷歌云蚕食份额, 低预期放大了超预期幅度。注意: 当季GAAP每股收益5.75美元含约534亿美元非经营性税前收益(主要是Anthropic持股重估, 非现金), 滚动12个月自由现金流为-76亿美元, 并非全部是经营利好。",
+  "precursors": [
+   {
+    "indicator": "财报日期与期权隐含波动",
+    "signal": "财报定于7月30日盘后, 期权隐含波动区间约±15美元(约6.5%, 股价约231美元); 实际次日涨15.32%, 约为隐含波幅的2.4倍",
+    "lead_time": "提前约1周",
+    "source_url": "https://www.tastylive.com/news-insights/amazon-earnings-preview-is-wall-street-s-aws-bar-set-too-low-"
+   },
+   {
+    "indicator": "股价财报前走弱, 估值预期低",
+    "signal": "7月26日收盘231.55美元, 较52周高点278.56美元低约17%, 前一周下跌约7%",
+    "lead_time": "提前约4天",
+    "source_url": "https://www.tastylive.com/news-insights/amazon-earnings-preview-is-wall-street-s-aws-bar-set-too-low-"
+   },
+   {
+    "indicator": "分析师对AWS增速的预期明显低于实际",
+    "signal": "财报前美银预测AWS Q2同比增33%, 高盛预测2026年增速约33%; 一致预期营收约1967亿美元、EPS 1.82美元; 实际AWS增37%、营收2006亿美元",
+    "lead_time": "提前约1周",
+    "source_url": "https://www.tastylive.com/news-insights/amazon-earnings-preview-is-wall-street-s-aws-bar-set-too-low-"
+   },
+   {
+    "indicator": "市场对云份额被蚕食的担忧",
+    "signal": "财报前股价已连跌约两个月, 投资者担心微软Azure与谷歌云抢占亚马逊云份额(单一信源)",
+    "lead_time": "提前约2个月",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262067651-stock-us-amzon-amzn-price-aws-ai-msti-google-microsoft-nvidia-tradingkey"
+   }
+  ],
+  "aftermath": "8月3日股价再创历史新高, 市值突破3万亿美元; 随后回落, 8月5日收272.65美元(当日-1.72%), 略低于高点(单一信源)。财报后华尔街普遍上调目标价: 摩根士丹利/RBC 330美元、Telsey 335美元、Roth 325美元(Tradingkey), 技术面RSI约80处于超买区。",
+  "refs": [
+   "https://www.tastylive.com/news-insights/amazon-earnings-preview-is-wall-street-s-aws-bar-set-too-low-",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262067651-stock-us-amzon-amzn-price-aws-ai-msti-google-microsoft-nvidia-tradingkey",
+   "https://www.fxleaders.com/news/2026/07/31/amazon-stock-jumps-9-as-aws-growth-hits-37-and-revenue-tops-200-billion/",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262070362-amazon-amzn-stock-forecast-august-3-2026-aws-37-percent-openai-35b-tradingkey",
+   "https://www.tikr.com/blog/amazon-set-a-record-high-after-earnings-then-gave-it-back-heres-where-the-stock-could-go"
+  ]
+ },
+ {
+  "id": "sk-hynix-2026-07-31-limit-up-rebound",
+  "market": "us_stock",
+  "date": "2026-07-31",
+  "asset": "SK海力士 SK Hynix (KRX: 000660)",
+  "move_pct": 29.95,
+  "title": "SK海力士涨停29.95%: 三日崩盘后的杠杆出清式报复反弹",
+  "cause": "7月31日海力士收于涨停价171.8万韩元(+29.95%, 开盘即涨约28%, 触及30%涨停), 同日KOSPI暴涨17.91%至6,595.45点创单日最大涨幅纪录, 三星电子涨约26.8%。这是'崩盘后的报复性反弹': 7月28日起亚洲半导体股因中国芯片推进(长鑫CXMT上海上市首日涨466%)及英伟达或为OpenAI数据中心担保约2500亿美元融资的'循环融资'担忧而暴跌, 海力士7月28日单日-14.65%(7月内第三次约-15%的单日暴跌, 前两次为7月2日-14.57%与7月13日-15.4%), KOSPI 7月28-30日累计跌约17%、连续两日触发熔断, 并伴随杠杆ETF爆仓(120万+账户触及追保线)。7月30日微软财报好于预期、美光隔夜涨超18%、SanDisk涨约26%带动美股存储链反弹, 叠加SK集团会长崔泰源首次直接增持海力士, 次日海力士直接封涨停。收盘价距52周高点仍低约42%。",
+  "precursors": [
+   {
+    "indicator": "估值见底",
+    "signal": "12个月远期市盈率7月30日创当时记录低位4.74倍(10月13日才被4.54倍刷新)",
+    "lead_time": "同日收盘, 即涨停前一个交易日 (单一信源)",
+    "source_url": "https://www.koreatimes.co.kr/economy/20261013/kospi-plunges-546-as-foreign-selling-drives-valuations-to-record-low"
+   },
+   {
+    "indicator": "前三日超跌",
+    "signal": "KOSPI 7月27日收于6,700点上方, 7月28-30日累计跌约17%至5,593点; 海力士7月28日单日-14.65%, KOSPI 7月28日盘中触发全市场熔断、7月29日再触发第二次",
+    "lead_time": "提前1-3个交易日",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262067362-samsung-skhynix-surge-leveraged-etf-risks-south-korea-stock-tradingkey"
+   },
+   {
+    "indicator": "杠杆爆仓出清",
+    "signal": "16只杠杆ETF五月底上线首日规模5万亿韩元、6月底增至16万亿; 120万+杠杆账户触及追保线、约32万-46万账户被强平 (单一信源); 7月16日起保证金要求提高至3倍, 个人单一股杠杆ETF设20%投资上限",
+    "lead_time": "强平集中在前3日, 监管收紧提前约2周",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262067362-samsung-skhynix-surge-leveraged-etf-risks-south-korea-stock-tradingkey"
+   },
+   {
+    "indicator": "美股存储链隔夜先动",
+    "signal": "微软7月30日财报好于预期缓解AI资本开支担忧; 隔夜SanDisk涨约26%, 美光涨超18%",
+    "lead_time": "提前约半日(首尔开盘前)",
+    "source_url": "https://www.tradingkey.com/analysis/stocks/us-stocks/262067362-samsung-skhynix-surge-leveraged-etf-risks-south-korea-stock-tradingkey"
+   },
+   {
+    "indicator": "集团会长增持",
+    "signal": "SK集团会长崔泰源7月30日公开市场买入3,620股海力士(约47.9亿韩元), 为其首次直接买入该股 (单一信源)",
+    "lead_time": "提前约1日",
+    "source_url": "https://www.koreaherald.com/article/10827196"
+   }
+  ],
+  "aftermath": "涨停并未一步到位见底: 8月13日海力士单日约+6%, KOSPI至8月14日涨至三周高点并将结束连续七周下跌; 8月19日盘后海力士宣布回购并注销价值40万亿韩元的自家股票, 8月20日上午10:32时点涨11.07%至166.6万韩元(该时点数, 非收盘价)。但此后行情回吐: 10月6日起的七个交易日海力士累计下跌31.5%, 10月15日收于126.2万韩元, 较7月31日涨停收盘价低约27%。",
+  "refs": [
+   "https://www.koreatimes.co.kr/economy/20261013/kospi-plunges-546-as-foreign-selling-drives-valuations-to-record-low",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262067362-samsung-skhynix-surge-leveraged-etf-risks-south-korea-stock-tradingkey",
+   "https://www.koreaherald.com/article/10827196",
+   "https://www.kedglobal.com/korean-stock-market/newsView/ked202607310001",
+   "https://www.indmoney.com/blog/us-stocks/kospi-crash-skhynix-skhy-samsung-stock-analysis",
+   "https://www.businesstoday.com.my/2026/08/16/kospi-breaks-seven-week-losing-run-as-chip-rally-drives-rebound/",
+   "https://www.mt.co.kr/en/stock/2026/08/20/2026082010302960536",
+   "https://www.koreatimes.co.kr/economy/20261016/samsung-sk-hynix-sell-off-excessive-as-memory-outlook-stays-strong-analysts"
+  ]
+ },
+ {
+  "id": "pltr-2026-08-04-q2-blowout-guidance-raise",
+  "market": "us_stock",
+  "date": "2026-08-04",
+  "asset": "Palantir Technologies (NASDAQ: PLTR)",
+  "move_pct": 29.45,
+  "title": "Palantir暴涨29.45%: Q2收入增93%、全年指引上调创纪录, 空头单日亏约30亿美元",
+  "cause": "直接导火索是8月3日盘后发布的Q2财报: 收入19.35亿美元、同比增93%(一致预期约18.1亿), 美国商业收入7.64亿美元(+149%), 美国政府收入8.09亿美元(+90%), 调整后EPS 0.41美元(预期约0.34-0.35); 全年收入指引由约76.5亿上调至81.5-81.58亿美元(中值上调约4.98亿), 调整后自由现金流指引上调3亿美元。8月4日收162.66美元(+29.45%), 当日成交约1.745亿股(超过此前65日均量4倍), 市值增加约888亿美元至约3900亿美元, 为2024年2月以来最大单日涨幅。背景: 财报前股价因估值过高(约90倍远期盈利)、内部人减持及AI智能体冲击软件商业模式的担忧而走弱, 空头仓位积累浮盈, 财报超预期触发空头回补。口径说明: 任务给出的此前7月28日单日-10%未能在可查信源中证实(仅见7月22日约-4%与另一自动生成稿称7月28日-5.26%), 故不采用。",
+  "precursors": [
+   {
+    "indicator": "估值与内部人减持压制",
+    "signal": "7月22日(周三)股价约跌4%: 估值约90倍远期盈利, CTO于7月初按预设计划减持约2400万美元, 一名董事7月15日减持逾200万美元, AI软件板块整体承压",
+    "lead_time": "提前约2周",
+    "source_url": "https://finance.yahoo.com/markets/stocks/articles/palantir-stock-tumbles-ahead-earnings-210010825.html"
+   },
+   {
+    "indicator": "空头仓位累积",
+    "signal": "财报前空头2026年累计账面浮盈约27亿美元, 空头占流通股约3.2%; 财报后股价大涨使空头单日亏损约30亿美元(空头占比3.2%出自Tradingkey, 空头浮盈与亏损出自古鲁焦点/彭博)",
+    "lead_time": "提前数周至财报前",
+    "source_url": "https://www.gurufocus.com/news/9005493/palantir-stock-massive-jump-wipes-out-3-billion-in-shortseller-gains"
+   },
+   {
+    "indicator": "分析师预期偏低",
+    "signal": "财报前一致预期收入约18.1亿美元、调整后EPS约0.34-0.35美元; 实际19.35亿美元与0.41美元, 且全年指引上调幅度为公司史上最大",
+    "lead_time": "同日盘前确认(财报日期8月3日已公布)",
+    "source_url": "https://finviz.com/news/376477/palantir-shares-soar-after-record-quarter-and-major-guidance-upgrade"
+   },
+   {
+    "indicator": "财报前股价处于低位",
+    "signal": "8月4日大涨后全年仍约-10%, 反推财报前收盘约125-126美元(推算值, 非报道值; 单一信源)",
+    "lead_time": "提前数周",
+    "source_url": "https://www.tikr.com/blog/palantir-jumped-29-today-heres-what-could-keep-the-ai-rally-going-through-2026"
+   }
+  ],
+  "aftermath": "盘后回落约1.9%至159.52美元。此后一路走强: 据报道Q3全季涨约60%, 10月股价创历史新高约213美元, 抹平了近50%的回撤; 但10月16日因AI融资担忧跌破190美元, 当周下跌约10%(单一信源)。财报后花旗目标245美元、瑞穗215美元、德银上调至买入并给200美元。",
+  "refs": [
+   "https://finance.yahoo.com/markets/stocks/articles/palantir-stock-tumbles-ahead-earnings-210010825.html",
+   "https://www.gurufocus.com/news/9005493/palantir-stock-massive-jump-wipes-out-3-billion-in-shortseller-gains",
+   "https://finviz.com/news/376477/palantir-shares-soar-after-record-quarter-and-major-guidance-upgrade",
+   "https://www.tikr.com/blog/palantir-jumped-29-today-heres-what-could-keep-the-ai-rally-going-through-2026",
+   "https://coincentral.com/palantir-pltr-stock-soars-ai-demand-adds-89-billion-market-value/",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262080546-palantir-pltr-stock-surges-after-q2-earnings-ai-demand-guidance-tradingkey",
+   "https://www.fxleaders.com/news/2026/10/16/pltr-stock-falls-below-190-as-ai-financing-risks-trigger-tech-sell-off/"
+  ]
+ },
+ {
+  "id": "meta-2026-09-21-muse-traction-wells-fargo-upgrade",
+  "market": "us_stock",
+  "date": "2026-09-21",
+  "asset": "Meta Platforms (NASDAQ: META)",
+  "move_pct": 11.34,
+  "title": "Meta暴涨11.34%: Muse AI助手登顶应用榜, 富国银行大幅上调目标价",
+  "cause": "直接导火索是9月21日(周一)富国银行分析师Ken Gawrelski将Meta目标价从640美元上调至796美元(较前收盘约有20%空间), 理由是新推出的个人AI智能体Muse早期使用数据强劲: SensorTower数据显示Muse 9月19日美国下载量创纪录达26.4万次, 前一天日活44.8万, 并登上苹果应用商店榜首。收盘741.25美元(+11.34%, 前收665.75美元), 成交4825万股, 市值约增1900亿美元(ts2估算), 为2025年4月以来最大单日涨幅。背景: Meta股价自2025年6月底738美元一路跌至2026年6月30日563美元(-24%), 市场对其AI变现与资本开支存疑, 估值低位+9月23日Meta Connect催化预期叠加, 放大了反弹。",
+  "precursors": [
+   {
+    "indicator": "Muse应用使用数据先行飙升",
+    "signal": "SensorTower: Muse 9月19日美国下载量创纪录26.4万次, 9月18日日活44.8万(富国银行研报引用), 次日市场才完整定价",
+    "lead_time": "提前1-2个交易日",
+    "source_url": "https://www.tikr.com/blog/meta-stock-jumped-11-monday-heres-where-shares-could-go-further-in-2026"
+   },
+   {
+    "indicator": "股价深度低位+预期极低",
+    "signal": "股价自2025年6月底738美元跌至2026年6月30日563美元(-24%); 财报季后分析师一致目标价由2025年9月高点867美元降到约827美元, 带目标价的覆盖分析师由62降至56家",
+    "lead_time": "提前数月",
+    "source_url": "https://www.tikr.com/blog/meta-stock-jumped-11-monday-heres-where-shares-could-go-further-in-2026"
+   },
+   {
+    "indicator": "Meta Connect催化日已公布",
+    "signal": "年度AI发布会定于9月23日, 富国银行预期发布新的Muse功能及Muse Spark模型细节, 研报标题称Meta'现在有故事可讲'",
+    "lead_time": "提前约2天",
+    "source_url": "https://www.ibtimes.co.uk/meta-shares-rise-wells-fargo-muse-ai-meta-connect-1821084"
+   },
+   {
+    "indicator": "卖方评级已偏多但目标价偏低",
+    "signal": "LSEG数据: 64家券商中57家给买入或更高, 目标价中位数750美元, 低于或接近当时股价",
+    "lead_time": "同日盘前触发",
+    "source_url": "https://www.tikr.com/blog/meta-stock-jumped-11-monday-heres-where-shares-could-go-further-in-2026"
+   }
+  ],
+  "aftermath": "9月23日Connect当天收744.10美元(+1.02%), 盘后回落1.36%至734美元(ts2单一信源); 路透援引称Muse上线12天累计下载280万次(Tapbit转引, 单一信源)。富国银行10月7日再将目标价上调至1000美元。9月全月Meta涨幅据报约30%-36%(各源不一)。",
+  "refs": [
+   "https://www.tikr.com/blog/meta-stock-jumped-11-monday-heres-where-shares-could-go-further-in-2026",
+   "https://www.ibtimes.co.uk/meta-shares-rise-wells-fargo-muse-ai-meta-connect-1821084",
+   "https://ts2.tech/en/meta-stock-closes-11-higher-despite-amazons-muse-shopping-block/",
+   "https://www.tapbit.com/en/learn/article/meta-connect-2026-ai-glasses-muse-meta-stock-20260924"
+  ]
+ },
+ {
+  "id": "sk-hynix-2026-10-15-rates-ai-debt-selloff",
+  "market": "us_stock",
+  "date": "2026-10-15",
+  "asset": "SK海力士 SK Hynix (KRX: 000660)",
+  "move_pct": -11.06,
+  "title": "SK海力士暴跌11.06%: 美国通胀超预期叠加AI债务担忧, KOSPI熔断",
+  "cause": "10月15日海力士收于126.2万韩元(-11.06%), 三星电子-9.48%, KOSPI -7.57%至5,554.22点, 熔断在两个市场短暂触发。直接导火索是美国9月CPI高于预期(同比3.7% vs 预期3.6%, 单一信源)推高国债收益率、市场一度押注约五成概率加息, 叠加AI基础设施靠举债扩张的担忧(CoreWeave 2032年债券跌至面值78美分, 股价单日-15%), 费城半导体指数单日约-4.3%, 隔夜美股半导体与AI概念股重挫。背景: 10月13日海力士已-10.09%(收144.3万韩元), 起因是长鑫CXMT拟推新一代服务器内存引发份额担忧、FT报道OpenAI年化收入约500亿美元(较此前报道的700亿低约30%), 同时三星回购已于10月7日结束、海力士回购本周结束, 此前8-9月回购平均每日吸收约1.61万亿韩元抛压的缓冲消失, 外资10月卖出超100亿美元(单一信源)。10月6日起七个交易日海力士累计-31.5%, 较52周高点291.9万韩元已跌约56%。",
+  "precursors": [
+   {
+    "indicator": "回购缓冲消失",
+    "signal": "三星回购10月7日结束, 海力士回购在10月13日当周结束; 8-9月两家回购平均每日吸收约1.61万亿韩元抛压, 期间外资净卖出31.7万亿韩元",
+    "lead_time": "提前约1周",
+    "source_url": "https://www.koreatimes.co.kr/economy/20261013/kospi-plunges-546-as-foreign-selling-drives-valuations-to-record-low"
+   },
+   {
+    "indicator": "外资加速抛售+同行先动",
+    "signal": "10月13日外资单日净卖4.51万亿韩元, KOSPI -5.46%至6,035.35点并触发全年第26次卖出侧sidecar, 海力士-10.09%至1,443,000韩元; 诱因含长鑫CXMT新服务器内存产品与FT报道OpenAI收入低于此前报道",
+    "lead_time": "提前2个交易日",
+    "source_url": "https://www.koreatimes.co.kr/economy/20261013/kospi-plunges-546-as-foreign-selling-drives-valuations-to-record-low"
+   },
+   {
+    "indicator": "美国CPI超预期+AI债务",
+    "signal": "10月14日美国9月CPI同比3.7%(预期3.6%, 单一信源), 期货一度押注约50%概率加息; 费城半导体指数单日约-4.3%, CoreWeave、Nebius各跌超11%; 海力士美股ADR SKHY 10月14日收147.55美元(-6.06%)",
+    "lead_time": "提前约半日(亚洲开盘前一晚)",
+    "source_url": "https://www.roic.ai/news/nasdaq-extends-declines-last-down-2-as-inflation-yields-and-ai-selloff-bite-10-14-2026"
+   },
+   {
+    "indicator": "七日连跌与估值已压到极端",
+    "signal": "海力士自10月6日七个交易日累计-31.5%, 三星-23.9%, KOSPI累计跌1,449.52点(21%); 10月13日12个月远期市盈率4.54倍为纪录低位, 分析师称隐含盈利下降35%-51%",
+    "lead_time": "提前约1周起",
+    "source_url": "https://www.koreatimes.co.kr/economy/20261016/samsung-sk-hynix-sell-off-excessive-as-memory-outlook-stays-strong-analysts"
+   }
+  ],
+  "aftermath": "截至10月17日: 10月16日KOSPI反弹2.05%至5,668.05点, 外资时隔八个交易日首次转为净买入约3,410亿韩元, 海力士本股约+0.79%, 但美股隔夜继续走弱(纳指-2.14%, SKHY盘中约-3%, 美光跌超5%, 海力士ADR五日累计约-15%)。券商(KB证券、SK证券)称此轮下跌属过度修正, 指出HBM价格上涨、长期供货协议支撑盈利; 海力士将于10月28日公布三季报。是否见底尚无定论。",
+  "refs": [
+   "https://www.koreatimes.co.kr/economy/20261013/kospi-plunges-546-as-foreign-selling-drives-valuations-to-record-low",
+   "https://www.roic.ai/news/nasdaq-extends-declines-last-down-2-as-inflation-yields-and-ai-selloff-bite-10-14-2026",
+   "https://www.koreatimes.co.kr/economy/20261016/samsung-sk-hynix-sell-off-excessive-as-memory-outlook-stays-strong-analysts",
+   "https://en.bloomingbit.io/feed/news/122318",
+   "https://finance.yahoo.com/markets/stocks/articles/sk-hynix-sinks-ai-stocks-173800193.html",
+   "https://www.tradingkey.com/analysis/stocks/us-stocks/262220965-stock-memory-ai-skhy-micron-wdc-sndk-stx-cpi-ppi-tradingkey",
+   "https://www.gurufocus.com/news/9124811/sk-hynix-shares-drop-over-10-amid-rising-borrowing-costs-concerns-ticker-skhy"
+  ]
  }
 ]

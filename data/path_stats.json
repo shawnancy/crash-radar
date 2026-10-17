@@ -379,41 +379,195 @@
       "truncated": false
     },
     "ret_21d": {
-      "v": -18.88,
-      "truncated": true
+      "v": -5.86,
+      "truncated": false
     },
     "ret_63d": {
-      "v": -18.88,
-      "truncated": true
+      "v": 4.22,
+      "truncated": false
     },
     "ret_126d": {
-      "v": -18.88,
+      "v": -16.44,
       "truncated": true
     },
-    "max_dd": -18.88,
+    "max_dd": -29.74,
     "max_ru": 15.38,
     "recover_days": 2,
     "path_type": "v"
   },
   "sk-hynix-2026-07-13-adr-leverage-crash": {
     "ret_5d": {
-      "v": -0.16,
-      "truncated": true
+      "v": -0.49,
+      "truncated": false
     },
     "ret_21d": {
-      "v": -0.16,
-      "truncated": true
+      "v": -18.48,
+      "truncated": false
     },
     "ret_63d": {
-      "v": -0.16,
+      "v": -31.06,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -31.06,
+      "truncated": true
+    },
+    "max_dd": -31.6,
+    "max_ru": 12.85,
+    "recover_days": null,
+    "path_type": "open"
+  },
+  "smci-2026-07-22-prelim-q4-margin-orders": {
+    "ret_5d": {
+      "v": -15.9,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 19.44,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 3.5,
       "truncated": true
     },
     "ret_126d": {
-      "v": -0.16,
+      "v": 3.5,
       "truncated": true
     },
-    "max_dd": -0.16,
-    "max_ru": 12.85,
+    "max_dd": -15.9,
+    "max_ru": 47.05,
+    "recover_days": null,
+    "path_type": "open"
+  },
+  "tsla-2026-07-23-q2-profit-miss-capex": {
+    "ret_5d": {
+      "v": -3.39,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 13.5,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 10.96,
+      "truncated": true
+    },
+    "ret_126d": {
+      "v": 10.96,
+      "truncated": true
+    },
+    "max_dd": -6.68,
+    "max_ru": 19.71,
+    "recover_days": 30,
+    "path_type": "v"
+  },
+  "msft-2026-07-30-azure-accel-capex-relief": {
+    "ret_5d": {
+      "v": 10.81,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 13.84,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 17.28,
+      "truncated": true
+    },
+    "ret_126d": {
+      "v": 17.28,
+      "truncated": true
+    },
+    "max_dd": 0.0,
+    "max_ru": 20.47,
+    "recover_days": null,
+    "path_type": "open"
+  },
+  "amzn-2026-07-31-aws-reacceleration-earnings-surge": {
+    "ret_5d": {
+      "v": 1.07,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -4.35,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -7.95,
+      "truncated": true
+    },
+    "ret_126d": {
+      "v": -7.95,
+      "truncated": true
+    },
+    "max_dd": -9.43,
+    "max_ru": 4.58,
+    "recover_days": null,
+    "path_type": "open"
+  },
+  "sk-hynix-2026-07-31-limit-up-rebound": {
+    "ret_5d": {
+      "v": -17.23,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -1.46,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -25.96,
+      "truncated": true
+    },
+    "ret_126d": {
+      "v": -25.96,
+      "truncated": true
+    },
+    "max_dd": -26.54,
+    "max_ru": 8.73,
+    "recover_days": 49,
+    "path_type": "fade"
+  },
+  "pltr-2026-08-04-q2-blowout-guidance-raise": {
+    "ret_5d": {
+      "v": 7.55,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 4.18,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 14.37,
+      "truncated": true
+    },
+    "ret_126d": {
+      "v": 14.37,
+      "truncated": true
+    },
+    "max_dd": -4.14,
+    "max_ru": 28.52,
+    "recover_days": null,
+    "path_type": "open"
+  },
+  "meta-2026-09-21-muse-traction-wells-fargo-upgrade": {
+    "ret_5d": {
+      "v": -3.46,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -4.31,
+      "truncated": true
+    },
+    "ret_63d": {
+      "v": -4.31,
+      "truncated": true
+    },
+    "ret_126d": {
+      "v": -4.31,
+      "truncated": true
+    },
+    "max_dd": -4.31,
+    "max_ru": 4.9,
     "recover_days": null,
     "path_type": "open"
   },
@@ -504,50 +658,6 @@
     "max_ru": 44.34,
     "recover_days": 29,
     "path_type": "v"
-  },
-  "2022-05-ust-depeg": {
-    "ret_5d": {
-      "v": -75.24,
-      "truncated": false
-    },
-    "ret_21d": {
-      "v": -96.83,
-      "truncated": false
-    },
-    "ret_63d": {
-      "v": -93.99,
-      "truncated": false
-    },
-    "ret_126d": {
-      "v": -94.67,
-      "truncated": false
-    },
-    "max_dd": -99.18,
-    "max_ru": 0.98,
-    "recover_days": null,
-    "path_type": "zero"
-  },
-  "2022-05-luna-death-spiral": {
-    "ret_5d": {
-      "v": -94.75,
-      "truncated": false
-    },
-    "ret_21d": {
-      "v": -97.16,
-      "truncated": false
-    },
-    "ret_63d": {
-      "v": -97.42,
-      "truncated": false
-    },
-    "ret_126d": {
-      "v": -92.78,
-      "truncated": false
-    },
-    "max_dd": -98.65,
-    "max_ru": 0.0,
-    "recover_days": null,
-    "path_type": "zero"
   },
   "2022-0613-celsius-3ac-contagion": {
     "ret_5d": {
@@ -746,5 +856,71 @@
     "max_ru": 1.82,
     "recover_days": null,
     "path_type": "l"
+  },
+  "eth-2026-08-19-treasury-buyback-clarity-short-squeeze": {
+    "ret_5d": {
+      "v": 10.23,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": 9.57,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": 7.94,
+      "truncated": true
+    },
+    "ret_126d": {
+      "v": 7.94,
+      "truncated": true
+    },
+    "max_dd": 0.0,
+    "max_ru": 23.32,
+    "recover_days": null,
+    "path_type": "open"
+  },
+  "2022-05-ust-depeg": {
+    "ret_5d": {
+      "v": -75.24,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -96.83,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -93.99,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -94.67,
+      "truncated": false
+    },
+    "max_dd": -99.18,
+    "max_ru": 0.98,
+    "recover_days": null,
+    "path_type": "zero"
+  },
+  "2022-05-luna-death-spiral": {
+    "ret_5d": {
+      "v": -94.75,
+      "truncated": false
+    },
+    "ret_21d": {
+      "v": -97.16,
+      "truncated": false
+    },
+    "ret_63d": {
+      "v": -97.42,
+      "truncated": false
+    },
+    "ret_126d": {
+      "v": -92.78,
+      "truncated": false
+    },
+    "max_dd": -98.65,
+    "max_ru": 0.0,
+    "recover_days": null,
+    "path_type": "zero"
   }
 }

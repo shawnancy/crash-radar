@@ -9,3 +9,4 @@ en/test_*.html
 data/series_cache.json
 deploy_live.sh
 daily_rebuild.sh
+*.bak.*
